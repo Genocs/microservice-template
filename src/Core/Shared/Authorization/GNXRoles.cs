@@ -2,7 +2,7 @@ using System.Collections.ObjectModel;
 
 namespace Genocs.Microservice.Shared.Authorization;
 
-public static class FSHRoles
+public static class GNXRoles
 {
     public const string Admin = nameof(Admin);
     public const string Basic = nameof(Basic);

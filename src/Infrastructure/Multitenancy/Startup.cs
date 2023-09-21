@@ -23,7 +23,7 @@ internal static class Startup
                 m.UseDatabase(databaseSettings.DBProvider, databaseSettings.ConnectionString);
             })
             .AddMultiTenant<FSHTenantInfo>()
-                .WithClaimStrategy(FSHClaims.Tenant)
+                .WithClaimStrategy(GNXClaims.Tenant)
                 .WithHeaderStrategy(MultitenancyConstants.TenantIdName)
                 .WithQueryStringStrategy(MultitenancyConstants.TenantIdName)
                 .WithEFCoreStore<TenantDbContext, FSHTenantInfo>()

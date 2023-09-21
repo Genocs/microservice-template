@@ -40,11 +40,11 @@ internal partial class UserService
         _ = user ?? throw new NotFoundException(_t["User Not Found."]);
 
         // Check if the user is an admin for which the admin role is getting disabled
-        if (await _userManager.IsInRoleAsync(user, FSHRoles.Admin)
-            && request.UserRoles.Any(a => !a.Enabled && a.RoleName == FSHRoles.Admin))
+        if (await _userManager.IsInRoleAsync(user, GNXRoles.Admin)
+            && request.UserRoles.Any(a => !a.Enabled && a.RoleName == GNXRoles.Admin))
         {
             // Get count of users in Admin Role
-            int adminCount = (await _userManager.GetUsersInRoleAsync(FSHRoles.Admin)).Count;
+            int adminCount = (await _userManager.GetUsersInRoleAsync(GNXRoles.Admin)).Count;
 
             // Check if user is not Root Tenant Admin
             // Edge Case : there are chances for other tenants to have users with the same email as that of Root Tenant Admin. Probably can add a check while User Registration

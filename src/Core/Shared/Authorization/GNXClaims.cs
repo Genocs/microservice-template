@@ -1,6 +1,6 @@
 ﻿namespace Genocs.Microservice.Shared.Authorization;
 
-public static class FSHClaims
+public static class GNXClaims
 {
     public const string Tenant = "tenant";
     public const string Fullname = "fullName";

@@ -28,7 +28,7 @@ public static class FSHResource
     public const string Brands = nameof(Brands);
 }
 
-public static class FSHPermissions
+public static class GNXPermissions
 {
     private static readonly FSHPermission[] _all = new FSHPermission[]
     {
