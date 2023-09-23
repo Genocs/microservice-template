@@ -48,5 +48,3 @@ Release Tag - https://github.com/Genocs/microservice-template/tree/0.0.1-rc
 - Activate / Deactivate Tenants
 - Upgrade Tenant Subscription
 - Advanced Search
-
-

@@ -1,18 +1,60 @@
-[![dotnet-cicd](https://github.com/fullstackhero/dotnet-webapi-boilerplate/actions/workflows/dotnet.yml/badge.svg?branch=main)](https://github.com/fullstackhero/dotnet-webapi-boilerplate/actions/workflows/dotnet.yml)
-[![GitHub](https://img.shields.io/github/license/fullstackhero/dotnet-webapi-boilerplate?color=2da44e)](https://github.com/fullstackhero/dotnet-webapi-boilerplate/blob/master/LICENSE)
-[![Discord](https://img.shields.io/discord/878181478972928011?color=%237289da&label=Discord&logo=discord&logoColor=%237289da)](https://discord.gg/yQWpShsKrf)
-[![Nuget downloads](https://img.shields.io/nuget/dt/FullStackHero.WebAPI.Boilerplate?color=2da44e&label=nuget%20downloads&logo=nuget)](https://www.nuget.org/packages/FullStackHero.WebAPI.Boilerplate/)
-[![Twitter](https://img.shields.io/twitter/url/https/twitter.com/iammukeshm.svg?style=social&label=Follow%20%40iammukeshm)](https://twitter.com/iammukeshm)
+<!-- PROJECT SHIELDS -->
+[![License][license-shield]][license-url]
+[![Build][build-shield]][build-url]
+[![Packages][package-shield]][package-url]
+[![Downloads][downloads-shield]][downloads-url]
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![Discord][discord-shield]][discord-url]
+[![Gitter][gitter-shield]][gitter-url]
+[![Twitter][twitter-shield]][twitter-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
-![fullstackhero webapi](https://raw.githubusercontent.com/fullstackhero/dotnet-webapi-boilerplate/main/media/fullstack-hero-dotnet-7-webapi-boilerplate-banner.png "fullstackhero webapi")
+[license-shield]: https://img.shields.io/github/license/Genocs/microservice-template?color=2da44e&style=flat-square
+[license-url]: https://github.com/Genocs/microservice-template/blob/main/LICENSE
+
+[build-shield]: https://github.com/Genocs/microservice-template/actions/workflows/dotnet.yml/badge.svg?branch=main
+[build-url]: https://github.com/Genocs/microservice-template/actions/workflows/dotnet.yml
+
+
+[package-shield]: https://img.shields.io/badge/nuget-v.0.7-blue?&label=latests&logo=nuget
+[package-url]: https://github.com/Genocs/microservice-template/actions/workflows/build_and_test.yml
+
+
+[downloads-shield]: https://img.shields.io/nuget/dt/Genocs.CLI.svg?color=2da44e&label=downloads&logo=nuget
+[downloads-url]: https://www.nuget.org/packages/Genocs.CLI
+[contributors-shield]: https://img.shields.io/github/contributors/Genocs/microservice-template.svg?style=flat-square
+[contributors-url]: https://github.com/Genocs/microservice-template/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/Genocs/microservice-template?style=flat-square
+[forks-url]: https://github.com/Genocs/microservice-template/network/members
+[stars-shield]: https://img.shields.io/github/stars/Genocs/microservice-template.svg?style=flat-square
+[stars-url]: https://img.shields.io/github/stars/Genocs/microservice-template?style=flat-square
+[issues-shield]: https://img.shields.io/github/issues/Genocs/microservice-template?style=flat-square
+[issues-url]: https://github.com/Genocs/microservice-template/issues
+[discord-shield]: https://img.shields.io/discord/1106846706512953385?color=%237289da&label=Discord&logo=discord&logoColor=%237289da&style=flat-square
+[discord-url]: https://discord.com/invite/fWwArnkV
+[gitter-shield]: https://img.shields.io/badge/chat-on%20gitter-blue.svg
+[gitter-url]: https://gitter.im/genocs/
+[twitter-shield]: https://img.shields.io/twitter/follow/genocs?color=1DA1F2&label=Twitter&logo=Twitter&style=flat-square
+[twitter-url]: https://twitter.com/genocs
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
+[linkedin-url]: https://www.linkedin.com/in/giovanni-emanuele-nocco-b31a5169/
+
+
+
+[![Twitter](https://img.shields.io/twitter/url/https/twitter.com/genocs.svg?style=social&label=Follow)](https://twitter.com/genocs)
+
+
+![webapi banner](https://raw.githubusercontent.com/Genocs/microservice-template/main/media/genocs-dotnet-7-webapi-boilerplate-banner.png "genocs webapi")
 
 ## What's Genocs .NET Web API Microservice Template?
 
 Genocs .NET Web API Microservice Template is a starting point for your next `.NET7 Clean Architecture Project` that incorporates the most essential packages and features your projects will ever need including out of the box Multi-Tenancy support.
 
 > As the name suggests, this is an API / Server Boilerplate. You can find other Client Boilerplates that consume this API under `@genocs` handle.
-> - Find `Blazor WebAssembly Boilerplate` here - https://github.com/Genocs/blazor-wasm-boilerplate
-
+> - Find `Blazor WebAssembly Boilerplate` here - https://github.com/Genocs/blazor-wasm-template
 
 
 ## YouTube Video - .NET Web API Boilerplate | FullStackHero - Getting Started
@@ -24,21 +66,21 @@ Genocs .NET Web API Microservice Template is a starting point for your next `.NE
 
 ## Goals
 
-The goal of this repository is to provide a complete and feature-rich starting point for any .NET Developer / Team to kick-start their next major project using .NET 7 Web API. This also serves the purpose of learning advanced concepts and implementations such as `Multitenancy, CQRS, Onion Architecture, Clean Coding standards, Cloud Deployments with Terraform to AWS, Docker Concepts, CICD Pipelines & Workflows` and so on.
+The goal of this repository is to provide a complete and feature-rich starting point for any .NET Developer / Team to kick-start their next major project using .NET 7 Web API. This also serves the purpose of learning advanced concepts and implementations such as `Multitenancy, CQRS, Onion Architecture, Clean Coding standards, Docker Concepts, Cloud Deployments with Terraform to AWS, CI/CD Pipelines & Workflows` and so on.
 
 ## Features
 
-- [x] Built on .NET 7.0
-- [x] Follows Clean Architecture Principles
-- [x] Domain Driven Design
+- :white_check_mark: Built on .NET 7.0
+- :white_check_mark: Follows Clean Architecture Principles
+- :white_check_mark: Domain Driven Design
 - [x] Cloud Ready. Can be deployed to AWS Infrastructure as ECS Containers using Terraform!
-- [x] Docker-Compose File Examples
-- [x] Documented at [genocs netlify](https://genocs-blog.netlify.app)
-- [x] Multi Tenancy Support with Finbuckle
-  - [x] Create Tenants with Multi Database / Shared Database Support
-  - [x] Activate / Deactivate Tenants on Demand
-  - [x] Upgrade Subscription of Tenants - Add More Validity Months to each tenant!
-- [x] Supports MySQL, MSSQL, Oracle & PostgreSQL!
+- :white_check_mark: Docker-Compose File Examples
+- :white_check_mark: Documented at [genocs netlify](https://genocs-blog.netlify.app)
+- :white_check_mark: Multi Tenancy Support with Finbuckle
+  - :white_check_mark: Create Tenants with Multi Database / Shared Database Support
+  - :white_check_mark: Activate / Deactivate Tenants on Demand
+  - :white_check_mark: Upgrade Subscription of Tenants - Add More Validity Months to each tenant!
+- :white_check_mark: Supports MySQL, MSSQL, Oracle & PostgreSQL!
 
 <details>
   <summary>Click to See More!</summary>
