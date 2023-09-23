@@ -317,6 +317,22 @@ To destroy the deployed resources, run the following
 make td
 ```
 
+## How to build the template
+
+Check nuget is installed on your machine. To download nuget, visit [nuget.org](https://www.nuget.org/downloads)
+
+- Download the nuget latest version. at the time of writing this, the latest version is nuget.exe v6.7.0
+- Add the nuget.exe to your PATH environment variable.
+- run the following commands
+
+``` PowerShell
+cd .\src
+nuget pack -OutputDirectory nupkgs -NoDefaultExcludes -Version {{semver}}
+dotnet new install .\nupkgs\Genocs.Microservice.Template.{{semver}}.nupkg
+dotnet new gnx-microservice --help
+dotnet new gnx-microservice --name {{CompanyName.ProjectName.ServiceName}}
+```
+
 ## Links & Documentations
 
 [Overview](https://https://genocs-blog.netlify.app/dotnet-templates/general/overview/)
