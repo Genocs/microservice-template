@@ -1,6 +1,0 @@
-{
-  "DatabaseSettings": {
-    "DBProvider": "mssql",
-    "ConnectionString": "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=BlazorPortal.WebApi;Integrated Security=True;MultipleActiveResultSets=True"
-  }
-}

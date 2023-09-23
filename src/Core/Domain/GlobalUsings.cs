@@ -1,1 +1,0 @@
-﻿global using Genocs.Microservice.Domain.Common.Contracts;
