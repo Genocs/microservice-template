@@ -167,8 +167,8 @@ genocs update
 
 You would probably need to take this approach if you want to keep your source code up to date with the latest changes. To get started based on this repository, you need to get a copy locally. You have three options: fork, clone, or download.
 
-- Make a fork of this repository in your Github account.
-- Create your new `dotnet-webapi-template` personal project by cloning the forked repository on your personal github.
+- Make a fork of this repository in your GitHub account.
+- Create your new `dotnet-webapi-template` personal project by cloning the forked repository on your personal GitHub.
 - Setup an upstream remote on your personal project pointing to your forked repository using command `git remote add upstream https://github.com/{githubuseraccount}/dotnet-webapi-template` and `git remote set-url --push upstream DISABLE`
 
 For step by step instructions, [follow this](https://discord.com/channels/878181478972928011/892573122186838046/933513103688224838) and [this](https://gist.github.com/0xjac/85097472043b697ab57ba1b1c7530274).
@@ -368,7 +368,7 @@ Become a financial contributor and help me sustain the project. [Support the Pro
 <a href="https://opencollective.com/genocs"><img src="https://opencollective.com/genocs/individuals.svg?width=890"></a>
 
 
-## Aknowledgements
+## Acknowledgements
 
 - [Mukesh Murugan](https://github.com/iammukeshm)
 - [FullStackHero](https://fullstackhero.net)
