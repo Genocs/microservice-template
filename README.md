@@ -332,7 +332,7 @@ Join our Discord - [fullstackhero @ Discord](https://discord.gg/gdgHRt4mMw)
 
 ## Changelogs
 
-[View Complete Changelogs.](https://github.com/fullstackhero/dotnet-webapi-boilerplate/blob/main/CHANGELOGS.md)
+[View Complete Changelogs.](https://github.com/fullstackhero/microservice-template/blob/main/CHANGELOGS.md)
 
 ## Community
 
@@ -351,20 +351,26 @@ Here are a few ways by which you can support.
 
 -   Leave a star! ⭐
 -   Recommend this awesome project to your colleagues. 🥇
--   Do consider endorsing me on LinkedIn for ASP.NET Core - [Connect via LinkedIn](https://codewithmukesh.com/linkedin) 🦸
--   Sponsor the project - [opencollective/fullstackhero](https://opencollective.com/fullstackhero) ❤️
--   Or, [consider buying me a coffee](https://www.buymeacoffee.com/codewithmukesh)! ☕
+-   Do consider endorsing me on LinkedIn for ASP.NET Core - [Connect via LinkedIn](https://genocs.com/linkedin) 🦸
+-   Sponsor the project - [opencollective/genocs](https://opencollective.com/genocs) ❤️
+-   Or, [consider buying me a coffee](https://www.buymeacoffee.com/genocs)! ☕
 
-[![buy-me-a-coffee](https://raw.githubusercontent.com/fullstackhero/dotnet-webapi-boilerplate/main/media/buy-me-a-coffee.png "buy-me-a-coffee")](https://www.buymeacoffee.com/codewithmukesh)
+[![buy-me-a-coffee](https://raw.githubusercontent.com/Genocs/microservice-template/main/media/buy-me-a-coffee.png "buy-me-a-coffee")](https://www.buymeacoffee.com/genocs)
 
 ## Code Contributors
 
 This project exists thanks to all the people who contribute. [Submit your PR and join the elite list!](CONTRIBUTING.md)
 
-[![fsh dotnet webapi contributors](https://contrib.rocks/image?repo=fullstackhero/dotnet-webapi-boilerplate "fsh dotnet webapi contributors")](https://github.com/fullstackhero/dotnet-webapi-boilerplate/graphs/contributors)
+[![genocs contributors](https://contrib.rocks/image?repo=Genocs/microservice-template "genocs contributors")](https://github.com/genocs/microservice-template/graphs/contributors)
 
 ## Financial Contributors
 
-Become a financial contributor and help me sustain the project. [Support the Project!](https://opencollective.com/fullstackhero/contribute)
+Become a financial contributor and help me sustain the project. [Support the Project!](https://opencollective.com/genocs/contribute)
 
-<a href="https://opencollective.com/fullstackhero"><img src="https://opencollective.com/fullstackhero/individuals.svg?width=890"></a>
+<a href="https://opencollective.com/genocs"><img src="https://opencollective.com/genocs/individuals.svg?width=890"></a>
+
+
+## Aknowledgements
+
+- [Mukesh Murugan](https://github.com/iammukeshm)
+- [FullStackHero](https://fullstackhero.net)
