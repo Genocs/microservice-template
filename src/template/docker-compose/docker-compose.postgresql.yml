@@ -1,11 +1,9 @@
 version: '3.8'
-name: fullstackhero
+name: microservicetemplate
 services:
   dotnet-webapi:
-    image: iammukeshm/dotnet-webapi:latest
+    image: genocs/dotnet-webapi:latest
     container_name: dotnet-webapi
-    networks:
-      - fullstackhero
     environment:
       - ASPNETCORE_ENVIRONMENT=docker
       - ASPNETCORE_URLS=https://+:5100;http://+:5010
@@ -16,11 +14,13 @@ services:
       - HangfireSettings__Storage__ConnectionString=Server=postgres;Port=5433;Database=genocs_db;User Id=posgresqladmin;Password=posgresqladmin
       - DatabaseSettings__DBProvider=postgresql
       - HangfireSettings__Storage__StorageProvider=postgresql
-    volumes:
-      - ~/.aspnet/https:/https:ro
     ports:
       - 5100:5100
       - 5010:5010
+    networks:
+      - genocs
+    volumes:
+      - ~/.aspnet/https:/https:ro
     depends_on:
       - postgres
     restart: on-failure
@@ -28,21 +28,24 @@ services:
   postgres:
     container_name: postgres
     image: postgres:15-alpine
-    networks:
-      - fullstackhero
     environment:
       - POSTGRES_USER=posgresqladmin
       - POSTGRES_PASSWORD=posgresqladmin
       - PGPORT=5433
     ports:
       - 5433:5433
-    volumes:
-      - postgres-data:/data/db
     healthcheck:
       test: [ "CMD-SHELL", "pg_isready -U admin" ]
       interval: 10s
       timeout: 5s
       retries: 5
+
+    networks:
+      - genocs
+    # network_mode: host
+    volumes:
+      - postgres:/var/lib/postgresql/data
+
   # elk:
   #     container_name:  elasticsearch-kibana
   #     image: sebp/elk:oss-8.5.3
@@ -55,9 +58,12 @@ services:
   #       - 9200:9200
   #     networks:
   #       - fullstackhero
-  
-volumes:
-  postgres-data: # sebp-elk-data:
+
+
 networks:
-  fullstackhero:
-    name: fullstackhero
+  genocs:
+    name: genocs-network
+    driver: bridge
+
+  postgres:
+    driver: local

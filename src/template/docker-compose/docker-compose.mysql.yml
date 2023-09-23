@@ -1,11 +1,9 @@
 version: '3.8'
-name: fullstackhero
+name: microservicetemplate
 services:
   dotnet-webapi:
-    image: iammukeshm/dotnet-webapi:latest
+    image: genocs/dotnet-webapi:latest
     container_name: dotnet-webapi
-    networks:
-      - fullstackhero
     environment:
       - ASPNETCORE_ENVIRONMENT=docker
       - ASPNETCORE_URLS=https://+:5100;http://+:5010
@@ -16,11 +14,13 @@ services:
       - HangfireSettings__Storage__ConnectionString=server=mysql;uid=root;pwd=root;database=genocs_db;Allow User Variables=True
       - DatabaseSettings__DBProvider=mysql
       - HangfireSettings__Storage__StorageProvider=mysql
-    volumes:
-      - ~/.aspnet/https:/https:ro
     ports:
       - 5100:5100
       - 5010:5010
+    networks:
+      - genocs
+    volumes:
+      - ~/.aspnet/https:/https:ro
     depends_on:
       mysql:
         condition: service_healthy
@@ -43,6 +43,8 @@ services:
       retries: 10
 volumes:
   mysql-data:
+
 networks:
-  fullstackhero:
-    name: fullstackhero
+  genocs:
+    name: genocs-network
+    driver: bridge
