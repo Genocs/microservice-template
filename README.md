@@ -10,19 +10,15 @@
 [![Discord][discord-shield]][discord-url]
 [![Gitter][gitter-shield]][gitter-url]
 [![Twitter][twitter-shield]][twitter-url]
+[![Twitterx][twitterx-shield]][twitterx-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 [license-shield]: https://img.shields.io/github/license/Genocs/microservice-template?color=2da44e&style=flat-square
 [license-url]: https://github.com/Genocs/microservice-template/blob/main/LICENSE
-
-[build-shield]: https://github.com/Genocs/microservice-template/actions/workflows/dotnet.yml/badge.svg?branch=main
-[build-url]: https://github.com/Genocs/microservice-template/actions/workflows/dotnet.yml
-
-
+[build-shield]: https://github.com/Genocs/microservice-template/actions/workflows/build_and_test.yml/badge.svg?branch=main
+[build-url]: https://github.com/Genocs/microservice-template/actions/workflows/build_and_test.yml
 [package-shield]: https://img.shields.io/badge/nuget-v.0.7-blue?&label=latests&logo=nuget
 [package-url]: https://github.com/Genocs/microservice-template/actions/workflows/build_and_test.yml
-
-
 [downloads-shield]: https://img.shields.io/nuget/dt/Genocs.CLI.svg?color=2da44e&label=downloads&logo=nuget
 [downloads-url]: https://www.nuget.org/packages/Genocs.CLI
 [contributors-shield]: https://img.shields.io/github/contributors/Genocs/microservice-template.svg?style=flat-square
@@ -41,13 +37,11 @@
 [twitter-url]: https://twitter.com/genocs
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/giovanni-emanuele-nocco-b31a5169/
+[twitterx-shield]: https://img.shields.io/twitter/url/https/twitter.com/genocs.svg?style=social
+[twitterx-url]: https://twitter.com/genocs
 
 
-
-[![Twitter](https://img.shields.io/twitter/url/https/twitter.com/genocs.svg?style=social&label=Follow)](https://twitter.com/genocs)
-
-
-![webapi banner](https://raw.githubusercontent.com/Genocs/microservice-template/main/media/genocs-dotnet-7-webapi-template-banner.png "genocs webapi")
+![webapi banner](https://raw.githubusercontent.com/Genocs/microservice-template/main/assets/genocs-library-logo.png "genocs webapi")
 
 ## What's Genocs .NET Web API Microservice Template?
 
@@ -83,26 +77,26 @@ The goal of this repository is to provide a complete and feature-rich starting p
 <details>
   <summary>Click to See More!</summary>
 
-- [x] Uses Entity Framework Core as DB Abstraction
-- [x] Flexible Repository Pattern
-- [x] Dapper Integration for Optimal Performance
-- [x] Serilog Integration with various Sinks - File, SEQ, Kibana
-- [x] OpenAPI - Supports Client Service Generation
-- [x] Mapster Integration for Quicker Mapping
-- [x] API Versioning
-- [x] Response Caching - Distributed Caching + REDIS
-- [x] Fluent Validations
-- [x] Audit Logging
-- [x] Advanced User & Role Based Permission Management
-- [x] Code Analysis & StyleCop Integration with Rulesets
-- [x] JSON Based Localization with Caching
-- [x] Hangfire Support - Secured Dashboard
-- [x] File Storage Service
-- [x] Test Projects
-- [x] JWT & Azure AD Authentication
-- [x] MediatR - CQRS
-- [x] SignalR Notifications
-- [x] & Much More
+- :white_check_mark: Uses Entity Framework Core as DB Abstraction
+- :white_check_mark: Flexible Repository Pattern
+- :white_check_mark: Dapper Integration for Optimal Performance
+- :white_check_mark: Serilog Integration with various Sinks - File, SEQ, Kibana
+- :white_check_mark: OpenAPI - Supports Client Service Generation
+- :white_check_mark: Mapster Integration for Quicker Mapping
+- :white_check_mark: API Versioning
+- :white_check_mark: Response Caching - Distributed Caching + REDIS
+- :white_check_mark: Fluent Validations
+- :white_check_mark: Audit Logging
+- :white_check_mark: Advanced User & Role Based Permission Management
+- :white_check_mark: Code Analysis & StyleCop Integration with Rulesets
+- :white_check_mark: JSON Based Localization with Caching
+- :white_check_mark: Hangfire Support - Secured Dashboard
+- :white_check_mark: File Storage Service
+- :white_check_mark: Test Projects
+- :white_check_mark: JWT & Azure AD Authentication
+- :white_check_mark: MediatR - CQRS
+- :white_check_mark: SignalR Notifications
+- :white_check_mark: & Much More
 </details>
 
 ## Documentation
@@ -333,10 +327,13 @@ make td
 
 [Participate in QNA & General Discussions](https://github.com/Genocs/microservice-template/discussions)
 
+## License
+
+This project is licensed with the [MIT license](LICENSE).
 
 ## Changelogs
 
-[View Complete Changelogs.](https://github.com/Genocs/microservice-template/blob/main/CHANGELOGS.md)
+View Complete [Changelogs](https://github.com/Genocs/microservice-template/blob/main/CHANGELOGS.md).
 
 ## Community
 
@@ -344,17 +341,6 @@ make td
 - Facebook Page [@genocs](https://facebook.com/Genocs)
 - Youtube Channel [@genocs](https://youtube.com/c/genocs)
 
-## Contributors
-
-Submit your PR and join the list!
-
-<a href="https://github.com/Genocs/blazor-template/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Genocs/blazor-template" />
-</a>
-
-## License
-
-This project is licensed with the [MIT license](LICENSE).
 
 ## Support
 
@@ -365,15 +351,13 @@ Here are a few ways by which you can support.
 - 🥇 Recommend this project to your colleagues.
 - 🦸 Do consider endorsing me on LinkedIn for ASP.NET Core - [Connect via LinkedIn](https://www.linkedin.com/in/giovanni-emanuele-nocco-b31a5169/) 
 - ☕ If you want to support this project in the long run, [consider buying me a coffee](https://www.buymeacoffee.com/genocs)!
-
-<br>
-    
+  
 
 [![buy-me-a-coffee](https://raw.githubusercontent.com/Genocs/microservice-template/main/media/buy-me-a-coffee.png "buy-me-a-coffee")](https://www.buymeacoffee.com/genocs)
 
 ## Code Contributors
 
-This project exists thanks to all the people who contribute. [Submit your PR and join the elite list!](CONTRIBUTING.md)
+This project exists thanks to all the people who contribute. [Submit your PR and join the team!](CONTRIBUTING.md)
 
 [![genocs contributors](https://contrib.rocks/image?repo=Genocs/microservice-template "genocs contributors")](https://github.com/genocs/microservice-template/graphs/contributors)
 
