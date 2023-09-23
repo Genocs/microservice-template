@@ -9,11 +9,10 @@
         <projectUrl>https://genocs-blog.netlify.app/dotnet-microservices-template</projectUrl>
         <repository type="git" url="https://github.com/Genocs/microservice-template.git"/>
         <license type="expression">MIT</license>
-        <icon>./content/icon.png</icon>
+        <icon>.\content\icon.png</icon>
+        <readme>.\content\README.md</readme>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <license type="file">./content/LICENSE</license>
         <copyright>2023</copyright>
-        <readme>README.md</readme>
         <description>
             Clean Architecture Template for .NET 7.0 WebAPI built with Multitenancy Support.
         </description>
@@ -23,7 +22,10 @@
         </packageTypes>
         <tags>cleanarchitecture clean architecture WebAPI solution csharp</tags>
     </metadata>
+
     <files>
+        <file src="..\README.md" target="content" />    
+        <file src="..\icon.png" target="content" />
         <file src=".\**" target="content" exclude="**\bin\**;**\obj\**;**\.git\**;**\.github\**;**\*.user;**\.vs\**;**\Images\**;**\Logs\**;**\.terraform\**;**\.terraform.lock.hcl;**\terraform.tfstate;**\.nupkg;**\nupkg;;**\assets\**" />
     </files>
 </package>
