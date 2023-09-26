@@ -13,7 +13,7 @@ on:
         description: "Packages Version"
 
         # Default value if no value is explicitly provided
-        default: "5.0.0-preview.4.0"
+        default: "1.0.0"
 
         # Input has to be provided for the workflow to run
         required: true
@@ -42,7 +42,7 @@ jobs:
         run: dotnet test --no-build --verbosity normal
 
       - name: Pack
-        run: dotnet pack -c Debug -o out -p:Version=${{ github.event.inputs.version }} --no-build --verbosity normal
+        run: dotnet pack -c Debug -o out -p:PackageVersion=${{github.event.inputs.version}} --no-build --verbosity normal
 
       - name: Push packages to Nuget
         run: dotnet nuget push ./out/*.nupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json --skip-duplicate --no-symbols
