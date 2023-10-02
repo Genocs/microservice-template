@@ -11,33 +11,22 @@
         <PackageReference Include="Ardalis.Specification.EntityFrameworkCore" Version="7.0.0" />
         <PackageReference Include="AWS.Logger.SeriLog" Version="3.3.0" />
         <PackageReference Include="ClosedXML" Version="0.102.1" />
-        <PackageReference Include="Dapper" Version="2.1.4" />
         <PackageReference Include="Finbuckle.MultiTenant.AspNetCore" Version="6.12.0" />
         <PackageReference Include="Finbuckle.MultiTenant.EntityFrameworkCore" Version="6.12.0" />
         <PackageReference Include="Hangfire" Version="1.8.5" />
-        <PackageReference Include="Hangfire.Console" Version="1.4.2" />
         <PackageReference Include="Hangfire.Console.Extensions" Version="1.1.0" />
         <PackageReference Include="Hangfire.MySqlStorage" Version="2.0.3" />
         <PackageReference Include="Hangfire.PostgreSql" Version="1.20.3" />
         <PackageReference Include="Hangfire.SQLite" Version="1.4.2" />
         <PackageReference Include="MailKit" Version="4.2.0" />
-        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.11" />
-        <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="7.0.11" />
-        <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
         <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.11" />
-        <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.1.0" />
         <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.1.0" />
         <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.1.0" />
         <PackageReference Include="Microsoft.AspNetCore.SignalR.StackExchangeRedis" Version="7.0.11" />
         <PackageReference Include="Microsoft.Data.Sqlite" Version="7.0.11" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.11" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.11" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.11">
-            <PrivateAssets>all</PrivateAssets>
-            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-        </PackageReference>
         <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="7.0.11" />
-        <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks" Version="7.0.11" />
         <PackageReference Include="Microsoft.Identity.Web" Version="2.14.0" />
         <PackageReference Include="MimeKit" Version="4.2.0" />
         <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.11" />
@@ -57,7 +46,6 @@
         <PackageReference Include="Serilog.Settings.Configuration" Version="7.0.1" />
         <PackageReference Include="Serilog.Sinks.Async" Version="1.5.0" />
         <PackageReference Include="Serilog.Sinks.Console" Version="4.1.0" />
-        <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
         <PackageReference Include="Serilog.Sinks.MSSqlServer" Version="6.3.0" />
         <PackageReference Include="Serilog.Sinks.Elasticsearch" Version="9.0.3" />
         <PackageReference Include="Serilog.Sinks.Seq" Version="5.2.2" />

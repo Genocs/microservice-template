@@ -1,6 +1,4 @@
-﻿using Mapster;
-
-namespace Genocs.Microservice.Application.Catalog.Products;
+﻿namespace Genocs.Microservice.Application.Catalog.Products;
 
 public class GetProductViaDapperRequest : IRequest<ProductDto>
 {
