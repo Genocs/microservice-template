@@ -12,13 +12,13 @@
     <ItemGroup>
         <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
         <PackageReference Include="Hangfire.Console.Extensions.Serilog" Version="1.1.0" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.4">
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.11">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="7.0.0" />
-        <PackageReference Include="Serilog.AspNetCore" Version="6.1.0" />
-        <PackageReference Include="Microsoft.NET.Build.Containers" Version="0.4.0" />
+        <PackageReference Include="Serilog.AspNetCore" Version="7.0.0" />
+        <PackageReference Include="Microsoft.NET.Build.Containers" Version="7.0.401" />
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\Core\Application\Application.csproj" />
