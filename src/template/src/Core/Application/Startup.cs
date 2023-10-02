@@ -1,5 +1,5 @@
-using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
+using System.Reflection;
 
 namespace Genocs.Microservice.Application;
 
@@ -10,6 +10,6 @@ public static class Startup
         var assembly = Assembly.GetExecutingAssembly();
         return services
             .AddValidatorsFromAssembly(assembly)
-            .AddMediatR(assembly);
+            .AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(AppDomain.CurrentDomain.GetAssemblies()));
     }
 }

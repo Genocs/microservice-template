@@ -1,5 +1,3 @@
-using System.Reflection;
-using System.Runtime.CompilerServices;
 using Genocs.Microservice.Infrastructure.Auth;
 using Genocs.Microservice.Infrastructure.BackgroundJobs;
 using Genocs.Microservice.Infrastructure.Caching;
@@ -17,12 +15,13 @@ using Genocs.Microservice.Infrastructure.Persistence;
 using Genocs.Microservice.Infrastructure.Persistence.Initialization;
 using Genocs.Microservice.Infrastructure.SecurityHeaders;
 using Genocs.Microservice.Infrastructure.Validations;
-using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System.Reflection;
+using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("Infrastructure.Test")]
 
@@ -32,7 +31,7 @@ public static class Startup
 {
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration config)
     {
-        var applicationAssembly = typeof(Genocs.Microservice.Application.Startup).GetTypeInfo().Assembly;
+        var applicationAssembly = typeof(Application.Startup).GetTypeInfo().Assembly;
         MapsterSettings.Configure();
         return services
             .AddApiVersioning()
@@ -45,7 +44,7 @@ public static class Startup
             .AddHealthCheck()
             .AddPOLocalization(config)
             .AddMailing(config)
-            .AddMediatR(Assembly.GetExecutingAssembly())
+            .AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(AppDomain.CurrentDomain.GetAssemblies()))
             .AddMultitenancy()
             .AddNotifications(config)
             .AddOpenApiDocumentation(config)

@@ -5,7 +5,6 @@ using Genocs.Microservice.Infrastructure;
 using Genocs.Microservice.Infrastructure.Common;
 using Genocs.Microservice.Infrastructure.Logging.Serilog;
 using Serilog;
-using Serilog.Formatting.Compact;
 
 [assembly: ApiConventionType(typeof(FSHApiConventions))]
 
