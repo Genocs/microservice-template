@@ -1,11 +1,11 @@
 ﻿using Genocs.Microservice.Application.Common.Persistence;
 using Genocs.Microservice.Infrastructure.Common;
+using Microsoft.Data.SqlClient;
 using Microsoft.Data.Sqlite;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using MySqlConnector;
 using Npgsql;
-using System.Data.SqlClient;
 
 namespace Genocs.Microservice.Infrastructure.Persistence.ConnectionString;
 

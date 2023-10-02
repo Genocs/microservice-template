@@ -7,7 +7,10 @@ using Mapster;
 
 namespace Genocs.Microservice.Infrastructure.Persistence.Repository;
 
-// Inherited from Ardalis.Specification's RepositoryBase<T>
+/// <summary>
+/// Inherited from Ardalis.Specification's RepositoryBase<T>
+/// </summary>
+/// <typeparam name="T"></typeparam>
 public class ApplicationDbRepository<T> : RepositoryBase<T>, IReadRepository<T>, IRepository<T>
     where T : class, IAggregateRoot
 {
@@ -19,8 +22,8 @@ public class ApplicationDbRepository<T> : RepositoryBase<T>, IReadRepository<T>,
     // We override the default behavior when mapping to a dto.
     // We're using Mapster's ProjectToType here to immediately map the result from the database.
     // This is only done when no Selector is defined, so regular specifications with a selector also still work.
-    protected override IQueryable<TResult> ApplySpecification<TResult>(ISpecification<T, TResult> specification) =>
-        specification.Selector is not null
+    protected override IQueryable<TResult> ApplySpecification<TResult>(ISpecification<T, TResult> specification)
+        => specification.Selector is not null
             ? base.ApplySpecification(specification)
             : ApplySpecification(specification, false)
                 .ProjectToType<TResult>();

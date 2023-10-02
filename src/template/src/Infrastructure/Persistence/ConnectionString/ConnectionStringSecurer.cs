@@ -1,7 +1,6 @@
-using System.Data.SqlClient;
-using System.Runtime.InteropServices;
 using Genocs.Microservice.Application.Common.Persistence;
 using Genocs.Microservice.Infrastructure.Common;
+using Microsoft.Data.SqlClient;
 using Microsoft.Data.Sqlite;
 using Microsoft.Extensions.Options;
 using MySqlConnector;
