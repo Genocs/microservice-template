@@ -9,13 +9,14 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Genocs.Microservice.Template.Infrastructure.BackgroundJobs;
 
-public class FSHJobFilter : IClientFilter
+public class GNXJobFilter : IClientFilter
 {
     private static readonly ILog Logger = LogProvider.GetCurrentClassLogger();
 
     private readonly IServiceProvider _services;
 
-    public FSHJobFilter(IServiceProvider services) => _services = services;
+    public GNXJobFilter(IServiceProvider services)
+        => _services = services;
 
     public void OnCreating(CreatingContext context)
     {
@@ -35,8 +36,8 @@ public class FSHJobFilter : IClientFilter
         context.SetJobParameter(QueryStringKeys.UserId, userId);
     }
 
-    public void OnCreated(CreatedContext context) =>
-        Logger.InfoFormat(
+    public void OnCreated(CreatedContext context)
+        => Logger.InfoFormat(
             "Job created with parameters {0}",
             context.Parameters.Select(x => x.Key + "=" + x.Value).Aggregate((s1, s2) => s1 + ";" + s2));
 }

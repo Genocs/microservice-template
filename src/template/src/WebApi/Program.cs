@@ -6,7 +6,7 @@ using Genocs.Microservice.Template.WebApi.Configurations;
 using Genocs.Microservice.Template.WebApi.Controllers;
 using Serilog;
 
-[assembly: ApiConventionType(typeof(FSHApiConventions))]
+[assembly: ApiConventionType(typeof(GNXApiConventions))]
 
 StaticLogger.EnsureInitialized();
 Log.Information("Server Booting Up...");

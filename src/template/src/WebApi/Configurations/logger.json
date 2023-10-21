@@ -1,6 +1,6 @@
 {
   "LoggerSettings": {
-    "AppName": "Genocs.Microservice",
+    "AppName": "Genocs.Microservice.Template",
     "ElasticSearchUrl": "http://localhost:9200",
     "WriteToFile": true,
     "StructuredConsoleLogging": false

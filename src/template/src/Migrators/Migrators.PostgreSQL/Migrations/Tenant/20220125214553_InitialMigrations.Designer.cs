@@ -24,7 +24,7 @@ namespace Migrators.PostgreSQL.Migrations.Tenant
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("Genocs.Microservice.Infrastructure.Multitenancy.FSHTenantInfo", b =>
+            modelBuilder.Entity("Genocs.Microservice.Infrastructure.Multitenancy.GNXTenantInfo", b =>
                 {
                     b.Property<string>("Id")
                         .HasMaxLength(64)

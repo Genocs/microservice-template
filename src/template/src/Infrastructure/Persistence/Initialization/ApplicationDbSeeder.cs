@@ -12,13 +12,13 @@ namespace Genocs.Microservice.Template.Infrastructure.Persistence.Initialization
 
 internal class ApplicationDbSeeder
 {
-    private readonly FSHTenantInfo _currentTenant;
+    private readonly GNXTenantInfo _currentTenant;
     private readonly RoleManager<ApplicationRole> _roleManager;
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly CustomSeederRunner _seederRunner;
     private readonly ILogger<ApplicationDbSeeder> _logger;
 
-    public ApplicationDbSeeder(FSHTenantInfo currentTenant, RoleManager<ApplicationRole> roleManager, UserManager<ApplicationUser> userManager, CustomSeederRunner seederRunner, ILogger<ApplicationDbSeeder> logger)
+    public ApplicationDbSeeder(GNXTenantInfo currentTenant, RoleManager<ApplicationRole> roleManager, UserManager<ApplicationUser> userManager, CustomSeederRunner seederRunner, ILogger<ApplicationDbSeeder> logger)
     {
         _currentTenant = currentTenant;
         _roleManager = roleManager;
@@ -64,7 +64,7 @@ internal class ApplicationDbSeeder
         }
     }
 
-    private async Task AssignPermissionsToRoleAsync(ApplicationDbContext dbContext, IReadOnlyList<FSHPermission> permissions, ApplicationRole role)
+    private async Task AssignPermissionsToRoleAsync(ApplicationDbContext dbContext, IReadOnlyList<GNXPermission> permissions, ApplicationRole role)
     {
         var currentClaims = await _roleManager.GetClaimsAsync(role);
         foreach (var permission in permissions)

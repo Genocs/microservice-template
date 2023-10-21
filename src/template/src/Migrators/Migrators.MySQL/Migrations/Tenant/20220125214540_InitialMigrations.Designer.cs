@@ -21,7 +21,7 @@ namespace Migrators.MySQL.Migrations.Tenant
                 .HasAnnotation("ProductVersion", "6.0.1")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("Genocs.Microservice.Infrastructure.Multitenancy.FSHTenantInfo", b =>
+            modelBuilder.Entity("Genocs.Microservice.Infrastructure.Multitenancy.GNXTenantInfo", b =>
                 {
                     b.Property<string>("Id")
                         .HasMaxLength(64)

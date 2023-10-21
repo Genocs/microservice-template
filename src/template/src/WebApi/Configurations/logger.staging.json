@@ -1,6 +1,6 @@
 {
   "LoggerSettings": {
-    "AppName": "Genocs.Microservice",
+    "AppName": "Genocs.Microservice.Template",
     "WriteToFile": false,
     "StructuredConsoleLogging": true
   }

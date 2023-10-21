@@ -22,7 +22,7 @@ namespace Migrators.MSSQL.Migrations.Tenant
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("Genocs.Microservice.Infrastructure.Multitenancy.FSHTenantInfo", b =>
+            modelBuilder.Entity("Genocs.Microservice.Infrastructure.Multitenancy.GNXTenantInfo", b =>
                 {
                     b.Property<string>("Id")
                         .HasMaxLength(64)

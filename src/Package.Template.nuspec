@@ -10,12 +10,10 @@
 		<repository type="git" url="https://github.com/Genocs/microservice-template.git"/>
 		<license type="expression">MIT</license>
 		<icon>.\content\icon.png</icon>
-		<readme>.\content\README.md</readme>
+		<readme>.\content\README_NUGET.md</readme>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
 		<copyright>2023</copyright>
-		<description>
-			Clean Architecture Template for .NET 7.0 WebAPI built with Multitenancy Support.
-		</description>
+		<description>Clean Architecture Template for .NET 7.0 WebAPI built with Multitenancy Support.</description>
 		<language>en-US</language>
 		<packageTypes>
 			<packageType name="Template" />
@@ -25,6 +23,7 @@
 
 	<files>
 		<file src="..\README.md" target="content" />
+		<file src="..\README_NUGET.md" target="content" />
 		<file src="..\icon.png" target="content" />
 		<file src=".\**" target="content" exclude="**\bin\**;**\obj\**;**\.git\**;**\.github\**;**\*.user;**\.vs\**;**\Images\**;**\Logs\**;**\.terraform\**;**\.terraform.lock.hcl;**\terraform.tfstate;**\.nupkg;**\nupkg;;**\assets\**" />
 	</files>

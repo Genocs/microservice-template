@@ -30,7 +30,7 @@ public static class GNXResource
 
 public static class GNXPermissions
 {
-    private static readonly FSHPermission[] _all = new FSHPermission[]
+    private static readonly GNXPermission[] _all = new GNXPermission[]
     {
         new("View Dashboard", GNXAction.View, GNXResource.Dashboard),
         new("View Hangfire", GNXAction.View, GNXResource.Hangfire),
@@ -67,13 +67,13 @@ public static class GNXPermissions
         new("Upgrade Tenant Subscription", GNXAction.UpgradeSubscription, GNXResource.Tenants, IsRoot: true)
     };
 
-    public static IReadOnlyList<FSHPermission> All { get; } = new ReadOnlyCollection<FSHPermission>(_all);
-    public static IReadOnlyList<FSHPermission> Root { get; } = new ReadOnlyCollection<FSHPermission>(_all.Where(p => p.IsRoot).ToArray());
-    public static IReadOnlyList<FSHPermission> Admin { get; } = new ReadOnlyCollection<FSHPermission>(_all.Where(p => !p.IsRoot).ToArray());
-    public static IReadOnlyList<FSHPermission> Basic { get; } = new ReadOnlyCollection<FSHPermission>(_all.Where(p => p.IsBasic).ToArray());
+    public static IReadOnlyList<GNXPermission> All { get; } = new ReadOnlyCollection<GNXPermission>(_all);
+    public static IReadOnlyList<GNXPermission> Root { get; } = new ReadOnlyCollection<GNXPermission>(_all.Where(p => p.IsRoot).ToArray());
+    public static IReadOnlyList<GNXPermission> Admin { get; } = new ReadOnlyCollection<GNXPermission>(_all.Where(p => !p.IsRoot).ToArray());
+    public static IReadOnlyList<GNXPermission> Basic { get; } = new ReadOnlyCollection<GNXPermission>(_all.Where(p => p.IsBasic).ToArray());
 }
 
-public record FSHPermission(string Description, string Action, string Resource, bool IsBasic = false, bool IsRoot = false)
+public record GNXPermission(string Description, string Action, string Resource, bool IsBasic = false, bool IsRoot = false)
 {
     public string Name => NameFor(Action, Resource);
     public static string NameFor(string action, string resource) => $"Permissions.{resource}.{action}";

@@ -3,13 +3,13 @@ using Genocs.Microservice.Template.Shared.Multitenancy;
 
 namespace Genocs.Microservice.Template.Infrastructure.Multitenancy;
 
-public class FSHTenantInfo : ITenantInfo
+public class GNXTenantInfo : ITenantInfo
 {
-    public FSHTenantInfo()
+    public GNXTenantInfo()
     {
     }
 
-    public FSHTenantInfo(string id, string name, string? connectionString, string adminEmail, string? issuer = null)
+    public GNXTenantInfo(string id, string name, string? connectionString, string adminEmail, string? issuer = null)
     {
         Id = id;
         Identifier = id;

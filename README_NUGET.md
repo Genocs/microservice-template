@@ -377,19 +377,11 @@ Here are a few ways by which you can support.
 [![buy-me-a-coffee](https://raw.githubusercontent.com/Genocs/clean-architecture-template/main/assets/buy-me-a-coffee.png "buy me a coffee")](https://www.buymeacoffee.com/genocs)
 
 
-## Code Contributors
-
-This project exists thanks to all the people who contribute. [Submit your PR and join the team!](CONTRIBUTING.md)
-
-[![genocs contributors](https://contrib.rocks/image?repo=Genocs/clean-architecture-template "genocs contributors")](https://github.com/Genocs/clean-architecture-template/graphs/contributors)
-
 ## Financial Contributors
 
 Become a financial contributor and help me sustain the project.
 
 **Support the Project** on [Opencollective](https://opencollective.com/genocs)
-
-<a href="https://opencollective.com/genocs"><img src="https://opencollective.com/genocs/individuals.svg?width=890"></a>
 
 
 ## Acknowledgements

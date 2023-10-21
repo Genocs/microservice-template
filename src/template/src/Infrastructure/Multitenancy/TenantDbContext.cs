@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Genocs.Microservice.Template.Infrastructure.Multitenancy;
 
-public class TenantDbContext : EFCoreStoreDbContext<FSHTenantInfo>
+public class TenantDbContext : EFCoreStoreDbContext<GNXTenantInfo>
 {
     public TenantDbContext(DbContextOptions<TenantDbContext> options)
         : base(options)
@@ -16,6 +16,6 @@ public class TenantDbContext : EFCoreStoreDbContext<FSHTenantInfo>
     {
         base.OnModelCreating(modelBuilder);
 
-        modelBuilder.Entity<FSHTenantInfo>().ToTable("Tenants", SchemaNames.MultiTenancy);
+        modelBuilder.Entity<GNXTenantInfo>().ToTable("Tenants", SchemaNames.MultiTenancy);
     }
 }
