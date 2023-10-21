@@ -4,7 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Identity.Web;
 using Serilog;
 
-namespace Genocs.Microservice.Infrastructure.Auth.AzureAd;
+namespace Genocs.Microservice.Template.Infrastructure.Auth.AzureAd;
 
 internal static class Startup
 {

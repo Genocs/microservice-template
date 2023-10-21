@@ -2,7 +2,7 @@ using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
 
-namespace Genocs.Microservice.Infrastructure.Persistence.Context;
+namespace Genocs.Microservice.Template.Infrastructure.Persistence.Context;
 
 internal static class ModelBuilderExtensions
 {

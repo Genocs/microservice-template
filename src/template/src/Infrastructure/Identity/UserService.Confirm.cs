@@ -1,9 +1,10 @@
-using System.Text;
-using Genocs.Microservice.Application.Common.Exceptions;
-using Genocs.Microservice.Infrastructure.Common;
-using Genocs.Microservice.Shared.Multitenancy;
+using Genocs.Microservice.Template.Application.Common.Exceptions;
+using Genocs.Microservice.Template.Infrastructure.Common;
+using Genocs.Microservice.Template.Infrastructure.Identity;
+using Genocs.Microservice.Template.Shared.Multitenancy;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.EntityFrameworkCore;
+using System.Text;
 
 namespace Genocs.Microservice.Infrastructure.Identity;
 

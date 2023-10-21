@@ -1,11 +1,11 @@
 using System.Reflection;
-using Genocs.Microservice.Application.Common.Interfaces;
-using Genocs.Microservice.Domain.Catalog;
-using Genocs.Microservice.Infrastructure.Persistence.Context;
-using Genocs.Microservice.Infrastructure.Persistence.Initialization;
+using Genocs.Microservice.Template.Application.Common.Interfaces;
+using Genocs.Microservice.Template.Domain.Catalog;
+using Genocs.Microservice.Template.Infrastructure.Persistence.Context;
+using Genocs.Microservice.Template.Infrastructure.Persistence.Initialization;
 using Microsoft.Extensions.Logging;
 
-namespace Genocs.Microservice.Infrastructure.Catalog;
+namespace Genocs.Microservice.Template.Infrastructure.Catalog;
 
 public class BrandSeeder : ICustomSeeder
 {

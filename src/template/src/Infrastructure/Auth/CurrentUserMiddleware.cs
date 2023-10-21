@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 
-namespace Genocs.Microservice.Infrastructure.Auth;
+namespace Genocs.Microservice.Template.Infrastructure.Auth;
 
 public class CurrentUserMiddleware : IMiddleware
 {

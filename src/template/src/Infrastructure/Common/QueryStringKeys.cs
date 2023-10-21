@@ -1,4 +1,4 @@
-﻿namespace Genocs.Microservice.Infrastructure.Common;
+﻿namespace Genocs.Microservice.Template.Infrastructure.Common;
 
 public static class QueryStringKeys
 {

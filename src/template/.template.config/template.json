@@ -10,10 +10,10 @@
   },
   "identity": "Genocs.Microservice.Template",
   "name": "Genocs: Microservice .NET7",
-  "description": "Clean Architecture Template for .NET 7.0 WebApi built with Multitenancy Support.",
+  "description": "Clean Architecture Template for .NET7 WebApi built with Multitenancy Support.",
   "groupIdentity": "Genocs.Microservice.Template",
   "shortName": "gnx-microservice",
-  "sourceName": "Genocs.Microservice", // Will replace the string 'Genocs.WebApiTemplate' with the value provided via -n.
+  "sourceName": "Genocs.Microservice.Template", // Will replace the string 'Genocs.Microservice.Template' with the value provided via -n.
   "preferNameDirectory": true,
   "symbols": {
     "genocs-components": {
@@ -23,7 +23,7 @@
       "choices": [
         {
           "choice": "full",
-          "description": "Setup the full set of Genocs Library functionalities"
+          "description": "Setup the full set of functionalities"
         }
       ],
       "replaces": "genocs-components",

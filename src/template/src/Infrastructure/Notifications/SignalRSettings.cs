@@ -1,4 +1,4 @@
-﻿namespace Genocs.Microservice.Infrastructure.Notifications;
+﻿namespace Genocs.Microservice.Template.Infrastructure.Notifications;
 
 public class SignalRSettings
 {

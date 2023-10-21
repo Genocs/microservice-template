@@ -1,5 +1,6 @@
 using System.Reflection;
 using Figgle;
+using Genocs.Microservice.Template.Infrastructure.Logging;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -9,7 +10,7 @@ using Serilog.Events;
 using Serilog.Exceptions;
 using Serilog.Formatting.Compact;
 
-namespace Genocs.Microservice.Infrastructure.Logging.Serilog;
+namespace Genocs.Microservice.Template.Infrastructure.Logging.Serilog;
 
 public static class Extensions
 {

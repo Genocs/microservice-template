@@ -1,4 +1,4 @@
-namespace Genocs.Microservice.Infrastructure.OpenApi;
+namespace Genocs.Microservice.Template.Infrastructure.OpenApi;
 
 public class SwaggerSettings
 {

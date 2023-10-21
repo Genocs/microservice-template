@@ -1,4 +1,4 @@
-﻿namespace Genocs.Microservice.Infrastructure.Middleware;
+﻿namespace Genocs.Microservice.Template.Infrastructure.Middleware;
 
 public class ErrorResult
 {

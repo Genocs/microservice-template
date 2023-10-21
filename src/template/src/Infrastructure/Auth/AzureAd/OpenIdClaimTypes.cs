@@ -1,4 +1,4 @@
-﻿namespace Genocs.Microservice.Infrastructure.Auth.AzureAd;
+﻿namespace Genocs.Microservice.Template.Infrastructure.Auth.AzureAd;
 
 internal static class OpenIdConnectClaimTypes
 {

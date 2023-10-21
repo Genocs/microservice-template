@@ -1,4 +1,4 @@
-namespace Genocs.Microservice.Shared.Multitenancy;
+namespace Genocs.Microservice.Template.Shared.Multitenancy;
 
 public class MultitenancyConstants
 {

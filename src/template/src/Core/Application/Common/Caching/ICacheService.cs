@@ -1,4 +1,4 @@
-namespace Genocs.Microservice.Application.Common.Caching;
+namespace Genocs.Microservice.Template.Application.Common.Caching;
 
 public interface ICacheService
 {

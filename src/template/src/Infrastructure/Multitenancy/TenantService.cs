@@ -1,14 +1,14 @@
 ﻿using Finbuckle.MultiTenant;
-using Genocs.Microservice.Application.Common.Exceptions;
-using Genocs.Microservice.Application.Common.Persistence;
-using Genocs.Microservice.Application.Multitenancy;
-using Genocs.Microservice.Infrastructure.Persistence;
-using Genocs.Microservice.Infrastructure.Persistence.Initialization;
+using Genocs.Microservice.Template.Application.Common.Exceptions;
+using Genocs.Microservice.Template.Application.Common.Persistence;
+using Genocs.Microservice.Template.Application.Multitenancy;
+using Genocs.Microservice.Template.Infrastructure.Persistence;
+using Genocs.Microservice.Template.Infrastructure.Persistence.Initialization;
 using Mapster;
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Options;
 
-namespace Genocs.Microservice.Infrastructure.Multitenancy;
+namespace Genocs.Microservice.Template.Infrastructure.Multitenancy;
 
 internal class TenantService : ITenantService
 {

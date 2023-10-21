@@ -1,19 +1,23 @@
-using Genocs.Microservice.Domain.Common.Events;
+using Genocs.Microservice.Template.Application.Common.FileStorage;
+using Genocs.Microservice.Template.Application.Common.Persistence;
+using Genocs.Microservice.Template.Domain.Catalog;
+using Genocs.Microservice.Template.Domain.Common;
+using Genocs.Microservice.Template.Domain.Common.Events;
 
-namespace Genocs.Microservice.Application.Catalog.Products;
+namespace Genocs.Microservice.Template.Application.Catalog.Products;
 
-public class UpdateProductRequest : IRequest<Guid>
+public class UpdateProductRequest : IRequest<DefaultIdType>
 {
-    public Guid Id { get; set; }
+    public DefaultIdType Id { get; set; }
     public string Name { get; set; } = default!;
     public string? Description { get; set; }
     public decimal Rate { get; set; }
-    public Guid BrandId { get; set; }
+    public DefaultIdType BrandId { get; set; }
     public bool DeleteCurrentImage { get; set; } = false;
     public FileUploadRequest? Image { get; set; }
 }
 
-public class UpdateProductRequestHandler : IRequestHandler<UpdateProductRequest, Guid>
+public class UpdateProductRequestHandler : IRequestHandler<UpdateProductRequest, DefaultIdType>
 {
     private readonly IRepository<Product> _repository;
     private readonly IStringLocalizer _t;
@@ -22,7 +26,7 @@ public class UpdateProductRequestHandler : IRequestHandler<UpdateProductRequest,
     public UpdateProductRequestHandler(IRepository<Product> repository, IStringLocalizer<UpdateProductRequestHandler> localizer, IFileStorageService file) =>
         (_repository, _t, _file) = (repository, localizer, file);
 
-    public async Task<Guid> Handle(UpdateProductRequest request, CancellationToken cancellationToken)
+    public async Task<DefaultIdType> Handle(UpdateProductRequest request, CancellationToken cancellationToken)
     {
         var product = await _repository.GetByIdAsync(request.Id, cancellationToken);
 

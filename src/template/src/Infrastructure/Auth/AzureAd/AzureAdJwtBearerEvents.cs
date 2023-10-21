@@ -1,18 +1,18 @@
-﻿using System.Security.Claims;
-using Finbuckle.MultiTenant;
-using Genocs.Microservice.Application.Common.Exceptions;
-using Genocs.Microservice.Application.Identity.Users;
-using Genocs.Microservice.Infrastructure.Multitenancy;
-using Genocs.Microservice.Shared.Authorization;
-using Genocs.Microservice.Shared.Multitenancy;
+﻿using Finbuckle.MultiTenant;
+using Genocs.Microservice.Template.Application.Common.Exceptions;
+using Genocs.Microservice.Template.Application.Identity.Users;
+using Genocs.Microservice.Template.Infrastructure.Multitenancy;
+using Genocs.Microservice.Template.Shared.Authorization;
+using Genocs.Microservice.Template.Shared.Multitenancy;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Identity.Web;
 using Serilog;
+using System.Security.Claims;
 
-namespace Genocs.Microservice.Infrastructure.Auth.AzureAd;
+namespace Genocs.Microservice.Template.Infrastructure.Auth.AzureAd;
 
 internal class AzureAdJwtBearerEvents : JwtBearerEvents
 {

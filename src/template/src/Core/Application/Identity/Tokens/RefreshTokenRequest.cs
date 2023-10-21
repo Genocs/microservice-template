@@ -1,3 +1,3 @@
-namespace Genocs.Microservice.Application.Identity.Tokens;
+namespace Genocs.Microservice.Template.Application.Identity.Tokens;
 
 public record RefreshTokenRequest(string Token, string RefreshToken);

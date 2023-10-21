@@ -1,10 +1,14 @@
-﻿using Genocs.Microservice.Application.Common.Exporters;
+﻿using Genocs.Microservice.Template.Application.Common.Exporters;
+using Genocs.Microservice.Template.Application.Common.Models;
+using Genocs.Microservice.Template.Application.Common.Persistence;
+using Genocs.Microservice.Template.Application.Common.Specification;
+using Genocs.Microservice.Template.Domain.Catalog;
 
-namespace Genocs.Microservice.Application.Catalog.Products;
+namespace Genocs.Microservice.Template.Application.Catalog.Products;
 
 public class ExportProductsRequest : BaseFilter, IRequest<Stream>
 {
-    public Guid? BrandId { get; set; }
+    public DefaultIdType? BrandId { get; set; }
     public decimal? MinimumRate { get; set; }
     public decimal? MaximumRate { get; set; }
 }

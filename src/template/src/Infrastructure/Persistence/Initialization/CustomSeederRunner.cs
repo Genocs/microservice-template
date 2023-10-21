@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace Genocs.Microservice.Infrastructure.Persistence.Initialization;
+namespace Genocs.Microservice.Template.Infrastructure.Persistence.Initialization;
 
 internal class CustomSeederRunner
 {

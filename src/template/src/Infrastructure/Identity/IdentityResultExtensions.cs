@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Localization;
 
-namespace Genocs.Microservice.Infrastructure.Identity;
+namespace Genocs.Microservice.Template.Infrastructure.Identity;
 
 internal static class IdentityResultExtensions
 {

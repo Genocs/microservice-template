@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Genocs.Microservice.Infrastructure.Auth.Jwt;
+namespace Genocs.Microservice.Template.Infrastructure.Auth.Jwt;
 
 public class JwtSettings : IValidatableObject
 {

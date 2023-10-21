@@ -1,14 +1,14 @@
-using Genocs.Microservice.Application.Common.Interfaces;
-using Genocs.Microservice.Infrastructure.Auth.AzureAd;
-using Genocs.Microservice.Infrastructure.Auth.Jwt;
-using Genocs.Microservice.Infrastructure.Auth.Permissions;
-using Genocs.Microservice.Infrastructure.Identity;
+using Genocs.Microservice.Template.Application.Common.Interfaces;
+using Genocs.Microservice.Template.Infrastructure.Auth.AzureAd;
+using Genocs.Microservice.Template.Infrastructure.Auth.Jwt;
+using Genocs.Microservice.Template.Infrastructure.Auth.Permissions;
+using Genocs.Microservice.Template.Infrastructure.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Genocs.Microservice.Infrastructure.Auth;
+namespace Genocs.Microservice.Template.Infrastructure.Auth;
 
 internal static class Startup
 {

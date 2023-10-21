@@ -1,20 +1,20 @@
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Security.Cryptography;
-using System.Text;
-using Genocs.Microservice.Application.Common.Exceptions;
-using Genocs.Microservice.Application.Identity.Tokens;
-using Genocs.Microservice.Infrastructure.Auth;
-using Genocs.Microservice.Infrastructure.Auth.Jwt;
-using Genocs.Microservice.Infrastructure.Multitenancy;
-using Genocs.Microservice.Shared.Authorization;
-using Genocs.Microservice.Shared.Multitenancy;
+using Genocs.Microservice.Template.Application.Common.Exceptions;
+using Genocs.Microservice.Template.Application.Identity.Tokens;
+using Genocs.Microservice.Template.Infrastructure.Auth;
+using Genocs.Microservice.Template.Infrastructure.Auth.Jwt;
+using Genocs.Microservice.Template.Infrastructure.Multitenancy;
+using Genocs.Microservice.Template.Shared.Authorization;
+using Genocs.Microservice.Template.Shared.Multitenancy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Security.Cryptography;
+using System.Text;
 
-namespace Genocs.Microservice.Infrastructure.Identity;
+namespace Genocs.Microservice.Template.Infrastructure.Identity;
 
 internal class TokenService : ITokenService
 {

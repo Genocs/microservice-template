@@ -1,4 +1,4 @@
-namespace Genocs.Microservice.Application.Common.Models;
+namespace Genocs.Microservice.Template.Application.Common.Models;
 
 public class BaseFilter
 {

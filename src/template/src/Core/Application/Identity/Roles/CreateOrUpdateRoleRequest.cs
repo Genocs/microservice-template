@@ -1,4 +1,6 @@
-namespace Genocs.Microservice.Application.Identity.Roles;
+using Genocs.Microservice.Template.Application.Common.Validation;
+
+namespace Genocs.Microservice.Template.Application.Identity.Roles;
 
 public class CreateOrUpdateRoleRequest
 {

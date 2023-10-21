@@ -3,7 +3,7 @@ using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Genocs.Microservice.Infrastructure.Validations;
+namespace Genocs.Microservice.Template.Infrastructure.Validations;
 public static class Extensions
 {
     public static IServiceCollection AddBehaviours(this IServiceCollection services, Assembly assemblyContainingValidators)

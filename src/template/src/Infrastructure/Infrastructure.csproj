@@ -1,9 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
+
     <PropertyGroup>
         <TargetFramework>net7.0</TargetFramework>
-        <RootNamespace>Genocs.Microservice.Infrastructure</RootNamespace>
-        <AssemblyName>Genocs.Microservice.Infrastructure</AssemblyName>
+        <IsPackable>false</IsPackable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <RootNamespace>Genocs.Microservice.Template.Infrastructure</RootNamespace>
+        <AssemblyName>Genocs.Microservice.Template.Infrastructure</AssemblyName>
     </PropertyGroup>
+    
     <ItemGroup>
         <FrameworkReference Include="Microsoft.AspNetCore.App" />
     </ItemGroup>
@@ -58,6 +63,14 @@
     <ItemGroup>
         <None Update="Catalog\*.json" CopyToOutputDirectory="PreserveNewest" />
     </ItemGroup>
+
+    <ItemGroup>
+        <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+            <_Parameter1>Genocs.Microservice.Template.Infrastructure.Tests</_Parameter1>
+            <!-- The name of the project that you want the Internal class to be visible To it -->
+        </AssemblyAttribute>
+    </ItemGroup>
+    
     <ItemGroup>
         <PackageReference Update="Roslynator.Analyzers" Version="4.5.0">
             <PrivateAssets>all</PrivateAssets>

@@ -1,4 +1,6 @@
-﻿namespace Genocs.Microservice.Application.Common.Specification;
+﻿using Genocs.Microservice.Template.Application.Common.Models;
+
+namespace Genocs.Microservice.Template.Application.Common.Specification;
 
 public class EntitiesByPaginationFilterSpec<T, TResult> : EntitiesByBaseFilterSpec<T, TResult>
 {

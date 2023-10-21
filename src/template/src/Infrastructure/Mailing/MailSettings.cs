@@ -1,4 +1,4 @@
-namespace Genocs.Microservice.Infrastructure.Mailing;
+namespace Genocs.Microservice.Template.Infrastructure.Mailing;
 
 public class MailSettings
 {

@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 using MediatR;
 
-namespace Genocs.Microservice.Infrastructure.Validations;
+namespace Genocs.Microservice.Template.Infrastructure.Validations;
 
 public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     where TRequest : IRequest<TResponse>

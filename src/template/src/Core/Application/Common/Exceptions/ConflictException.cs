@@ -1,6 +1,6 @@
 using System.Net;
 
-namespace Genocs.Microservice.Application.Common.Exceptions;
+namespace Genocs.Microservice.Template.Application.Common.Exceptions;
 
 public class ConflictException : CustomException
 {

@@ -1,9 +1,9 @@
 ﻿using Finbuckle.MultiTenant.EntityFrameworkCore;
-using Genocs.Microservice.Infrastructure.Auditing;
+using Genocs.Microservice.Template.Infrastructure.Auditing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Genocs.Microservice.Infrastructure.Persistence.Configuration;
+namespace Genocs.Microservice.Template.Infrastructure.Persistence.Configuration;
 
 public class AuditTrailConfig : IEntityTypeConfiguration<Trail>
 {

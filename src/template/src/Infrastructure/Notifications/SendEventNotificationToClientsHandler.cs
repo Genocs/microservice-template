@@ -1,9 +1,9 @@
-﻿using Genocs.Microservice.Application.Common.Events;
-using Genocs.Microservice.Application.Common.Interfaces;
-using Genocs.Microservice.Shared.Notifications;
+﻿using Genocs.Microservice.Template.Application.Common.Events;
+using Genocs.Microservice.Template.Application.Common.Interfaces;
+using Genocs.Microservice.Template.Shared.Notifications;
 using MediatR;
 
-namespace Genocs.Microservice.Infrastructure.Notifications;
+namespace Genocs.Microservice.Template.Infrastructure.Notifications;
 
 // Sends all events that are also an INotificationMessage to all clients
 // Note: for this to work, the Event/NotificationMessage class needs to be in the

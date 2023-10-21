@@ -1,12 +1,12 @@
 using System.Security.Claims;
 
-namespace Genocs.Microservice.Application.Common.Interfaces;
+namespace Genocs.Microservice.Template.Application.Common.Interfaces;
 
 public interface ICurrentUser
 {
     string? Name { get; }
 
-    Guid GetUserId();
+    DefaultIdType GetUserId();
 
     string? GetUserEmail();
 

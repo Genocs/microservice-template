@@ -1,10 +1,10 @@
 using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
-using Genocs.Microservice.Application.Common.FileStorage;
-using Genocs.Microservice.Domain.Common;
-using Genocs.Microservice.Infrastructure.Common.Extensions;
+using Genocs.Microservice.Template.Application.Common.FileStorage;
+using Genocs.Microservice.Template.Domain.Common;
+using Genocs.Microservice.Template.Infrastructure.Common.Extensions;
 
-namespace Genocs.Microservice.Infrastructure.FileStorage;
+namespace Genocs.Microservice.Template.Infrastructure.FileStorage;
 
 public class LocalFileStorageService : IFileStorageService
 {

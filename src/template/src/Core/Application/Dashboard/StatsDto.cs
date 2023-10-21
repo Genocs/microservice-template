@@ -1,4 +1,4 @@
-namespace Genocs.Microservice.Application.Dashboard;
+namespace Genocs.Microservice.Template.Application.Dashboard;
 
 public class StatsDto
 {

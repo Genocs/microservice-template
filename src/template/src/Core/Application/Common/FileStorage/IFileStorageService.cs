@@ -1,4 +1,7 @@
-namespace Genocs.Microservice.Application.Common.FileStorage;
+using Genocs.Microservice.Template.Application.Common.Interfaces;
+using Genocs.Microservice.Template.Domain.Common;
+
+namespace Genocs.Microservice.Template.Application.Common.FileStorage;
 
 public interface IFileStorageService : ITransientService
 {

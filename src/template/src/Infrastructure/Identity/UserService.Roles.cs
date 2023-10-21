@@ -1,8 +1,8 @@
-﻿using Genocs.Microservice.Application.Common.Exceptions;
-using Genocs.Microservice.Application.Identity.Users;
-using Genocs.Microservice.Domain.Identity;
-using Genocs.Microservice.Shared.Authorization;
-using Genocs.Microservice.Shared.Multitenancy;
+﻿using Genocs.Microservice.Template.Application.Common.Exceptions;
+using Genocs.Microservice.Template.Application.Identity.Users;
+using Genocs.Microservice.Template.Domain.Identity;
+using Genocs.Microservice.Template.Shared.Authorization;
+using Genocs.Microservice.Template.Shared.Multitenancy;
 using Microsoft.EntityFrameworkCore;
 
 namespace Genocs.Microservice.Infrastructure.Identity;

@@ -1,13 +1,13 @@
 ﻿using Finbuckle.MultiTenant;
-using Genocs.Microservice.Infrastructure.Auth;
-using Genocs.Microservice.Infrastructure.Common;
-using Genocs.Microservice.Infrastructure.Multitenancy;
-using Genocs.Microservice.Shared.Multitenancy;
+using Genocs.Microservice.Template.Infrastructure.Auth;
+using Genocs.Microservice.Template.Infrastructure.Common;
+using Genocs.Microservice.Template.Infrastructure.Multitenancy;
+using Genocs.Microservice.Template.Shared.Multitenancy;
 using Hangfire;
 using Hangfire.Server;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Genocs.Microservice.Infrastructure.BackgroundJobs;
+namespace Genocs.Microservice.Template.Infrastructure.BackgroundJobs;
 
 public class FSHJobActivator : JobActivator
 {

@@ -1,10 +1,10 @@
 ﻿using Finbuckle.MultiTenant.EntityFrameworkCore;
-using Genocs.Microservice.Infrastructure.Identity;
+using Genocs.Microservice.Template.Infrastructure.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Genocs.Microservice.Infrastructure.Persistence.Configuration;
+namespace Genocs.Microservice.Template.Infrastructure.Persistence.Configuration;
 
 public class ApplicationUserConfig : IEntityTypeConfiguration<ApplicationUser>
 {

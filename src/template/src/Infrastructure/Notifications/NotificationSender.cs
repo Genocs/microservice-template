@@ -1,10 +1,10 @@
 ﻿using Finbuckle.MultiTenant;
-using Genocs.Microservice.Application.Common.Interfaces;
-using Genocs.Microservice.Shared.Notifications;
+using Genocs.Microservice.Template.Application.Common.Interfaces;
+using Genocs.Microservice.Template.Shared.Notifications;
 using Microsoft.AspNetCore.SignalR;
-using static Genocs.Microservice.Shared.Notifications.NotificationConstants;
+using static Genocs.Microservice.Template.Shared.Notifications.NotificationConstants;
 
-namespace Genocs.Microservice.Infrastructure.Notifications;
+namespace Genocs.Microservice.Template.Infrastructure.Notifications;
 
 public class NotificationSender : INotificationSender
 {

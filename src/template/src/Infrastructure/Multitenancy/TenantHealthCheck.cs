@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 
-namespace Genocs.Microservice.Infrastructure.Multitenancy;
+namespace Genocs.Microservice.Template.Infrastructure.Multitenancy;
 
 public class TenantHealthCheck : IHealthCheck
 {

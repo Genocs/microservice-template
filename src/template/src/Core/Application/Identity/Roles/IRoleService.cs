@@ -1,4 +1,6 @@
-namespace Genocs.Microservice.Application.Identity.Roles;
+using Genocs.Microservice.Template.Application.Common.Interfaces;
+
+namespace Genocs.Microservice.Template.Application.Identity.Roles;
 
 public interface IRoleService : ITransientService
 {

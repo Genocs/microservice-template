@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Authorization;
 
-namespace Genocs.Microservice.Infrastructure.Auth.Permissions;
+namespace Genocs.Microservice.Template.Infrastructure.Auth.Permissions;
 
 internal class PermissionRequirement : IAuthorizationRequirement
 {

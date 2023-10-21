@@ -1,15 +1,15 @@
-﻿using Genocs.Microservice.Application.Catalog.Products;
+﻿using Genocs.Microservice.Template.Application.Catalog.Products;
 
-namespace Genocs.Microservice.Application.Catalog.Brands;
+namespace Genocs.Microservice.Template.Application.Catalog.Brands;
 
-public class DeleteBrandRequest : IRequest<Guid>
+public class DeleteBrandRequest : IRequest<DefaultIdType>
 {
-    public Guid Id { get; set; }
+    public DefaultIdType Id { get; set; }
 
-    public DeleteBrandRequest(Guid id) => Id = id;
+    public DeleteBrandRequest(DefaultIdType id) => Id = id;
 }
 
-public class DeleteBrandRequestHandler : IRequestHandler<DeleteBrandRequest, Guid>
+public class DeleteBrandRequestHandler : IRequestHandler<DeleteBrandRequest, DefaultIdType>
 {
     // Add Domain Events automatically by using IRepositoryWithEvents
     private readonly IRepositoryWithEvents<Brand> _brandRepo;
@@ -19,7 +19,7 @@ public class DeleteBrandRequestHandler : IRequestHandler<DeleteBrandRequest, Gui
     public DeleteBrandRequestHandler(IRepositoryWithEvents<Brand> brandRepo, IReadRepository<Product> productRepo, IStringLocalizer<DeleteBrandRequestHandler> localizer) =>
         (_brandRepo, _productRepo, _t) = (brandRepo, productRepo, localizer);
 
-    public async Task<Guid> Handle(DeleteBrandRequest request, CancellationToken cancellationToken)
+    public async Task<DefaultIdType> Handle(DeleteBrandRequest request, CancellationToken cancellationToken)
     {
         if (await _productRepo.AnyAsync(new ProductsByBrandSpec(request.Id), cancellationToken))
         {

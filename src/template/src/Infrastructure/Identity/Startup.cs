@@ -1,8 +1,8 @@
-using Genocs.Microservice.Infrastructure.Persistence.Context;
+using Genocs.Microservice.Template.Infrastructure.Persistence.Context;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Genocs.Microservice.Infrastructure.Identity;
+namespace Genocs.Microservice.Template.Infrastructure.Identity;
 
 internal static class Startup
 {

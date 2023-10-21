@@ -1,4 +1,4 @@
-﻿namespace Genocs.Microservice.Domain.Common.Contracts;
+﻿namespace Genocs.Microservice.Template.Domain.Common.Contracts;
 
 /// <summary>
 /// Apply this marker interface only to aggregate root entities

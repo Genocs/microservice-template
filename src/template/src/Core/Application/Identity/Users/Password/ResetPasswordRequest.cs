@@ -1,4 +1,4 @@
-namespace Genocs.Microservice.Application.Identity.Users.Password;
+namespace Genocs.Microservice.Template.Application.Identity.Users.Password;
 
 public class ResetPasswordRequest
 {

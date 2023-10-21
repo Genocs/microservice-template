@@ -1,4 +1,4 @@
-namespace Genocs.Microservice.Application.Identity.Users;
+namespace Genocs.Microservice.Template.Application.Identity.Users;
 
 public class ToggleUserStatusRequest
 {

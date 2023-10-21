@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.9'
 name: microservicetemplate
 services:
   dotnet-webapi:
@@ -25,7 +25,7 @@ services:
       mssql:
         condition: service_healthy
     restart: on-failure
-  
+
   mssql:
     image: mcr.microsoft.com/mssql/server:latest
     environment:

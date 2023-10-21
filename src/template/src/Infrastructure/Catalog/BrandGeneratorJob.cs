@@ -1,9 +1,8 @@
 ﻿using Ardalis.Specification;
-using Genocs.Microservice.Application.Catalog.Brands;
-using Genocs.Microservice.Application.Common.Interfaces;
-using Genocs.Microservice.Application.Common.Persistence;
-using Genocs.Microservice.Domain.Catalog;
-using Genocs.Microservice.Shared.Notifications;
+using Genocs.Microservice.Template.Application.Catalog.Brands;
+using Genocs.Microservice.Template.Application.Common.Interfaces;
+using Genocs.Microservice.Template.Application.Common.Persistence;
+using Genocs.Microservice.Template.Domain.Catalog;
 using Hangfire;
 using Hangfire.Console.Extensions;
 using Hangfire.Console.Progress;
@@ -11,7 +10,7 @@ using Hangfire.Server;
 using MediatR;
 using Microsoft.Extensions.Logging;
 
-namespace Genocs.Microservice.Infrastructure.Catalog;
+namespace Genocs.Microservice.Template.Infrastructure.Catalog;
 
 public class BrandGeneratorJob : IBrandGeneratorJob
 {
@@ -67,12 +66,12 @@ public class BrandGeneratorJob : IBrandGeneratorJob
             await _mediator.Send(
                 new CreateBrandRequest
                 {
-                    Name = $"Brand Random - {Guid.NewGuid()}",
+                    Name = $"Brand Random - {DefaultIdType.NewGuid()}",
                     Description = "Funny description"
                 },
                 cancellationToken);
 
-            await NotifyAsync("Progress: ", nSeed > 0 ? (index * 100 / nSeed) : 0, cancellationToken);
+            await NotifyAsync("Progress: ", nSeed > 0 ? index * 100 / nSeed : 0, cancellationToken);
         }
 
         await NotifyAsync("Job successfully completed", 0, cancellationToken);

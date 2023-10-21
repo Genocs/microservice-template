@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace Genocs.Microservice.Domain.Common;
+namespace Genocs.Microservice.Template.Domain.Common;
 
 public enum FileType
 {

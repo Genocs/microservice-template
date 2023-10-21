@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using MassTransit;
 
-namespace Genocs.Microservice.Domain.Common.Contracts;
+namespace Genocs.Microservice.Template.Domain.Common.Contracts;
 
 public abstract class BaseEntity : BaseEntity<DefaultIdType>
 {

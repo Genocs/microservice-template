@@ -1,4 +1,4 @@
-namespace Genocs.Microservice.Infrastructure.Caching;
+namespace Genocs.Microservice.Template.Infrastructure.Caching;
 
 public class CacheSettings
 {

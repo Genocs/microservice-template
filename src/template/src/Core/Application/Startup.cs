@@ -1,7 +1,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
-namespace Genocs.Microservice.Application;
+namespace Genocs.Microservice.Template.Application;
 
 public static class Startup
 {

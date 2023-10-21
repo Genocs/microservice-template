@@ -1,4 +1,4 @@
-namespace Genocs.Microservice.Infrastructure.Logging;
+namespace Genocs.Microservice.Template.Infrastructure.Logging;
 
 public class LoggerSettings
 {

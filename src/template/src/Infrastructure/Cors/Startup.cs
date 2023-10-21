@@ -1,9 +1,8 @@
-﻿using Genocs.Microservice.Infrastructure.Common.Settings;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Genocs.Microservice.Infrastructure.Cors;
+namespace Genocs.Microservice.Template.Infrastructure.Cors;
 
 internal static class Startup
 {

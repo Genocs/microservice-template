@@ -1,4 +1,4 @@
-namespace Genocs.Microservice.Application.Common.Mailing;
+namespace Genocs.Microservice.Template.Application.Common.Mailing;
 
 public class MailRequest
 {

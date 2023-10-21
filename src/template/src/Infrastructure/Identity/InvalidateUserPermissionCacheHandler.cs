@@ -1,9 +1,9 @@
-﻿using Genocs.Microservice.Application.Common.Events;
-using Genocs.Microservice.Application.Identity.Users;
-using Genocs.Microservice.Domain.Identity;
+﻿using Genocs.Microservice.Template.Application.Common.Events;
+using Genocs.Microservice.Template.Application.Identity.Users;
+using Genocs.Microservice.Template.Domain.Identity;
 using Microsoft.AspNetCore.Identity;
 
-namespace Genocs.Microservice.Infrastructure.Identity;
+namespace Genocs.Microservice.Template.Infrastructure.Identity;
 
 internal class InvalidateUserPermissionCacheHandler :
     IEventNotificationHandler<ApplicationUserUpdatedEvent>,

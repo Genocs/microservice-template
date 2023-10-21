@@ -1,4 +1,4 @@
-﻿namespace Genocs.Microservice.Infrastructure.Persistence.Configuration;
+﻿namespace Genocs.Microservice.Template.Infrastructure.Persistence.Configuration;
 
 internal static class SchemaNames
 {

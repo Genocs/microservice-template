@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.9'
 name: microservicetemplate
 services:
   dotnet-webapi:
@@ -45,7 +45,6 @@ services:
     # network_mode: host
     volumes:
       - postgres:/var/lib/postgresql/data
-
   # elk:
   #     container_name:  elasticsearch-kibana
   #     image: sebp/elk:oss-8.5.3

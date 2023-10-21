@@ -1,20 +1,21 @@
-using Genocs.Microservice.Infrastructure.Auth;
-using Genocs.Microservice.Infrastructure.BackgroundJobs;
-using Genocs.Microservice.Infrastructure.Caching;
-using Genocs.Microservice.Infrastructure.Common;
-using Genocs.Microservice.Infrastructure.Cors;
-using Genocs.Microservice.Infrastructure.FileStorage;
-using Genocs.Microservice.Infrastructure.Localization;
-using Genocs.Microservice.Infrastructure.Mailing;
-using Genocs.Microservice.Infrastructure.Mapping;
-using Genocs.Microservice.Infrastructure.Middleware;
-using Genocs.Microservice.Infrastructure.Multitenancy;
-using Genocs.Microservice.Infrastructure.Notifications;
-using Genocs.Microservice.Infrastructure.OpenApi;
-using Genocs.Microservice.Infrastructure.Persistence;
-using Genocs.Microservice.Infrastructure.Persistence.Initialization;
-using Genocs.Microservice.Infrastructure.SecurityHeaders;
-using Genocs.Microservice.Infrastructure.Validations;
+using Genocs.Microservice.Template.Infrastructure;
+using Genocs.Microservice.Template.Infrastructure.Auth;
+using Genocs.Microservice.Template.Infrastructure.BackgroundJobs;
+using Genocs.Microservice.Template.Infrastructure.Caching;
+using Genocs.Microservice.Template.Infrastructure.Common;
+using Genocs.Microservice.Template.Infrastructure.Cors;
+using Genocs.Microservice.Template.Infrastructure.FileStorage;
+using Genocs.Microservice.Template.Infrastructure.Localization;
+using Genocs.Microservice.Template.Infrastructure.Mailing;
+using Genocs.Microservice.Template.Infrastructure.Mapping;
+using Genocs.Microservice.Template.Infrastructure.Middleware;
+using Genocs.Microservice.Template.Infrastructure.Multitenancy;
+using Genocs.Microservice.Template.Infrastructure.Notifications;
+using Genocs.Microservice.Template.Infrastructure.OpenApi;
+using Genocs.Microservice.Template.Infrastructure.Persistence;
+using Genocs.Microservice.Template.Infrastructure.Persistence.Initialization;
+using Genocs.Microservice.Template.Infrastructure.SecurityHeaders;
+using Genocs.Microservice.Template.Infrastructure.Validations;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
@@ -25,7 +26,7 @@ using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("Infrastructure.Test")]
 
-namespace Genocs.Microservice.Infrastructure;
+namespace Genocs.Microservice.Template.Infrastructure;
 
 public static class Startup
 {

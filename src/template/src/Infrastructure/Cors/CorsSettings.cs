@@ -1,4 +1,4 @@
-namespace Genocs.Microservice.Infrastructure.Common.Settings;
+namespace Genocs.Microservice.Template.Infrastructure.Cors;
 
 public class CorsSettings
 {

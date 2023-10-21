@@ -1,7 +1,7 @@
-namespace Genocs.Microservice.Domain.Common.Contracts;
+namespace Genocs.Microservice.Template.Domain.Common.Contracts;
 
 public interface ISoftDelete
 {
     DateTime? DeletedOn { get; set; }
-    Guid? DeletedBy { get; set; }
+    DefaultIdType? DeletedBy { get; set; }
 }

@@ -1,4 +1,6 @@
-﻿namespace Genocs.Microservice.Application.Common.Persistence;
+﻿using Genocs.Microservice.Template.Domain.Common.Contracts;
+
+namespace Genocs.Microservice.Template.Application.Common.Persistence;
 
 // The Repository for the Application Db
 // I(Read)RepositoryBase<T> is from Ardalis.Specification

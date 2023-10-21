@@ -1,7 +1,7 @@
 ﻿using Finbuckle.MultiTenant;
-using Genocs.Microservice.Shared.Multitenancy;
+using Genocs.Microservice.Template.Shared.Multitenancy;
 
-namespace Genocs.Microservice.Infrastructure.Multitenancy;
+namespace Genocs.Microservice.Template.Infrastructure.Multitenancy;
 
 public class FSHTenantInfo : ITenantInfo
 {

@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.FileProviders;
 
-namespace Genocs.Microservice.Infrastructure.FileStorage;
+namespace Genocs.Microservice.Template.Infrastructure.FileStorage;
 
 internal static class Startup
 {

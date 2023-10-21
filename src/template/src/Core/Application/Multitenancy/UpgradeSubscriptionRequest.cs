@@ -1,4 +1,6 @@
-namespace Genocs.Microservice.Application.Multitenancy;
+using Genocs.Microservice.Template.Application.Common.Validation;
+
+namespace Genocs.Microservice.Template.Application.Multitenancy;
 
 public class UpgradeSubscriptionRequest : IRequest<string>
 {

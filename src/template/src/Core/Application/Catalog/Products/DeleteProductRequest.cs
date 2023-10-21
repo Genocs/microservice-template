@@ -1,15 +1,17 @@
-﻿using Genocs.Microservice.Domain.Common.Events;
+﻿using Genocs.Microservice.Template.Application.Common.Persistence;
+using Genocs.Microservice.Template.Domain.Catalog;
+using Genocs.Microservice.Template.Domain.Common.Events;
 
-namespace Genocs.Microservice.Application.Catalog.Products;
+namespace Genocs.Microservice.Template.Application.Catalog.Products;
 
-public class DeleteProductRequest : IRequest<Guid>
+public class DeleteProductRequest : IRequest<DefaultIdType>
 {
-    public Guid Id { get; set; }
+    public DefaultIdType Id { get; set; }
 
-    public DeleteProductRequest(Guid id) => Id = id;
+    public DeleteProductRequest(DefaultIdType id) => Id = id;
 }
 
-public class DeleteProductRequestHandler : IRequestHandler<DeleteProductRequest, Guid>
+public class DeleteProductRequestHandler : IRequestHandler<DeleteProductRequest, DefaultIdType>
 {
     private readonly IRepository<Product> _repository;
     private readonly IStringLocalizer _t;
@@ -17,7 +19,7 @@ public class DeleteProductRequestHandler : IRequestHandler<DeleteProductRequest,
     public DeleteProductRequestHandler(IRepository<Product> repository, IStringLocalizer<DeleteProductRequestHandler> localizer) =>
         (_repository, _t) = (repository, localizer);
 
-    public async Task<Guid> Handle(DeleteProductRequest request, CancellationToken cancellationToken)
+    public async Task<DefaultIdType> Handle(DeleteProductRequest request, CancellationToken cancellationToken)
     {
         var product = await _repository.GetByIdAsync(request.Id, cancellationToken);
 

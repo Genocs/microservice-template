@@ -1,4 +1,4 @@
-namespace Genocs.Microservice.Application.Identity.Roles;
+namespace Genocs.Microservice.Template.Application.Identity.Roles;
 
 public class RoleDto
 {

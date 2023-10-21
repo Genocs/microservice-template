@@ -1,6 +1,7 @@
-﻿using Genocs.Microservice.Application.Common.Exceptions;
-using Genocs.Microservice.Application.Common.Mailing;
-using Genocs.Microservice.Application.Identity.Users.Password;
+﻿using Genocs.Microservice.Template.Application.Common.Exceptions;
+using Genocs.Microservice.Template.Application.Common.Mailing;
+using Genocs.Microservice.Template.Application.Identity.Users.Password;
+using Genocs.Microservice.Template.Infrastructure.Identity;
 using Microsoft.AspNetCore.WebUtilities;
 
 namespace Genocs.Microservice.Infrastructure.Identity;

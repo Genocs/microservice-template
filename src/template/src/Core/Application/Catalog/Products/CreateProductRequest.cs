@@ -1,17 +1,21 @@
-using Genocs.Microservice.Domain.Common.Events;
+using Genocs.Microservice.Template.Application.Common.FileStorage;
+using Genocs.Microservice.Template.Application.Common.Persistence;
+using Genocs.Microservice.Template.Domain.Catalog;
+using Genocs.Microservice.Template.Domain.Common;
+using Genocs.Microservice.Template.Domain.Common.Events;
 
-namespace Genocs.Microservice.Application.Catalog.Products;
+namespace Genocs.Microservice.Template.Application.Catalog.Products;
 
-public class CreateProductRequest : IRequest<Guid>
+public class CreateProductRequest : IRequest<DefaultIdType>
 {
     public string Name { get; set; } = default!;
     public string? Description { get; set; }
     public decimal Rate { get; set; }
-    public Guid BrandId { get; set; }
+    public DefaultIdType BrandId { get; set; }
     public FileUploadRequest? Image { get; set; }
 }
 
-public class CreateProductRequestHandler : IRequestHandler<CreateProductRequest, Guid>
+public class CreateProductRequestHandler : IRequestHandler<CreateProductRequest, DefaultIdType>
 {
     private readonly IRepository<Product> _repository;
     private readonly IFileStorageService _file;
@@ -19,7 +23,7 @@ public class CreateProductRequestHandler : IRequestHandler<CreateProductRequest,
     public CreateProductRequestHandler(IRepository<Product> repository, IFileStorageService file) =>
         (_repository, _file) = (repository, file);
 
-    public async Task<Guid> Handle(CreateProductRequest request, CancellationToken cancellationToken)
+    public async Task<DefaultIdType> Handle(CreateProductRequest request, CancellationToken cancellationToken)
     {
         string productImagePath = await _file.UploadAsync<Product>(request.Image, FileType.Image, cancellationToken);
 

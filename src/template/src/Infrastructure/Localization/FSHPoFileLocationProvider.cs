@@ -1,11 +1,11 @@
-using Genocs.Microservice.Infrastructure.Common.Extensions;
+using Genocs.Microservice.Template.Infrastructure.Common.Extensions;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Options;
 using OrchardCore.Localization;
 
-namespace Genocs.Microservice.Infrastructure.Localization;
+namespace Genocs.Microservice.Template.Infrastructure.Localization;
 
 /// <summary>
 /// Provides PO files for FSH Localization.

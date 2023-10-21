@@ -1,7 +1,9 @@
-﻿using Genocs.Microservice.Application.Identity.Roles;
-using Genocs.Microservice.Application.Identity.Users;
+﻿using Genocs.Microservice.Template.Application.Common.Persistence;
+using Genocs.Microservice.Template.Application.Identity.Roles;
+using Genocs.Microservice.Template.Application.Identity.Users;
+using Genocs.Microservice.Template.Domain.Catalog;
 
-namespace Genocs.Microservice.Application.Dashboard;
+namespace Genocs.Microservice.Template.Application.Dashboard;
 
 public class GetStatsRequest : IRequest<StatsDto>
 {

@@ -1,6 +1,6 @@
-﻿using Genocs.Microservice.Shared.Multitenancy;
+﻿using Genocs.Microservice.Template.Shared.Multitenancy;
 
-namespace Genocs.Microservice.Infrastructure.OpenApi;
+namespace Genocs.Microservice.Template.Infrastructure.OpenApi;
 
 public class TenantIdHeaderAttribute : SwaggerHeaderAttribute
 {

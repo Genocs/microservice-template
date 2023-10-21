@@ -1,11 +1,11 @@
-﻿using Genocs.Microservice.Application.Common.Exceptions;
+﻿using Genocs.Microservice.Template.Application.Common.Exceptions;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
 using System.Text;
 
-namespace Genocs.Microservice.Infrastructure.Auth.Jwt;
+namespace Genocs.Microservice.Template.Infrastructure.Auth.Jwt;
 
 public class ConfigureJwtBearerOptions : IConfigureNamedOptions<JwtBearerOptions>
 {

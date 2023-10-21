@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Genocs.Microservice.Infrastructure.Mailing;
+namespace Genocs.Microservice.Template.Infrastructure.Mailing;
 
 internal static class Startup
 {

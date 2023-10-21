@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Genocs.Microservice.Infrastructure.Persistence;
+namespace Genocs.Microservice.Template.Infrastructure.Persistence;
 
 public class DatabaseSettings : IValidatableObject
 {

@@ -1,4 +1,4 @@
-﻿namespace Genocs.Microservice.Infrastructure.OpenApi;
+﻿namespace Genocs.Microservice.Template.Infrastructure.OpenApi;
 
 [AttributeUsage(AttributeTargets.Method, AllowMultiple = false)]
 public class SwaggerHeaderAttribute : Attribute

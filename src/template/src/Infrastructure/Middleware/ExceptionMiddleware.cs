@@ -1,12 +1,12 @@
-using System.Net;
-using Genocs.Microservice.Application.Common.Exceptions;
-using Genocs.Microservice.Application.Common.Interfaces;
+using Genocs.Microservice.Template.Application.Common.Exceptions;
+using Genocs.Microservice.Template.Application.Common.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Localization;
 using Serilog;
 using Serilog.Context;
+using System.Net;
 
-namespace Genocs.Microservice.Infrastructure.Middleware;
+namespace Genocs.Microservice.Template.Infrastructure.Middleware;
 
 internal class ExceptionMiddleware : IMiddleware
 {
@@ -35,10 +35,10 @@ internal class ExceptionMiddleware : IMiddleware
             string email = _currentUser.GetUserEmail() is string userEmail ? userEmail : "Anonymous";
             var userId = _currentUser.GetUserId();
             string tenant = _currentUser.GetTenant() ?? string.Empty;
-            if (userId != Guid.Empty) LogContext.PushProperty("UserId", userId);
+            if (userId != DefaultIdType.Empty) LogContext.PushProperty("UserId", userId);
             LogContext.PushProperty("UserEmail", email);
             if (!string.IsNullOrEmpty(tenant)) LogContext.PushProperty("Tenant", tenant);
-            string errorId = Guid.NewGuid().ToString();
+            string errorId = DefaultIdType.NewGuid().ToString();
             LogContext.PushProperty("ErrorId", errorId);
             LogContext.PushProperty("StackTrace", exception.StackTrace);
             var errorResult = new ErrorResult

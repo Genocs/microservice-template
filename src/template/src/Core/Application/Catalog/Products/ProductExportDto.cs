@@ -1,4 +1,6 @@
-﻿namespace Genocs.Microservice.Application.Catalog.Products;
+﻿using Genocs.Microservice.Template.Application.Common.Interfaces;
+
+namespace Genocs.Microservice.Template.Application.Catalog.Products;
 
 public class ProductExportDto : IDto
 {

@@ -1,11 +1,11 @@
 using System.Data;
 using Dapper;
 using Finbuckle.MultiTenant.EntityFrameworkCore;
-using Genocs.Microservice.Application.Common.Persistence;
-using Genocs.Microservice.Domain.Common.Contracts;
-using Genocs.Microservice.Infrastructure.Persistence.Context;
+using Genocs.Microservice.Template.Application.Common.Persistence;
+using Genocs.Microservice.Template.Domain.Common.Contracts;
+using Genocs.Microservice.Template.Infrastructure.Persistence.Context;
 
-namespace Genocs.Microservice.Infrastructure.Persistence.Repository;
+namespace Genocs.Microservice.Template.Infrastructure.Persistence.Repository;
 
 public class DapperRepository : IDapperRepository
 {

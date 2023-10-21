@@ -1,9 +1,9 @@
 ﻿using Finbuckle.MultiTenant.EntityFrameworkCore;
-using Genocs.Microservice.Domain.Catalog;
+using Genocs.Microservice.Template.Domain.Catalog;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Genocs.Microservice.Infrastructure.Persistence.Configuration;
+namespace Genocs.Microservice.Template.Infrastructure.Persistence.Configuration;
 
 public class BrandConfig : IEntityTypeConfiguration<Brand>
 {

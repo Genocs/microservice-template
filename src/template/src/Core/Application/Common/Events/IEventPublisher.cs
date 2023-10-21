@@ -1,6 +1,7 @@
-using Genocs.Microservice.Shared.Events;
+using Genocs.Microservice.Template.Application.Common.Interfaces;
+using Genocs.Microservice.Template.Shared.Events;
 
-namespace Genocs.Microservice.Application.Common.Events;
+namespace Genocs.Microservice.Template.Application.Common.Events;
 
 public interface IEventPublisher : ITransientService
 {

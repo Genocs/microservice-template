@@ -1,5 +1,6 @@
-﻿using Genocs.Microservice.Application.Common.Persistence;
-using Genocs.Microservice.Infrastructure.Common;
+﻿using Genocs.Microservice.Template.Application.Common.Persistence;
+using Genocs.Microservice.Template.Infrastructure.Common;
+using Genocs.Microservice.Template.Infrastructure.Persistence;
 using Microsoft.Data.SqlClient;
 using Microsoft.Data.Sqlite;
 using Microsoft.Extensions.Logging;
@@ -7,7 +8,7 @@ using Microsoft.Extensions.Options;
 using MySqlConnector;
 using Npgsql;
 
-namespace Genocs.Microservice.Infrastructure.Persistence.ConnectionString;
+namespace Genocs.Microservice.Template.Infrastructure.Persistence.ConnectionString;
 
 internal class ConnectionStringValidator : IConnectionStringValidator
 {

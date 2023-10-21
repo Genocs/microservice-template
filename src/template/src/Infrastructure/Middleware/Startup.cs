@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Genocs.Microservice.Infrastructure.Middleware;
+namespace Genocs.Microservice.Template.Infrastructure.Middleware;
 
 internal static class Startup
 {

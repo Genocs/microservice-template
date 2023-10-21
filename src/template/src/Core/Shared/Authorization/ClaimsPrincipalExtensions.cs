@@ -1,6 +1,6 @@
-using Genocs.Microservice.Shared.Authorization;
+using System.Security.Claims;
 
-namespace System.Security.Claims;
+namespace Genocs.Microservice.Template.Shared.Authorization;
 
 public static class ClaimsPrincipalExtensions
 {
@@ -23,10 +23,10 @@ public static class ClaimsPrincipalExtensions
         => principal.FindFirstValue(ClaimTypes.MobilePhone);
 
     public static string? GetUserId(this ClaimsPrincipal principal)
-       => principal.FindFirstValue(ClaimTypes.NameIdentifier);
+        => principal.FindFirstValue(ClaimTypes.NameIdentifier);
 
     public static string? GetImageUrl(this ClaimsPrincipal principal)
-       => principal.FindFirstValue(GNXClaims.ImageUrl);
+        => principal.FindFirstValue(GNXClaims.ImageUrl);
 
     public static DateTimeOffset GetExpiration(this ClaimsPrincipal principal)
         => DateTimeOffset.FromUnixTimeSeconds(Convert.ToInt64(

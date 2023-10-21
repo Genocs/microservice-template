@@ -1,4 +1,4 @@
-﻿namespace Genocs.Microservice.Shared.Notifications;
+﻿namespace Genocs.Microservice.Template.Shared.Notifications;
 
 public static class NotificationConstants
 {

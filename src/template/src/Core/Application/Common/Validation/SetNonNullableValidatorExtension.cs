@@ -1,6 +1,6 @@
 ﻿using FluentValidation.Validators;
 
-namespace Genocs.Microservice.Application.Common.Validation;
+namespace Genocs.Microservice.Template.Application.Common.Validation;
 
 // SetValidator doesn't work when dealing with a nullable reference type
 // Use this SetNonNullableValidator extension method instead

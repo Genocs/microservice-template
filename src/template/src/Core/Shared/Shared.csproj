@@ -1,9 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+
     <PropertyGroup>
         <TargetFramework>net7.0</TargetFramework>
-        <RootNamespace>Genocs.Microservice.Shared</RootNamespace>
-        <AssemblyName>Genocs.Microservice.Shared</AssemblyName>
+        <IsPackable>false</IsPackable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <RootNamespace>Genocs.Microservice.Template.Shared</RootNamespace>
+        <AssemblyName>Genocs.Microservice.Template.Shared</AssemblyName>
     </PropertyGroup>
+
     <ItemGroup>
         <PackageReference Update="Roslynator.Analyzers" Version="4.5.0">
             <PrivateAssets>all</PrivateAssets>

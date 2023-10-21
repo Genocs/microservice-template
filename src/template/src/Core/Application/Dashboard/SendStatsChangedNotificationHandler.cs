@@ -1,8 +1,11 @@
-using Genocs.Microservice.Domain.Common.Events;
-using Genocs.Microservice.Domain.Identity;
-using Genocs.Microservice.Shared.Events;
+using Genocs.Microservice.Template.Application.Common.Events;
+using Genocs.Microservice.Template.Application.Common.Interfaces;
+using Genocs.Microservice.Template.Domain.Catalog;
+using Genocs.Microservice.Template.Domain.Common.Events;
+using Genocs.Microservice.Template.Domain.Identity;
+using Genocs.Microservice.Template.Shared.Events;
 
-namespace Genocs.Microservice.Application.Dashboard;
+namespace Genocs.Microservice.Template.Application.Dashboard;
 
 public class SendStatsChangedNotificationHandler :
     IEventNotificationHandler<EntityCreatedEvent<Brand>>,

@@ -1,8 +1,9 @@
-﻿using System.Linq.Expressions;
+﻿using Genocs.Microservice.Template.Application.Common.Models;
+using System.Linq.Expressions;
 using System.Reflection;
 using System.Text.Json;
 
-namespace Genocs.Microservice.Application.Common.Specification;
+namespace Genocs.Microservice.Template.Application.Common.Specification;
 
 // See https://github.com/ardalis/Specification/issues/53
 public static class SpecificationBuilderExtensions
@@ -52,7 +53,7 @@ public static class SpecificationBuilderExtensions
                 foreach (string field in search.Fields)
                 {
                     var paramExpr = Expression.Parameter(typeof(T));
-                    MemberExpression propertyExpr = GetPropertyExpression(field, paramExpr);
+                    var propertyExpr = GetPropertyExpression(field, paramExpr);
 
                     specificationBuilder.AddSearchPropertyByKeyword(propertyExpr, paramExpr, search.Keyword);
                 }
@@ -98,7 +99,7 @@ public static class SpecificationBuilderExtensions
 
         // Generate lambda [ x => x.Property ] for string properties
         // or [ x => ((object)x.Property) == null ? null : x.Property.ToString() ] for other properties
-        Expression selectorExpr =
+        var selectorExpr =
             property.PropertyType == typeof(string)
                 ? propertyExpr
                 : Expression.Condition(
@@ -251,11 +252,11 @@ public static class SpecificationBuilderExtensions
             return Expression.Constant(valueparsed, propertyType);
         }
 
-        if (propertyType == typeof(Guid))
+        if (propertyType == typeof(DefaultIdType))
         {
             string? stringGuid = GetStringFromJsonElement(value);
 
-            if (!Guid.TryParse(stringGuid, out Guid valueparsed)) throw new CustomException(string.Format("Value {0} is not valid for {1}", value, field));
+            if (!DefaultIdType.TryParse(stringGuid, out var valueparsed)) throw new CustomException(string.Format("Value {0} is not valid for {1}", value, field));
 
             return Expression.Constant(valueparsed, propertyType);
         }

@@ -1,4 +1,4 @@
-﻿namespace Genocs.Microservice.Domain.Common.Contracts;
+﻿namespace Genocs.Microservice.Template.Domain.Common.Contracts;
 
 public interface IEntity
 {

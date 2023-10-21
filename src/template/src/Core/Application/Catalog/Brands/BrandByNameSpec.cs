@@ -1,4 +1,6 @@
-﻿namespace Genocs.Microservice.Application.Catalog.Brands;
+﻿using Genocs.Microservice.Template.Domain.Catalog;
+
+namespace Genocs.Microservice.Template.Application.Catalog.Brands;
 
 public class BrandByNameSpec : Specification<Brand>, ISingleResultSpecification
 {

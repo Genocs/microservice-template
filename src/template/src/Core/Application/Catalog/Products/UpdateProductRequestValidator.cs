@@ -1,4 +1,4 @@
-namespace Genocs.Microservice.Application.Catalog.Products;
+namespace Genocs.Microservice.Template.Application.Catalog.Products;
 
 public class UpdateProductRequestValidator : CustomValidator<UpdateProductRequest>
 {

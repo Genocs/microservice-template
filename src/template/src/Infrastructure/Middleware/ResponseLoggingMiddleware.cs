@@ -1,9 +1,9 @@
-using Genocs.Microservice.Application.Common.Interfaces;
+using Genocs.Microservice.Template.Application.Common.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Serilog;
 using Serilog.Context;
 
-namespace Genocs.Microservice.Infrastructure.Middleware;
+namespace Genocs.Microservice.Template.Infrastructure.Middleware;
 
 public class ResponseLoggingMiddleware : IMiddleware
 {
@@ -37,7 +37,7 @@ public class ResponseLoggingMiddleware : IMiddleware
         string email = _currentUser.GetUserEmail() is string userEmail ? userEmail : "Anonymous";
         var userId = _currentUser.GetUserId();
         string tenant = _currentUser.GetTenant() ?? string.Empty;
-        if (userId != Guid.Empty) LogContext.PushProperty("UserId", userId);
+        if (userId != DefaultIdType.Empty) LogContext.PushProperty("UserId", userId);
         LogContext.PushProperty("UserEmail", email);
         if (!string.IsNullOrEmpty(tenant)) LogContext.PushProperty("Tenant", tenant);
         LogContext.PushProperty("StatusCode", httpContext.Response.StatusCode);

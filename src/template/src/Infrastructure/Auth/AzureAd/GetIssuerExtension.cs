@@ -1,6 +1,6 @@
-using Genocs.Microservice.Infrastructure.Auth.AzureAd;
+using System.Security.Claims;
 
-namespace System.Security.Claims;
+namespace Genocs.Microservice.Template.Infrastructure.Auth.AzureAd;
 
 public static class GetIssuerExtension
 {

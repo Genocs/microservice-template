@@ -1,6 +1,7 @@
-﻿using System.ComponentModel;
+﻿using Genocs.Microservice.Template.Application.Common.Interfaces;
+using System.ComponentModel;
 
-namespace Genocs.Microservice.Application.Catalog.Brands;
+namespace Genocs.Microservice.Template.Application.Catalog.Brands;
 
 public interface IBrandGeneratorJob : IScopedService
 {

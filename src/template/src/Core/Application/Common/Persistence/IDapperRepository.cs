@@ -1,6 +1,8 @@
+using Genocs.Microservice.Template.Application.Common.Interfaces;
+using Genocs.Microservice.Template.Domain.Common.Contracts;
 using System.Data;
 
-namespace Genocs.Microservice.Application.Common.Persistence;
+namespace Genocs.Microservice.Template.Application.Common.Persistence;
 
 public interface IDapperRepository : ITransientService
 {

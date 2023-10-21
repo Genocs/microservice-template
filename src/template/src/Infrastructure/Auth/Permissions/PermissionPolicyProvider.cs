@@ -1,8 +1,8 @@
-using Genocs.Microservice.Shared.Authorization;
+using Genocs.Microservice.Template.Shared.Authorization;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Options;
 
-namespace Genocs.Microservice.Infrastructure.Auth.Permissions;
+namespace Genocs.Microservice.Template.Infrastructure.Auth.Permissions;
 
 internal class PermissionPolicyProvider : IAuthorizationPolicyProvider
 {

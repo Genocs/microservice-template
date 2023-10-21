@@ -1,7 +1,7 @@
 using System.ComponentModel;
 using System.Text.RegularExpressions;
 
-namespace Genocs.Microservice.Infrastructure.Common.Extensions;
+namespace Genocs.Microservice.Template.Infrastructure.Common.Extensions;
 
 public static class EnumExtensions
 {

@@ -1,4 +1,5 @@
-using Genocs.Microservice.Infrastructure.Common;
+using Genocs.Microservice.Template.Infrastructure.BackgroundJobs;
+using Genocs.Microservice.Template.Infrastructure.Common;
 using Hangfire;
 using Hangfire.Console;
 using Hangfire.Console.Extensions;
@@ -11,7 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Serilog;
 
-namespace Genocs.Microservice.Infrastructure.BackgroundJobs;
+namespace Genocs.Microservice.Template.Infrastructure.BackgroundJobs;
 
 internal static class Startup
 {

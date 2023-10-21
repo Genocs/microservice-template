@@ -1,7 +1,9 @@
 using System.Security.Claims;
-using Genocs.Microservice.Application.Identity.Users.Password;
+using Genocs.Microservice.Template.Application.Common.Interfaces;
+using Genocs.Microservice.Template.Application.Common.Models;
+using Genocs.Microservice.Template.Application.Identity.Users.Password;
 
-namespace Genocs.Microservice.Application.Identity.Users;
+namespace Genocs.Microservice.Template.Application.Identity.Users;
 
 public interface IUserService : ITransientService
 {

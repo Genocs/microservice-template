@@ -1,4 +1,4 @@
-﻿namespace Genocs.Microservice.Infrastructure.Mapping;
+﻿namespace Genocs.Microservice.Template.Infrastructure.Mapping;
 
 public class MapsterSettings
 {

@@ -1,4 +1,4 @@
-namespace Genocs.Microservice.Application.Common.Validation;
+namespace Genocs.Microservice.Template.Application.Common.Validation;
 
 public class CustomValidator<T> : AbstractValidator<T>
 {

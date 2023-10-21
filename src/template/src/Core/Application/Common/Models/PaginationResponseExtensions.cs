@@ -1,4 +1,6 @@
-namespace Genocs.Microservice.Application.Common.Models;
+using Genocs.Microservice.Template.Application.Common.Interfaces;
+
+namespace Genocs.Microservice.Template.Application.Common.Models;
 
 public static class PaginationResponseExtensions
 {

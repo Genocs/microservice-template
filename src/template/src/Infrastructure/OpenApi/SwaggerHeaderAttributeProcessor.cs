@@ -3,7 +3,7 @@ using NSwag;
 using NSwag.Generation.Processors;
 using NSwag.Generation.Processors.Contexts;
 
-namespace Genocs.Microservice.Infrastructure.OpenApi;
+namespace Genocs.Microservice.Template.Infrastructure.OpenApi;
 
 public class SwaggerHeaderAttributeProcessor : IOperationProcessor
 {

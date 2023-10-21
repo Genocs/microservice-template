@@ -4,13 +4,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Serilog;
 
-namespace Genocs.Microservice.Infrastructure.Notifications;
+namespace Genocs.Microservice.Template.Infrastructure.Notifications;
 
 internal static class Startup
 {
     internal static IServiceCollection AddNotifications(this IServiceCollection services, IConfiguration config)
     {
-        ILogger logger = Log.ForContext(typeof(Startup));
+        var logger = Log.ForContext(typeof(Startup));
 
         var signalRSettings = config.GetSection(nameof(SignalRSettings)).Get<SignalRSettings>();
 

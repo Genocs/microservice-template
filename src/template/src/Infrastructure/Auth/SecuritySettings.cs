@@ -1,4 +1,4 @@
-namespace Genocs.Microservice.Infrastructure.Auth;
+namespace Genocs.Microservice.Template.Infrastructure.Auth;
 
 public class SecuritySettings
 {

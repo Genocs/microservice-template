@@ -1,6 +1,6 @@
-using Genocs.Microservice.Shared.Events;
+using Genocs.Microservice.Template.Shared.Events;
 
-namespace Genocs.Microservice.Domain.Common.Contracts;
+namespace Genocs.Microservice.Template.Domain.Common.Contracts;
 
 public abstract class DomainEvent : IEvent
 {

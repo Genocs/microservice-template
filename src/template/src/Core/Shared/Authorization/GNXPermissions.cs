@@ -1,8 +1,8 @@
 using System.Collections.ObjectModel;
 
-namespace Genocs.Microservice.Shared.Authorization;
+namespace Genocs.Microservice.Template.Shared.Authorization;
 
-public static class FSHAction
+public static class GNXAction
 {
     public const string View = nameof(View);
     public const string Search = nameof(Search);
@@ -15,7 +15,7 @@ public static class FSHAction
     public const string UpgradeSubscription = nameof(UpgradeSubscription);
 }
 
-public static class FSHResource
+public static class GNXResource
 {
     public const string Tenants = nameof(Tenants);
     public const string Dashboard = nameof(Dashboard);
@@ -32,39 +32,39 @@ public static class GNXPermissions
 {
     private static readonly FSHPermission[] _all = new FSHPermission[]
     {
-        new("View Dashboard", FSHAction.View, FSHResource.Dashboard),
-        new("View Hangfire", FSHAction.View, FSHResource.Hangfire),
-        new("View Users", FSHAction.View, FSHResource.Users),
-        new("Search Users", FSHAction.Search, FSHResource.Users),
-        new("Create Users", FSHAction.Create, FSHResource.Users),
-        new("Update Users", FSHAction.Update, FSHResource.Users),
-        new("Delete Users", FSHAction.Delete, FSHResource.Users),
-        new("Export Users", FSHAction.Export, FSHResource.Users),
-        new("View UserRoles", FSHAction.View, FSHResource.UserRoles),
-        new("Update UserRoles", FSHAction.Update, FSHResource.UserRoles),
-        new("View Roles", FSHAction.View, FSHResource.Roles),
-        new("Create Roles", FSHAction.Create, FSHResource.Roles),
-        new("Update Roles", FSHAction.Update, FSHResource.Roles),
-        new("Delete Roles", FSHAction.Delete, FSHResource.Roles),
-        new("View RoleClaims", FSHAction.View, FSHResource.RoleClaims),
-        new("Update RoleClaims", FSHAction.Update, FSHResource.RoleClaims),
-        new("View Products", FSHAction.View, FSHResource.Products, IsBasic: true),
-        new("Search Products", FSHAction.Search, FSHResource.Products, IsBasic: true),
-        new("Create Products", FSHAction.Create, FSHResource.Products),
-        new("Update Products", FSHAction.Update, FSHResource.Products),
-        new("Delete Products", FSHAction.Delete, FSHResource.Products),
-        new("Export Products", FSHAction.Export, FSHResource.Products),
-        new("View Brands", FSHAction.View, FSHResource.Brands, IsBasic: true),
-        new("Search Brands", FSHAction.Search, FSHResource.Brands, IsBasic: true),
-        new("Create Brands", FSHAction.Create, FSHResource.Brands),
-        new("Update Brands", FSHAction.Update, FSHResource.Brands),
-        new("Delete Brands", FSHAction.Delete, FSHResource.Brands),
-        new("Generate Brands", FSHAction.Generate, FSHResource.Brands),
-        new("Clean Brands", FSHAction.Clean, FSHResource.Brands),
-        new("View Tenants", FSHAction.View, FSHResource.Tenants, IsRoot: true),
-        new("Create Tenants", FSHAction.Create, FSHResource.Tenants, IsRoot: true),
-        new("Update Tenants", FSHAction.Update, FSHResource.Tenants, IsRoot: true),
-        new("Upgrade Tenant Subscription", FSHAction.UpgradeSubscription, FSHResource.Tenants, IsRoot: true)
+        new("View Dashboard", GNXAction.View, GNXResource.Dashboard),
+        new("View Hangfire", GNXAction.View, GNXResource.Hangfire),
+        new("View Users", GNXAction.View, GNXResource.Users),
+        new("Search Users", GNXAction.Search, GNXResource.Users),
+        new("Create Users", GNXAction.Create, GNXResource.Users),
+        new("Update Users", GNXAction.Update, GNXResource.Users),
+        new("Delete Users", GNXAction.Delete, GNXResource.Users),
+        new("Export Users", GNXAction.Export, GNXResource.Users),
+        new("View UserRoles", GNXAction.View, GNXResource.UserRoles),
+        new("Update UserRoles", GNXAction.Update, GNXResource.UserRoles),
+        new("View Roles", GNXAction.View, GNXResource.Roles),
+        new("Create Roles", GNXAction.Create, GNXResource.Roles),
+        new("Update Roles", GNXAction.Update, GNXResource.Roles),
+        new("Delete Roles", GNXAction.Delete, GNXResource.Roles),
+        new("View RoleClaims", GNXAction.View, GNXResource.RoleClaims),
+        new("Update RoleClaims", GNXAction.Update, GNXResource.RoleClaims),
+        new("View Products", GNXAction.View, GNXResource.Products, IsBasic: true),
+        new("Search Products", GNXAction.Search, GNXResource.Products, IsBasic: true),
+        new("Create Products", GNXAction.Create, GNXResource.Products),
+        new("Update Products", GNXAction.Update, GNXResource.Products),
+        new("Delete Products", GNXAction.Delete, GNXResource.Products),
+        new("Export Products", GNXAction.Export, GNXResource.Products),
+        new("View Brands", GNXAction.View, GNXResource.Brands, IsBasic: true),
+        new("Search Brands", GNXAction.Search, GNXResource.Brands, IsBasic: true),
+        new("Create Brands", GNXAction.Create, GNXResource.Brands),
+        new("Update Brands", GNXAction.Update, GNXResource.Brands),
+        new("Delete Brands", GNXAction.Delete, GNXResource.Brands),
+        new("Generate Brands", GNXAction.Generate, GNXResource.Brands),
+        new("Clean Brands", GNXAction.Clean, GNXResource.Brands),
+        new("View Tenants", GNXAction.View, GNXResource.Tenants, IsRoot: true),
+        new("Create Tenants", GNXAction.Create, GNXResource.Tenants, IsRoot: true),
+        new("Update Tenants", GNXAction.Update, GNXResource.Tenants, IsRoot: true),
+        new("Upgrade Tenant Subscription", GNXAction.UpgradeSubscription, GNXResource.Tenants, IsRoot: true)
     };
 
     public static IReadOnlyList<FSHPermission> All { get; } = new ReadOnlyCollection<FSHPermission>(_all);

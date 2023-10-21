@@ -1,10 +1,10 @@
-﻿namespace Genocs.Microservice.Application.Catalog.Products;
+﻿namespace Genocs.Microservice.Template.Application.Catalog.Products;
 
 public class GetProductRequest : IRequest<ProductDetailsDto>
 {
-    public Guid Id { get; set; }
+    public DefaultIdType Id { get; set; }
 
-    public GetProductRequest(Guid id) => Id = id;
+    public GetProductRequest(DefaultIdType id) => Id = id;
 }
 
 public class GetProductRequestHandler : IRequestHandler<GetProductRequest, ProductDetailsDto>

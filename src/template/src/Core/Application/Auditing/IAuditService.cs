@@ -1,6 +1,8 @@
-namespace Genocs.Microservice.Application.Auditing;
+using Genocs.Microservice.Template.Application.Common.Interfaces;
+
+namespace Genocs.Microservice.Template.Application.Auditing;
 
 public interface IAuditService : ITransientService
 {
-    Task<List<AuditDto>> GetUserTrailsAsync(Guid userId);
+    Task<List<AuditDto>> GetUserTrailsAsync(DefaultIdType userId);
 }

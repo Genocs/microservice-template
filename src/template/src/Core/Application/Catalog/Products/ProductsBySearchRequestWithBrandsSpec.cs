@@ -1,4 +1,8 @@
-﻿namespace Genocs.Microservice.Application.Catalog.Products;
+﻿using Genocs.Microservice.Template.Application.Common.Models;
+using Genocs.Microservice.Template.Application.Common.Specification;
+using Genocs.Microservice.Template.Domain.Catalog;
+
+namespace Genocs.Microservice.Template.Application.Catalog.Products;
 
 public class ProductsBySearchRequestWithBrandsSpec : EntitiesByPaginationFilterSpec<Product, ProductDto>
 {

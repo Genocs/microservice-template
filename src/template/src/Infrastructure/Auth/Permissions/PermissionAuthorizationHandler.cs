@@ -1,8 +1,8 @@
-using System.Security.Claims;
-using Genocs.Microservice.Application.Identity.Users;
+using Genocs.Microservice.Template.Application.Identity.Users;
+using Genocs.Microservice.Template.Shared.Authorization;
 using Microsoft.AspNetCore.Authorization;
 
-namespace Genocs.Microservice.Infrastructure.Auth.Permissions;
+namespace Genocs.Microservice.Template.Infrastructure.Auth.Permissions;
 
 internal class PermissionAuthorizationHandler : AuthorizationHandler<PermissionRequirement>
 {

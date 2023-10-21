@@ -1,4 +1,4 @@
-﻿namespace Genocs.Microservice.Infrastructure.SecurityHeaders;
+﻿namespace Genocs.Microservice.Template.Infrastructure.SecurityHeaders;
 
 internal class HeaderNames
 {

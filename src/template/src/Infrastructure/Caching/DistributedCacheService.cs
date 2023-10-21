@@ -1,10 +1,10 @@
 using System.Text;
-using Genocs.Microservice.Application.Common.Caching;
-using Genocs.Microservice.Application.Common.Interfaces;
+using Genocs.Microservice.Template.Application.Common.Caching;
+using Genocs.Microservice.Template.Application.Common.Interfaces;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Logging;
 
-namespace Genocs.Microservice.Infrastructure.Caching;
+namespace Genocs.Microservice.Template.Infrastructure.Caching;
 
 #pragma warning disable CA2254
 public class DistributedCacheService : ICacheService

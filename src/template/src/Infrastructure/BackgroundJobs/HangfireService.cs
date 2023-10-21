@@ -1,8 +1,8 @@
 using System.Linq.Expressions;
-using Genocs.Microservice.Application.Common.Interfaces;
+using Genocs.Microservice.Template.Application.Common.Interfaces;
 using Hangfire;
 
-namespace Genocs.Microservice.Infrastructure.BackgroundJobs;
+namespace Genocs.Microservice.Template.Infrastructure.BackgroundJobs;
 
 public class HangfireService : IJobService
 {

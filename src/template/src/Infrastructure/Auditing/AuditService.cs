@@ -1,9 +1,9 @@
-using Genocs.Microservice.Application.Auditing;
-using Genocs.Microservice.Infrastructure.Persistence.Context;
+using Genocs.Microservice.Template.Application.Auditing;
+using Genocs.Microservice.Template.Infrastructure.Persistence.Context;
 using Mapster;
 using Microsoft.EntityFrameworkCore;
 
-namespace Genocs.Microservice.Infrastructure.Auditing;
+namespace Genocs.Microservice.Template.Infrastructure.Auditing;
 
 public class AuditService : IAuditService
 {
@@ -11,7 +11,7 @@ public class AuditService : IAuditService
 
     public AuditService(ApplicationDbContext context) => _context = context;
 
-    public async Task<List<AuditDto>> GetUserTrailsAsync(Guid userId)
+    public async Task<List<AuditDto>> GetUserTrailsAsync(DefaultIdType userId)
     {
         var trails = await _context.AuditTrails
             .Where(a => a.UserId == userId)

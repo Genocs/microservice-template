@@ -1,6 +1,6 @@
 using System.Collections.ObjectModel;
 
-namespace Genocs.Microservice.Shared.Authorization;
+namespace Genocs.Microservice.Template.Shared.Authorization;
 
 public static class GNXRoles
 {

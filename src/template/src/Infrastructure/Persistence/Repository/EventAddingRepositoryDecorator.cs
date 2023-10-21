@@ -1,9 +1,9 @@
 ﻿using Ardalis.Specification;
-using Genocs.Microservice.Application.Common.Persistence;
-using Genocs.Microservice.Domain.Common.Contracts;
-using Genocs.Microservice.Domain.Common.Events;
+using Genocs.Microservice.Template.Application.Common.Persistence;
+using Genocs.Microservice.Template.Domain.Common.Contracts;
+using Genocs.Microservice.Template.Domain.Common.Events;
 
-namespace Genocs.Microservice.Infrastructure.Persistence.Repository;
+namespace Genocs.Microservice.Template.Infrastructure.Persistence.Repository;
 
 /// <summary>
 /// The repository that implements IRepositoryWithEvents.
@@ -96,13 +96,13 @@ public class EventAddingRepositoryDecorator<T> : IRepositoryWithEvents<T>
         => _decorated.FirstOrDefaultAsync(specification, cancellationToken);
 
     public Task<TResult?> FirstOrDefaultAsync<TResult>(ISpecification<T, TResult> specification, CancellationToken cancellationToken = default)
-        => _decorated.FirstOrDefaultAsync<TResult>(specification, cancellationToken);
+        => _decorated.FirstOrDefaultAsync(specification, cancellationToken);
 
     public Task<T?> SingleOrDefaultAsync(ISingleResultSpecification<T> specification, CancellationToken cancellationToken = default)
         => _decorated.SingleOrDefaultAsync(specification, cancellationToken);
 
     public Task<TResult?> SingleOrDefaultAsync<TResult>(ISingleResultSpecification<T, TResult> specification, CancellationToken cancellationToken = default)
-        => _decorated.SingleOrDefaultAsync<TResult>(specification, cancellationToken);
+        => _decorated.SingleOrDefaultAsync(specification, cancellationToken);
 
     public IAsyncEnumerable<T> AsAsyncEnumerable(ISpecification<T> specification)
         => _decorated.AsAsyncEnumerable(specification);

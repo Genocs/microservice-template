@@ -1,10 +1,10 @@
-using Genocs.Microservice.Domain.Common.Contracts;
+using Genocs.Microservice.Template.Domain.Common.Contracts;
 
-namespace Genocs.Microservice.Infrastructure.Auditing;
+namespace Genocs.Microservice.Template.Infrastructure.Auditing;
 
 public class Trail : BaseEntity
 {
-    public Guid UserId { get; set; }
+    public DefaultIdType UserId { get; set; }
     public string? Type { get; set; }
     public string? TableName { get; set; }
     public DateTime DateTime { get; set; }

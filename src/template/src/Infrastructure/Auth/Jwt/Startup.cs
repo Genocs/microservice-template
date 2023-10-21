@@ -3,7 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 
-namespace Genocs.Microservice.Infrastructure.Auth.Jwt;
+namespace Genocs.Microservice.Template.Infrastructure.Auth.Jwt;
 
 internal static class Startup
 {

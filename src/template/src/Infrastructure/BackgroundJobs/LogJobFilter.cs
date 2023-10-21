@@ -4,7 +4,7 @@ using Hangfire.Server;
 using Hangfire.States;
 using Hangfire.Storage;
 
-namespace Genocs.Microservice.Infrastructure.BackgroundJobs;
+namespace Genocs.Microservice.Template.Infrastructure.BackgroundJobs;
 
 public class LogJobFilter : IClientFilter, IServerFilter, IElectStateFilter, IApplyStateFilter
 {

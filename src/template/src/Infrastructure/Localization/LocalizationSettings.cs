@@ -1,4 +1,4 @@
-﻿namespace Genocs.Microservice.Infrastructure.Localization;
+﻿namespace Genocs.Microservice.Template.Infrastructure.Localization;
 
 public class LocalizationSettings
 {

@@ -1,7 +1,7 @@
-using Genocs.Microservice.Shared.Authorization;
+using Genocs.Microservice.Template.Shared.Authorization;
 using Microsoft.AspNetCore.Authorization;
 
-namespace Genocs.Microservice.Infrastructure.Auth.Permissions;
+namespace Genocs.Microservice.Template.Infrastructure.Auth.Permissions;
 
 public class MustHavePermissionAttribute : AuthorizeAttribute
 {

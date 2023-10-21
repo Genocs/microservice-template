@@ -5,7 +5,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Extensions.Primitives;
 
-namespace Genocs.Microservice.Infrastructure.BackgroundJobs;
+namespace Genocs.Microservice.Template.Infrastructure.BackgroundJobs;
 
 public class HangfireCustomBasicAuthenticationFilter : IDashboardAuthorizationFilter
 {

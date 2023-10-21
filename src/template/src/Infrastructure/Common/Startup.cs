@@ -1,7 +1,7 @@
-﻿using Genocs.Microservice.Application.Common.Interfaces;
+﻿using Genocs.Microservice.Template.Application.Common.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Genocs.Microservice.Infrastructure.Common;
+namespace Genocs.Microservice.Template.Infrastructure.Common;
 
 internal static class Startup
 {

@@ -1,4 +1,4 @@
-namespace Genocs.Microservice.Infrastructure.BackgroundJobs;
+namespace Genocs.Microservice.Template.Infrastructure.BackgroundJobs;
 
 public class HangfireStorageSettings
 {

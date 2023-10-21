@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 
-namespace Genocs.Microservice.Infrastructure.Identity;
+namespace Genocs.Microservice.Template.Infrastructure.Identity;
 
 public class ApplicationUser : IdentityUser
 {

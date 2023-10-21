@@ -1,9 +1,9 @@
-using Genocs.Microservice.Application.Common.Events;
-using Genocs.Microservice.Shared.Events;
+using Genocs.Microservice.Template.Application.Common.Events;
+using Genocs.Microservice.Template.Shared.Events;
 using MediatR;
 using Microsoft.Extensions.Logging;
 
-namespace Genocs.Microservice.Infrastructure.Common.Services;
+namespace Genocs.Microservice.Template.Infrastructure.Common.Services;
 
 public class EventPublisher : IEventPublisher
 {

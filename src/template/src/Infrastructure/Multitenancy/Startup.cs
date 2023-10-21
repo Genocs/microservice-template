@@ -1,7 +1,7 @@
-using Genocs.Microservice.Application.Multitenancy;
-using Genocs.Microservice.Infrastructure.Persistence;
-using Genocs.Microservice.Shared.Authorization;
-using Genocs.Microservice.Shared.Multitenancy;
+using Genocs.Microservice.Template.Application.Multitenancy;
+using Genocs.Microservice.Template.Infrastructure.Persistence;
+using Genocs.Microservice.Template.Shared.Authorization;
+using Genocs.Microservice.Template.Shared.Multitenancy;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
@@ -9,7 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Primitives;
 
-namespace Genocs.Microservice.Infrastructure.Multitenancy;
+namespace Genocs.Microservice.Template.Infrastructure.Multitenancy;
 
 internal static class Startup
 {
@@ -42,7 +42,7 @@ internal static class Startup
                 return Task.FromResult((string?)null);
             }
 
-            httpContext.Request.Query.TryGetValue(queryStringKey, out StringValues tenantIdParam);
+            httpContext.Request.Query.TryGetValue(queryStringKey, out var tenantIdParam);
 
             return Task.FromResult((string?)tenantIdParam.ToString());
         });

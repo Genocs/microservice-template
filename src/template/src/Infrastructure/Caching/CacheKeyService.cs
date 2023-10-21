@@ -1,7 +1,7 @@
 ﻿using Finbuckle.MultiTenant;
-using Genocs.Microservice.Application.Common.Caching;
+using Genocs.Microservice.Template.Application.Common.Caching;
 
-namespace Genocs.Microservice.Infrastructure.Caching;
+namespace Genocs.Microservice.Template.Infrastructure.Caching;
 
 public class CacheKeyService : ICacheKeyService
 {

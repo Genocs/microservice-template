@@ -1,18 +1,18 @@
 using Finbuckle.MultiTenant;
-using Genocs.Microservice.Application.Common.Events;
-using Genocs.Microservice.Application.Common.Exceptions;
-using Genocs.Microservice.Application.Common.Interfaces;
-using Genocs.Microservice.Application.Identity.Roles;
-using Genocs.Microservice.Domain.Identity;
-using Genocs.Microservice.Infrastructure.Persistence.Context;
-using Genocs.Microservice.Shared.Authorization;
-using Genocs.Microservice.Shared.Multitenancy;
+using Genocs.Microservice.Template.Application.Common.Events;
+using Genocs.Microservice.Template.Application.Common.Exceptions;
+using Genocs.Microservice.Template.Application.Common.Interfaces;
+using Genocs.Microservice.Template.Application.Identity.Roles;
+using Genocs.Microservice.Template.Domain.Identity;
+using Genocs.Microservice.Template.Infrastructure.Persistence.Context;
+using Genocs.Microservice.Template.Shared.Authorization;
+using Genocs.Microservice.Template.Shared.Multitenancy;
 using Mapster;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
 
-namespace Genocs.Microservice.Infrastructure.Identity;
+namespace Genocs.Microservice.Template.Infrastructure.Identity;
 
 internal class RoleService : IRoleService
 {

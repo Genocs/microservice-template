@@ -1,16 +1,17 @@
 using System.Data;
 using Finbuckle.MultiTenant;
-using Genocs.Microservice.Application.Common.Events;
-using Genocs.Microservice.Application.Common.Interfaces;
-using Genocs.Microservice.Domain.Common.Contracts;
-using Genocs.Microservice.Infrastructure.Auditing;
-using Genocs.Microservice.Infrastructure.Identity;
+using Genocs.Microservice.Template.Application.Common.Events;
+using Genocs.Microservice.Template.Application.Common.Interfaces;
+using Genocs.Microservice.Template.Domain.Common.Contracts;
+using Genocs.Microservice.Template.Infrastructure.Auditing;
+using Genocs.Microservice.Template.Infrastructure.Identity;
+using Genocs.Microservice.Template.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.Extensions.Options;
 
-namespace Genocs.Microservice.Infrastructure.Persistence.Context;
+namespace Genocs.Microservice.Template.Infrastructure.Persistence.Context;
 
 public abstract class BaseDbContext : MultiTenantIdentityDbContext<ApplicationUser, ApplicationRole, string, IdentityUserClaim<string>, IdentityUserRole<string>, IdentityUserLogin<string>, ApplicationRoleClaim, IdentityUserToken<string>>
 {
@@ -75,7 +76,7 @@ public abstract class BaseDbContext : MultiTenantIdentityDbContext<ApplicationUs
         return result;
     }
 
-    private List<AuditTrail> HandleAuditingBeforeSaveChanges(Guid userId)
+    private List<AuditTrail> HandleAuditingBeforeSaveChanges(DefaultIdType userId)
     {
         foreach (var entry in ChangeTracker.Entries<IAuditableEntity>().ToList())
         {

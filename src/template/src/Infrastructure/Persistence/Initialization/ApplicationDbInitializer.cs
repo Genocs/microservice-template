@@ -1,9 +1,9 @@
 using Finbuckle.MultiTenant;
-using Genocs.Microservice.Infrastructure.Persistence.Context;
+using Genocs.Microservice.Template.Infrastructure.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
-namespace Genocs.Microservice.Infrastructure.Persistence.Initialization;
+namespace Genocs.Microservice.Template.Infrastructure.Persistence.Initialization;
 
 internal class ApplicationDbInitializer
 {

@@ -1,4 +1,4 @@
-namespace Genocs.Microservice.Application.Common.Interfaces;
+namespace Genocs.Microservice.Template.Application.Common.Interfaces;
 
 public interface IScopedService
 {

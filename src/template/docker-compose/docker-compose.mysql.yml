@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.9'
 name: microservicetemplate
 services:
   dotnet-webapi:
@@ -29,7 +29,7 @@ services:
   mysql:
     image: mysql:latest
     networks:
-      - fullstackhero
+      - genocs
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_PASSWORD=root
@@ -41,6 +41,7 @@ services:
       interval: 2s
       timeout: 40s
       retries: 10
+
 volumes:
   mysql-data:
 

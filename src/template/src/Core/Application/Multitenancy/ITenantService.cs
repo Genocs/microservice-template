@@ -1,4 +1,4 @@
-﻿namespace Genocs.Microservice.Application.Multitenancy;
+﻿namespace Genocs.Microservice.Template.Application.Multitenancy;
 
 public interface ITenantService
 {

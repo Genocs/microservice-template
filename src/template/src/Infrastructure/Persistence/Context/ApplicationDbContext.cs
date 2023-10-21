@@ -1,12 +1,13 @@
 using Finbuckle.MultiTenant;
-using Genocs.Microservice.Application.Common.Events;
-using Genocs.Microservice.Application.Common.Interfaces;
-using Genocs.Microservice.Domain.Catalog;
-using Genocs.Microservice.Infrastructure.Persistence.Configuration;
+using Genocs.Microservice.Template.Application.Common.Events;
+using Genocs.Microservice.Template.Application.Common.Interfaces;
+using Genocs.Microservice.Template.Domain.Catalog;
+using Genocs.Microservice.Template.Infrastructure.Persistence;
+using Genocs.Microservice.Template.Infrastructure.Persistence.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 
-namespace Genocs.Microservice.Infrastructure.Persistence.Context;
+namespace Genocs.Microservice.Template.Infrastructure.Persistence.Context;
 
 public class ApplicationDbContext : BaseDbContext
 {

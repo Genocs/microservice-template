@@ -1,16 +1,16 @@
 ﻿using Ardalis.Specification;
 using Ardalis.Specification.EntityFrameworkCore;
-using Genocs.Microservice.Application.Common.Persistence;
-using Genocs.Microservice.Domain.Common.Contracts;
-using Genocs.Microservice.Infrastructure.Persistence.Context;
+using Genocs.Microservice.Template.Application.Common.Persistence;
+using Genocs.Microservice.Template.Domain.Common.Contracts;
+using Genocs.Microservice.Template.Infrastructure.Persistence.Context;
 using Mapster;
 
-namespace Genocs.Microservice.Infrastructure.Persistence.Repository;
+namespace Genocs.Microservice.Template.Infrastructure.Persistence.Repository;
 
 /// <summary>
-/// Inherited from Ardalis.Specification's RepositoryBase<T>
+/// Inherited from Ardalis.Specification's RepositoryBase of T.
 /// </summary>
-/// <typeparam name="T"></typeparam>
+/// <typeparam name="T">Type of entity.</typeparam>
 public class ApplicationDbRepository<T> : RepositoryBase<T>, IReadRepository<T>, IRepository<T>
     where T : class, IAggregateRoot
 {

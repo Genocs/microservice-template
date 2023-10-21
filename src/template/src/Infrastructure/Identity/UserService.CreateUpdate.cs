@@ -1,13 +1,14 @@
-﻿using System.Security.Claims;
-using Genocs.Microservice.Application.Common.Exceptions;
-using Genocs.Microservice.Application.Common.Mailing;
-using Genocs.Microservice.Application.Identity.Users;
-using Genocs.Microservice.Domain.Common;
-using Genocs.Microservice.Domain.Identity;
-using Genocs.Microservice.Shared.Authorization;
+﻿using Genocs.Microservice.Template.Application.Common.Exceptions;
+using Genocs.Microservice.Template.Application.Common.Mailing;
+using Genocs.Microservice.Template.Application.Identity.Users;
+using Genocs.Microservice.Template.Domain.Common;
+using Genocs.Microservice.Template.Domain.Identity;
+using Genocs.Microservice.Template.Infrastructure.Identity;
+using Genocs.Microservice.Template.Shared.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Web;
+using System.Security.Claims;
 
 namespace Genocs.Microservice.Infrastructure.Identity;
 

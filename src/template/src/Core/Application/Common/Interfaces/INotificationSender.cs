@@ -1,4 +1,6 @@
-﻿namespace Genocs.Microservice.Application.Common.Interfaces;
+﻿using Genocs.Microservice.Template.Shared.Notifications;
+
+namespace Genocs.Microservice.Template.Application.Common.Interfaces;
 
 public interface INotificationSender : ITransientService
 {

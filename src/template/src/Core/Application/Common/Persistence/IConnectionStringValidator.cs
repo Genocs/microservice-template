@@ -1,4 +1,4 @@
-﻿namespace Genocs.Microservice.Application.Common.Persistence;
+﻿namespace Genocs.Microservice.Template.Application.Common.Persistence;
 
 public interface IConnectionStringValidator
 {

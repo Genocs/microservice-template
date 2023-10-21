@@ -1,4 +1,4 @@
-﻿namespace Genocs.Microservice.Infrastructure.Identity;
+﻿namespace Genocs.Microservice.Template.Infrastructure.Identity;
 
 public class RegisterUserEmailModel
 {

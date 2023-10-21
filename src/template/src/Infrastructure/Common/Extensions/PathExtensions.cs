@@ -1,7 +1,7 @@
 using System.Text;
 using Microsoft.Extensions.Primitives;
 
-namespace Genocs.Microservice.Infrastructure.Common.Extensions;
+namespace Genocs.Microservice.Template.Infrastructure.Common.Extensions;
 
 public class PathExtensions
 {

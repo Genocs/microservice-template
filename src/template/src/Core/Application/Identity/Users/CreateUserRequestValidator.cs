@@ -1,4 +1,6 @@
-namespace Genocs.Microservice.Application.Identity.Users;
+using Genocs.Microservice.Template.Application.Common.Validation;
+
+namespace Genocs.Microservice.Template.Application.Identity.Users;
 
 public class CreateUserRequestValidator : CustomValidator<CreateUserRequest>
 {

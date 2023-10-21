@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 
-namespace Genocs.Microservice.Infrastructure.SecurityHeaders;
+namespace Genocs.Microservice.Template.Infrastructure.SecurityHeaders;
 
 internal static class Startup
 {

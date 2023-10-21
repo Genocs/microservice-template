@@ -1,9 +1,9 @@
-using Genocs.Microservice.Application.Common.Interfaces;
+using Genocs.Microservice.Template.Application.Common.Interfaces;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
 
-namespace Genocs.Microservice.Infrastructure.Common.Services;
+namespace Genocs.Microservice.Template.Infrastructure.Common.Services;
 
 public class NewtonSoftService : ISerializerService
 {

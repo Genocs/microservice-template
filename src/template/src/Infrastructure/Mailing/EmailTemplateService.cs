@@ -1,8 +1,8 @@
 using System.Text;
-using Genocs.Microservice.Application.Common.Mailing;
+using Genocs.Microservice.Template.Application.Common.Mailing;
 using RazorEngineCore;
 
-namespace Genocs.Microservice.Infrastructure.Mailing;
+namespace Genocs.Microservice.Template.Infrastructure.Mailing;
 
 public class EmailTemplateService : IEmailTemplateService
 {
@@ -11,7 +11,7 @@ public class EmailTemplateService : IEmailTemplateService
         string template = GetTemplate(templateName);
 
         IRazorEngine razorEngine = new RazorEngine();
-        IRazorEngineCompiledTemplate modifiedTemplate = razorEngine.Compile(template);
+        var modifiedTemplate = razorEngine.Compile(template);
 
         return modifiedTemplate.Run(mailTemplateModel);
     }

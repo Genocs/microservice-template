@@ -1,10 +1,10 @@
-using Genocs.Microservice.Application.Common.Persistence;
-using Genocs.Microservice.Domain.Common.Contracts;
-using Genocs.Microservice.Infrastructure.Common;
-using Genocs.Microservice.Infrastructure.Persistence.ConnectionString;
-using Genocs.Microservice.Infrastructure.Persistence.Context;
-using Genocs.Microservice.Infrastructure.Persistence.Initialization;
-using Genocs.Microservice.Infrastructure.Persistence.Repository;
+using Genocs.Microservice.Template.Application.Common.Persistence;
+using Genocs.Microservice.Template.Domain.Common.Contracts;
+using Genocs.Microservice.Template.Infrastructure.Common;
+using Genocs.Microservice.Template.Infrastructure.Persistence.ConnectionString;
+using Genocs.Microservice.Template.Infrastructure.Persistence.Context;
+using Genocs.Microservice.Template.Infrastructure.Persistence.Initialization;
+using Genocs.Microservice.Template.Infrastructure.Persistence.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,7 +12,7 @@ using Microsoft.Extensions.Options;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using Serilog;
 
-namespace Genocs.Microservice.Infrastructure.Persistence;
+namespace Genocs.Microservice.Template.Infrastructure.Persistence;
 
 internal static class Startup
 {

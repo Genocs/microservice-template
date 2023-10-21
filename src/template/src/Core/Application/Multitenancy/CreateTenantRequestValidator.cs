@@ -1,4 +1,7 @@
-namespace Genocs.Microservice.Application.Multitenancy;
+using Genocs.Microservice.Template.Application.Common.Persistence;
+using Genocs.Microservice.Template.Application.Common.Validation;
+
+namespace Genocs.Microservice.Template.Application.Multitenancy;
 
 public class CreateTenantRequestValidator : CustomValidator<CreateTenantRequest>
 {

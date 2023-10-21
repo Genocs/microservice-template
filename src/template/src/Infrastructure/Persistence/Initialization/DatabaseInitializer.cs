@@ -1,11 +1,11 @@
 ﻿using Finbuckle.MultiTenant;
-using Genocs.Microservice.Infrastructure.Multitenancy;
-using Genocs.Microservice.Shared.Multitenancy;
+using Genocs.Microservice.Template.Infrastructure.Multitenancy;
+using Genocs.Microservice.Template.Shared.Multitenancy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace Genocs.Microservice.Infrastructure.Persistence.Initialization;
+namespace Genocs.Microservice.Template.Infrastructure.Persistence.Initialization;
 
 internal class DatabaseInitializer : IDatabaseInitializer
 {

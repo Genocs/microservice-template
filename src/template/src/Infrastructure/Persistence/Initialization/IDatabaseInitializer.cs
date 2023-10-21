@@ -1,6 +1,6 @@
-﻿using Genocs.Microservice.Infrastructure.Multitenancy;
+﻿using Genocs.Microservice.Template.Infrastructure.Multitenancy;
 
-namespace Genocs.Microservice.Infrastructure.Persistence.Initialization;
+namespace Genocs.Microservice.Template.Infrastructure.Persistence.Initialization;
 
 internal interface IDatabaseInitializer
 {

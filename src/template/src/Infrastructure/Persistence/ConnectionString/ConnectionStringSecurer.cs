@@ -1,5 +1,6 @@
-using Genocs.Microservice.Application.Common.Persistence;
-using Genocs.Microservice.Infrastructure.Common;
+using Genocs.Microservice.Template.Application.Common.Persistence;
+using Genocs.Microservice.Template.Infrastructure.Common;
+using Genocs.Microservice.Template.Infrastructure.Persistence;
 using Microsoft.Data.SqlClient;
 using Microsoft.Data.Sqlite;
 using Microsoft.Extensions.Options;
@@ -7,7 +8,7 @@ using MySqlConnector;
 using Npgsql;
 using Oracle.ManagedDataAccess.Client;
 
-namespace Genocs.Microservice.Infrastructure.Persistence.ConnectionString;
+namespace Genocs.Microservice.Template.Infrastructure.Persistence.ConnectionString;
 
 public class ConnectionStringSecurer : IConnectionStringSecurer
 {

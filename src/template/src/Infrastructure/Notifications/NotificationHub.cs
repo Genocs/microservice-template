@@ -1,11 +1,11 @@
 ﻿using Finbuckle.MultiTenant;
-using Genocs.Microservice.Application.Common.Exceptions;
-using Genocs.Microservice.Application.Common.Interfaces;
+using Genocs.Microservice.Template.Application.Common.Exceptions;
+using Genocs.Microservice.Template.Application.Common.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Logging;
 
-namespace Genocs.Microservice.Infrastructure.Notifications;
+namespace Genocs.Microservice.Template.Infrastructure.Notifications;
 
 [Authorize]
 public class NotificationHub : Hub, ITransientService

@@ -1,8 +1,8 @@
-﻿using Genocs.Microservice.Application.Common.Caching;
+﻿using Genocs.Microservice.Template.Application.Common.Caching;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Genocs.Microservice.Infrastructure.Caching;
+namespace Genocs.Microservice.Template.Infrastructure.Caching;
 
 internal static class Startup
 {

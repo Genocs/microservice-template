@@ -2,49 +2,48 @@
 
 There are some prerequisites for using the included docker-compose.yml files:
 
-1) Make sure you have docker installed (on windows install docker desktop)
+1. Make sure you have docker installed (on windows install docker desktop)
+2. Create and install an https certificate:
 
-2) Create and install an https certificate:
-
-    ```
+    ```bash
     dotnet dev-certs https -ep $env:USERPROFILE\.aspnet\https\cert.pfx -p password!
     ```
 
-3) It's possible that the above step gives you an `A valid HTTPS certificate is already present` error.
+3. It's possible that the above step gives you an `A valid HTTPS certificate is already present` error.
    In that case you will have to run the following command, and then  `Re-Run Step 2`
 
-    ```
+    ```bash
      dotnet dev-certs https --clean
     ```
 
-4) Trust the certificate
+4. Trust the certificate
 
-    ```
+    ```bash
      dotnet dev-certs https --trust
     ```
 
 
 ## Docker-Compose Commands
 
-Fullstackhero .NET WebAPI Boilerplate includes 3 Docker-Compose Files!
+Genocs Microservice .NET WebAPI Template includes 3 Docker-Compose Files!
 - WebAPI + PostgreSQL (default)
 - WebAPI + MSSQL
 - WebAPI + MYSQL
 
 1) WebAPI + PostgreSQL (default)
-```
+```bash
 docker-compose -f docker-compose.postgresql.yml up -d
 docker-compose -f docker-compose.postgresql.yml down
 ```
 
 2) WebAPI + MSSQL
-```
+```bash
 docker-compose -f docker-compose.mssql.yml up -d
 docker-compose -f docker-compose.mssql.yml down
 ```
 
 3) WebAPI + MYSQL
-```
+```bash
 docker-compose -f docker-compose.mysql.yml up -d
 docker-compose -f docker-compose.mysql.yml down
 ```

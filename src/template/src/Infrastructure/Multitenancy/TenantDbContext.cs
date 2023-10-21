@@ -1,8 +1,8 @@
 ﻿using Finbuckle.MultiTenant.Stores;
-using Genocs.Microservice.Infrastructure.Persistence.Configuration;
+using Genocs.Microservice.Template.Infrastructure.Persistence.Configuration;
 using Microsoft.EntityFrameworkCore;
 
-namespace Genocs.Microservice.Infrastructure.Multitenancy;
+namespace Genocs.Microservice.Template.Infrastructure.Multitenancy;
 
 public class TenantDbContext : EFCoreStoreDbContext<FSHTenantInfo>
 {
