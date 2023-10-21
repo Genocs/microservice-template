@@ -43,17 +43,19 @@
 
 ![webapi banner](https://raw.githubusercontent.com/Genocs/microservice-template/main/assets/genocs-library-logo.png "genocs webapi")
 
-## What's Genocs .NET Web API Microservice Template?
+## Genocs .NET Web API Microservice Template?
 
 Genocs .NET Web API Microservice Template is a starting point for your next `.NET7 Clean Architecture Project` that incorporates the most essential packages and features your projects will ever need including out of the box Multi-Tenancy support.
 
 > As the name suggests, this is an API / Server Template. You can find other Client Template that consume this API under `@genocs` handle.
-> - Find `Blazor WebAssembly Template` here - https://github.com/Genocs/blazor-wasm-template
+> - Find `Blazor WebAssembly Template` here - [Blazor WebAssembly Template](https://github.com/Genocs/blazor-wasm-template)
+
+The template can be used with the `dotnet new` command or with the `Visual Studio 2022` or `Visual Studio Code` IDEs.
 
 
 ## YouTube Video - Genocs Library - Getting Started
 
-`Watch the Getting started video here` : https://www.youtube.com/watch?v=TgxDvU---Ak
+`Watch the Getting started video here` : [youtube intro](https://www.youtube.com/watch?v=TgxDvU---Ak)
 
 
 ## Goals
@@ -73,10 +75,6 @@ The goal of this repository is to provide a complete and feature-rich starting p
   - :white_check_mark: Activate / Deactivate Tenants on Demand
   - :white_check_mark: Upgrade Subscription of Tenants - Add More Validity Months to each tenant!
 - :white_check_mark: Supports MySQL, MSSQL, Oracle & PostgreSQL!
-
-<details>
-  <summary>Click to See More!</summary>
-
 - :white_check_mark: Uses Entity Framework Core as DB Abstraction
 - :white_check_mark: Flexible Repository Pattern
 - :white_check_mark: Dapper Integration for Optimal Performance
@@ -97,12 +95,11 @@ The goal of this repository is to provide a complete and feature-rich starting p
 - :white_check_mark: MediatR - CQRS
 - :white_check_mark: SignalR Notifications
 - :white_check_mark: & Much More
-</details>
 
 ## Documentation
 
-Read Documentation related to this Template here - https://genocs-blog.netlify.app/dotnet-templates/
-> Feel free to contribute to the Documentation Repository - https://github.com/Genocs/genocs-library-docs
+Read Documentation related to this template here - [Template Documentation](https://genocs-blog.netlify.app/dotnet-templates/)
+> Feel free to contribute to the Documentation Repository - [Contribute Documentation](https://github.com/Genocs/genocs-library-docs)
 
 ## Getting Started
 
@@ -115,14 +112,16 @@ To get started with this Template, here are the available options.
 
 ### GENOCS CLI Tool
 
-#### Prerequisites
+#### **Prerequisites**
 
 Before creating your first solution, you should ensure that your local machine has:
 
 - **.NET 7** You can find the download [here](https://dotnet.microsoft.com/en-us/download/dotnet/7.0).
 - **NodeJS (16+)** You can find the download [here](https://nodejs.org/en/download).
+- **Visual Studio Code** You can find the download [here](https://code.visualstudio.com/download).
+- **Visual Studio 2022** You can find the download [here](https://visualstudio.microsoft.com/vs/preview/vs2022/).
 
-#### Installation
+#### **Installation**
 
 After you have installed .NET, you will need to install the `CLI` console tool.
 
@@ -135,24 +134,24 @@ This install the CLI tools and the associated Templates. You are now ready to cr
 
 [Documentation](https://genocs-blog.netlify.app/cli/)
 
-#### Genocs .NET WebAPI Template
+#### Let get started
 Here's how you would create a Solution using the Genocs .NET WebAPI Template.
 
-Simply navigate to a new directory (wherever you want to place your new solution), and open up Command Prompt at the opened directory.
+Simply navigate to a new directory (wherever you want to place your new solution), and open up *bash prompt* at the opened directory.
 
-Run the following command. Note that, in this demonstration, I am naming my new solution as `MyCompany.MyProject.MyService`.
+Run the following command. Note that, in this demonstration, I am naming my new solution as `CompanyName.ProjectName.ServiceName`.
 
 ```bash
-genocs api new MyCompany.MyProject.MyService
+genocs api new CompanyName.ProjectName.ServiceName
 ```
 
 OR
 
 ```bash
-genocs api n MyCompany.MyProject.MyService
+genocs api n CompanyName.ProjectName.ServiceName
 ```
 
-This will create a new .NET 7 WebAPI solution for you using the Template.
+This will create a new .NET7 Web API solution for you using the template.
 For further steps and details, [Read the Getting Started Guide](https://genocs-blog.netlify.app/dotnet-templates/)
 
 #### Update
@@ -165,27 +164,29 @@ genocs update
 ```
 ### Forking the Repository
 
-You would probably need to take this approach if you want to keep your source code up to date with the latest changes. To get started based on this repository, you need to get a copy locally. You have three options: fork, clone, or download.
+You would probably need to take this approach if you want to keep your source code up to date with the latest changes. To get started based on this repository, you need to get a copy locally. You have three options: `fork, clone, or download`.
 
 - Make a fork of this repository in your GitHub account.
 - Create your new `dotnet-webapi-template` personal project by cloning the forked repository on your personal GitHub.
 - Setup an upstream remote on your personal project pointing to your forked repository using command `git remote add upstream https://github.com/{githubuseraccount}/dotnet-webapi-template` and `git remote set-url --push upstream DISABLE`
 
-For step by step instructions, [follow this](https://discord.com/channels/878181478972928011/892573122186838046/933513103688224838) and [this](https://gist.github.com/0xjac/85097472043b697ab57ba1b1c7530274).
+For step by step instructions, follow: [this](https://discord.com/channels/878181478972928011/892573122186838046/933513103688224838) and [this](https://gist.github.com/0xjac/85097472043b697ab57ba1b1c7530274).
 
 
-## Quick Start Guide
+Makefile
+-------------------
 
 So, for a better developer experience, I have added Makefile into the solution. Now that our solution is generated, let's navigate to the root folder of the solution and open up a command terminal.
 
-To build the solution,
-```
+To build the solution:
+
+```bash
 make build
 ```
 
 By default, the solution is configured to work with postgresql database (mainly because of the OS licensing). So, you will have to make sure that postgresql database instance is up and running on your machine. You can modify the connection string to include your username and password. Connections strings can be found at `src/Host/Configurations/database.json` and `src/Host/Configurations/hangfire.json`. Once that's done, let's start up the API server.
 
-```
+```bash
 make start
 ```
 
@@ -210,7 +211,7 @@ Open up Postman, Thunderclient or Swagger.
 
 identity -> get-token
 
-This is a POST Request. Here the body of the request will be the JSON (credentials) I specified earlier. And also, remember to pass the tenant id in the header of the request. The default tenant id is `root`.
+This is a **POST** Request. Here the body of the request will be the JSON (credentials) I specified earlier. And also, remember to pass the tenant id in the header of the request. The default tenant id is `root`.
 
 Here is a sample CURL command for getting the tokens.
 
@@ -243,33 +244,34 @@ For further steps and details, [Read the Getting Started Guide](https://genocs-b
 
 ## Containerization
 
-The API project, being .NET 7, it is configured to have built-in support for containerization. That means, you really don't need a Dockerfile to containerize the webapi.
+The API project, being .NET7, it is configured to have built-in support for containerization. That means, you really don't need a `dockerfile` to containerize the webapi.
 
 To build a docker image, all you have to do is, ensure that docker-desktop or docker instance is running. And run the following command at the root of the solution.
 
-```
+```bash
 make publish
 ```
 
 You can also push the docker image directly to dockerhub or any supported registry by using the following command.
 
-```
+```bash
 make publish-to-hub
 ```
-You will have to update your docker registry / repo url in the Makefile though!
+
+You will have to update your docker registry/repo url in the Makefile though!
 
 ## Docker Compose
 
 This project also comes with examples of docker compose files, where you can spin up the webapi and database instance in your local containers with the following commands.
 
-``` powershell
+```bash
 #docker compose up - Boots up the webapi & postgresql container
 make dcu 
 #docker compose down - Shuts down the webapi & postgresql containers
 make dcd 
 ```
 
-There are also examples for mysql & mssql variations of the fsh webapi. You can find the other docker-compose files under the ./docker-compose folder. Read more about [docker-compose](./docker-compose/README.md) instructions & files here.
+There are also examples for mysql & mssql variations. You can find the other docker-compose files under the ./docker-compose folder. Read more about  docker-compose instructions & files here [docker-compose](./docker-compose/README.md).
 
 ## Cloud Deployment with Terraform + AWS ECS
 
@@ -280,13 +282,13 @@ We do support cloud deployment to AWS using terraform. The terraform files are a
 - Install Terraform
 - Install & Configure AWS CLI profiles to allow terraform to provision resources for you. Please see this video about [AWS Credentials Management](https://www.youtube.com/watch?v=oY0-1mj4oCo&ab_channel=MukeshMurugan).
 
-In brief, the terraform folder has 2 sub-folders.
+In brief, the terraform folder has 2 sub-folders:
 - backend
 - environments/staging
 
 The Backend folder is internally used by Terraform for state management and locking. There is a one-time setup you have to do against this folder. Navigate to the backend folder and run the command.
 
-```
+```bash
 terraform init
 terraform apply -auto-approve
 ```
@@ -295,25 +297,26 @@ This would create the required S3 Buckets and DDB table for you.
 
 Next is the `environments/staging` folder. Here too, run the following command.
 
-```
+```bash
 terraform init
 ```
 
-Once done, you can go the terraform.tfvars file to change the variables like,
+Once done, you can go the terraform.tfvars file to change the variables like:
 - project tags
 - docker image name
 - ecs cluster name and so on.
 
 After that, simply go back to the root of the solution and run the following command.
 
-```
+```bash
 make ta
 ```
 
 This will evaluate your terraform files and create a provision plan for you. Once you are ok, type in `yes` and the tool will start to deploy your .NET WebAPI project as containers along with a RDS PostgreSQL instance. You will be receiving the hosted api url once the provisioning is completed!
 
 To destroy the deployed resources, run the following
-```
+
+```bash
 make td
 ```
 
@@ -325,10 +328,10 @@ Check nuget is installed on your machine. To download nuget, visit [nuget.org](h
 - Add the nuget.exe to your PATH environment variable.
 - run the following commands
 
-``` PowerShell
-cd .\src
+```bash
+cd ./src
 nuget pack -OutputDirectory nupkgs -NoDefaultExcludes -Version {{semver}}
-dotnet new install .\nupkgs\Genocs.Microservice.Template.{{semver}}.nupkg
+dotnet new install ./nupkgs/Genocs.Microservice.Template.{{semver}}.nupkg
 dotnet new gnx-microservice --help
 dotnet new gnx-microservice --name {{CompanyName.ProjectName.ServiceName}}
 ```
@@ -343,13 +346,15 @@ dotnet new gnx-microservice --name {{CompanyName.ProjectName.ServiceName}}
 
 [Participate in QNA & General Discussions](https://github.com/Genocs/microservice-template/discussions)
 
-## License
-
-This project is licensed with the [MIT license](LICENSE).
 
 ## Changelogs
 
 View Complete [Changelogs](https://github.com/Genocs/microservice-template/blob/main/CHANGELOGS.md).
+
+## License
+
+This project is licensed with the [MIT license](LICENSE).
+
 
 ## Community
 
@@ -357,29 +362,31 @@ View Complete [Changelogs](https://github.com/Genocs/microservice-template/blob/
 - Facebook Page [@genocs](https://facebook.com/Genocs)
 - Youtube Channel [@genocs](https://youtube.com/c/genocs)
 
-
 ## Support
 
 Has this Project helped you learn something New? or Helped you at work?
 Here are a few ways by which you can support.
 
-- ⭐ Leave a star! 
+- ⭐ Leave a star!
 - 🥇 Recommend this project to your colleagues.
 - 🦸 Do consider endorsing me on LinkedIn for ASP.NET Core - [Connect via LinkedIn](https://www.linkedin.com/in/giovanni-emanuele-nocco-b31a5169/) 
 - ☕ If you want to support this project in the long run, [consider buying me a coffee](https://www.buymeacoffee.com/genocs)!
   
 
-[![buy-me-a-coffee](https://raw.githubusercontent.com/Genocs/microservice-template/main/assets/buy-me-a-coffee.png "buy-me-a-coffee")](https://www.buymeacoffee.com/genocs)
+[![buy-me-a-coffee](https://raw.githubusercontent.com/Genocs/clean-architecture-template/main/assets/buy-me-a-coffee.png "buy me a coffee")](https://www.buymeacoffee.com/genocs)
+
 
 ## Code Contributors
 
 This project exists thanks to all the people who contribute. [Submit your PR and join the team!](CONTRIBUTING.md)
 
-[![genocs contributors](https://contrib.rocks/image?repo=Genocs/microservice-template "genocs contributors")](https://github.com/genocs/microservice-template/graphs/contributors)
+[![genocs contributors](https://contrib.rocks/image?repo=Genocs/clean-architecture-template "genocs contributors")](https://github.com/Genocs/clean-architecture-template/graphs/contributors)
 
 ## Financial Contributors
 
-Become a financial contributor and help me sustain the project. [Support the Project!](https://opencollective.com/genocs/contribute)
+Become a financial contributor and help me sustain the project.
+
+**Support the Project** on [Opencollective](https://opencollective.com/genocs)
 
 <a href="https://opencollective.com/genocs"><img src="https://opencollective.com/genocs/individuals.svg?width=890"></a>
 

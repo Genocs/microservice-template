@@ -1,5 +1,5 @@
 resource "aws_iam_role" "ecs_task_execution_role" {
-  name               = "fsh-ecs-task-execution-role"
+  name               = "genocs-ecs-task-execution-role"
   assume_role_policy = <<EOF
 {
  "Version": "2012-10-17",
@@ -17,7 +17,7 @@ resource "aws_iam_role" "ecs_task_execution_role" {
 EOF
 }
 resource "aws_iam_role" "ecs_task_role" {
-  name               = "fsh-ecs-task-role"
+  name               = "genocs-ecs-task-role"
   assume_role_policy = <<EOF
 {
  "Version": "2012-10-17",

@@ -19,7 +19,7 @@ resource "aws_ecs_service" "api_ecs_service" {
   launch_type     = "FARGATE"
   desired_count   = 1
   load_balancer {
-    target_group_arn = aws_lb_target_group.fsh_api_tg.arn
+    target_group_arn = aws_lb_target_group.genocs_api_tg.arn
     container_name   = var.api_service_name
     container_port   = 80
   }
@@ -47,17 +47,17 @@ resource "aws_ecs_task_definition" "api_ecs_task" {
       essential : true
       environment : [
         { "name" : "ASPNETCORE_ENVIRONMENT", "value" : var.environment },
-        { "name" : "DatabaseSettings__ConnectionString", "value" : "Host=${aws_db_instance.postgres.endpoint};Port=5432;Database=fshdb;Username=${var.pg_username};Password=${var.pg_password};Include Error Detail=true" },
+        { "name" : "DatabaseSettings__ConnectionString", "value" : "Host=${aws_db_instance.postgres.endpoint};Port=5432;Database=genocsdb;Username=${var.pg_username};Password=${var.pg_password};Include Error Detail=true" },
         { "name" : "DatabaseSettings__DBProvider", "value" : "postgresql" },
-        { "name" : "HangfireSettings__Storage__ConnectionString", "value" : "Host=${aws_db_instance.postgres.endpoint};Port=5432;Database=fshdb;Username=${var.pg_username};Password=${var.pg_password};Include Error Detail=true" },
+        { "name" : "HangfireSettings__Storage__ConnectionString", "value" : "Host=${aws_db_instance.postgres.endpoint};Port=5432;Database=genocsdb;Username=${var.pg_username};Password=${var.pg_password};Include Error Detail=true" },
         { "name" : "HangfireSettings__Storage__StorageProvider", "value" : "postgresql" }
       ]
       logConfiguration : {
         "logDriver" : "awslogs",
         "options" : {
           "awslogs-region" : var.aws_region,
-          "awslogs-group" : "fsh/dotnet-webapi",
-          "awslogs-stream-prefix" : "fsh-api"
+          "awslogs-group" : "genocs/dotnet-webapi",
+          "awslogs-stream-prefix" : "genocs-api"
         }
       },
       portMappings : [
@@ -99,6 +99,6 @@ resource "aws_route" "internet_access" {
 }
 
 resource "aws_cloudwatch_log_group" "api_log_group" {
-  name              = "fsh/dotnet-webapi"
+  name              = "genocs/dotnet-webapi"
   retention_in_days = 5
 }

@@ -1,7 +1,7 @@
 resource "aws_s3_bucket" "s3_bucket" {
-  bucket = "fsh-backend"
+  bucket = "genocs-backend"
   tags = {
-    Name = "fsh-backend"
+    Name = "genocs-backend"
   }
   lifecycle {
     prevent_destroy = true
