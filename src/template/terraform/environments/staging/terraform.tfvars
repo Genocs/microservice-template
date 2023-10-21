@@ -6,7 +6,7 @@ aws_region_b = "ap-south-1b"
 // Default Project Tags
 environment  = "staging"
 owner        = "Mukesh Murugan"
-project_name = "fullstackhero-dotnet-webapi"
+project_name = "genocs-microservice-webapi"
 
 // RDS PostgreSQL Configuration
 pg_password = "posgresqladmin"

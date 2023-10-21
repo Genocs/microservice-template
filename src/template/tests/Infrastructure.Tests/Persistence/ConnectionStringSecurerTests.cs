@@ -5,7 +5,7 @@ namespace Infrastructure.Test.Persistence;
 
 public class ConnectionStringSecurerTests
 {
-    private const string Mssql = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=fullStackHeroDb;MultipleActiveResultSets=True;";
+    private const string Mssql = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=genocs_Db;MultipleActiveResultSets=True;";
     private const string Mysql = "server=127.0.0.1;database=test";
 
     private readonly IConnectionStringSecurer _connectionStringSecurer;
