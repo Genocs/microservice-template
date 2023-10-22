@@ -41,7 +41,7 @@ public static class Startup
             .AddCaching(config)
             .AddCorsPolicy(config)
             .AddExceptionMiddleware()
-            .AddBehaviours(applicationAssembly)
+            .Behaviors(applicationAssembly)
             .AddHealthCheck()
             .AddPOLocalization(config)
             .AddMailing(config)

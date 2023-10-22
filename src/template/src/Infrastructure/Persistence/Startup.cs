@@ -6,7 +6,6 @@ using Genocs.Microservice.Template.Infrastructure.Persistence.Context;
 using Genocs.Microservice.Template.Infrastructure.Persistence.Initialization;
 using Genocs.Microservice.Template.Infrastructure.Persistence.Repository;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;

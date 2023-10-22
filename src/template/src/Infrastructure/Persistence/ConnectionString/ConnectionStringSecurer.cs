@@ -1,6 +1,5 @@
 using Genocs.Microservice.Template.Application.Common.Persistence;
 using Genocs.Microservice.Template.Infrastructure.Common;
-using Genocs.Microservice.Template.Infrastructure.Persistence;
 using Microsoft.Data.SqlClient;
 using Microsoft.Data.Sqlite;
 using Microsoft.Extensions.Options;
