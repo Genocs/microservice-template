@@ -111,7 +111,12 @@ internal static class Startup
     {
         if (config.GetValue<bool>("SwaggerSettings:Enable"))
         {
+            // Add OpenAPI 3.0 document serving middleware
+            // Available at: https://{root}/swagger/v1/swagger.json
             app.UseOpenApi();
+
+            // Add web UIs to interact with the document
+            // Available at: http://{root}/swagger
             app.UseSwaggerUi3(options =>
             {
                 options.DefaultModelsExpandDepth = -1;
@@ -129,6 +134,14 @@ internal static class Startup
                     };
                     options.OAuth2Client.Scopes.Add(config["SecuritySettings:Swagger:ApiScope"]);
                 }
+            });
+
+            // TODO: Add Swagger ReDoc UI configuration settings
+            // Add ReDoc UI to interact with the document
+            // Available at: http://{root}/redoc
+            app.UseReDoc(options =>
+            {
+                options.Path = "/redoc";
             });
         }
 

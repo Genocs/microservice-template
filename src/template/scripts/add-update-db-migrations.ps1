@@ -5,7 +5,7 @@ param(
  )
  
 $rootDirectory = git rev-parse --show-toplevel
-$hostDirectory = $rootDirectory + '/src/Host'
+$hostDirectory = $rootDirectory + '/src/WebApi'
 Set-Location -Path $hostDirectory
 Write-Host "Host Directory is $hostDirectory `n"
 
@@ -44,7 +44,7 @@ $hangfireJsonContent.HangfireSettings.Storage.ConnectionString = $mssqlConnectio
 $hangfireJsonContent | ConvertTo-Json | set-content $hangfireJsonPath
 
 Write-Host "Adding Migrations for MSSQL Provider..."
-dotnet ef migrations add $commitMessage --project .././Migrators/Migrators.MSSQL/ --context ApplicationDbContext -o Migrations/Application
+dotnet ef migrations add $commitMessage --project ../Migrators/Migrators.MSSQL/ --context ApplicationDbContext -o Migrations/Application
 Write-Host "Adding Migrations for MSSQL Provider...Done`n"
 Write-Host "**************************`n"
 
@@ -59,7 +59,7 @@ $hangfireJsonContent.HangfireSettings.Storage.ConnectionString = $mysqlConnectio
 $hangfireJsonContent | ConvertTo-Json | set-content $hangfireJsonPath
 
 Write-Host "Adding Migrations for MySQL Provider..."
-dotnet ef migrations add $commitMessage --project .././Migrators/Migrators.MySQL/ --context ApplicationDbContext -o Migrations/Application
+dotnet ef migrations add $commitMessage --project ../Migrators/Migrators.MySQL/ --context ApplicationDbContext -o Migrations/Application
 Write-Host "Adding Migrations for MySQL Provider...Done`n"
 Write-Host "**************************`n"
 
@@ -74,7 +74,7 @@ $hangfireJsonContent.HangfireSettings.Storage.ConnectionString = $postgresqlConn
 $hangfireJsonContent | ConvertTo-Json | set-content $hangfireJsonPath
 
 Write-Host "Adding Migrations for PostgreSQL Provider..."
-dotnet ef migrations add $commitMessage --project .././Migrators/Migrators.PostgreSQL/ --context ApplicationDbContext -o Migrations/Application
+dotnet ef migrations add $commitMessage --project ../Migrators/Migrators.PostgreSQL/ --context ApplicationDbContext -o Migrations/Application
 Write-Host "Adding Migrations for PostgreSQL Provider...Done`n"
 Write-Host "**************************`n"
 

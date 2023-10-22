@@ -2,15 +2,21 @@
 
 $currentDirectory = Get-Location
 $rootDirectory = git rev-parse --show-toplevel
-$hostDirectory = Join-Path -Path $rootDirectory -ChildPath 'src/Host'
-$infrastructurePrj = Join-Path -Path $rootDirectory -ChildPath 'src/Client.Infrastructure/Client.Infrastructure.csproj'
+
+# use relative path to the template folder
+$templateFolder = ''
+# $templateFolder = 'src/template/'
+
+
+$webApiDirectory = Join-Path -Path $rootDirectory -ChildPath $templateFolder'src/WebApi'
+$infrastructurePrj = Join-Path -Path $rootDirectory -ChildPath $templateFolder'src/Infrastructure/Infrastructure.csproj'
 
 Write-Host "Make sure you have run the Genocs.WebApi project. `n"
 Write-Host "Press any key to continue... `n"
 $null = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown');
 
-Set-Location -Path $hostDirectory
-Write-Host "Host Directory is $hostDirectory `n"
+Set-Location -Path $webApiDirectory
+Write-Host "WebApi Directory is $webApiDirectory `n"
 
 <# Run command #>
 dotnet build -t:NSwag $infrastructurePrj

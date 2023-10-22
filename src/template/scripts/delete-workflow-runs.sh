@@ -1,4 +1,4 @@
-org=genocs
+org=Genocs
 repo=microservice-template
 workflow_id=12524751 #add in your workflow id here.
 echo "Listing runs for the workflow ID $workflow_id"
