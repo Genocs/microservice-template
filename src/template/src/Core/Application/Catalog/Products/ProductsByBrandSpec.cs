@@ -1,9 +1,7 @@
-﻿using Genocs.Microservice.Template.Domain.Catalog;
-
-namespace Genocs.Microservice.Template.Application.Catalog.Products;
+﻿namespace Genocs.Microservice.Template.Application.Catalog.Products;
 
 public class ProductsByBrandSpec : Specification<Product>
 {
-    public ProductsByBrandSpec(DefaultIdType brandId) =>
-        Query.Where(p => p.BrandId == brandId);
+    public ProductsByBrandSpec(DefaultIdType brandId)
+        => Query.Where(p => p.BrandId == brandId);
 }

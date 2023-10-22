@@ -17,10 +17,10 @@
 [license-url]: https://github.com/Genocs/microservice-template/blob/main/LICENSE
 [build-shield]: https://github.com/Genocs/microservice-template/actions/workflows/build_and_test.yml/badge.svg?branch=main
 [build-url]: https://github.com/Genocs/microservice-template/actions/workflows/build_and_test.yml
-[package-shield]: https://img.shields.io/badge/nuget-v.0.7-blue?&label=latests&logo=nuget
+[package-shield]: https://img.shields.io/badge/nuget-v.1.0.2-blue?&label=latests&logo=nuget
 [package-url]: https://github.com/Genocs/microservice-template/actions/workflows/build_and_test.yml
-[downloads-shield]: https://img.shields.io/nuget/dt/Genocs.CLI.svg?color=2da44e&label=downloads&logo=nuget
-[downloads-url]: https://www.nuget.org/packages/Genocs.CLI
+[downloads-shield]: https://img.shields.io/nuget/dt/Genocs.Microservice.Template.svg?color=2da44e&label=downloads&logo=nuget
+[downloads-url]: https://www.nuget.org/packages/Genocs.Microservice.Template
 [contributors-shield]: https://img.shields.io/github/contributors/Genocs/microservice-template.svg?style=flat-square
 [contributors-url]: https://github.com/Genocs/microservice-template/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/Genocs/microservice-template?style=flat-square
@@ -41,26 +41,26 @@
 [twitterx-url]: https://twitter.com/genocs
 
 
-![webapi banner](https://raw.githubusercontent.com/Genocs/microservice-template/main/assets/genocs-library-logo.png "genocs webapi")
+![.NET template banner](https://raw.githubusercontent.com/Genocs/microservice-template/main/assets/genocs-library-logo.png ".NET template banner")
 
-## Genocs .NET Web API Microservice Template?
+## Genocs .NET Web API Microservice Template
 
 Genocs .NET Web API Microservice Template is a starting point for your next `.NET7 Clean Architecture Project` that incorporates the most essential packages and features your projects will ever need including out of the box Multi-Tenancy support.
 
 > As the name suggests, this is an API / Server Template. You can find other Client Template that consume this API under `@genocs` handle.
 > - Find `Blazor WebAssembly Template` here - [Blazor WebAssembly Template](https://github.com/Genocs/blazor-wasm-template)
 
-The template can be used with the `dotnet new` command or with the `Visual Studio 2022` or `Visual Studio Code` IDEs.
+The template can be used with the `genocs cli` or `dotnet new` command or with the `Visual Studio 2022` or `Visual Studio Code` IDEs.
 
 
 ## YouTube Video - Genocs Library - Getting Started
 
-`Watch the Getting started video here` : [youtube intro](https://www.youtube.com/watch?v=TgxDvU---Ak)
+Watch the Getting started video here: [youtube intro](https://www.youtube.com/watch?v=TgxDvU---Ak)
 
 
 ## Goals
 
-The goal of this repository is to provide a complete and feature-rich starting point for any .NET Developer / Team to kick-start their next major project using .NET 7 Web API. This also serves the purpose of learning advanced concepts and implementations such as `Multitenancy, CQRS, Onion Architecture, Clean Coding standards, Docker Concepts, Cloud Deployments with Terraform to AWS, CI/CD Pipelines & Workflows` and so on.
+The goal of this repository is to provide a complete and feature-rich starting point for any .NET Developer / Team to kick-start their next major project using .NET7 Microservices architecture. This also serves the purpose of learning advanced concepts and implementations such as `Multitenancy, CQRS, Onion Architecture, Clean Coding standards, Docker Concepts, Cloud Deployments with Terraform to AWS, CI/CD Pipelines & Workflows` and so on.
 
 ## Features
 
@@ -100,13 +100,15 @@ The goal of this repository is to provide a complete and feature-rich starting p
 ## Documentation
 
 Read Documentation related to this template here - [Template Documentation](https://genocs-blog.netlify.app/dotnet-templates/)
+
 > Feel free to contribute to the Documentation Repository - [Contribute Documentation](https://github.com/Genocs/genocs-library-docs)
 
 ## Getting Started
 
-To get started with this Template, here are the available options.
+To get started with this Template, here are the available options:
 
-- Install using the `GENOCS CLI` tool. Use this for release versions of the Template only.
+- Install using the `genocs cli` tool. Use this for latest release versions of the Template only.
+- Install using the `dotnet new install` tool. Use this for any versions of the Template.
 - Fork the Repository. Use this if you want to always keep your version of the Template up-to date with the latest changes.
 
 > Make sure that your DEV enviroment is setup, [Read the Development Environment Guide](https://genocs-blog.netlify.app/dotnet-templates/general/development-environment/)
@@ -117,14 +119,14 @@ To get started with this Template, here are the available options.
 
 Before creating your first solution, you should ensure that your local machine has:
 
-- **.NET 7** You can find the download [here](https://dotnet.microsoft.com/en-us/download/dotnet/7.0).
+- **.NET7** You can find the download [here](https://dotnet.microsoft.com/en-us/download/dotnet/7.0).
 - **NodeJS (16+)** You can find the download [here](https://nodejs.org/en/download).
 - **Visual Studio Code** You can find the download [here](https://code.visualstudio.com/download).
-- **Visual Studio 2022** You can find the download [here](https://visualstudio.microsoft.com/vs/preview/vs2022/).
+- **Visual Studio 2022** (Optional) You can find the download [here](https://visualstudio.microsoft.com/vs/preview/vs2022/).
 
 #### **Installation**
 
-After you have installed .NET, you will need to install the `CLI` console tool.
+After you have installed .NET, you will need to install the `cli` console tool.
 
 ```bash
 dotnet tool install -g genocs.cli
@@ -168,8 +170,8 @@ genocs update
 You would probably need to take this approach if you want to keep your source code up to date with the latest changes. To get started based on this repository, you need to get a copy locally. You have three options: `fork, clone, or download`.
 
 - Make a fork of this repository in your GitHub account.
-- Create your new `dotnet-webapi-template` personal project by cloning the forked repository on your personal GitHub.
-- Setup an upstream remote on your personal project pointing to your forked repository using command `git remote add upstream https://github.com/{githubuseraccount}/dotnet-webapi-template` and `git remote set-url --push upstream DISABLE`
+- Create your new `dotnet-microservice-template` personal project by cloning the forked repository on your personal GitHub.
+- Setup an upstream remote on your personal project pointing to your forked repository using command `git remote add upstream https://github.com/{githubuseraccount}/dotnet-microservice-template` and `git remote set-url --push upstream DISABLE`
 
 For step by step instructions, follow: [this](https://discord.com/channels/878181478972928011/892573122186838046/933513103688224838) and [this](https://gist.github.com/0xjac/85097472043b697ab57ba1b1c7530274).
 
@@ -185,7 +187,7 @@ To build the solution:
 make build
 ```
 
-By default, the solution is configured to work with postgresql database (mainly because of the OS licensing). So, you will have to make sure that postgresql database instance is up and running on your machine. You can modify the connection string to include your username and password. Connections strings can be found at `src/Host/Configurations/database.json` and `src/Host/Configurations/hangfire.json`. Once that's done, let's start up the API server.
+By default, the solution is configured to work with postgresql database (mainly because of the OS licensing). So, you will have to make sure that postgresql database instance is up and running on your machine. You can modify the connection string to include your username and password. Connections strings can be found at `src/WebApi/Configurations/database.json` and `src/WebApi/Configurations/hangfire.json`. Once that's done, let's start up the API server.
 
 ```bash
 make start
@@ -245,7 +247,7 @@ For further steps and details, [Read the Getting Started Guide](https://genocs-b
 
 ## Containerization
 
-The API project, being .NET7, it is configured to have built-in support for containerization. That means, you really don't need a `dockerfile` to containerize the webapi.
+The project, being .NET7, it is configured to have built-in support for containerization. That means, you really don't need a `dockerfile` to containerize the webapi.
 
 To build a docker image, all you have to do is, ensure that docker-desktop or docker instance is running. And run the following command at the root of the solution.
 
@@ -313,7 +315,7 @@ After that, simply go back to the root of the solution and run the following com
 make ta
 ```
 
-This will evaluate your terraform files and create a provision plan for you. Once you are ok, type in `yes` and the tool will start to deploy your .NET WebAPI project as containers along with a RDS PostgreSQL instance. You will be receiving the hosted api url once the provisioning is completed!
+This will evaluate your terraform files and create a provision plan for you. Once you are ok, type in `yes` and the tool will start to deploy your .NET Microservice project as containers along with a RDS PostgreSQL instance. You will be receiving the hosted api url once the provisioning is completed!
 
 To destroy the deployed resources, run the following
 
@@ -330,9 +332,8 @@ Check nuget is installed on your machine. To download nuget, visit [nuget.org](h
 - run the following commands
 
 ```bash
-cd ./src
-nuget pack -OutputDirectory nupkgs -NoDefaultExcludes -Version {{semver}}
-dotnet new install ./nupkgs/Genocs.Microservice.Template.{{semver}}.nupkg
+nuget pack ./src/Package.Template.nuspec -NoDefaultExcludes -OutputDirectory ./out -Version {{semver}}
+dotnet new install ./out/Genocs.Microservice.Template.{{semver}}.nupkg
 dotnet new gnx-microservice --help
 dotnet new gnx-microservice --name {{CompanyName.ProjectName.ServiceName}}
 ```

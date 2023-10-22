@@ -1,7 +1,4 @@
-﻿using Genocs.Microservice.Template.Application.Common.Persistence;
-using Genocs.Microservice.Template.Domain.Catalog;
-
-namespace Genocs.Microservice.Template.Application.Catalog.Products;
+﻿namespace Genocs.Microservice.Template.Application.Catalog.Products;
 
 public class GetProductViaDapperRequest : IRequest<ProductDto>
 {

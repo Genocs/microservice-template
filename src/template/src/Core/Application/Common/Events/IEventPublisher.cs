@@ -1,4 +1,3 @@
-using Genocs.Microservice.Template.Application.Common.Interfaces;
 using Genocs.Microservice.Template.Shared.Events;
 
 namespace Genocs.Microservice.Template.Application.Common.Events;

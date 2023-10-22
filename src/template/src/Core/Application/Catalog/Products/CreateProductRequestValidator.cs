@@ -1,7 +1,3 @@
-using Genocs.Microservice.Template.Application.Common.Persistence;
-using Genocs.Microservice.Template.Application.Common.Validation;
-using Genocs.Microservice.Template.Domain.Catalog;
-
 namespace Genocs.Microservice.Template.Application.Catalog.Products;
 
 public class CreateProductRequestValidator : CustomValidator<CreateProductRequest>

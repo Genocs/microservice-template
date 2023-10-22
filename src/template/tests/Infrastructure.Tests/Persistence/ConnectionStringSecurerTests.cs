@@ -1,7 +1,7 @@
 ﻿using Genocs.Microservice.Template.Application.Common.Persistence;
 using Xunit;
 
-namespace Infrastructure.Test.Persistence;
+namespace Genocs.Microservice.Template.Infrastructure.Tests.Persistence;
 
 public class ConnectionStringSecurerTests
 {

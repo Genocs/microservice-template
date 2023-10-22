@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Localization;
 using Xunit;
 
-namespace Infrastructure.Test.Localization;
+namespace Genocs.Microservice.Template.Infrastructure.Tests.Localization;
 
 public class LocalizationTests
 {
@@ -14,7 +14,8 @@ public class LocalizationTests
 
     private readonly IStringLocalizer _localizer;
 
-    public LocalizationTests(IStringLocalizer<LocalizationTests> localizer) => _localizer = localizer;
+    public LocalizationTests(IStringLocalizer<LocalizationTests> localizer)
+        => _localizer = localizer;
 
     // there's no "en-US" folder
     // "nl-BE/test.po" only contains testString

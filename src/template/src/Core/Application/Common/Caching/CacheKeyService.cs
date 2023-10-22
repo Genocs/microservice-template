@@ -1,6 +1,4 @@
-﻿using Genocs.Microservice.Template.Application.Common.Interfaces;
-
-namespace Genocs.Microservice.Template.Application.Common.Caching;
+﻿namespace Genocs.Microservice.Template.Application.Common.Caching;
 
 public interface ICacheKeyService : IScopedService
 {

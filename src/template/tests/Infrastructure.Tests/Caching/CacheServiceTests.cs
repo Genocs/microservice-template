@@ -2,11 +2,11 @@ using FluentAssertions;
 using Genocs.Microservice.Template.Application.Common.Caching;
 using Xunit;
 
-namespace Infrastructure.Test.Caching;
+namespace Genocs.Microservice.Template.Infrastructure.Tests.Caching;
 
 public abstract class CacheServiceTests
 {
-    private record TestRecord(Guid Id, string StringValue, DateTime DateTimeValue);
+    private record TestRecord(DefaultIdType Id, string StringValue, DateTime DateTimeValue);
 
     private const string _testKey = "testkey";
     private const string _testValue = "testvalue";
@@ -48,7 +48,7 @@ public abstract class CacheServiceTests
     public void ReturnsExistingValueGivenExistingKey<T>(string testKey, T testValue)
     {
         _sut.Set(testKey, testValue);
-        T? result = _sut.Get<T>(testKey);
+        var result = _sut.Get<T>(testKey);
 
         result.Should().Be(testValue);
     }
@@ -56,7 +56,7 @@ public abstract class CacheServiceTests
     [Fact]
     public void ReturnsExistingObjectGivenExistingKey()
     {
-        var expected = new TestRecord(Guid.NewGuid(), _testValue, DateTime.UtcNow);
+        var expected = new TestRecord(DefaultIdType.NewGuid(), _testValue, DateTime.UtcNow);
 
         _sut.Set(_testKey, expected);
         var result = _sut.Get<TestRecord>(_testKey);
@@ -65,7 +65,7 @@ public abstract class CacheServiceTests
     }
 
     [Fact]
-    public async Task ReturnsNullGivenAnExpiredKey()
+    public async Task ReturnsNullGivenAnExpiredKeyAsync()
     {
         _sut.Set(_testKey, _testValue, TimeSpan.FromMilliseconds(200));
 

@@ -10,8 +10,8 @@ public class EventPublisher : IEventPublisher
     private readonly ILogger<EventPublisher> _logger;
     private readonly IPublisher _mediator;
 
-    public EventPublisher(ILogger<EventPublisher> logger, IPublisher mediator) =>
-        (_logger, _mediator) = (logger, mediator);
+    public EventPublisher(ILogger<EventPublisher> logger, IPublisher mediator)
+        => (_logger, _mediator) = (logger, mediator);
 
     public Task PublishAsync(IEvent @event)
     {
@@ -19,7 +19,7 @@ public class EventPublisher : IEventPublisher
         return _mediator.Publish(CreateEventNotification(@event));
     }
 
-    private static INotification CreateEventNotification(IEvent @event) =>
-        (INotification)Activator.CreateInstance(
+    private static INotification CreateEventNotification(IEvent @event)
+        => (INotification)Activator.CreateInstance(
             typeof(EventNotification<>).MakeGenericType(@event.GetType()), @event)!;
 }

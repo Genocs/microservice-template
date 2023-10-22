@@ -1,8 +1,4 @@
 ﻿using Genocs.Microservice.Template.Application.Common.Exporters;
-using Genocs.Microservice.Template.Application.Common.Models;
-using Genocs.Microservice.Template.Application.Common.Persistence;
-using Genocs.Microservice.Template.Application.Common.Specification;
-using Genocs.Microservice.Template.Domain.Catalog;
 
 namespace Genocs.Microservice.Template.Application.Catalog.Products;
 

@@ -1,6 +1,6 @@
 ﻿using Genocs.Microservice.Template.Infrastructure.Caching;
 
-namespace Infrastructure.Test.Caching;
+namespace Genocs.Microservice.Template.Infrastructure.Tests.Caching;
 
 public class LocalCacheServiceTests : CacheServiceTests
 {

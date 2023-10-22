@@ -1,6 +1,4 @@
-﻿using Genocs.Microservice.Template.Domain.Common.Contracts;
-
-namespace Genocs.Microservice.Template.Application.Common.Caching;
+﻿namespace Genocs.Microservice.Template.Application.Common.Caching;
 
 public static class CacheKeyServiceExtensions
 {

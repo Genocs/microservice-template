@@ -98,6 +98,6 @@ public class BrandGeneratorJob : IBrandGeneratorJob
 
 public class RandomBrandsSpec : Specification<Brand>
 {
-    public RandomBrandsSpec() =>
-        Query.Where(b => !string.IsNullOrEmpty(b.Name) && b.Name.Contains("Brand Random"));
+    public RandomBrandsSpec()
+        => Query.Where(b => !string.IsNullOrEmpty(b.Name) && b.Name.Contains("Brand Random"));
 }

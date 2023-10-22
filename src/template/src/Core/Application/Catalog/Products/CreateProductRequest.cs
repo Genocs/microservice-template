@@ -1,7 +1,3 @@
-using Genocs.Microservice.Template.Application.Common.FileStorage;
-using Genocs.Microservice.Template.Application.Common.Persistence;
-using Genocs.Microservice.Template.Domain.Catalog;
-using Genocs.Microservice.Template.Domain.Common;
 using Genocs.Microservice.Template.Domain.Common.Events;
 
 namespace Genocs.Microservice.Template.Application.Catalog.Products;
