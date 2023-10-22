@@ -1,8 +1,4 @@
 ﻿using Genocs.Microservice.Template.Application.Catalog.Products;
-using Genocs.Microservice.Template.Application.Common.Models;
-using Genocs.Microservice.Template.Infrastructure.Auth.Permissions;
-using Genocs.Microservice.Template.Shared.Authorization;
-using Genocs.Microservice.Template.WebApi.Controllers;
 
 namespace Genocs.Microservice.Template.WebApi.Controllers.Catalog;
 

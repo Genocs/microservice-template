@@ -1,7 +1,6 @@
 using Genocs.Microservice.Template.Application.Auditing;
 using Genocs.Microservice.Template.Application.Identity.Users;
 using Genocs.Microservice.Template.Application.Identity.Users.Password;
-using Genocs.Microservice.Template.Shared.Authorization;
 
 namespace Genocs.Microservice.Template.WebApi.Controllers.Personal;
 
@@ -9,7 +8,8 @@ public class PersonalController : VersionNeutralApiController
 {
     private readonly IUserService _userService;
 
-    public PersonalController(IUserService userService) => _userService = userService;
+    public PersonalController(IUserService userService)
+        => _userService = userService;
 
     [HttpGet("profile")]
     [OpenApiOperation("Get profile details of currently logged in user.", "")]

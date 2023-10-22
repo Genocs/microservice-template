@@ -37,6 +37,7 @@ internal partial class UserService
         code = Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(code));
         var result = await _userManager.ConfirmEmailAsync(user, code);
 
+        // TODO: Implement html for email confirmation
         return result.Succeeded
             ? string.Format(_t["Account Confirmed for E-Mail {0}. You can now use the /api/tokens endpoint to generate JWT."], user.Email)
             : throw new InternalServerException(string.Format(_t["An error occurred while confirming {0}"], user.Email));

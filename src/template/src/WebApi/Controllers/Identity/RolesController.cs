@@ -1,7 +1,4 @@
 using Genocs.Microservice.Template.Application.Identity.Roles;
-using Genocs.Microservice.Template.Infrastructure.Auth.Permissions;
-using Genocs.Microservice.Template.Shared.Authorization;
-using Genocs.Microservice.Template.WebApi.Controllers;
 
 namespace Genocs.Microservice.Template.WebApi.Controllers.Identity;
 
@@ -9,7 +6,8 @@ public class RolesController : VersionNeutralApiController
 {
     private readonly IRoleService _roleService;
 
-    public RolesController(IRoleService roleService) => _roleService = roleService;
+    public RolesController(IRoleService roleService)
+        => _roleService = roleService;
 
     [HttpGet]
     [MustHavePermission(GNXAction.View, GNXResource.Roles)]

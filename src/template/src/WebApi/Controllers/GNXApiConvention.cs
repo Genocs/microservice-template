@@ -48,7 +48,7 @@ public static class GNXApiConventions
         object id,
         [ApiConventionNameMatch(ApiConventionNameMatchBehavior.Any)]
         [ApiConventionTypeMatch(ApiConventionTypeMatchBehavior.Any)]
-        object cancellationtoken)
+        object cancellationToken)
     {
     }
 

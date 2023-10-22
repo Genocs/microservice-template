@@ -1,10 +1,11 @@
 {
 	"info": {
-		"_postman_id": "02657972-5007-467d-aa43-1a7d936d42ad",
+		"_postman_id": "09274f07-3b68-474c-952d-416b0effe6f9",
 		"name": "Genocs.Microservice.Template",
+		"description": "# Genocs.Microservice.Template home page\n\nThis is the home page",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "53972",
-		"_collection_link": "https://genocs.postman.co/workspace/Genocs~cac0ab1e-a0df-4c9e-875f-08faea91d1a3/collection/53972-02657972-5007-467d-aa43-1a7d936d42ad?action=share&source=collection_link&creator=53972"
+		"_collection_link": "https://genocs.postman.co/workspace/Genocs~cac0ab1e-a0df-4c9e-875f-08faea91d1a3/collection/53972-09274f07-3b68-474c-952d-416b0effe6f9?action=share&source=collection_link&creator=53972"
 	},
 	"item": [
 		{
@@ -18,7 +19,30 @@
 							"script": {
 								"exec": [
 									"var jsonData = pm.response.json();\r",
-									"pm.collectionVariables.set(\"token\", jsonData.token);"
+									"pm.collectionVariables.set(\"token\", jsonData.token);\r",
+									"pm.collectionVariables.set(\"refreshToken\", jsonData.refreshToken);\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Successful POST request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 202]);\r",
+									"});\r",
+									"\r",
+									"var schema = {\r",
+									"    \"items\": {\r",
+									"        \"token\": \"string\",\r",
+									"        \"refreshToken\": \"string\",\r",
+									"        \"refreshTokenExpiryTime\": \"datetime\"\r",
+									"    }\r",
+									"};\r",
+									"\r",
+									"var data1 = [true, true, true];\r",
+									"\r",
+									"pm.test('Schema is valid', function () {\r",
+									"    pm.expect(tv4.validate(data1, schema)).to.be.true;\r",
+									"});"
 								],
 								"type": "text/javascript"
 							}
@@ -73,15 +97,15 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"firstName\": \"John\",\r\n    \"lastName\": \"Smith\",\r\n    \"email\": \"john@root.com\",\r\n    \"userName\": \"john.smith\",\r\n    \"password\": \"123Pa$$word!\",\r\n    \"confirmPassword\": \"123Pa$$word!\",\r\n    \"phoneNumber\": \"99999\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"firstName\": \"John\",\r\n    \"lastName\": \"Smith\",\r\n    \"email\": \"john@root.com\",\r\n    \"userName\": \"john.smith\",\r\n    \"password\": \"123Pa$$word!\",\r\n    \"confirmPassword\": \"123Pa$$word!\",\r\n    \"phoneNumber\": \"99999\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
 						"url": {
 							"raw": "{{url}}/users",
 							"host": [
@@ -303,7 +327,30 @@
 							"script": {
 								"exec": [
 									"var jsonData = pm.response.json();\r",
-									"pm.collectionVariables.set(\"token\", jsonData.token);"
+									"pm.collectionVariables.set(\"token\", jsonData.token);\r",
+									"pm.collectionVariables.set(\"refreshToken\", jsonData.refreshToken);\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Successful POST request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 202]);\r",
+									"});\r",
+									"\r",
+									"var schema = {\r",
+									"    \"items\": {\r",
+									"        \"token\": \"string\",\r",
+									"        \"refreshToken\": \"string\",\r",
+									"        \"refreshTokenExpiryTime\": \"datetime\"\r",
+									"    }\r",
+									"};\r",
+									"\r",
+									"var data1 = [true, true, true];\r",
+									"\r",
+									"pm.test('Schema is valid', function () {\r",
+									"    pm.expect(tv4.validate(data1, schema)).to.be.true;\r",
+									"});"
 								],
 								"type": "text/javascript"
 							}
@@ -328,7 +375,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImExNDZkNTY4LTRmZmYtNDhmZS1iNTc2LWIxYTM2ZjBlMjIzMiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6ImFkbWluQHJvb3QuY29tIiwiZnVsbE5hbWUiOiJyb290IEFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6InJvb3QiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zdXJuYW1lIjoiQWRtaW4iLCJpcEFkZHJlc3MiOiIwLjAuMC4xIiwidGVuYW50Ijoicm9vdCIsImltYWdlX3VybCI6IkZpbGVzL0ltYWdlcy9BcHBsaWNhdGlvblVzZXIvYTE0NmQ1Njg0ZmZmNDhmZWI1NzZiMWEzNmYwZTIyMzJlYzE3MWI4MGY0MzI0NzIzOThkNDVjYTFjZGQ0YTAwZi5wbmciLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9tb2JpbGVwaG9uZSI6IjUwNjQ2ODU5MiIsImV4cCI6MTY0NDYwMjE4NH0.a-y0WrNLQ6bnafZn91sUm_oIsHT8GD4R9w7Id2afxME\",\r\n    \"refreshToken\": \"vF34oRJ5LgK15qPT/Xf4DPQuSJxu5UP1pN/8hV6bSQE=\"\r\n}",
+							"raw": "{\r\n    \"token\": \"{{token}}\",\r\n    \"refreshToken\": \"{{refreshToken}}\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -709,15 +756,15 @@
 					"request": {
 						"method": "POST",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Gamma\",\r\n    \"id\": \"gamma\",\r\n    \"adminEmail\": \"admin@gamma.com\",\r\n    \"connectionString\": \"Data Source=(localdb)\\\\mssqllocaldb;Initial Catalog=betaDb0045;Integrated Security=True;MultipleActiveResultSets=True\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"id\": \"gamma\",\r\n    \"name\": \"Gamma\",\r\n    \"adminEmail\": \"admin@gamma.com\",\r\n    \"connectionString\": \"Data Source=(localdb)\\\\mssqllocaldb;Initial Catalog=gamma_db;Integrated Security=True;MultipleActiveResultSets=True\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
 						"url": {
 							"raw": "{{url}}/tenants",
 							"host": [
@@ -820,6 +867,27 @@
 			"item": [
 				{
 					"name": "health-check",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Successful POST request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 201, 202]);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Healthy\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -898,6 +966,10 @@
 		},
 		{
 			"key": "token",
+			"value": ""
+		},
+		{
+			"key": "refreshToken",
 			"value": ""
 		}
 	]

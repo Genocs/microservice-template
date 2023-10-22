@@ -1,8 +1,5 @@
 using Genocs.Microservice.Template.Application.Identity.Users;
 using Genocs.Microservice.Template.Application.Identity.Users.Password;
-using Genocs.Microservice.Template.Infrastructure.Auth.Permissions;
-using Genocs.Microservice.Template.Infrastructure.OpenApi;
-using Genocs.Microservice.Template.Shared.Authorization;
 
 namespace Genocs.Microservice.Template.WebApi.Controllers.Identity;
 
@@ -120,5 +117,6 @@ public class UsersController : VersionNeutralApiController
         return _userService.ResetPasswordAsync(request);
     }
 
-    private string GetOriginFromRequest() => $"{Request.Scheme}://{Request.Host.Value}{Request.PathBase.Value}";
+    private string GetOriginFromRequest()
+        => $"{Request.Scheme}://{Request.Host.Value}{Request.PathBase.Value}";
 }

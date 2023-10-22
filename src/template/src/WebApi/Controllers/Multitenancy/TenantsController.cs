@@ -1,6 +1,4 @@
 using Genocs.Microservice.Template.Application.Multitenancy;
-using Genocs.Microservice.Template.Infrastructure.Auth.Permissions;
-using Genocs.Microservice.Template.Shared.Authorization;
 
 namespace Genocs.Microservice.Template.WebApi.Controllers.Multitenancy;
 

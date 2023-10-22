@@ -1,5 +1,4 @@
 using Genocs.Microservice.Template.Application.Identity.Tokens;
-using Genocs.Microservice.Template.Infrastructure.OpenApi;
 
 namespace Genocs.Microservice.Template.WebApi.Controllers.Identity;
 
@@ -28,8 +27,8 @@ public sealed class TokensController : VersionNeutralApiController
         return _tokenService.RefreshTokenAsync(request, GetIpAddress()!);
     }
 
-    private string? GetIpAddress() =>
-        Request.Headers.ContainsKey("X-Forwarded-For")
+    private string? GetIpAddress()
+        => Request.Headers.ContainsKey("X-Forwarded-For")
             ? Request.Headers["X-Forwarded-For"]
             : HttpContext.Connection.RemoteIpAddress?.MapToIPv4().ToString() ?? "N/A";
 }
