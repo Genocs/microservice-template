@@ -454,3 +454,8 @@ $RECYCLE.BIN/
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
+# Package build
+nupkg
+
+[Ll]og*.txt

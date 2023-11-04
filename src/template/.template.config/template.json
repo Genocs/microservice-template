@@ -5,8 +5,8 @@
     "Web/ASP.NET"
   ],
   "tags": {
-    "type": "project",
-    "language": "C#"
+    "language": "C#",
+    "type": "project"
   },
   "identity": "Genocs.Microservice.Template",
   "name": "Genocs: Microservice .NET7",

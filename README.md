@@ -52,7 +52,6 @@ Genocs .NET Web API Microservice Template is a starting point for your next `.NE
 
 The template can be used with the `genocs cli` or `dotnet new` command or with the `Visual Studio 2022` or `Visual Studio Code` IDEs.
 
-
 ## YouTube Video - Genocs Library - Getting Started
 
 Watch the Getting started video here: [youtube intro](https://www.youtube.com/watch?v=TgxDvU---Ak)
@@ -348,10 +347,9 @@ dotnet new gnx-microservice --name {{CompanyName.ProjectName.ServiceName}}
 
 [Participate in QNA & General Discussions](https://github.com/Genocs/microservice-template/discussions)
 
-
 ## Changelogs
 
-View Complete [Changelogs](https://github.com/Genocs/microservice-template/blob/main/CHANGELOGS.md).
+View Complete [Changelogs](https://github.com/Genocs/microservice-template/blob/main/CHANGELOG.md).
 
 ## License
 
@@ -371,18 +369,17 @@ Here are a few ways by which you can support.
 
 - ⭐ Leave a star!
 - 🥇 Recommend this project to your colleagues.
-- 🦸 Do consider endorsing me on LinkedIn for ASP.NET Core - [Connect via LinkedIn](https://www.linkedin.com/in/giovanni-emanuele-nocco-b31a5169/) 
+- 🦸 Do consider endorsing me on LinkedIn for ASP.NET Core - [Connect via LinkedIn](https://www.linkedin.com/in/giovanni-emanuele-nocco-b31a5169/)
 - ☕ If you want to support this project in the long run, [consider buying me a coffee](https://www.buymeacoffee.com/genocs)!
 
 
-[![buy-me-a-coffee](https://raw.githubusercontent.com/Genocs/clean-architecture-template/main/assets/buy-me-a-coffee.png "buy me a coffee")](https://www.buymeacoffee.com/genocs)
-
+[![buy-me-a-coffee](https://raw.githubusercontent.com/Genocs/microservice-template/main/assets/buy-me-a-coffee.png "buy me a coffee")](https://www.buymeacoffee.com/genocs)
 
 ## Code Contributors
 
 This project exists thanks to all the people who contribute. [Submit your PR and join the team!](CONTRIBUTING.md)
 
-[![genocs contributors](https://contrib.rocks/image?repo=Genocs/clean-architecture-template "genocs contributors")](https://github.com/Genocs/clean-architecture-template/graphs/contributors)
+[![genocs contributors](https://contrib.rocks/image?repo=Genocs/microservice-template "genocs contributors")](https://github.com/Genocs/clean-architecture-template/graphs/contributors)
 
 ## Financial Contributors
 
