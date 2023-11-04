@@ -379,7 +379,7 @@ Here are a few ways by which you can support.
 
 This project exists thanks to all the people who contribute. [Submit your PR and join the team!](CONTRIBUTING.md)
 
-[![genocs contributors](https://contrib.rocks/image?repo=Genocs/microservice-template "genocs contributors")](https://github.com/Genocs/clean-architecture-template/graphs/contributors)
+[![genocs contributors](https://contrib.rocks/image?repo=Genocs/microservice-template "genocs contributors")](https://github.com/Genocs/microservice-template/graphs/contributors)
 
 ## Financial Contributors
 
