@@ -41,7 +41,25 @@
 [twitterx-url]: https://twitter.com/genocs
 
 
-![.NET template banner](https://raw.githubusercontent.com/Genocs/microservice-template/main/assets/genocs-library-logo.png ".NET template banner")
+<!-- PROJECT LOGO -->
+<p align="center">
+  <a href="https://github.com/Genocs/microservice-template">
+    <img src="https://raw.githubusercontent.com/Genocs/microservice-template/main/assets/genocs-library-logo.png" alt=".NET Microservice Template">
+  </a>
+  <h3 align="center">.NET Microservice Template</h3>
+  <p align="center">
+    Open Source Solution Template For .NET7 Microservice
+    <br />
+    <a href="https://genocs-blog.netlify.app/microservice-template/general/getting-started/"><strong>Read the Documentation »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/Genocs/microservice-template/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/Genocs/microservice-template/issues">Request Feature</a>
+    .
+    <a href="https://github.com/Genocs/microservice-template/issues">Request Documentation</a>
+  </p>
+</p>
 
 ## Genocs .NET Web API Microservice Template
 
@@ -50,11 +68,7 @@ Genocs .NET Web API Microservice Template is a starting point for your next `.NE
 > As the name suggests, this is an API / Server Template. You can find other Client Template that consume this API under `@genocs` handle.
 > - Find `Blazor WebAssembly Template` here - [Blazor WebAssembly Template](https://github.com/Genocs/blazor-wasm-template)
 
-The template can be used with the `genocs cli` or `dotnet new` command or with the `Visual Studio 2022` or `Visual Studio Code` IDEs.
-
-## YouTube Video - Genocs Library - Getting Started
-
-Watch the Getting started video here: [youtube intro](https://www.youtube.com/watch?v=TgxDvU---Ak)
+The template can be used with the `genocs cli`, `dotnet new` command or with the `Visual Studio 2022`, `Visual Studio Code` IDEs.
 
 
 ## Goals
@@ -98,7 +112,7 @@ The goal of this repository is to provide a complete and feature-rich starting p
 
 ## Documentation
 
-Read Documentation related to this template here - [Template Documentation](https://genocs-blog.netlify.app/dotnet-templates/)
+Read Documentation related to this template here - [Template Documentation](https://genocs-blog.netlify.app/microservice-template/)
 
 > Feel free to contribute to the Documentation Repository - [Contribute Documentation](https://github.com/Genocs/genocs-library-docs)
 
@@ -110,7 +124,7 @@ To get started with this Template, here are the available options:
 - Install using the `dotnet new install` tool. Use this for any versions of the Template.
 - Fork the Repository. Use this if you want to always keep your version of the Template up-to date with the latest changes.
 
-> Make sure that your DEV enviroment is setup, [Read the Development Environment Guide](https://genocs-blog.netlify.app/dotnet-templates/general/development-environment/)
+> Make sure that your DEV enviroment is setup, [Read the Development Environment Guide](https://genocs-blog.netlify.app/microservice-template/general/development-environment/)
 
 ### GENOCS CLI Tool
 
@@ -154,7 +168,7 @@ genocs api n CompanyName.ProjectName.ServiceName
 ```
 
 This will create a new .NET7 Web API solution for you using the template.
-For further steps and details, [Read the Getting Started Guide](https://genocs-blog.netlify.app/dotnet-templates/)
+For further steps and details, [Read the Getting Started Guide](https://genocs-blog.netlify.app/microservice-template/)
 
 #### Update
 
@@ -164,13 +178,14 @@ To update the tool & templates, run the following commands
 dotnet tool update genocs.cli --global
 genocs update
 ```
+
 ### Forking the Repository
 
 You would probably need to take this approach if you want to keep your source code up to date with the latest changes. To get started based on this repository, you need to get a copy locally. You have three options: `fork, clone, or download`.
 
 - Make a fork of this repository in your GitHub account.
-- Create your new `dotnet-microservice-template` personal project by cloning the forked repository on your personal GitHub.
-- Setup an upstream remote on your personal project pointing to your forked repository using command `git remote add upstream https://github.com/{githubuseraccount}/dotnet-microservice-template` and `git remote set-url --push upstream DISABLE`
+- Create your new `microservice-template` personal project by cloning the forked repository on your personal GitHub.
+- Setup an upstream remote on your personal project pointing to your forked repository using command `git remote add upstream https://github.com/{githubuseraccount}/microservice-template` and `git remote set-url --push upstream DISABLE`
 
 For step by step instructions, follow: [this](https://discord.com/channels/878181478972928011/892573122186838046/933513103688224838) and [this](https://gist.github.com/0xjac/85097472043b697ab57ba1b1c7530274).
 
@@ -194,7 +209,7 @@ make start
 
 That's it, the application would connect to the defined postgresql database and start creating tables, and seed required data.
 
-For testing this API, we have 3 options.
+For testing this API, we have 3 options:
 1. Swagger @ `localhost:5001/swagger`
 2. Postman collections are available `./postman`
 3. ThunderClient for VSCode. You will have to install the Thunderclient extension for VSCode.
@@ -234,15 +249,15 @@ And here is the response.
 
 ```json
 {
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjM0YTY4ZjQyLWE0ZDgtNDNlMy1hNzE3LTI1OTczZjZmZTJjNyIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6ImFkbWluQHJvb3QuY29tIiwiZnVsbE5hbWUiOiJyb290IEFkbWluIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6InJvb3QiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zdXJuYW1lIjoiQWRtaW4iLCJpcEFkZHJlc3MiOiIxMjcuMC4wLjEiLCJ0ZW5hbnQiOiJyb290IiwiaW1hZ2VfdXJsIjoiIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbW9iaWxlcGhvbmUiOiIiLCJleHAiOjE2ODA5NDE3MzN9.VYNaNvk2T4YDvQ3wriXgk2W_Vy9zyEEhjveNauNAeJY",
-  "refreshToken": "pyxO30zJK8KelpEXF0vPfbSbjntdlbbnxrZAlUFXfyE=",
+  "token": "<your token>",
+  "refreshToken": "<your refresh token>",
   "refreshTokenExpiryTime": "2023-04-15T07:15:33.5187598Z"
 }
 ```
 
 You will need to pass the `token` in the request headers to authenticate calls to the Genocs API!
 
-For further steps and details, [Read the Getting Started Guide](https://genocs-blog.netlify.app/dotnet-templates)
+For further steps and details, [Read the Getting Started Guide](https://genocs-blog.netlify.app/microservice-template)
 
 ## Containerization
 
@@ -273,7 +288,7 @@ make dcu
 make dcd 
 ```
 
-There are also examples for mysql & mssql variations. You can find the other docker-compose files under the ./docker-compose folder. Read more about  docker-compose instructions & files here [docker-compose](./docker-compose/README.md).
+There are also examples for mysql & mssql variations. You can find the other docker-compose files under the ./docker-compose folder. Read more about docker-compose instructions & files here [docker-compose](./docker-compose/README.md).
 
 ## Cloud Deployment with Terraform + AWS ECS
 
@@ -339,11 +354,11 @@ dotnet new gnx-microservice --name {{CompanyName.ProjectName.ServiceName}}
 
 ## Links & Documentations
 
-[Overview](https://https://genocs-blog.netlify.app/dotnet-templates/general/overview/)
+[Overview](https://https://genocs-blog.netlify.app/microservice-template/general/overview/)
 
-[Getting Started](https://https://genocs-blog.netlify.app/dotnet-templates/general/getting-started/)
+[Getting Started](https://https://genocs-blog.netlify.app/microservice-template/general/getting-started/)
 
-[Development Environment](https://https://genocs-blog.netlify.app/dotnet-templates/general/development-environment/)
+[Development Environment](https://https://genocs-blog.netlify.app/microservice-template/general/development-environment/)
 
 [Participate in QNA & General Discussions](https://github.com/Genocs/microservice-template/discussions)
 
@@ -386,7 +401,6 @@ This project exists thanks to all the people who contribute. [Submit your PR and
 Become a financial contributor and help me sustain the project.
 
 **Support the Project** on [Opencollective](https://opencollective.com/genocs)
-
 
 ## Acknowledgements
 

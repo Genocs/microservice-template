@@ -52,7 +52,7 @@
         <None Remove="Databases\**" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Update="Roslynator.Analyzers" Version="4.6.0">
+        <PackageReference Update="Roslynator.Analyzers" Version="4.6.2">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
