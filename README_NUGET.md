@@ -41,25 +41,7 @@
 [twitterx-url]: https://twitter.com/genocs
 
 
-<!-- PROJECT LOGO -->
-<p align="center">
-  <a href="https://github.com/Genocs/microservice-template">
-    <img src="https://raw.githubusercontent.com/Genocs/microservice-template/main/assets/genocs-library-logo.png" alt=".NET Microservice Template">
-  </a>
-  <h3 align="center">.NET Microservice Template</h3>
-  <p align="center">
-    Open Source Solution Template For .NET7 Microservice
-    <br />
-    <a href="https://genocs-blog.netlify.app/microservice-template/general/getting-started/"><strong>Read the Documentation »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/Genocs/microservice-template/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/Genocs/microservice-template/issues">Request Feature</a>
-    .
-    <a href="https://github.com/Genocs/microservice-template/issues">Request Documentation</a>
-  </p>
-</p>
+![.NET template banner](https://raw.githubusercontent.com/Genocs/microservice-template/main/assets/genocs-library-logo.png ".NET template banner")
 
 ## Genocs .NET Web API Microservice Template
 
