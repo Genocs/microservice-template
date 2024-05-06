@@ -1,5 +1,4 @@
-﻿using Genocs.Microservice.Infrastructure.Identity;
-using Genocs.Microservice.Template.Infrastructure.Identity;
+﻿using Genocs.Microservice.Template.Infrastructure.Identity;
 using Genocs.Microservice.Template.Infrastructure.Multitenancy;
 using Genocs.Microservice.Template.Infrastructure.Persistence.Context;
 using Genocs.Microservice.Template.Shared.Authorization;

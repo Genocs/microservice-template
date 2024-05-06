@@ -1,5 +1,3 @@
-using Genocs.Microservice.Template.Application.Common.Validation;
-
 namespace Genocs.Microservice.Template.Application.Identity.Tokens;
 
 public record TokenRequest(string Email, string Password);

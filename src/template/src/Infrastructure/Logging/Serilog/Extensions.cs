@@ -1,8 +1,5 @@
-using System.Reflection;
 using Figgle;
-using Genocs.Microservice.Template.Infrastructure.Logging;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Serilog;

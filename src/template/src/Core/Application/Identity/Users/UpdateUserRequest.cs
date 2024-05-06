@@ -1,5 +1,3 @@
-using Genocs.Microservice.Template.Application.Common.FileStorage;
-
 namespace Genocs.Microservice.Template.Application.Identity.Users;
 
 public class UpdateUserRequest

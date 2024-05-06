@@ -22,7 +22,7 @@ public class GetProductViaDapperRequestHandler : IRequestHandler<GetProductViaDa
 
         _ = product ?? throw new NotFoundException(_t["Product {0} Not Found.", request.Id]);
 
-        // Using mapster here throws a nullreference exception because of the "BrandName" property
+        // Using mapster here throws a null reference exception because of the "BrandName" property
         // in ProductDto and the product not having a Brand assigned.
         return new ProductDto
         {

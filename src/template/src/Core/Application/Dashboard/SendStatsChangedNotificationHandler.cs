@@ -1,6 +1,3 @@
-using Genocs.Microservice.Template.Application.Common.Events;
-using Genocs.Microservice.Template.Application.Common.Interfaces;
-using Genocs.Microservice.Template.Domain.Catalog;
 using Genocs.Microservice.Template.Domain.Common.Events;
 using Genocs.Microservice.Template.Domain.Identity;
 using Genocs.Microservice.Template.Shared.Events;

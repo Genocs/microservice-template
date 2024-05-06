@@ -1,18 +1,18 @@
 {
-	"info": {
-		"_postman_id": "09274f07-3b68-474c-952d-416b0effe6f9",
-		"name": "Genocs.Microservice.Template",
-		"description": "# Genocs.Microservice.Template home page\n\nThis is the home page",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "53972",
-		"_collection_link": "https://genocs.postman.co/workspace/Genocs~cac0ab1e-a0df-4c9e-875f-08faea91d1a3/collection/53972-09274f07-3b68-474c-952d-416b0effe6f9?action=share&source=collection_link&creator=53972"
-	},
+  "info": {
+    "_postman_id": "09274f07-3b68-474c-952d-416b0effe6f9",
+    "name": "Genocs.Microservice.Template",
+    "description": "# Genocs.Microservice.Template home page\n\nThis is the home page",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "53972",
+    "_collection_link": "https://genocs.postman.co/workspace/cac0ab1e-a0df-4c9e-875f-08faea91d1a3/collection/53972-09274f07-3b68-474c-952d-416b0effe6f9?action=share&source=collection_link&creator=53972"
+  },
 	"item": [
 		{
 			"name": "Identity",
 			"item": [
 				{
-					"name": "get-token",
+					"name": "Get Token",
 					"event": [
 						{
 							"listen": "test",
@@ -44,7 +44,18 @@
 									"    pm.expect(tv4.validate(data1, schema)).to.be.true;\r",
 									"});"
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
 							}
 						}
 					],
@@ -57,17 +68,17 @@
 							{
 								"key": "tenant",
 								"value": "root",
-								"type": "text"
+								"uuid": "7d70b783-5cb8-4095-8545-6aad72922398"
 							},
 							{
 								"key": "Accept-Language",
 								"value": "en-US",
-								"type": "text"
+								"uuid": "393f40cc-5c02-404f-9ca2-fdfe924cab3d"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"admin@root.com\",\r\n    \"password\": \"123Pa$$word!\"\r\n}",
+							"raw": "{\r\n    \"email\": \"{{root_admin_username}}\",\r\n    \"password\": \"123Pa$$word!\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -75,9 +86,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/tokens",
+							"raw": "{{root_url}}/tokens",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"tokens"
@@ -87,29 +98,30 @@
 					"response": []
 				},
 				{
-					"name": "register-user",
+					"name": "Register User",
 					"request": {
 						"method": "POST",
 						"header": [
 							{
 								"key": "tenant",
 								"value": "beta",
-								"type": "text"
+								"type": "text",
+								"uuid": "bf6a1df3-133d-4511-999d-9f0389904c03"
 							}
 						],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n    \"firstName\": \"John\",\r\n    \"lastName\": \"Smith\",\r\n    \"email\": \"john@root.com\",\r\n    \"userName\": \"john.smith\",\r\n    \"password\": \"123Pa$$word!\",\r\n    \"confirmPassword\": \"123Pa$$word!\",\r\n    \"phoneNumber\": \"99999\"\r\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"John\",\r\n    \"lastName\": \"Smith\",\r\n    \"email\": \"admin@root.com\",\r\n    \"userName\": \"john.smith\",\r\n    \"password\": \"123Pa$$word!\",\r\n    \"confirmPassword\": \"123Pa$$word!\",\r\n    \"phoneNumber\": \"99999\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "{{url}}/users",
+							"raw": "{{root_url}}/users",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"users"
@@ -119,14 +131,14 @@
 					"response": []
 				},
 				{
-					"name": "get-roles",
+					"name": "Roles",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/roles",
+							"raw": "{{root_url}}/roles",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"roles"
@@ -136,7 +148,7 @@
 					"response": []
 				},
 				{
-					"name": "create-role",
+					"name": "Insert Role",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -150,9 +162,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/roles",
+							"raw": "{{root_url}}/roles",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"roles"
@@ -162,14 +174,14 @@
 					"response": []
 				},
 				{
-					"name": "get-my-permissions",
+					"name": "Permissions",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/personal/permissions",
+							"raw": "{{root_url}}/personal/permissions",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"personal",
@@ -180,25 +192,7 @@
 					"response": []
 				},
 				{
-					"name": "get-my-profile",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/personal/profile",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"personal",
-								"profile"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "update-role-permissions",
+					"name": "Update Permissions",
 					"request": {
 						"method": "PUT",
 						"header": [],
@@ -212,9 +206,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/roles/17c9fb87-a92f-404d-b2e4-30ce88f5f6b6/permissions",
+							"raw": "{{root_url}}/roles/17c9fb87-a92f-404d-b2e4-30ce88f5f6b6/permissions",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"roles",
@@ -226,14 +220,14 @@
 					"response": []
 				},
 				{
-					"name": "get-current-user-audit-logs",
+					"name": "Audit Logs",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/personal/logs",
+							"raw": "{{root_url}}/personal/logs",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"personal",
@@ -244,7 +238,25 @@
 					"response": []
 				},
 				{
-					"name": "forgot-password",
+					"name": "Profile Info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{root_url}}/personal/profile",
+							"host": [
+								"{{root_url}}"
+							],
+							"path": [
+								"personal",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Forgot Password",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -261,12 +273,13 @@
 							{
 								"key": "tenant",
 								"value": "root",
-								"type": "text"
+								"type": "text",
+								"uuid": "f48242b8-1476-4565-9b4e-2740eca160aa"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"admin@root.com\"\r\n}",
+							"raw": "{\r\n    \"email\": \"{{root_admin_username}}\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -274,9 +287,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/users/forgot-password",
+							"raw": "{{root_url}}/users/forgot-password",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"users",
@@ -287,19 +300,20 @@
 					"response": []
 				},
 				{
-					"name": "reset-password",
+					"name": "Reset Password",
 					"request": {
 						"method": "POST",
 						"header": [
 							{
 								"key": "tenant",
 								"value": "root",
-								"type": "text"
+								"type": "text",
+								"uuid": "5579a6ad-f79f-4205-909b-0266050ee573"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"admin@root.com\",\r\n    \"password\": \"someNewPasswordHere\",\r\n    \"token\": \"CfDJ8PIF9j3oEv9OhQoxaFuWSdqg0nCRves79yhS9E5ZA3evRM2mQKaz48ozNoN3pXFouPrbwxoKC+TmgFJFUceu91PkOd3XpWf+y7ebG2hb7FDfKQCPrpv57h+K8K6OFwQWKabz/M9VaMk6Kn38/ECBXIcdG3gOY8sOlJOcFbO59D6x2j99qg2z6ZAzGPpJKDz/iiZJqMFEn4lIc0IFia97yYyzPLp/qS/IauUeMvhcoKfuvibqm7ODNH9n7Z2PvhrAJw==\"\r\n}",
+							"raw": "{\r\n    \"email\": \"{{root_admin_username}}\",\r\n    \"password\": \"someNewPasswordHere\",\r\n    \"token\": \"{{token}}\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -307,9 +321,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/users/reset-password",
+							"raw": "{{root_url}}/users/reset-password",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"users",
@@ -320,7 +334,7 @@
 					"response": []
 				},
 				{
-					"name": "refresh-token",
+					"name": "Refresh Token",
 					"event": [
 						{
 							"listen": "test",
@@ -352,7 +366,8 @@
 									"    pm.expect(tv4.validate(data1, schema)).to.be.true;\r",
 									"});"
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"packages": {}
 							}
 						}
 					],
@@ -365,12 +380,12 @@
 							{
 								"key": "tenant",
 								"value": "root",
-								"type": "text"
+								"uuid": "5615fa07-cf09-4194-9dc8-e28973348321"
 							},
 							{
 								"key": "Accept-Language",
 								"value": "en-US",
-								"type": "text"
+								"uuid": "878b1b9a-58fc-4fd7-8fec-9dd00d56b179"
 							}
 						],
 						"body": {
@@ -383,9 +398,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/tokens/refresh",
+							"raw": "{{root_url}}/tokens/refresh",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"tokens",
@@ -404,14 +419,15 @@
 					"name": "Products",
 					"item": [
 						{
-							"name": "search-products",
+							"name": "Search Products",
 							"request": {
 								"method": "POST",
 								"header": [
 									{
 										"key": "tenant",
 										"value": "beta",
-										"type": "text"
+										"type": "text",
+										"uuid": "30b923d7-ac55-40b3-a59e-2caceba17faa"
 									}
 								],
 								"body": {
@@ -424,9 +440,9 @@
 									}
 								},
 								"url": {
-									"raw": "{{url}}/v1/products/search",
+									"raw": "{{root_url}}/v1/products/search",
 									"host": [
-										"{{url}}"
+										"{{root_url}}"
 									],
 									"path": [
 										"v1",
@@ -438,7 +454,7 @@
 							"response": []
 						},
 						{
-							"name": "create-product",
+							"name": "Insert Product",
 							"request": {
 								"method": "POST",
 								"header": [],
@@ -452,9 +468,9 @@
 									}
 								},
 								"url": {
-									"raw": "{{url}}/v1/products",
+									"raw": "{{root_url}}/v1/products",
 									"host": [
-										"{{url}}"
+										"{{root_url}}"
 									],
 									"path": [
 										"v1",
@@ -465,7 +481,7 @@
 							"response": []
 						},
 						{
-							"name": "update-product",
+							"name": "Update Product",
 							"request": {
 								"method": "PUT",
 								"header": [],
@@ -479,9 +495,9 @@
 									}
 								},
 								"url": {
-									"raw": "{{url}}/v1/products/623e0000-3f5a-3c7c-0502-08d9b2523534",
+									"raw": "{{root_url}}/v1/products/623e0000-3f5a-3c7c-0502-08d9b2523534",
 									"host": [
-										"{{url}}"
+										"{{root_url}}"
 									],
 									"path": [
 										"v1",
@@ -493,14 +509,14 @@
 							"response": []
 						},
 						{
-							"name": "delete-product",
+							"name": "Delete Product",
 							"request": {
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/v1/products/623e0000-3f5a-3c7c-21ca-08d9ad0bfea3",
+									"raw": "{{root_url}}/v1/products/623e0000-3f5a-3c7c-21ca-08d9ad0bfea3",
 									"host": [
-										"{{url}}"
+										"{{root_url}}"
 									],
 									"path": [
 										"v1",
@@ -512,14 +528,14 @@
 							"response": []
 						},
 						{
-							"name": "get-product-by-id",
+							"name": "Product by Id",
 							"request": {
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/v1/products/623e0000-3f5a-3c7c-0502-08d9b2523534",
+									"raw": "{{root_url}}/v1/products/623e0000-3f5a-3c7c-0502-08d9b2523534",
 									"host": [
-										"{{url}}"
+										"{{root_url}}"
 									],
 									"path": [
 										"v1",
@@ -536,7 +552,7 @@
 					"name": "Brands",
 					"item": [
 						{
-							"name": "search-brands",
+							"name": "Search Brands",
 							"protocolProfileBehavior": {
 								"disabledSystemHeaders": {}
 							},
@@ -546,7 +562,7 @@
 									{
 										"key": "",
 										"value": "",
-										"type": "text",
+										"uuid": "aeab0bac-5e7d-43b6-bc4e-1cd0811a6469",
 										"disabled": true
 									}
 								],
@@ -560,9 +576,9 @@
 									}
 								},
 								"url": {
-									"raw": "{{url}}/v1/brands/search",
+									"raw": "{{root_url}}/v1/brands/search",
 									"host": [
-										"{{url}}"
+										"{{root_url}}"
 									],
 									"path": [
 										"v1",
@@ -574,19 +590,33 @@
 							"response": []
 						},
 						{
-							"name": "create-brand",
+							"name": "Insert Brand",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Store the brand Id for further use\r",
+											"// In the future the response will change\r",
+											"pm.collectionVariables.set(\"brand_id\", pm.response.id);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
 							"request": {
 								"method": "POST",
 								"header": [
 									{
 										"key": "tenant",
 										"value": "beta",
-										"type": "text"
+										"uuid": "aac4da58-23b3-4d8d-9fa6-f5f3eb069c34"
 									}
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"name\": \"Bra1nod #29\",\r\n    \"description\": \"Something Cool!\"\r\n}",
+									"raw": "{\r\n    \"name\": \"Bra1nod #{{$randomCompanyName}}\",\r\n    \"description\": \"Something Cool!\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -594,9 +624,9 @@
 									}
 								},
 								"url": {
-									"raw": "{{url}}/v1/brands",
+									"raw": "{{root_url}}/v1/brands",
 									"host": [
-										"{{url}}"
+										"{{root_url}}"
 									],
 									"path": [
 										"v1",
@@ -607,7 +637,7 @@
 							"response": []
 						},
 						{
-							"name": "generate-random-brand",
+							"name": "Insert Random Brand",
 							"request": {
 								"method": "POST",
 								"header": [],
@@ -621,9 +651,9 @@
 									}
 								},
 								"url": {
-									"raw": "{{url}}/v1/brands/generate-random",
+									"raw": "{{root_url}}/v1/brands/generate-random",
 									"host": [
-										"{{url}}"
+										"{{root_url}}"
 									],
 									"path": [
 										"v1",
@@ -635,7 +665,7 @@
 							"response": []
 						},
 						{
-							"name": "delete-random-brands",
+							"name": "Delete Random Brands",
 							"request": {
 								"method": "DELETE",
 								"header": [],
@@ -649,9 +679,9 @@
 									}
 								},
 								"url": {
-									"raw": "{{url}}/v1/brands/delete-random",
+									"raw": "{{root_url}}/v1/brands/delete-random",
 									"host": [
-										"{{url}}"
+										"{{root_url}}"
 									],
 									"path": [
 										"v1",
@@ -663,26 +693,26 @@
 							"response": []
 						},
 						{
-							"name": "delete-brand",
+							"name": "Delete Brand",
 							"request": {
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/v1/brands/623e0000-3f5a-3c7c-e7d0-08d9962dbbe4",
+									"raw": "{{root_url}}/v1/brands/{{brand_id}}",
 									"host": [
-										"{{url}}"
+										"{{root_url}}"
 									],
 									"path": [
 										"v1",
 										"brands",
-										"623e0000-3f5a-3c7c-e7d0-08d9962dbbe4"
+										"{{brand_id}}"
 									]
 								}
 							},
 							"response": []
 						},
 						{
-							"name": "update-brand",
+							"name": "Update Brand",
 							"request": {
 								"method": "PUT",
 								"header": [],
@@ -696,9 +726,9 @@
 									}
 								},
 								"url": {
-									"raw": "{{url}}/v1/brands/623e0000-3f5a-3c7c-3452-08d99c27f668",
+									"raw": "{{root_url}}/v1/brands/623e0000-3f5a-3c7c-3452-08d99c27f668",
 									"host": [
-										"{{url}}"
+										"{{root_url}}"
 									],
 									"path": [
 										"v1",
@@ -717,14 +747,31 @@
 			"name": "Multitenancy",
 			"item": [
 				{
-					"name": "get-by-key",
+					"name": "Tenants",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/tenants/root",
+							"raw": "{{root_url}}/tenants",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
+							],
+							"path": [
+								"tenants"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Tenant by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{root_url}}/tenants/root",
+							"host": [
+								"{{root_url}}"
 							],
 							"path": [
 								"tenants",
@@ -735,40 +782,23 @@
 					"response": []
 				},
 				{
-					"name": "get-all",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{url}}/tenants",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"tenants"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "create-tenant",
+					"name": "Insert Tenant",
 					"request": {
 						"method": "POST",
 						"header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n    \"id\": \"gamma\",\r\n    \"name\": \"Gamma\",\r\n    \"adminEmail\": \"admin@gamma.com\",\r\n    \"connectionString\": \"Data Source=(localdb)\\\\mssqllocaldb;Initial Catalog=gamma_db;Integrated Security=True;MultipleActiveResultSets=True\"\r\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"betaDb0045\",\r\n    \"name\": \"betaDb0045\",\r\n    \"adminEmail\": \"info@betaDb0045.com\",\r\n    \"connectionString\": \"Data Source=(localdb)\\\\mssqllocaldb;Initial Catalog=betaDb0045_db;Integrated Security=True;MultipleActiveResultSets=True\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "{{url}}/tenants",
+							"raw": "{{root_url}}/tenants",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"tenants"
@@ -778,7 +808,7 @@
 					"response": []
 				},
 				{
-					"name": "upgrade",
+					"name": "Upgrade Tenant",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -792,9 +822,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/tenants/upgrade",
+							"raw": "{{root_url}}/tenants/upgrade",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"tenants",
@@ -805,13 +835,13 @@
 					"response": []
 				},
 				{
-					"name": "activate",
+					"name": "Activate Tenant",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"tenantKey\": \"root\",\r\n    \"extendedExpiryDate\": 10\r\n}",
+							"raw": "{\r\n    \"tenantKey\": \"betaDb0045\",\r\n    \"extendedExpiryDate\": 10\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -819,9 +849,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/tenants/gamma/activate",
+							"raw": "{{root_url}}/tenants/gamma/activate",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"tenants",
@@ -833,7 +863,7 @@
 					"response": []
 				},
 				{
-					"name": "deactivate",
+					"name": "Deactivate Tenant",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -847,9 +877,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}/tenants/beta/deactivate",
+							"raw": "{{root_url}}/tenants/beta/deactivate",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"tenants",
@@ -866,7 +896,7 @@
 			"name": "Health",
 			"item": [
 				{
-					"name": "health-check",
+					"name": "Check",
 					"event": [
 						{
 							"listen": "test",
@@ -884,7 +914,8 @@
 									"    pm.expect(pm.response.text()).to.include(\"Healthy\");\r",
 									"});"
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"packages": {}
 							}
 						}
 					],
@@ -892,9 +923,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/health",
+							"raw": "{{root_url}}/health",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"health"
@@ -909,14 +940,14 @@
 			"name": "General",
 			"item": [
 				{
-					"name": "dashboard",
+					"name": "Dashboard",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{url}}/v1/dashboard",
+							"raw": "{{root_url}}/v1/dashboard",
 							"host": [
-								"{{url}}"
+								"{{root_url}}"
 							],
 							"path": [
 								"v1",
@@ -961,7 +992,7 @@
 	],
 	"variable": [
 		{
-			"key": "url",
+			"key": "root_url",
 			"value": "https://localhost:5001/api"
 		},
 		{
@@ -970,6 +1001,19 @@
 		},
 		{
 			"key": "refreshToken",
+			"value": ""
+		},
+		{
+			"key": "root_admin_username",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "brand",
+			"value": ""
+		},
+		{
+			"key": "brand_id",
 			"value": ""
 		}
 	]

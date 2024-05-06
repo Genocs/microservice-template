@@ -66,10 +66,10 @@ internal class DatabaseInitializer : IDatabaseInitializer
         if (await _tenantDbContext.TenantInfo.FindAsync(new object?[] { MultitenancyConstants.Root.Id }, cancellationToken: cancellationToken) is null)
         {
             var rootTenant = new GNXTenantInfo(
-                MultitenancyConstants.Root.Id,
-                MultitenancyConstants.Root.Name,
-                string.Empty,
-                MultitenancyConstants.Root.EmailAddress);
+                                                MultitenancyConstants.Root.Id,
+                                                MultitenancyConstants.Root.Name,
+                                                string.Empty,
+                                                MultitenancyConstants.Root.EmailAddress);
 
             rootTenant.SetValidity(DateTime.UtcNow.AddYears(1));
 

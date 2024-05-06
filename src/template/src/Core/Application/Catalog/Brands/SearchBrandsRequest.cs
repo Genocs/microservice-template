@@ -1,8 +1,3 @@
-using Genocs.Microservice.Template.Application.Common.Models;
-using Genocs.Microservice.Template.Application.Common.Persistence;
-using Genocs.Microservice.Template.Application.Common.Specification;
-using Genocs.Microservice.Template.Domain.Catalog;
-
 namespace Genocs.Microservice.Template.Application.Catalog.Brands;
 
 public class SearchBrandsRequest : PaginationFilter, IRequest<PaginationResponse<BrandDto>>

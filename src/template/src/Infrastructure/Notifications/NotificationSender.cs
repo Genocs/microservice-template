@@ -1,6 +1,5 @@
 ﻿using Finbuckle.MultiTenant;
 using Genocs.Microservice.Template.Application.Common.Interfaces;
-using Genocs.Microservice.Template.Shared.Notifications;
 using Microsoft.AspNetCore.SignalR;
 using static Genocs.Microservice.Template.Shared.Notifications.NotificationConstants;
 

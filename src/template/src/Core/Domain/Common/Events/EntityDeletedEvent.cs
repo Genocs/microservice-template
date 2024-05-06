@@ -1,5 +1,3 @@
-using Genocs.Microservice.Template.Domain.Common.Contracts;
-
 namespace Genocs.Microservice.Template.Domain.Common.Events;
 
 public static class EntityDeletedEvent

@@ -1,6 +1,4 @@
-﻿using Genocs.Microservice.Template.Domain.Common.Contracts;
-
-namespace Genocs.Microservice.Template.Domain.Identity;
+﻿namespace Genocs.Microservice.Template.Domain.Identity;
 
 public abstract class ApplicationUserEvent : DomainEvent
 {

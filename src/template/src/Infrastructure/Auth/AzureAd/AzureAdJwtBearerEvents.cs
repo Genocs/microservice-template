@@ -73,14 +73,14 @@ internal class AzureAdJwtBearerEvents : JwtBearerEvents
         // Adding tenant claim.
         identity.AddClaim(new Claim(GNXClaims.Tenant, tenant.Id));
 
-        // Set new tenant info to the HttpContext so the right connectionstring is used.
+        // Set new tenant info to the HttpContext so the right connection string is used.
         context.HttpContext.TrySetTenantInfo(tenant, false);
 
         // Lookup local user or create one if none exist.
         string userId = await context.HttpContext.RequestServices.GetRequiredService<IUserService>()
             .GetOrCreateFromPrincipalAsync(principal);
 
-        // We use the nameidentifier claim to store the user id.
+        // We use the name identifier claim to store the user id.
         var idClaim = principal.FindFirst(ClaimTypes.NameIdentifier);
         identity.TryRemoveClaim(idClaim);
         identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, userId));

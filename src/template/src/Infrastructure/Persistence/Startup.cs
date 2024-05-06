@@ -19,7 +19,8 @@ internal static class Startup
 
     internal static IServiceCollection AddPersistence(this IServiceCollection services)
     {
-        services.AddOptions<DatabaseSettings>()
+        services
+            .AddOptions<DatabaseSettings>()
             .BindConfiguration(nameof(DatabaseSettings))
             .PostConfigure(databaseSettings =>
             {
@@ -34,16 +35,13 @@ internal static class Startup
                 var databaseSettings = p.GetRequiredService<IOptions<DatabaseSettings>>().Value;
                 m.UseDatabase(databaseSettings.DBProvider, databaseSettings.ConnectionString);
             })
-
             .AddTransient<IDatabaseInitializer, DatabaseInitializer>()
             .AddTransient<ApplicationDbInitializer>()
             .AddTransient<ApplicationDbSeeder>()
             .AddServices(typeof(ICustomSeeder), ServiceLifetime.Transient)
             .AddTransient<CustomSeederRunner>()
-
             .AddTransient<IConnectionStringSecurer, ConnectionStringSecurer>()
             .AddTransient<IConnectionStringValidator, ConnectionStringValidator>()
-
             .AddRepositories();
     }
 

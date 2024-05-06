@@ -1,6 +1,4 @@
-﻿using Genocs.Microservice.Template.Domain.Common.Contracts;
-
-namespace Genocs.Microservice.Template.Application.Common.Specification;
+﻿namespace Genocs.Microservice.Template.Application.Common.Specification;
 
 public class AuditableEntitiesByCreatedOnBetweenSpec<T> : Specification<T>
     where T : AuditableEntity

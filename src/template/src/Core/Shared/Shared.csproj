@@ -3,8 +3,6 @@
     <PropertyGroup>
         <TargetFramework>net7.0</TargetFramework>
         <IsPackable>false</IsPackable>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
         <RootNamespace>Genocs.Microservice.Template.Shared</RootNamespace>
         <AssemblyName>Genocs.Microservice.Template.Shared</AssemblyName>
     </PropertyGroup>

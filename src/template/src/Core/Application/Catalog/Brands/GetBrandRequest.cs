@@ -1,7 +1,4 @@
-﻿using Genocs.Microservice.Template.Application.Common.Persistence;
-using Genocs.Microservice.Template.Domain.Catalog;
-
-namespace Genocs.Microservice.Template.Application.Catalog.Brands;
+﻿namespace Genocs.Microservice.Template.Application.Catalog.Brands;
 
 public class GetBrandRequest : IRequest<BrandDto>
 {
@@ -10,7 +7,7 @@ public class GetBrandRequest : IRequest<BrandDto>
     public GetBrandRequest(DefaultIdType id) => Id = id;
 }
 
-public class BrandByIdSpec : Specification<Brand, BrandDto>, ISingleResultSpecification
+public class BrandByIdSpec : Specification<Brand, BrandDto>, ISingleResultSpecification<Brand, BrandDto>
 {
     public BrandByIdSpec(DefaultIdType id) =>
         Query.Where(p => p.Id == id);

@@ -1,5 +1,4 @@
-﻿using Genocs.Microservice.Template.Application.Common.Models;
-using System.Linq.Expressions;
+﻿using System.Linq.Expressions;
 using System.Reflection;
 using System.Text.Json;
 
@@ -49,7 +48,7 @@ public static class SpecificationBuilderExtensions
         {
             if (search.Fields?.Any() is true)
             {
-                // search seleted fields (can contain deeper nested fields)
+                // search selected fields (can contain deeper nested fields)
                 foreach (string field in search.Fields)
                 {
                     var paramExpr = Expression.Parameter(typeof(T));
@@ -153,20 +152,20 @@ public static class SpecificationBuilderExtensions
 
         foreach (var filter in filters)
         {
-            Expression bExpresionFilter;
+            Expression bExpressionFilter;
 
             if (!string.IsNullOrEmpty(filter.Logic))
             {
                 if (filter.Filters is null) throw new CustomException("The Filters attribute is required when declaring a logic");
-                bExpresionFilter = CreateFilterExpression(filter.Logic, filter.Filters, parameter);
+                bExpressionFilter = CreateFilterExpression(filter.Logic, filter.Filters, parameter);
             }
             else
             {
                 var filterValid = GetValidFilter(filter);
-                bExpresionFilter = CreateFilterExpression(filterValid.Field!, filterValid.Operator!, filterValid.Value, parameter);
+                bExpressionFilter = CreateFilterExpression(filterValid.Field!, filterValid.Operator!, filterValid.Value, parameter);
             }
 
-            filterExpression = filterExpression is null ? bExpresionFilter : CombineFilter(logic, filterExpression, bExpresionFilter);
+            filterExpression = filterExpression is null ? bExpressionFilter : CombineFilter(logic, filterExpression, bExpressionFilter);
         }
 
         return filterExpression;

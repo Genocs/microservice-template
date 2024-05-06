@@ -1,6 +1,4 @@
-﻿using Genocs.Microservice.Template.Application.Common.Interfaces;
-
-namespace Genocs.Microservice.Template.Application.Catalog.Brands;
+﻿namespace Genocs.Microservice.Template.Application.Catalog.Brands;
 
 public class GenerateRandomBrandRequest : IRequest<string>
 {

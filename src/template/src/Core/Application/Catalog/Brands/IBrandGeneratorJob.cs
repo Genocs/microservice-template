@@ -1,5 +1,4 @@
-﻿using Genocs.Microservice.Template.Application.Common.Interfaces;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 
 namespace Genocs.Microservice.Template.Application.Catalog.Brands;
 

@@ -3,9 +3,6 @@
     <PropertyGroup>
         <TargetFramework>net7.0</TargetFramework>
         <IsPackable>false</IsPackable>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-        <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <RootNamespace>Genocs.Microservice.Template.Infrastructure</RootNamespace>
         <AssemblyName>Genocs.Microservice.Template.Infrastructure</AssemblyName>
     </PropertyGroup>

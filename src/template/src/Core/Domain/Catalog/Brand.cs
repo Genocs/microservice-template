@@ -1,5 +1,3 @@
-using Genocs.Microservice.Template.Domain.Common.Contracts;
-
 namespace Genocs.Microservice.Template.Domain.Catalog;
 
 public class Brand : AuditableEntity, IAggregateRoot

@@ -1,7 +1,5 @@
-﻿using Genocs.Microservice.Template.Application.Common.Persistence;
-using Genocs.Microservice.Template.Application.Identity.Roles;
+﻿using Genocs.Microservice.Template.Application.Identity.Roles;
 using Genocs.Microservice.Template.Application.Identity.Users;
-using Genocs.Microservice.Template.Domain.Catalog;
 
 namespace Genocs.Microservice.Template.Application.Dashboard;
 

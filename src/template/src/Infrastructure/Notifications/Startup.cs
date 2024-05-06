@@ -12,7 +12,7 @@ internal static class Startup
     {
         var logger = Log.ForContext(typeof(Startup));
 
-        var signalRSettings = config.GetSection(nameof(SignalRSettings)).Get<SignalRSettings>();
+        SignalRSettings? signalRSettings = config.GetSection(nameof(SignalRSettings)).Get<SignalRSettings>();
 
         if (!signalRSettings.UseBackplane)
         {
@@ -20,7 +20,7 @@ internal static class Startup
         }
         else
         {
-            var backplaneSettings = config.GetSection("SignalRSettings:Backplane").Get<SignalRSettings.Backplane>();
+            SignalRSettings.Backplane? backplaneSettings = config.GetSection("SignalRSettings:Backplane").Get<SignalRSettings.Backplane>();
             if (backplaneSettings is null) throw new InvalidOperationException("Backplane enabled, but no backplane settings in config.");
             switch (backplaneSettings.Provider)
             {

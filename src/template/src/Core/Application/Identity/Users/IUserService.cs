@@ -1,7 +1,5 @@
-using System.Security.Claims;
-using Genocs.Microservice.Template.Application.Common.Interfaces;
-using Genocs.Microservice.Template.Application.Common.Models;
 using Genocs.Microservice.Template.Application.Identity.Users.Password;
+using System.Security.Claims;
 
 namespace Genocs.Microservice.Template.Application.Identity.Users;
 

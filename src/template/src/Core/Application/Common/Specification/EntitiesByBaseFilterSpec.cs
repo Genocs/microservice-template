@@ -1,6 +1,4 @@
-﻿using Genocs.Microservice.Template.Application.Common.Models;
-
-namespace Genocs.Microservice.Template.Application.Common.Specification;
+﻿namespace Genocs.Microservice.Template.Application.Common.Specification;
 
 public class EntitiesByBaseFilterSpec<T, TResult> : Specification<T, TResult>
 {
