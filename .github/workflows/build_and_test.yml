@@ -1,15 +1,14 @@
-name: Build test and pack
+name: Build and test
 
 on:
   push:
     branches: [ main ]
-
   pull_request:
     branches: [ main ]
 
 jobs:
   build:
-    name: Build test and pack
+    name: Build and test
     runs-on: ubuntu-latest
 
     steps:
@@ -25,10 +24,7 @@ jobs:
         run: dotnet restore ./src/template
 
       - name: Build
-        run: dotnet build ./src/template -c Debug --no-restore
+        run: dotnet build ./src/template --no-restore
 
       - name: Test
         run: dotnet test ./src/template --no-build --verbosity normal
-
-      - name: Pack
-        run: dotnet pack ./src/template --no-build --verbosity normal

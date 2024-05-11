@@ -6,7 +6,7 @@ namespace Genocs.Microservice.Template.Infrastructure.Notifications;
 
 /// <summary>
 /// Sends all events that are also an INotificationMessage to all clients.
-/// Note: for this to work, the Event/NotificationMessage class needs to be in the
+/// Note: For this to work, the Event/NotificationMessage class needs to be in the
 /// shared project (i.e. have the same FullName - so with namespace - on both sides).
 /// </summary>
 /// <typeparam name="TNotification">The notification type.</typeparam>

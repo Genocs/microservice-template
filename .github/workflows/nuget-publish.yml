@@ -13,7 +13,7 @@ on:
         description: "Package Version"
 
         # Default value if no value is explicitly provided
-        default: "1.0.0"
+        default: "1.1.0"
 
         # Input has to be provided for the workflow to run
         required: true
@@ -23,6 +23,7 @@ jobs:
   build:
     name: Update NuGet package
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -36,7 +37,7 @@ jobs:
         run: dotnet restore ./src/template
 
       - name: Build
-        run: dotnet build ./src/template -c Debug --no-restore
+        run: dotnet build ./src/template --no-restore
 
       - name: Test
         run: dotnet test ./src/template --no-build --verbosity normal
