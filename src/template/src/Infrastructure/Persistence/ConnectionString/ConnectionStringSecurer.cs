@@ -102,12 +102,12 @@ public class ConnectionStringSecurer : IConnectionStringSecurer
     {
         var builder = new NpgsqlConnectionStringBuilder(connectionString);
 
-        if (!string.IsNullOrEmpty(builder.Password) || !builder.IntegratedSecurity)
+        if (!string.IsNullOrEmpty(builder.Password) /* || !builder.IntegratedSecurity*/)
         {
             builder.Password = HiddenValueDefault;
         }
 
-        if (!string.IsNullOrEmpty(builder.Username) || !builder.IntegratedSecurity)
+        if (!string.IsNullOrEmpty(builder.Username) /* || !builder.IntegratedSecurity */)
         {
             builder.Username = HiddenValueDefault;
         }

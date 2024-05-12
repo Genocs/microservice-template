@@ -1,7 +1,7 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net7.0</TargetFramework>
+        <TargetFramework>net8.0</TargetFramework>
         <IsPackable>false</IsPackable>
         <RootNamespace>Genocs.Microservice.Template.Infrastructure</RootNamespace>
         <AssemblyName>Genocs.Microservice.Template.Infrastructure</AssemblyName>
@@ -10,35 +10,36 @@
     <ItemGroup>
         <FrameworkReference Include="Microsoft.AspNetCore.App" />
     </ItemGroup>
+    
     <ItemGroup>
         <PackageReference Include="Ardalis.Specification.EntityFrameworkCore" Version="7.0.0" />
         <PackageReference Include="AWS.Logger.SeriLog" Version="3.3.0" />
         <PackageReference Include="ClosedXML" Version="0.102.2" />
-        <PackageReference Include="Finbuckle.MultiTenant.AspNetCore" Version="6.12.0" />
-        <PackageReference Include="Finbuckle.MultiTenant.EntityFrameworkCore" Version="6.12.0" />
-        <PackageReference Include="Hangfire" Version="1.8.6" />
+        <PackageReference Include="Finbuckle.MultiTenant.AspNetCore" Version="6.13.1" />
+        <PackageReference Include="Finbuckle.MultiTenant.EntityFrameworkCore" Version="6.13.1" />
+        <PackageReference Include="Hangfire" Version="1.8.12" />
         <PackageReference Include="Hangfire.Console.Extensions" Version="1.1.0" />
         <PackageReference Include="Hangfire.MySqlStorage" Version="2.0.3" />
         <PackageReference Include="Hangfire.PostgreSql" Version="1.20.4" />
         <PackageReference Include="Hangfire.SQLite" Version="1.4.2" />
         <PackageReference Include="MailKit" Version="4.2.0" />
-        <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.12" />
+        <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.0" />
         <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.1.0" />
         <PackageReference Include="Microsoft.AspNetCore.SignalR.StackExchangeRedis" Version="7.0.12" />
         <PackageReference Include="Microsoft.Data.Sqlite" Version="7.0.12" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.12" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.12" />
-        <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="7.0.12" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.0" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="8.0.0" />
         <PackageReference Include="Microsoft.Identity.Web" Version="2.15.3" />
         <PackageReference Include="MimeKit" Version="4.2.0" />
-        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.11" />
-        <PackageReference Include="NSwag.AspNetCore" Version="13.20.0" />
+        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.0" />
+        <PackageReference Include="NSwag.AspNetCore" Version="14.0.7" />
         <PackageReference Include="RazorEngineCore" Version="2022.8.1" />
         <PackageReference Include="ZymLabs.NSwag.FluentValidation.AspNetCore" Version="0.6.3" />
-        <PackageReference Include="Oracle.EntityFrameworkCore" Version="7.21.12" />
+        <PackageReference Include="Oracle.EntityFrameworkCore" Version="8.0.0" />
         <PackageReference Include="OrchardCore.Localization.Core" Version="1.7.2" />
         <PackageReference Include="Serilog.Exceptions" Version="8.4.0" />
-        <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="7.0.0" />
+        <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.0" />
         <PackageReference Include="Serilog.Enrichers.Process" Version="2.0.2" />
         <PackageReference Include="Serilog.Enrichers.Thread" Version="3.1.0" />
         <PackageReference Include="Serilog.Expressions" Version="3.4.1" />
