@@ -25,13 +25,13 @@ internal class RoleService : IRoleService
     private readonly IEventPublisher _events;
 
     public RoleService(
-        RoleManager<ApplicationRole> roleManager,
-        UserManager<ApplicationUser> userManager,
-        ApplicationDbContext db,
-        IStringLocalizer<RoleService> localizer,
-        ICurrentUser currentUser,
-        ITenantInfo currentTenant,
-        IEventPublisher events)
+                        RoleManager<ApplicationRole> roleManager,
+                        UserManager<ApplicationUser> userManager,
+                        ApplicationDbContext db,
+                        IStringLocalizer<RoleService> localizer,
+                        ICurrentUser currentUser,
+                        ITenantInfo currentTenant,
+                        IEventPublisher events)
     {
         _roleManager = roleManager;
         _userManager = userManager;

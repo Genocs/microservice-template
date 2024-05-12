@@ -1,13 +1,17 @@
 <Project>
+
     <PropertyGroup>
         <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)dotnet.ruleset</CodeAnalysisRuleSet>
         <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
         <CodeAnalysisTreatWarningsAsErrors>false</CodeAnalysisTreatWarningsAsErrors>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+        <DocumentationFile>$(OutputPath)$(AssemblyName).xml</DocumentationFile>
         <NoDefaultExcludes>true</NoDefaultExcludes>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>
+
     <ItemGroup>
         <PackageReference Include="Roslynator.Analyzers" Version="4.12.3">
             <PrivateAssets>all</PrivateAssets>

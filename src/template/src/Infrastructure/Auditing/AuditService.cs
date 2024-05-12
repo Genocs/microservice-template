@@ -14,10 +14,10 @@ public class AuditService : IAuditService
     public async Task<List<AuditDto>> GetUserTrailsAsync(DefaultIdType userId)
     {
         var trails = await _context.AuditTrails
-            .Where(a => a.UserId == userId)
-            .OrderByDescending(a => a.DateTime)
-            .Take(250)
-            .ToListAsync();
+                                                .Where(a => a.UserId == userId)
+                                                .OrderByDescending(a => a.DateTime)
+                                                .Take(250)
+                                                .ToListAsync();
 
         return trails.Adapt<List<AuditDto>>();
     }

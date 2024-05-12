@@ -4,15 +4,15 @@
   "classifications": [
     "Web/ASP.NET"
   ],
-  "tags": {
-    "language": "C#",
-    "type": "project"
-  },
+  "name": "Genocs: .NET8 Microservice Template",
   "identity": "Genocs.Microservice.Template",
-  "name": "Genocs: Microservice .NET7",
-  "description": "Clean Architecture Template for .NET7 WebApi built with Multitenancy Support.",
-  "groupIdentity": "Genocs.Microservice.Template",
+  "description": ".NET8 Clean Architecture Template built with Multitenancy Support.",
+  "groupIdentity": "Genocs.Template",
   "shortName": "gnx-microservice",
+  "tags": {
+    "type": "solution",
+    "language": "C#"
+  },
   "sourceName": "Genocs.Microservice.Template", // Will replace the string 'Genocs.Microservice.Template' with the value provided via -n.
   "preferNameDirectory": true,
   "symbols": {
@@ -48,6 +48,12 @@
         ".vs/**",
         ".github/**",
         "media/**"
+      ],      
+      "modifiers": [
+        {
+          "condition": "(full)",
+          "exclude": []
+        }
       ]
     }
   ],
