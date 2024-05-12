@@ -106,4 +106,9 @@ public class EventAddingRepositoryDecorator<T> : IRepositoryWithEvents<T>
 
     public IAsyncEnumerable<T> AsAsyncEnumerable(ISpecification<T> specification)
         => _decorated.AsAsyncEnumerable(specification);
+
+    public Task DeleteRangeAsync(ISpecification<T> specification, CancellationToken cancellationToken = default)
+    {
+        throw new NotImplementedException();
+    }
 }
