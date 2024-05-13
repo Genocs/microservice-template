@@ -13,7 +13,7 @@
     
     <ItemGroup>
         <PackageReference Include="Ardalis.Specification.EntityFrameworkCore" Version="8.0.0" />
-        <PackageReference Include="AWS.Logger.SeriLog" Version="3.4.1" />
+        <PackageReference Include="AWS.Logger.SeriLog" Version="3.4.2" />
         <PackageReference Include="ClosedXML" Version="0.102.2" />
         <PackageReference Include="Finbuckle.MultiTenant.AspNetCore" Version="6.13.1" />
         <PackageReference Include="Finbuckle.MultiTenant.EntityFrameworkCore" Version="6.13.1" />
