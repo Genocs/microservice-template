@@ -6,5 +6,5 @@
         <RootNamespace>Genocs.Microservice.Template.Shared</RootNamespace>
         <AssemblyName>Genocs.Microservice.Template.Shared</AssemblyName>
     </PropertyGroup>
-    
+
 </Project>
