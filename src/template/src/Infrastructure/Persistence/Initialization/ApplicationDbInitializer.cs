@@ -1,4 +1,5 @@
-using Finbuckle.MultiTenant;
+using Finbuckle.MultiTenant.Abstractions;
+using Genocs.Microservice.Template.Infrastructure.Multitenancy;
 using Genocs.Microservice.Template.Infrastructure.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -12,12 +13,27 @@ internal class ApplicationDbInitializer
     private readonly ApplicationDbSeeder _dbSeeder;
     private readonly ILogger<ApplicationDbInitializer> _logger;
 
-    public ApplicationDbInitializer(ApplicationDbContext dbContext, ITenantInfo currentTenant, ApplicationDbSeeder dbSeeder, ILogger<ApplicationDbInitializer> logger)
+    public ApplicationDbInitializer(ApplicationDbContext dbContext, IMultiTenantContextAccessor<GNXTenantInfo> multiTenantContextAccessor, ApplicationDbSeeder dbSeeder, ILogger<ApplicationDbInitializer> logger)
     {
-        _dbContext = dbContext;
-        _currentTenant = currentTenant;
-        _dbSeeder = dbSeeder;
-        _logger = logger;
+        if (multiTenantContextAccessor is null)
+        {
+            throw new ArgumentNullException(nameof(multiTenantContextAccessor));
+        }
+
+        if (multiTenantContextAccessor.MultiTenantContext is null)
+        {
+            throw new ArgumentNullException(nameof(multiTenantContextAccessor.MultiTenantContext));
+        }
+
+        if (multiTenantContextAccessor?.MultiTenantContext?.TenantInfo is null)
+        {
+            throw new ArgumentNullException(nameof(multiTenantContextAccessor.MultiTenantContext.TenantInfo));
+        }
+
+        _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
+        _currentTenant = multiTenantContextAccessor.MultiTenantContext.TenantInfo;
+        _dbSeeder = dbSeeder ?? throw new ArgumentNullException(nameof(dbSeeder));
+        _logger = logger ?? throw new ArgumentNullException(nameof(logger));
     }
 
     public async Task InitializeAsync(CancellationToken cancellationToken)
@@ -26,13 +42,13 @@ internal class ApplicationDbInitializer
         {
             if ((await _dbContext.Database.GetPendingMigrationsAsync(cancellationToken)).Any())
             {
-                _logger.LogInformation("Applying Migrations for '{tenantId}' tenant.", _currentTenant.Id);
+                _logger.LogInformation("Applying Migrations for '{tenantId}' tenant.", _currentTenant?.Id);
                 await _dbContext.Database.MigrateAsync(cancellationToken);
             }
 
             if (await _dbContext.Database.CanConnectAsync(cancellationToken))
             {
-                _logger.LogInformation("Connection to {tenantId}'s Database Succeeded.", _currentTenant.Id);
+                _logger.LogInformation("Connection to {tenantId}'s Database Succeeded.", _currentTenant?.Id);
 
                 await _dbSeeder.SeedDatabaseAsync(_dbContext, cancellationToken);
             }

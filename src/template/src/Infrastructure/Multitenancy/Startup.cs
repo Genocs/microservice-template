@@ -1,3 +1,4 @@
+using Finbuckle.MultiTenant;
 using Genocs.Microservice.Template.Application.Multitenancy;
 using Genocs.Microservice.Template.Infrastructure.Persistence;
 using Genocs.Microservice.Template.Shared.Authorization;
@@ -24,7 +25,7 @@ internal static class Startup
                 .WithClaimStrategy(GNXClaims.Tenant)
                 .WithHeaderStrategy(MultitenancyConstants.TenantIdName)
                 .WithQueryStringStrategy(MultitenancyConstants.TenantIdName)
-                .WithEFCoreStore<TenantDbContext, GNXTenantInfo>()
+                .WithEFCoreStore<TenantDbContext, GNXTenantInfo>() // Use EF Core store. Keep in mind only one store can be used at a time.
                 .Services
             .AddScoped<ITenantService, TenantService>();
     }
@@ -32,7 +33,7 @@ internal static class Startup
     internal static IApplicationBuilder UseMultiTenancy(this IApplicationBuilder app) =>
         app.UseMultiTenant();
 
-    private static FinbuckleMultiTenantBuilder<GNXTenantInfo> WithQueryStringStrategy(this FinbuckleMultiTenantBuilder<GNXTenantInfo> builder, string queryStringKey) =>
+    private static MultiTenantBuilder<GNXTenantInfo> WithQueryStringStrategy(this MultiTenantBuilder<GNXTenantInfo> builder, string queryStringKey) =>
         builder.WithDelegateStrategy(context =>
         {
             if (context is not HttpContext httpContext)

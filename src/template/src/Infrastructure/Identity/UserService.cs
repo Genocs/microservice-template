@@ -1,6 +1,6 @@
 using Ardalis.Specification;
 using Ardalis.Specification.EntityFrameworkCore;
-using Finbuckle.MultiTenant;
+using Finbuckle.MultiTenant.Abstractions;
 using Genocs.Microservice.Template.Application.Common.Caching;
 using Genocs.Microservice.Template.Application.Common.Events;
 using Genocs.Microservice.Template.Application.Common.Exceptions;
@@ -13,6 +13,7 @@ using Genocs.Microservice.Template.Application.Identity.Users;
 using Genocs.Microservice.Template.Domain.Identity;
 using Genocs.Microservice.Template.Infrastructure.Auth;
 using Genocs.Microservice.Template.Infrastructure.Identity;
+using Genocs.Microservice.Template.Infrastructure.Multitenancy;
 using Genocs.Microservice.Template.Infrastructure.Persistence.Context;
 using Genocs.Microservice.Template.Shared.Authorization;
 using Mapster;
@@ -38,7 +39,7 @@ internal partial class UserService : IUserService
     private readonly IEventPublisher _events;
     private readonly ICacheService _cache;
     private readonly ICacheKeyService _cacheKeys;
-    private readonly ITenantInfo _currentTenant;
+    private readonly ITenantInfo? _currentTenant;
 
     public UserService(
         SignInManager<ApplicationUser> signInManager,
@@ -53,7 +54,7 @@ internal partial class UserService : IUserService
         IEventPublisher events,
         ICacheService cache,
         ICacheKeyService cacheKeys,
-        ITenantInfo currentTenant,
+        IMultiTenantContextAccessor<GNXTenantInfo> multiTenantContextAccessor,
         IOptions<SecuritySettings> securitySettings)
     {
         _signInManager = signInManager;
@@ -68,7 +69,7 @@ internal partial class UserService : IUserService
         _events = events;
         _cache = cache;
         _cacheKeys = cacheKeys;
-        _currentTenant = currentTenant;
+        _currentTenant = multiTenantContextAccessor.MultiTenantContext.TenantInfo;
         _securitySettings = securitySettings.Value;
     }
 

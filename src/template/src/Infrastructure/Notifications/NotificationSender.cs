@@ -1,5 +1,6 @@
-﻿using Finbuckle.MultiTenant;
+﻿using Finbuckle.MultiTenant.Abstractions;
 using Genocs.Microservice.Template.Application.Common.Interfaces;
+using Genocs.Microservice.Template.Infrastructure.Multitenancy;
 using Microsoft.AspNetCore.SignalR;
 using static Genocs.Microservice.Template.Shared.Notifications.NotificationConstants;
 
@@ -8,10 +9,10 @@ namespace Genocs.Microservice.Template.Infrastructure.Notifications;
 public class NotificationSender : INotificationSender
 {
     private readonly IHubContext<NotificationHub> _notificationHubContext;
-    private readonly ITenantInfo _currentTenant;
+    private readonly ITenantInfo? _currentTenant;
 
-    public NotificationSender(IHubContext<NotificationHub> notificationHubContext, ITenantInfo currentTenant) =>
-        (_notificationHubContext, _currentTenant) = (notificationHubContext, currentTenant);
+    public NotificationSender(IHubContext<NotificationHub> notificationHubContext, IMultiTenantContextAccessor<GNXTenantInfo> multiTenantContextAccessor) =>
+        (_notificationHubContext, _currentTenant) = (notificationHubContext, multiTenantContextAccessor?.MultiTenantContext?.TenantInfo);
 
     public Task BroadcastAsync(INotificationMessage notification, CancellationToken cancellationToken) =>
         _notificationHubContext.Clients.All

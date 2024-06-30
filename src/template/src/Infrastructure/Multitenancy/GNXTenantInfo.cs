@@ -3,7 +3,7 @@ using Genocs.Microservice.Template.Shared.Multitenancy;
 
 namespace Genocs.Microservice.Template.Infrastructure.Multitenancy;
 
-public class GNXTenantInfo : ITenantInfo
+public class GNXTenantInfo : TenantInfo
 {
     public GNXTenantInfo()
     {
@@ -23,17 +23,6 @@ public class GNXTenantInfo : ITenantInfo
         ValidUpto = DateTime.UtcNow.AddMonths(1);
     }
 
-    /// <summary>
-    /// The actual TenantId, which is also used in the TenantId shadow property on the multitenant entities.
-    /// </summary>
-    public string Id { get; set; } = default!;
-
-    /// <summary>
-    /// The identifier that is used in headers/routes/querystrings. This is set to the same as Id to avoid confusion.
-    /// </summary>
-    public string Identifier { get; set; } = default!;
-
-    public string Name { get; set; } = default!;
     public string ConnectionString { get; set; } = default!;
 
     public string AdminEmail { get; private set; } = default!;
@@ -72,9 +61,4 @@ public class GNXTenantInfo : ITenantInfo
 
         IsActive = false;
     }
-
-    string? ITenantInfo.Id { get => Id; set => Id = value ?? throw new InvalidOperationException("Id can't be null."); }
-    string? ITenantInfo.Identifier { get => Identifier; set => Identifier = value ?? throw new InvalidOperationException("Identifier can't be null."); }
-    string? ITenantInfo.Name { get => Name; set => Name = value ?? throw new InvalidOperationException("Name can't be null."); }
-    string? ITenantInfo.ConnectionString { get => ConnectionString; set => ConnectionString = value ?? throw new InvalidOperationException("ConnectionString can't be null."); }
-}
+   }

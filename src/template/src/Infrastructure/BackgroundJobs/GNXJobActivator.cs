@@ -1,5 +1,4 @@
-﻿using Finbuckle.MultiTenant;
-using Genocs.Microservice.Template.Infrastructure.Auth;
+﻿using Genocs.Microservice.Template.Infrastructure.Auth;
 using Genocs.Microservice.Template.Infrastructure.Common;
 using Genocs.Microservice.Template.Infrastructure.Multitenancy;
 using Genocs.Microservice.Template.Shared.Multitenancy;
@@ -37,11 +36,13 @@ public class GNXJobActivator : JobActivator
             var tenantInfo = _context.GetJobParameter<GNXTenantInfo>(MultitenancyConstants.TenantIdName);
             if (tenantInfo is not null)
             {
-                _scope.ServiceProvider.GetRequiredService<IMultiTenantContextAccessor>()
-                    .MultiTenantContext = new MultiTenantContext<GNXTenantInfo>
-                    {
-                        TenantInfo = tenantInfo
-                    };
+                // TODO: Log the issue
+
+                // _scope.ServiceProvider.GetRequiredService<IMultiTenantContextSetter>()
+                //    .MultiTenantContext = new MultiTenantContext<GNXTenantInfo>
+                //    {
+                //        TenantInfo = tenantInfo
+                //    };
             }
 
             string userId = _context.GetJobParameter<string>(QueryStringKeys.UserId);

@@ -1,4 +1,4 @@
-﻿using Finbuckle.MultiTenant;
+﻿using Finbuckle.MultiTenant.Abstractions;
 using Genocs.Microservice.Template.Application.Common.Exceptions;
 using Genocs.Microservice.Template.Application.Common.Interfaces;
 using Microsoft.AspNetCore.Authorization;

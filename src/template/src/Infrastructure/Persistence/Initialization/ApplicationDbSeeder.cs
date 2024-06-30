@@ -1,4 +1,5 @@
-﻿using Genocs.Microservice.Template.Infrastructure.Identity;
+﻿using Finbuckle.MultiTenant.Abstractions;
+using Genocs.Microservice.Template.Infrastructure.Identity;
 using Genocs.Microservice.Template.Infrastructure.Multitenancy;
 using Genocs.Microservice.Template.Infrastructure.Persistence.Context;
 using Genocs.Microservice.Template.Shared.Authorization;
@@ -11,19 +12,34 @@ namespace Genocs.Microservice.Template.Infrastructure.Persistence.Initialization
 
 internal class ApplicationDbSeeder
 {
-    private readonly GNXTenantInfo _currentTenant;
+    private readonly GNXTenantInfo? _currentTenant;
     private readonly RoleManager<ApplicationRole> _roleManager;
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly CustomSeederRunner _seederRunner;
     private readonly ILogger<ApplicationDbSeeder> _logger;
 
-    public ApplicationDbSeeder(GNXTenantInfo currentTenant, RoleManager<ApplicationRole> roleManager, UserManager<ApplicationUser> userManager, CustomSeederRunner seederRunner, ILogger<ApplicationDbSeeder> logger)
+    public ApplicationDbSeeder(IMultiTenantContextAccessor<GNXTenantInfo> multiTenantContextAccessor, RoleManager<ApplicationRole> roleManager, UserManager<ApplicationUser> userManager, CustomSeederRunner seederRunner, ILogger<ApplicationDbSeeder> logger)
     {
-        _currentTenant = currentTenant;
-        _roleManager = roleManager;
-        _userManager = userManager;
-        _seederRunner = seederRunner;
-        _logger = logger;
+        if (multiTenantContextAccessor is null)
+        {
+            throw new ArgumentNullException(nameof(multiTenantContextAccessor));
+        }
+
+        if (multiTenantContextAccessor.MultiTenantContext is null)
+        {
+            throw new ArgumentNullException(nameof(multiTenantContextAccessor.MultiTenantContext));
+        }
+
+        if (multiTenantContextAccessor?.MultiTenantContext?.TenantInfo is null)
+        {
+            throw new ArgumentNullException(nameof(multiTenantContextAccessor.MultiTenantContext.TenantInfo));
+        }
+
+        _currentTenant = multiTenantContextAccessor.MultiTenantContext.TenantInfo;
+        _roleManager = roleManager ?? throw new ArgumentNullException(nameof(roleManager));
+        _userManager = userManager ?? throw new ArgumentNullException(nameof(userManager));
+        _seederRunner = seederRunner ?? throw new ArgumentNullException(nameof(seederRunner));
+        _logger = logger ?? throw new ArgumentNullException(nameof(logger));
     }
 
     public async Task SeedDatabaseAsync(ApplicationDbContext dbContext, CancellationToken cancellationToken)

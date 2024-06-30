@@ -1,5 +1,5 @@
 using Dapper;
-using Finbuckle.MultiTenant.EntityFrameworkCore;
+using Finbuckle.MultiTenant;
 using Genocs.Microservice.Template.Application.Common.Persistence;
 using Genocs.Microservice.Template.Domain.Common.Contracts;
 using Genocs.Microservice.Template.Infrastructure.Persistence.Context;

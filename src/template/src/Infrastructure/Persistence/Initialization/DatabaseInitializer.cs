@@ -1,4 +1,5 @@
 ﻿using Finbuckle.MultiTenant;
+using Finbuckle.MultiTenant.Abstractions;
 using Genocs.Microservice.Template.Infrastructure.Multitenancy;
 using Genocs.Microservice.Template.Shared.Multitenancy;
 using Microsoft.EntityFrameworkCore;
@@ -15,9 +16,9 @@ internal class DatabaseInitializer : IDatabaseInitializer
 
     public DatabaseInitializer(TenantDbContext tenantDbContext, IServiceProvider serviceProvider, ILogger<DatabaseInitializer> logger)
     {
-        _tenantDbContext = tenantDbContext;
-        _serviceProvider = serviceProvider;
-        _logger = logger;
+        _tenantDbContext = tenantDbContext ?? throw new ArgumentNullException(nameof(tenantDbContext));
+        _serviceProvider = serviceProvider ?? throw new ArgumentNullException(nameof(serviceProvider));
+        _logger = logger ?? throw new ArgumentNullException(nameof(logger));
     }
 
     public async Task InitializeDatabasesAsync(CancellationToken cancellationToken)
@@ -39,7 +40,7 @@ internal class DatabaseInitializer : IDatabaseInitializer
         using var scope = _serviceProvider.CreateScope();
 
         // Then set current tenant so the right ConnectionString is used
-        _serviceProvider.GetRequiredService<IMultiTenantContextAccessor>()
+        _serviceProvider.GetRequiredService<IMultiTenantContextSetter>()
             .MultiTenantContext = new MultiTenantContext<GNXTenantInfo>()
             {
                 TenantInfo = tenant

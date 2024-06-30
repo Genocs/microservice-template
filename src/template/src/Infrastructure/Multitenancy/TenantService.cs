@@ -1,4 +1,4 @@
-﻿using Finbuckle.MultiTenant;
+﻿using Finbuckle.MultiTenant.Abstractions;
 using Genocs.Microservice.Template.Application.Common.Exceptions;
 using Genocs.Microservice.Template.Application.Common.Persistence;
 using Genocs.Microservice.Template.Application.Multitenancy;
@@ -19,11 +19,11 @@ internal class TenantService : ITenantService
     private readonly DatabaseSettings _dbSettings;
 
     public TenantService(
-        IMultiTenantStore<GNXTenantInfo> tenantStore,
-        IConnectionStringSecurer csSecurer,
-        IDatabaseInitializer dbInitializer,
-        IStringLocalizer<TenantService> localizer,
-        IOptions<DatabaseSettings> dbSettings)
+                        IMultiTenantStore<GNXTenantInfo> tenantStore,
+                        IConnectionStringSecurer csSecurer,
+                        IDatabaseInitializer dbInitializer,
+                        IStringLocalizer<TenantService> localizer,
+                        IOptions<DatabaseSettings> dbSettings)
     {
         _tenantStore = tenantStore;
         _csSecurer = csSecurer;

@@ -1,9 +1,10 @@
-using Finbuckle.MultiTenant;
+using Finbuckle.MultiTenant.Abstractions;
 using Genocs.Microservice.Template.Application.Common.Events;
 using Genocs.Microservice.Template.Application.Common.Exceptions;
 using Genocs.Microservice.Template.Application.Common.Interfaces;
 using Genocs.Microservice.Template.Application.Identity.Roles;
 using Genocs.Microservice.Template.Domain.Identity;
+using Genocs.Microservice.Template.Infrastructure.Multitenancy;
 using Genocs.Microservice.Template.Infrastructure.Persistence.Context;
 using Genocs.Microservice.Template.Shared.Authorization;
 using Genocs.Microservice.Template.Shared.Multitenancy;
@@ -21,7 +22,7 @@ internal class RoleService : IRoleService
     private readonly ApplicationDbContext _db;
     private readonly IStringLocalizer _t;
     private readonly ICurrentUser _currentUser;
-    private readonly ITenantInfo _currentTenant;
+    private readonly ITenantInfo? _currentTenant;
     private readonly IEventPublisher _events;
 
     public RoleService(
@@ -30,7 +31,7 @@ internal class RoleService : IRoleService
                         ApplicationDbContext db,
                         IStringLocalizer<RoleService> localizer,
                         ICurrentUser currentUser,
-                        ITenantInfo currentTenant,
+                        IMultiTenantContextAccessor<GNXTenantInfo> multiTenantContextAccessor,
                         IEventPublisher events)
     {
         _roleManager = roleManager;
@@ -38,7 +39,7 @@ internal class RoleService : IRoleService
         _db = db;
         _t = localizer;
         _currentUser = currentUser;
-        _currentTenant = currentTenant;
+        _currentTenant = multiTenantContextAccessor?.MultiTenantContext?.TenantInfo;
         _events = events;
     }
 

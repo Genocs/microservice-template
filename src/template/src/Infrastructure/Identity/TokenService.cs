@@ -1,3 +1,4 @@
+using Finbuckle.MultiTenant.Abstractions;
 using Genocs.Microservice.Template.Application.Common.Exceptions;
 using Genocs.Microservice.Template.Application.Identity.Tokens;
 using Genocs.Microservice.Template.Infrastructure.Auth;
@@ -28,13 +29,13 @@ internal class TokenService : ITokenService
         UserManager<ApplicationUser> userManager,
         IOptions<JwtSettings> jwtSettings,
         IStringLocalizer<TokenService> localizer,
-        GNXTenantInfo? currentTenant,
+        IMultiTenantContextAccessor<GNXTenantInfo> multiTenantContextAccessor,
         IOptions<SecuritySettings> securitySettings)
     {
         _userManager = userManager;
         _t = localizer;
         _jwtSettings = jwtSettings.Value;
-        _currentTenant = currentTenant;
+        _currentTenant = multiTenantContextAccessor?.MultiTenantContext.TenantInfo;
         _securitySettings = securitySettings.Value;
     }
 

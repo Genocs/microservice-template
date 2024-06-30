@@ -74,7 +74,8 @@ internal class AzureAdJwtBearerEvents : JwtBearerEvents
         identity.AddClaim(new Claim(GNXClaims.Tenant, tenant.Id));
 
         // Set new tenant info to the HttpContext so the right connection string is used.
-        context.HttpContext.TrySetTenantInfo(tenant, false);
+        // TODO: this is not working as expected, we need to find a way to set the tenant info in the HttpContext.
+        // context.HttpContext.TrySetTenantInfo(tenant, false);
 
         // Lookup local user or create one if none exist.
         string userId = await context.HttpContext.RequestServices.GetRequiredService<IUserService>()

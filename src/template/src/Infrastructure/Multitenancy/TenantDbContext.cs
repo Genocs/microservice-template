@@ -1,4 +1,4 @@
-﻿using Finbuckle.MultiTenant.Stores;
+﻿using Finbuckle.MultiTenant.EntityFrameworkCore.Stores.EFCoreStore;
 using Genocs.Microservice.Template.Infrastructure.Persistence.Configuration;
 using Microsoft.EntityFrameworkCore;
 

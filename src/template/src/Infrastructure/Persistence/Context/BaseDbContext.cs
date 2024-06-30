@@ -1,15 +1,16 @@
-using System.Data;
-using Finbuckle.MultiTenant;
+using Finbuckle.MultiTenant.Abstractions;
+using Finbuckle.MultiTenant.EntityFrameworkCore;
 using Genocs.Microservice.Template.Application.Common.Events;
 using Genocs.Microservice.Template.Application.Common.Interfaces;
 using Genocs.Microservice.Template.Domain.Common.Contracts;
 using Genocs.Microservice.Template.Infrastructure.Auditing;
 using Genocs.Microservice.Template.Infrastructure.Identity;
-using Genocs.Microservice.Template.Infrastructure.Persistence;
+using Genocs.Microservice.Template.Infrastructure.Multitenancy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.Extensions.Options;
+using System.Data;
 
 namespace Genocs.Microservice.Template.Infrastructure.Persistence.Context;
 
@@ -20,8 +21,17 @@ public abstract class BaseDbContext : MultiTenantIdentityDbContext<ApplicationUs
     private readonly DatabaseSettings _dbSettings;
     private readonly IEventPublisher _events;
 
-    protected BaseDbContext(ITenantInfo currentTenant, DbContextOptions options, ICurrentUser currentUser, ISerializerService serializer, IOptions<DatabaseSettings> dbSettings, IEventPublisher events)
-        : base(currentTenant, options)
+    protected BaseDbContext(IMultiTenantContextAccessor<GNXTenantInfo> multiTenantContextAccessor, DbContextOptions options, ICurrentUser currentUser, ISerializerService serializer, IOptions<DatabaseSettings> dbSettings, IEventPublisher events)
+        : base(multiTenantContextAccessor.MultiTenantContext.TenantInfo, options)
+    {
+        _currentUser = currentUser;
+        _serializer = serializer;
+        _dbSettings = dbSettings.Value;
+        _events = events;
+    }
+
+    protected BaseDbContext(IMultiTenantContext<GNXTenantInfo> multiTenantContextAccessor, DbContextOptions options, ICurrentUser currentUser, ISerializerService serializer, IOptions<DatabaseSettings> dbSettings, IEventPublisher events)
+        : base(multiTenantContextAccessor.TenantInfo, options)
     {
         _currentUser = currentUser;
         _serializer = serializer;
@@ -57,9 +67,11 @@ public abstract class BaseDbContext : MultiTenantIdentityDbContext<ApplicationUs
         // Or uncomment the next line if you want to see them in the console
         // optionsBuilder.LogTo(Console.WriteLine, Microsoft.Extensions.Logging.LogLevel.Information);
 
-        if (!string.IsNullOrWhiteSpace(TenantInfo?.ConnectionString))
+        GNXTenantInfo? gNXTenantInfo = TenantInfo as GNXTenantInfo;
+
+        if (!string.IsNullOrWhiteSpace(gNXTenantInfo?.ConnectionString))
         {
-            optionsBuilder.UseDatabase(_dbSettings.DBProvider, TenantInfo.ConnectionString);
+            optionsBuilder.UseDatabase(_dbSettings.DBProvider, gNXTenantInfo.ConnectionString);
         }
     }
 

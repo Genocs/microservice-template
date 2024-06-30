@@ -13,9 +13,7 @@
         <PublishProfile>DefaultContainer</PublishProfile>
         <UserSecretsId>Genocs</UserSecretsId>
     </PropertyGroup>
-    <ItemGroup>
-        <PackageReference Include="Microsoft.NET.Build.Containers" Version="8.0.302" />
-    </ItemGroup>
+
     <ItemGroup>
         <ProjectReference Include="..\Core\Application\Application.csproj" />
         <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />

@@ -1,4 +1,4 @@
-﻿using Finbuckle.MultiTenant;
+﻿using Finbuckle.MultiTenant.Abstractions;
 using Genocs.Microservice.Template.Infrastructure.Common;
 using Genocs.Microservice.Template.Shared.Authorization;
 using Genocs.Microservice.Template.Shared.Multitenancy;

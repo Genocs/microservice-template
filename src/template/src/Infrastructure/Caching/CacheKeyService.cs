@@ -1,5 +1,6 @@
-﻿using Finbuckle.MultiTenant;
+﻿using Finbuckle.MultiTenant.Abstractions;
 using Genocs.Microservice.Template.Application.Common.Caching;
+using Genocs.Microservice.Template.Infrastructure.Multitenancy;
 
 namespace Genocs.Microservice.Template.Infrastructure.Caching;
 
@@ -7,7 +8,8 @@ public class CacheKeyService : ICacheKeyService
 {
     private readonly ITenantInfo? _currentTenant;
 
-    public CacheKeyService(ITenantInfo currentTenant) => _currentTenant = currentTenant;
+    public CacheKeyService(IMultiTenantContextAccessor<GNXTenantInfo> multiTenantContextAccessor)
+        => _currentTenant = multiTenantContextAccessor?.MultiTenantContext?.TenantInfo;
 
     public string GetCacheKey(string name, object id, bool includeTenantId = true)
     {
