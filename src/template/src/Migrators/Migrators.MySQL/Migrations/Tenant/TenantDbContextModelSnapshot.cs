@@ -47,7 +47,7 @@ namespace Migrators.MySQL.Migrations.Tenant
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<DateTime>("ValidUpto")
+                    b.Property<DateTime>("ValidUpTo")
                         .HasColumnType("datetime(6)");
 
                     b.HasKey("Id");

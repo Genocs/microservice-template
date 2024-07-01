@@ -47,7 +47,7 @@ namespace Migrators.SqLite.Migrations.TenantDb
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("ValidUpto")
+                    b.Property<DateTime>("ValidUpTo")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");

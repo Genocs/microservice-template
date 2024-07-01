@@ -25,11 +25,21 @@ internal class TenantService : ITenantService
                         IStringLocalizer<TenantService> localizer,
                         IOptions<DatabaseSettings> dbSettings)
     {
-        _tenantStore = tenantStore;
-        _csSecurer = csSecurer;
-        _dbInitializer = dbInitializer;
-        _t = localizer;
+        if (dbSettings is null)
+        {
+            throw new ArgumentNullException(nameof(dbSettings));
+        }
+
+        _tenantStore = tenantStore ?? throw new ArgumentNullException(nameof(tenantStore));
+        _csSecurer = csSecurer ?? throw new ArgumentNullException(nameof(csSecurer));
+        _dbInitializer = dbInitializer ?? throw new ArgumentNullException(nameof(dbInitializer));
+        _t = localizer ?? throw new ArgumentNullException(nameof(localizer));
         _dbSettings = dbSettings.Value;
+
+        if (_dbSettings is null)
+        {
+            throw new ArgumentNullException(nameof(_dbSettings));
+        }
     }
 
     public async Task<List<TenantDto>> GetAllAsync()
@@ -99,12 +109,12 @@ internal class TenantService : ITenantService
         return _t["Tenant {0} is now Deactivated.", id];
     }
 
-    public async Task<string> UpdateSubscription(string id, DateTime extendedExpiryDate)
+    public async Task<string> UpdateSubscriptionAsync(string id, DateTime extendedExpiryDate)
     {
         var tenant = await GetTenantInfoAsync(id);
         tenant.SetValidity(extendedExpiryDate);
         await _tenantStore.TryUpdateAsync(tenant);
-        return _t["Tenant {0}'s Subscription Upgraded. Now Valid till {1}.", id, tenant.ValidUpto];
+        return _t["Tenant {0}'s Subscription Upgraded. Now Valid till {1}.", id, tenant.ValidUpTo];
     }
 
     private async Task<GNXTenantInfo> GetTenantInfoAsync(string id) =>

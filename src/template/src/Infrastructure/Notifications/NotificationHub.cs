@@ -1,6 +1,7 @@
 ﻿using Finbuckle.MultiTenant.Abstractions;
 using Genocs.Microservice.Template.Application.Common.Exceptions;
 using Genocs.Microservice.Template.Application.Common.Interfaces;
+using Genocs.Microservice.Template.Infrastructure.Multitenancy;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Logging;
@@ -13,10 +14,15 @@ public class NotificationHub : Hub, ITransientService
     private readonly ITenantInfo? _currentTenant;
     private readonly ILogger<NotificationHub> _logger;
 
-    public NotificationHub(ITenantInfo? currentTenant, ILogger<NotificationHub> logger)
+    public NotificationHub(IMultiTenantContextAccessor<GNXTenantInfo> multiTenantContextAccessor, ILogger<NotificationHub> logger)
     {
-        _currentTenant = currentTenant;
-        _logger = logger;
+        if (multiTenantContextAccessor is null)
+        {
+            throw new ArgumentNullException(nameof(multiTenantContextAccessor));
+        }
+
+        _currentTenant = multiTenantContextAccessor?.MultiTenantContext?.TenantInfo;
+        _logger = logger ?? throw new ArgumentNullException(nameof(logger));
     }
 
     public override async Task OnConnectedAsync()

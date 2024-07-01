@@ -52,7 +52,7 @@ namespace Migrators.MSSQL.Migrations.Tenant
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("ValidUpto")
+                    b.Property<DateTime>("ValidUpTo")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");

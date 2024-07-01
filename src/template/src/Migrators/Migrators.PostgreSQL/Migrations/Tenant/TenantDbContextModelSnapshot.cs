@@ -50,7 +50,7 @@ namespace Migrators.PostgreSQL.Migrations.Tenant
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<DateTime>("ValidUpto")
+                    b.Property<DateTime>("ValidUpTo")
                         .HasColumnType("timestamp without time zone");
 
                     b.HasKey("Id");

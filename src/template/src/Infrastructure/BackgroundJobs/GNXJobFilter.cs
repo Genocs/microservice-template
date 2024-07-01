@@ -1,5 +1,6 @@
-﻿using Finbuckle.MultiTenant.Abstractions;
+﻿using Finbuckle.MultiTenant;
 using Genocs.Microservice.Template.Infrastructure.Common;
+using Genocs.Microservice.Template.Infrastructure.Multitenancy;
 using Genocs.Microservice.Template.Shared.Authorization;
 using Genocs.Microservice.Template.Shared.Multitenancy;
 using Hangfire.Client;
@@ -29,8 +30,9 @@ public class GNXJobFilter : IClientFilter
         var httpContext = scope.ServiceProvider.GetRequiredService<IHttpContextAccessor>()?.HttpContext;
         _ = httpContext ?? throw new InvalidOperationException("Can't create a TenantJob without HttpContext.");
 
-        var tenantInfo = scope.ServiceProvider.GetRequiredService<ITenantInfo>();
-        context.SetJobParameter(MultitenancyConstants.TenantIdName, tenantInfo);
+        var tenantCtx = httpContext.GetMultiTenantContext<GNXTenantInfo>();
+
+        context.SetJobParameter(MultitenancyConstants.TenantIdName, tenantCtx.TenantInfo);
 
         string? userId = httpContext.User.GetUserId();
         context.SetJobParameter(QueryStringKeys.UserId, userId);

@@ -22,7 +22,7 @@ public partial class InitialMigrations : Migration
                 ConnectionString = table.Column<string>(type: "text", nullable: false),
                 AdminEmail = table.Column<string>(type: "text", nullable: false),
                 IsActive = table.Column<bool>(type: "boolean", nullable: false),
-                ValidUpto = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                ValidUpTo = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                 Issuer = table.Column<string>(type: "text", nullable: true)
             },
             constraints: table =>

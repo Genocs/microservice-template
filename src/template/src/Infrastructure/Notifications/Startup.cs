@@ -12,31 +12,42 @@ internal static class Startup
     {
         var logger = Log.ForContext(typeof(Startup));
 
-        SignalRSettings? signalRSettings = config.GetSection(nameof(SignalRSettings)).Get<SignalRSettings>();
+        SignalRSettings? settings = config.GetSection(SignalRSettings.Position).Get<SignalRSettings>();
 
-        if (!signalRSettings.UseBackplane)
+        if (settings is null)
         {
+            logger.Warning($"SignalR settings is to null. Please check '{SignalRSettings.Position}' section on config file.");
+            return services;
+        }
+
+        if (!settings.UseBackplane)
+        {
+            logger.Warning($"SignalR settings has UseBackplane set to 'false'.");
             services.AddSignalR();
         }
         else
         {
-            SignalRSettings.Backplane? backplaneSettings = config.GetSection("SignalRSettings:Backplane").Get<SignalRSettings.Backplane>();
-            if (backplaneSettings is null) throw new InvalidOperationException("Backplane enabled, but no backplane settings in config.");
-            switch (backplaneSettings.Provider)
+            if (settings.BackPlane is null)
+            {
+                throw new InvalidOperationException("Backplane enabled, but no backplane settings in config.");
+            }
+
+            logger.Information($"SignalR Backplane Provider is '{settings.BackPlane.Provider}'.");
+
+            switch (settings.BackPlane.Provider)
             {
                 case "redis":
-                    if (backplaneSettings.StringConnection is null) throw new InvalidOperationException("Redis backplane provider: No connectionString configured.");
-                    services.AddSignalR().AddStackExchangeRedis(backplaneSettings.StringConnection, options =>
+                    if (settings.BackPlane.StringConnection is null) throw new InvalidOperationException("Redis backplane provider: No connectionString configured.");
+                    services.AddSignalR().AddStackExchangeRedis(settings.BackPlane.StringConnection, options =>
                     {
                         options.Configuration.AbortOnConnectFail = false;
                     });
                     break;
 
                 default:
-                    throw new InvalidOperationException($"SignalR backplane Provider {backplaneSettings.Provider} is not supported.");
+                    throw new InvalidOperationException($"SignalR backplane Provider {settings.BackPlane.Provider} is not supported.");
             }
 
-            logger.Information($"SignalR Backplane Current Provider: {backplaneSettings.Provider}.");
         }
 
         return services;
@@ -48,6 +59,7 @@ internal static class Startup
         {
             options.CloseOnAuthenticationExpiration = true;
         });
+
         return endpoints;
     }
 }

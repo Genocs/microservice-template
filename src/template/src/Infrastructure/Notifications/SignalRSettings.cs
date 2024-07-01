@@ -3,6 +3,25 @@
 public class SignalRSettings
 {
     /// <summary>
+    /// Default section name.
+    /// </summary>
+    public const string Position = "signalR";
+
+    /// <summary>
+    /// It is used to enable or disable the functionality.
+    /// </summary>
+    public bool Enabled { get; set; }
+
+    /// <summary>
+    /// It is used to enable or disable the backplane.
+    /// In case of enabling the backplane, the backplane settings must be provided.
+    /// </summary>
+    public bool UseBackplane { get; set; }
+
+
+    public Backplane? BackPlane { get; set; }
+
+    /// <summary>
     /// The backplane settings.
     /// </summary>
     public class Backplane
@@ -19,10 +38,4 @@ public class SignalRSettings
         /// </summary>
         public string? StringConnection { get; set; }
     }
-
-    /// <summary>
-    /// It is used to enable or disable the backplane.
-    /// In case of enabling the backplane, the backplane settings must be provided.
-    /// </summary>
-    public bool UseBackplane { get; set; }
 }

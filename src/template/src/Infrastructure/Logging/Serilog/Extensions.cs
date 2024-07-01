@@ -28,7 +28,7 @@ public static class Extensions
             ConfigureWriteToFile(serilogConfig, writeToFile);
             ConfigureElasticSearch(builder, serilogConfig, appName, elasticSearchUrl);
             SetMinimumLogLevel(serilogConfig, minLogLevel);
-            OverideMinimumLogLevel(serilogConfig);
+            OverrideMinimumLogLevel(serilogConfig);
             Console.WriteLine(FiggleFonts.Standard.Render(loggerSettings.AppName));
         });
     }
@@ -86,7 +86,7 @@ public static class Extensions
         }
     }
 
-    private static void OverideMinimumLogLevel(LoggerConfiguration serilogConfig)
+    private static void OverrideMinimumLogLevel(LoggerConfiguration serilogConfig)
     {
         serilogConfig
                      .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)

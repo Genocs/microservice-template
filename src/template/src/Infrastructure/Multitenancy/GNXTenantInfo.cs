@@ -20,14 +20,14 @@ public class GNXTenantInfo : TenantInfo
         Issuer = issuer;
 
         // Add Default 1 Month Validity for all new tenants. Something like a DEMO period for tenants.
-        ValidUpto = DateTime.UtcNow.AddMonths(1);
+        ValidUpTo = DateTime.UtcNow.AddMonths(1);
     }
 
     public string ConnectionString { get; set; } = default!;
 
     public string AdminEmail { get; private set; } = default!;
     public bool IsActive { get; private set; }
-    public DateTime ValidUpto { get; private set; }
+    public DateTime ValidUpTo { get; private set; }
 
     /// <summary>
     /// Used by AzureAd Authorization to store the AzureAd Tenant Issuer to map against.
@@ -35,10 +35,10 @@ public class GNXTenantInfo : TenantInfo
     public string? Issuer { get; set; }
 
     public void AddValidity(int months) =>
-        ValidUpto = ValidUpto.AddMonths(months);
+        ValidUpTo = ValidUpTo.AddMonths(months);
 
     public void SetValidity(in DateTime validTill) =>
-        ValidUpto = ValidUpto < validTill
+        ValidUpTo = ValidUpTo < validTill
             ? validTill
             : throw new Exception("Subscription cannot be backdated.");
 

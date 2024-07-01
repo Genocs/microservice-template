@@ -33,6 +33,7 @@ internal static class Startup
                 .AddJsonFile($"{configurationsDirectory}/localization.json", optional: false, reloadOnChange: true)
                 .AddJsonFile($"{configurationsDirectory}/localization.{env.EnvironmentName}.json", optional: true, reloadOnChange: true)
                 .AddEnvironmentVariables();
+
         return builder;
     }
 }

@@ -24,13 +24,13 @@ public class BrandGeneratorJob : IBrandGeneratorJob
     private readonly IProgressBar _progress;
 
     public BrandGeneratorJob(
-        ILogger<BrandGeneratorJob> logger,
-        ISender mediator,
-        IReadRepository<Brand> repository,
-        IProgressBarFactory progressBar,
-        PerformingContext performingContext,
-        INotificationSender notifications,
-        ICurrentUser currentUser)
+                            ILogger<BrandGeneratorJob> logger,
+                            ISender mediator,
+                            IReadRepository<Brand> repository,
+                            IProgressBarFactory progressBar,
+                            PerformingContext performingContext,
+                            INotificationSender notifications,
+                            ICurrentUser currentUser)
     {
         _logger = logger;
         _mediator = mediator;

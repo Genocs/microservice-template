@@ -22,7 +22,7 @@ namespace Migrators.Oracle.Migrations.Tenant
                     ConnectionString = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false),
                     AdminEmail = table.Column<string>(type: "NVARCHAR2(2000)", nullable: false),
                     IsActive = table.Column<bool>(type: "NUMBER(1)", nullable: false),
-                    ValidUpto = table.Column<DateTime>(type: "TIMESTAMP(7)", nullable: false),
+                    ValidUpTo = table.Column<DateTime>(type: "TIMESTAMP(7)", nullable: false),
                     Issuer = table.Column<string>(type: "NVARCHAR2(2000)", nullable: true)
                 },
                 constraints: table =>

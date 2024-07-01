@@ -1,6 +1,4 @@
-﻿using Genocs.Microservice.Template.Application.Common.Interfaces;
-
-namespace Genocs.Microservice.Template.Application.Common.Exporters;
+﻿namespace Genocs.Microservice.Template.Application.Common.Exporters;
 
 public interface IExcelWriter : ITransientService
 {

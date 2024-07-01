@@ -1,5 +1,3 @@
-using Genocs.Microservice.Template.Application.Common.Validation;
-
 namespace Genocs.Microservice.Template.Application.Common.FileStorage;
 
 public class FileUploadRequest

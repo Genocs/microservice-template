@@ -22,7 +22,7 @@ public partial class InitialMigrations : Migration
                 ConnectionString = table.Column<string>(type: "nvarchar(max)", nullable: false),
                 AdminEmail = table.Column<string>(type: "nvarchar(max)", nullable: false),
                 IsActive = table.Column<bool>(type: "bit", nullable: false),
-                ValidUpto = table.Column<DateTime>(type: "datetime2", nullable: false),
+                ValidUpTo = table.Column<DateTime>(type: "datetime2", nullable: false),
                 Issuer = table.Column<string>(type: "nvarchar(max)", nullable: true)
             },
             constraints: table =>

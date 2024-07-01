@@ -29,8 +29,8 @@ internal static class Startup
                 }
 
                 options.DefaultRequestCulture = new RequestCulture(localizationSettings.DefaultRequestCulture ?? "en-US");
-                options.FallBackToParentCultures = localizationSettings.FallbackToParent ?? true;
-                options.FallBackToParentUICultures = localizationSettings.FallbackToParent ?? true;
+                options.FallBackToParentCultures = localizationSettings.FallbackToParent;
+                options.FallBackToParentUICultures = localizationSettings.FallbackToParent;
             });
 
             services.AddSingleton<ILocalizationFileLocationProvider, GNXPoFileLocationProvider>();

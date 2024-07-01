@@ -14,8 +14,19 @@ public class SmtpMailService : IMailService
 
     public SmtpMailService(IOptions<MailSettings> settings, ILogger<SmtpMailService> logger)
     {
+        if (settings is null)
+        {
+            throw new ArgumentNullException(nameof(settings));
+        }
+
+        _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+
         _settings = settings.Value;
-        _logger = logger;
+
+        if (_settings is null)
+        {
+            throw new ArgumentNullException(nameof(_settings));
+        }
     }
 
     public async Task SendAsync(MailRequest request, CancellationToken cancellationToken = default)

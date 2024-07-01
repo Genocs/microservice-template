@@ -15,9 +15,9 @@ public class BrandSeeder : ICustomSeeder
 
     public BrandSeeder(ISerializerService serializerService, ILogger<BrandSeeder> logger, ApplicationDbContext db)
     {
-        _serializerService = serializerService;
-        _logger = logger;
-        _db = db;
+        _serializerService = serializerService ?? throw new ArgumentNullException(nameof(serializerService));
+        _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+        _db = db ?? throw new ArgumentNullException(nameof(db));
     }
 
     public async Task InitializeAsync(CancellationToken cancellationToken)

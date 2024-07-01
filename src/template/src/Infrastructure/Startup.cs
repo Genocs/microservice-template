@@ -63,8 +63,8 @@ public static class Startup
             config.ReportApiVersions = true;
         });
 
-    private static IServiceCollection AddHealthCheck(this IServiceCollection services) =>
-        services.AddHealthChecks().AddCheck<TenantHealthCheck>("Tenant").Services;
+    private static IServiceCollection AddHealthCheck(this IServiceCollection services)
+        => services.AddHealthChecks().AddCheck<TenantHealthCheck>("Tenant").Services;
 
     public static async Task InitializeDatabasesAsync(this IServiceProvider services, CancellationToken cancellationToken = default)
     {
@@ -101,5 +101,5 @@ public static class Startup
     }
 
     private static IEndpointConventionBuilder MapHealthCheck(this IEndpointRouteBuilder endpoints) =>
-        endpoints.MapHealthChecks("/api/health");
+        endpoints.MapHealthChecks("/hc");
 }

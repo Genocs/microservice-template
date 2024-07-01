@@ -7,6 +7,6 @@ public class TenantDto
     public string? ConnectionString { get; set; }
     public string AdminEmail { get; set; } = default!;
     public bool IsActive { get; set; }
-    public DateTime ValidUpto { get; set; }
+    public DateTime ValidUpTo { get; set; }
     public string? Issuer { get; set; }
 }

@@ -11,7 +11,7 @@ public static class ClaimsPrincipalExtensions
         => principal.FindFirstValue(GNXClaims.Tenant);
 
     public static string? GetFullName(this ClaimsPrincipal principal)
-        => principal?.FindFirst(GNXClaims.Fullname)?.Value;
+        => principal?.FindFirst(GNXClaims.FullName)?.Value;
 
     public static string? GetFirstName(this ClaimsPrincipal principal)
         => principal?.FindFirst(ClaimTypes.Name)?.Value;

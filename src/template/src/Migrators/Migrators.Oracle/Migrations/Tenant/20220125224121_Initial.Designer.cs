@@ -52,7 +52,7 @@ namespace Migrators.Oracle.Migrations.Tenant
                         .IsRequired()
                         .HasColumnType("NVARCHAR2(2000)");
 
-                    b.Property<DateTime>("ValidUpto")
+                    b.Property<DateTime>("ValidUpTo")
                         .HasColumnType("TIMESTAMP(7)");
 
                     b.HasKey("Id");

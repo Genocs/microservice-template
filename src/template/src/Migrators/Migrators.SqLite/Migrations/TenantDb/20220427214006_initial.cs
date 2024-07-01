@@ -23,7 +23,7 @@ public partial class Initial : Migration
                 ConnectionString = table.Column<string>(type: "TEXT", nullable: false),
                 AdminEmail = table.Column<string>(type: "TEXT", nullable: false),
                 IsActive = table.Column<bool>(type: "INTEGER", nullable: false),
-                ValidUpto = table.Column<DateTime>(type: "TEXT", nullable: false),
+                ValidUpTo = table.Column<DateTime>(type: "TEXT", nullable: false),
                 Issuer = table.Column<string>(type: "TEXT", nullable: true)
             },
             constraints: table =>

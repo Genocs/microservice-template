@@ -26,11 +26,11 @@ internal class TokenService : ITokenService
     private readonly GNXTenantInfo? _currentTenant;
 
     public TokenService(
-        UserManager<ApplicationUser> userManager,
-        IOptions<JwtSettings> jwtSettings,
-        IStringLocalizer<TokenService> localizer,
-        IMultiTenantContextAccessor<GNXTenantInfo> multiTenantContextAccessor,
-        IOptions<SecuritySettings> securitySettings)
+                        UserManager<ApplicationUser> userManager,
+                        IOptions<JwtSettings> jwtSettings,
+                        IStringLocalizer<TokenService> localizer,
+                        IMultiTenantContextAccessor<GNXTenantInfo> multiTenantContextAccessor,
+                        IOptions<SecuritySettings> securitySettings)
     {
         _userManager = userManager;
         _t = localizer;
@@ -65,7 +65,7 @@ internal class TokenService : ITokenService
                 throw new UnauthorizedException(_t["Tenant is not Active. Please contact the Application Administrator."]);
             }
 
-            if (DateTime.UtcNow > _currentTenant.ValidUpto)
+            if (DateTime.UtcNow > _currentTenant.ValidUpTo)
             {
                 throw new UnauthorizedException(_t["Tenant Validity Has Expired. Please contact the Application Administrator."]);
             }
@@ -112,7 +112,7 @@ internal class TokenService : ITokenService
         {
             new(ClaimTypes.NameIdentifier, user.Id),
             new(ClaimTypes.Email, user.Email!),
-            new(GNXClaims.Fullname, $"{user.FirstName} {user.LastName}"),
+            new(GNXClaims.FullName, $"{user.FirstName} {user.LastName}"),
             new(ClaimTypes.Name, user.FirstName ?? string.Empty),
             new(ClaimTypes.Surname, user.LastName ?? string.Empty),
             new(GNXClaims.IpAddress, ipAddress),

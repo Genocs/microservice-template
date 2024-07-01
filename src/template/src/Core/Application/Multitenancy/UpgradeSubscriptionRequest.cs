@@ -20,5 +20,5 @@ public class UpgradeSubscriptionRequestHandler : IRequestHandler<UpgradeSubscrip
     public UpgradeSubscriptionRequestHandler(ITenantService tenantService) => _tenantService = tenantService;
 
     public Task<string> Handle(UpgradeSubscriptionRequest request, CancellationToken cancellationToken) =>
-        _tenantService.UpdateSubscription(request.TenantId, request.ExtendedExpiryDate);
+        _tenantService.UpdateSubscriptionAsync(request.TenantId, request.ExtendedExpiryDate);
 }
