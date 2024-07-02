@@ -32,13 +32,13 @@ public class BrandGeneratorJob : IBrandGeneratorJob
                             INotificationSender notifications,
                             ICurrentUser currentUser)
     {
-        _logger = logger;
-        _mediator = mediator;
-        _repository = repository;
-        _progressBar = progressBar;
-        _performingContext = performingContext;
-        _notifications = notifications;
-        _currentUser = currentUser;
+        _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+        _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
+        _repository = repository ?? throw new ArgumentNullException(nameof(repository));
+        _progressBar = progressBar ?? throw new ArgumentNullException(nameof(progressBar));
+        _performingContext = performingContext ?? throw new ArgumentNullException(nameof(performingContext));
+        _notifications = notifications ?? throw new ArgumentNullException(nameof(notifications));
+        _currentUser = currentUser ?? throw new ArgumentNullException(nameof(currentUser));
         _progress = _progressBar.Create();
     }
 
