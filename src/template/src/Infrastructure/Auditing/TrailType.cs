@@ -1,5 +1,8 @@
 namespace Genocs.Microservice.Template.Infrastructure.Auditing;
 
+/// <summary>
+///The type of trail.
+/// </summary>
 public enum TrailType : byte
 {
     None = 0,

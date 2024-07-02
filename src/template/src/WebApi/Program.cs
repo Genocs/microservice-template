@@ -9,12 +9,17 @@ using Serilog;
 [assembly: ApiConventionType(typeof(GNXApiConventions))]
 
 StaticLogger.EnsureInitialized();
-Log.Information("Server Booting Up...");
 try
 {
     var builder = WebApplication.CreateBuilder(args);
 
-    builder.AddConfigurations().RegisterSerilog();
+    builder
+        .SetBanner()
+        .AddConfigurations();
+
+    builder.Host
+        .UseLogging(builder.Environment.EnvironmentName);
+
     builder.Services.AddControllers();
     builder.Services.AddInfrastructure(builder.Configuration);
     builder.Services.AddApplication();

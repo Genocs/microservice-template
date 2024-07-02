@@ -1,7 +1,22 @@
+using Genocs.Microservice.Template.Infrastructure.Logging;
+
 namespace Genocs.Microservice.Template.WebApi.Configurations;
 
 internal static class Startup
 {
+    internal static WebApplicationBuilder SetBanner(this WebApplicationBuilder builder)
+    {
+        LoggerSettings setting = new LoggerSettings();
+        builder.Configuration.GetSection(LoggerSettings.Position).Bind(setting);
+
+        Console.WriteLine(Figgle.FiggleFonts.Doom.Render(setting.AppName));
+        ConsoleColor current = Console.ForegroundColor;
+        Console.ForegroundColor = ConsoleColor.Blue;
+        Console.WriteLine("Runtime Version: {0}", Environment.Version.ToString());
+        Console.ForegroundColor = current;
+        return builder;
+    }
+
     internal static WebApplicationBuilder AddConfigurations(this WebApplicationBuilder builder)
     {
         const string configurationsDirectory = "Configurations";

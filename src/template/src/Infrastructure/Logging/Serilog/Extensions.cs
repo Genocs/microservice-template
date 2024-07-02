@@ -1,6 +1,7 @@
 using Figgle;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using Serilog;
 using Serilog.Events;
@@ -26,11 +27,31 @@ public static class Extensions
             ConfigureEnrichers(serilogConfig, appName);
             ConfigureConsoleLogging(serilogConfig, structuredConsoleLogging);
             ConfigureWriteToFile(serilogConfig, writeToFile);
-            ConfigureElasticSearch(builder, serilogConfig, appName, elasticSearchUrl);
+            ConfigureElasticSearch(builder.Environment.EnvironmentName, serilogConfig, appName, elasticSearchUrl);
             SetMinimumLogLevel(serilogConfig, minLogLevel);
             OverrideMinimumLogLevel(serilogConfig);
-            Console.WriteLine(FiggleFonts.Standard.Render(loggerSettings.AppName));
         });
+    }
+
+    public static IHostBuilder UseLogging(this IHostBuilder builder, string environment = "debug")
+    {
+        builder.UseSerilog((_, sp, serilogConfig) =>
+         {
+             var loggerSettings = sp.GetRequiredService<IOptions<LoggerSettings>>().Value;
+             string appName = loggerSettings.AppName;
+             string elasticSearchUrl = loggerSettings.ElasticSearchUrl;
+             bool writeToFile = loggerSettings.WriteToFile;
+             bool structuredConsoleLogging = loggerSettings.StructuredConsoleLogging;
+             string minLogLevel = loggerSettings.MinimumLogLevel;
+             ConfigureEnrichers(serilogConfig, appName);
+             ConfigureConsoleLogging(serilogConfig, structuredConsoleLogging);
+             ConfigureWriteToFile(serilogConfig, writeToFile);
+             ConfigureElasticSearch(environment, serilogConfig, appName, elasticSearchUrl);
+             SetMinimumLogLevel(serilogConfig, minLogLevel);
+             OverrideMinimumLogLevel(serilogConfig);
+         });
+
+        return builder;
     }
 
     private static void ConfigureEnrichers(LoggerConfiguration serilogConfig, string appName)
@@ -70,19 +91,19 @@ public static class Extensions
         }
     }
 
-    private static void ConfigureElasticSearch(WebApplicationBuilder builder, LoggerConfiguration serilogConfig, string appName, string elasticSearchUrl)
+    private static void ConfigureElasticSearch(string environment, LoggerConfiguration serilogConfig, string appName, string? elasticSearchUrl)
     {
-        if (!string.IsNullOrEmpty(elasticSearchUrl))
+        if (!string.IsNullOrWhiteSpace(elasticSearchUrl))
         {
             string? formattedAppName = appName?.ToLower().Replace(".", "-").Replace(" ", "-");
-            string indexFormat = $"{formattedAppName}-logs-{builder.Environment.EnvironmentName?.ToLower().Replace(".", "-")}-{DateTime.UtcNow:yyyy-MM}";
+            string indexFormat = $"{formattedAppName}-logs-{environment.ToLower().Replace(".", "-")}-{DateTime.UtcNow:yyyy-MM}";
             serilogConfig.WriteTo.Async(writeTo =>
             writeTo.Elasticsearch(new(new Uri(elasticSearchUrl))
             {
                 AutoRegisterTemplate = true,
                 IndexFormat = indexFormat,
                 MinimumLogEventLevel = LogEventLevel.Information,
-            })).Enrich.WithProperty("Environment", builder.Environment.EnvironmentName!);
+            })).Enrich.WithProperty("Environment", environment);
         }
     }
 
