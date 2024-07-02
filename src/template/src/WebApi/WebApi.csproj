@@ -27,17 +27,8 @@
         <Content Update="Configurations\*.json">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
-        <None Update="Files\genocs-microservice-template-logo.png">
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </None>
-        <None Include="Email Templates\*.html">
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </None>
     </ItemGroup>
     <ItemGroup>
-        <Compile Remove="Databases\**" />
-        <Content Remove="Databases\**" />
-        <Content Remove="Logs\*" />
         <None Include="Logs\*" />
     </ItemGroup>
     <ItemGroup>

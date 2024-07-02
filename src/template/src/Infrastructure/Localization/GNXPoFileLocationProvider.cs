@@ -24,7 +24,7 @@ public class GNXPoFileLocationProvider : ILocalizationFileLocationProvider
     public IEnumerable<IFileInfo> GetLocations(string cultureName)
     {
         // Loads all *.po files from the culture folder under the Resource Path.
-        // for example, src\Host\Localization\en-US\GNX.Exceptions.po
+        // for example, src\WebApi\Localization\en-US\GNX.Exceptions.po
         foreach (var file in _fileProvider.GetDirectoryContents(PathExtensions.Combine(_resourcesContainer, cultureName)))
         {
             yield return file;
