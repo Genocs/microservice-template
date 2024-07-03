@@ -5,12 +5,6 @@
         <IsPackable>false</IsPackable>
         <RootNamespace>Genocs.Microservice.Template.WebApi</RootNamespace>
         <AssemblyName>Genocs.Microservice.Template.WebApi</AssemblyName>
-    </PropertyGroup>
-
-    <PropertyGroup>
-        <ContainerImageName>dotnet-webapi</ContainerImageName>
-        <ContainerImageTags>1.0.0;latest</ContainerImageTags>
-        <PublishProfile>DefaultContainer</PublishProfile>
         <UserSecretsId>Genocs</UserSecretsId>
     </PropertyGroup>
 

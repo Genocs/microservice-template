@@ -7,7 +7,7 @@ nuget:
 publish:
 	dotnet publish --os linux --arch x64 -c Release --self-contained
 publish-to-hub:
-	dotnet publish --os linux --arch x64 -c Release -p:ContainerRegistry=docker.io -p:ContainerImageName=genocs/dotnet-webapi --self-contained
+	dotnet publish --os linux --arch x64 -c Release -p:ContainerRegistry=docker.io -p:ContainerRepository=genocs/dotnet-webapi --self-contained
 tp: # terraform plan
 	cd terraform/environments/staging && terraform plan
 ta: # terraform apply

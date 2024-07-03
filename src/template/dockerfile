@@ -1,0 +1,40 @@
+#See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
+
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+WORKDIR /app
+EXPOSE 80
+EXPOSE 443
+
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build-env
+WORKDIR /src
+COPY ["src/Core/Application", "Core/Application/"]
+COPY ["src/Core/Domain", "Core/Domain/"]
+COPY ["src/Core/Shared", "Core/Shared/"]
+COPY ["src/Infrastructure", "Infrastructure/"]
+COPY ["src/Migrators/Migrators.MSSQL", "Migrators/Migrators.MSSQL/"]
+COPY ["src/Migrators/Migrators.MySQL", "Migrators/Migrators.MySQL/"]
+COPY ["src/Migrators/Migrators.Oracle", "Migrators/Migrators.Oracle/"]
+COPY ["src/Migrators/Migrators.PostgreSQL", "Migrators/Migrators.PostgreSQL/"]
+COPY ["src/Migrators/Migrators.SqLite", "Migrators/Migrators.SqLite/"]
+COPY ["src/WebApi", "WebApi/"]
+
+COPY ["Directory.Build.props", "Directory.Build.props"]
+COPY ["Directory.Build.targets", "Directory.Build.targets"]
+COPY ["dotnet.ruleset", "dotnet.ruleset"]
+COPY ["global.json", "global.json"]
+COPY ["stylecop.json", "stylecop.json"]
+
+WORKDIR "/src/WebApi"
+
+
+RUN dotnet restore "WebApi.csproj"
+
+RUN dotnet build "WebApi.csproj" -c Debug -o /app/build
+
+FROM build-env AS publish
+RUN dotnet publish "WebApi.csproj" -c Debug -o /app/publish
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "Genocs.Microservice.Template.WebApi.dll"]
