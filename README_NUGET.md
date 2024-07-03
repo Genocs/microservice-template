@@ -185,7 +185,7 @@ That's it, the application would connect to the defined postgresql database and 
 For testing this API, we have 3 options:
 1. Swagger @ `localhost:5001/swagger`
 2. Postman collections are available `./postman`
-3. ThunderClient for VSCode. You will have to install the Thunderclient extension for VSCode.
+3. ThunderClient for VSCode. You will have to install the [Thunderclient](https://www.thunderclient.com/) extension for VSCode.
 
 The default credentials to this API is:
 
@@ -336,15 +336,17 @@ This project is licensed with the [MIT license](LICENSE).
 - Facebook Page [@genocs](https://facebook.com/Genocs)
 - Youtube Channel [@genocs](https://youtube.com/c/genocs)
 
+
 ## Support
 
 Has this Project helped you learn something New? or Helped you at work?
+
 Here are a few ways by which you can support.
 
 - ⭐ Leave a star!
 - 🥇 Recommend this project to your colleagues.
 - 🦸 Do consider endorsing me on LinkedIn for ASP.NET Core - [Connect via LinkedIn](https://www.linkedin.com/in/giovanni-emanuele-nocco-b31a5169/)
-- ☕ If you want to support this project in the long run, [consider buying me a coffee](https://www.buymeacoffee.com/genocs)!
+- ☕ If you want to support this project in the long run, consider [buying me a coffee](https://www.buymeacoffee.com/genocs)!
 
 
 [![buy-me-a-coffee](https://raw.githubusercontent.com/Genocs/microservice-template/main/assets/buy-me-a-coffee.png "buy me a coffee")](https://www.buymeacoffee.com/genocs)

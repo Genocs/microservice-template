@@ -66,7 +66,7 @@
 Genocs .NET Web API Microservice Template is a starting point for your next `.NET8 Clean Architecture Project` that incorporates the most essential packages and features your projects will ever need including out of the box Multi-Tenancy support.
 
 > As the name suggests, this is an API / Server Template. You can find other Client Template that consume this API under `@genocs` handle.
-> - Find `Blazor WebAssembly Template` here - [Blazor WebAssembly Template](https://github.com/Genocs/blazor-wasm-template)
+> - Find `Blazor Wasm Template` here - [Blazor Wasm Template](https://github.com/Genocs/blazor-wasm-template)
 
 The template can be used with the `genocs cli`, `dotnet new` command or with the `Visual Studio 2022`, `Visual Studio Code` IDEs.
 
@@ -190,6 +190,8 @@ You would probably need to take this approach if you want to keep your source co
 For step by step instructions, follow: [this](https://discord.com/channels/878181478972928011/892573122186838046/933513103688224838) and [this](https://gist.github.com/0xjac/85097472043b697ab57ba1b1c7530274).
 
 
+### Run the template
+
 Makefile
 -------------------
 
@@ -212,7 +214,7 @@ That's it, the application would connect to the defined postgresql database and 
 For testing this API, we have 3 options:
 1. Swagger @ `localhost:5001/swagger`
 2. Postman collections are available `./postman`
-3. ThunderClient for VSCode. You will have to install the Thunderclient extension for VSCode.
+3. ThunderClient for VSCode. You will have to install the [Thunderclient](https://www.thunderclient.com/) extension for VSCode.
 
 The default credentials to this API is:
 
