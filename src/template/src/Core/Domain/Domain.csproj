@@ -2,9 +2,9 @@
 
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
-        <IsPackable>false</IsPackable>
         <RootNamespace>Genocs.Microservice.Template.Domain</RootNamespace>
         <AssemblyName>Genocs.Microservice.Template.Domain</AssemblyName>
+        <IsPackable>false</IsPackable>
     </PropertyGroup>
 
     <ItemGroup>

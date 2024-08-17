@@ -2,9 +2,9 @@
 
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
-        <IsPackable>false</IsPackable>
         <RootNamespace>Genocs.Microservice.Template.WebApi</RootNamespace>
         <AssemblyName>Genocs.Microservice.Template.WebApi</AssemblyName>
+        <IsPackable>false</IsPackable>
         <UserSecretsId>Genocs</UserSecretsId>
     </PropertyGroup>
 
