@@ -13,6 +13,7 @@
 
     <ItemGroup>
         <PackageReference Include="Ardalis.Specification.EntityFrameworkCore" Version="8.0.0" />
+        <PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.0" />
         <PackageReference Include="AWS.Logger.SeriLog" Version="3.4.3" />
         <PackageReference Include="ClosedXML" Version="0.102.3" />
         <PackageReference Include="Finbuckle.MultiTenant.AspNetCore" Version="7.0.2" />
@@ -24,7 +25,6 @@
         <PackageReference Include="Hangfire.SQLite" Version="1.4.2" />
         <PackageReference Include="MailKit" Version="4.7.1.1" />
         <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.8" />
-        <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.1.0" />
         <PackageReference Include="Microsoft.AspNetCore.SignalR.StackExchangeRedis" Version="8.0.8" />
         <PackageReference Include="Microsoft.Data.Sqlite" Version="8.0.8" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.8" />
@@ -49,7 +49,7 @@
         <PackageReference Include="Serilog.Settings.Configuration" Version="8.0.2" />
         <PackageReference Include="Serilog.Sinks.Async" Version="2.0.0" />
         <PackageReference Include="Serilog.Sinks.Console" Version="6.0.0" />
-        <PackageReference Include="Serilog.Sinks.MSSqlServer" Version="6.6.1" />
+        <PackageReference Include="Serilog.Sinks.MSSqlServer" Version="6.7.0" />
         <PackageReference Include="Serilog.Sinks.Elasticsearch" Version="10.0.0" />
         <PackageReference Include="Serilog.Sinks.Seq" Version="8.0.0" />
         <PackageReference Include="System.Linq.Dynamic.Core" Version="1.4.4" />

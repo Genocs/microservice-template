@@ -12,19 +12,20 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Migrators.MSSQL.Migrations.Tenant
 {
     [DbContext(typeof(TenantDbContext))]
-    [Migration("20220125214527_InitialMigrations")]
-    partial class InitialMigrations
+    [Migration("20240820190509_InitialCreate")]
+    partial class InitialCreate
     {
+        /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.1")
+                .HasAnnotation("ProductVersion", "8.0.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Genocs.Microservice.Infrastructure.Multitenancy.GNXTenantInfo", b =>
+            modelBuilder.Entity("Genocs.Microservice.Template.Infrastructure.Multitenancy.GNXTenantInfo", b =>
                 {
                     b.Property<string>("Id")
                         .HasMaxLength(64)
@@ -39,7 +40,6 @@ namespace Migrators.MSSQL.Migrations.Tenant
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Identifier")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<bool>("IsActive")
@@ -49,7 +49,6 @@ namespace Migrators.MSSQL.Migrations.Tenant
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("ValidUpTo")
@@ -58,7 +57,8 @@ namespace Migrators.MSSQL.Migrations.Tenant
                     b.HasKey("Id");
 
                     b.HasIndex("Identifier")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[Identifier] IS NOT NULL");
 
                     b.ToTable("Tenants", "MultiTenancy");
                 });

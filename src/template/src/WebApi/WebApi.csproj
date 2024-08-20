@@ -11,30 +11,49 @@
     <ItemGroup>
         <ProjectReference Include="..\Core\Application\Application.csproj" />
         <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <!-- This package is used to handle EF migrations -->
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.6">
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+
+        <!-- These packages are needed to resolve the issue related to Include="RazorEngineCore" Version="2024.4.1" -->
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.8.0" />
+        <PackageReference Include="Microsoft.CodeAnalysis.Common" Version="4.8.0" />
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.8.0" />
+        
         <ProjectReference Include="..\Migrators\Migrators.MySQL\Migrators.MySQL.csproj" />
         <ProjectReference Include="..\Migrators\Migrators.Oracle\Migrators.Oracle.csproj" />
         <ProjectReference Include="..\Migrators\Migrators.PostgreSQL\Migrators.PostgreSQL.csproj" />
         <ProjectReference Include="..\Migrators\Migrators.MSSQL\Migrators.MSSQL.csproj" />
         <ProjectReference Include="..\Migrators\Migrators.SqLite\Migrators.SqLite.csproj" />
+
     </ItemGroup>
+
     <ItemGroup>
         <Content Update="Configurations\*.json">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
     </ItemGroup>
+
     <ItemGroup>
         <None Include="Logs\*" />
     </ItemGroup>
+
     <ItemGroup>
         <None Include="Email Templates\*.cshtml">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
     </ItemGroup>
+
     <ItemGroup>
         <EmbeddedResource Remove="Databases\**" />
         <None Remove="Databases\**" />
     </ItemGroup>
     <ItemGroup>
-      <Folder Include="Files\" />
+        <Folder Include="Files\" />
     </ItemGroup>
 </Project>

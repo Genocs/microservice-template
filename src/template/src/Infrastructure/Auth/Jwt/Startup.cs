@@ -8,6 +8,7 @@ internal static class Startup
 {
     internal static IServiceCollection AddJwtAuth(this IServiceCollection services)
     {
+        // Add JwtSettings configuration and validation
         services.AddOptions<JwtSettings>()
             .BindConfiguration($"SecuritySettings:{nameof(JwtSettings)}")
             .ValidateDataAnnotations()
