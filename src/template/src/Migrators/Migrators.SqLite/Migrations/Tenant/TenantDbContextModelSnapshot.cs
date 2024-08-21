@@ -3,23 +3,21 @@ using System;
 using Genocs.Microservice.Template.Infrastructure.Multitenancy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace Migrators.SqLite.Migrations.TenantDb
+namespace Migrators.SqLite.Migrations.Tenant
 {
     [DbContext(typeof(TenantDbContext))]
-    [Migration("20220427214006_initial")]
-    partial class Initial
+    partial class TenantDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "6.0.4");
+            modelBuilder.HasAnnotation("ProductVersion", "8.0.8");
 
-            modelBuilder.Entity("Genocs.Microservice.Infrastructure.Multitenancy.GNXTenantInfo", b =>
+            modelBuilder.Entity("Genocs.Microservice.Template.Infrastructure.Multitenancy.GNXTenantInfo", b =>
                 {
                     b.Property<string>("Id")
                         .HasMaxLength(64)
@@ -34,7 +32,6 @@ namespace Migrators.SqLite.Migrations.TenantDb
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Identifier")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("IsActive")
@@ -44,7 +41,6 @@ namespace Migrators.SqLite.Migrations.TenantDb
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("ValidUpTo")
