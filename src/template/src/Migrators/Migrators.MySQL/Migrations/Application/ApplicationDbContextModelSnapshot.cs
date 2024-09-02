@@ -3,6 +3,7 @@ using System;
 using Genocs.Microservice.Template.Infrastructure.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -17,10 +18,12 @@ namespace Migrators.MySQL.Migrations.Application
 #pragma warning disable 612, 618
             modelBuilder
                 .HasDefaultSchema("Catalog")
-                .HasAnnotation("ProductVersion", "6.0.1")
+                .HasAnnotation("ProductVersion", "8.0.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("Genocs.Microservice.Domain.Catalog.Brand", b =>
+            MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
+
+            modelBuilder.Entity("Genocs.Microservice.Template.Domain.Catalog.Brand", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -64,7 +67,7 @@ namespace Migrators.MySQL.Migrations.Application
                     b.HasAnnotation("Finbuckle:MultiTenant", true);
                 });
 
-            modelBuilder.Entity("Genocs.Microservice.Domain.Catalog.Product", b =>
+            modelBuilder.Entity("Genocs.Microservice.Template.Domain.Catalog.Product", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -120,7 +123,7 @@ namespace Migrators.MySQL.Migrations.Application
                     b.HasAnnotation("Finbuckle:MultiTenant", true);
                 });
 
-            modelBuilder.Entity("Genocs.Microservice.Infrastructure.Auditing.Trail", b =>
+            modelBuilder.Entity("Genocs.Microservice.Template.Infrastructure.Auditing.Trail", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -162,7 +165,7 @@ namespace Migrators.MySQL.Migrations.Application
                     b.HasAnnotation("Finbuckle:MultiTenant", true);
                 });
 
-            modelBuilder.Entity("Genocs.Microservice.Infrastructure.Identity.ApplicationRole", b =>
+            modelBuilder.Entity("Genocs.Microservice.Template.Infrastructure.Identity.ApplicationRole", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("varchar(255)");
@@ -198,11 +201,13 @@ namespace Migrators.MySQL.Migrations.Application
                     b.HasAnnotation("Finbuckle:MultiTenant", true);
                 });
 
-            modelBuilder.Entity("Genocs.Microservice.Infrastructure.Identity.ApplicationRoleClaim", b =>
+            modelBuilder.Entity("Genocs.Microservice.Template.Infrastructure.Identity.ApplicationRoleClaim", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("ClaimType")
                         .HasColumnType("longtext");
@@ -214,18 +219,6 @@ namespace Migrators.MySQL.Migrations.Application
                         .HasColumnType("longtext");
 
                     b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Group")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("LastModifiedBy")
-                        .HasColumnType("longtext");
-
-                    b.Property<DateTime?>("LastModifiedOn")
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("RoleId")
@@ -246,7 +239,7 @@ namespace Migrators.MySQL.Migrations.Application
                     b.HasAnnotation("Finbuckle:MultiTenant", true);
                 });
 
-            modelBuilder.Entity("Genocs.Microservice.Infrastructure.Identity.ApplicationUser", b =>
+            modelBuilder.Entity("Genocs.Microservice.Template.Infrastructure.Identity.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("varchar(255)");
@@ -330,7 +323,7 @@ namespace Migrators.MySQL.Migrations.Application
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
 
-                    b.HasIndex("NormalizedUserName", "TenantId")
+                    b.HasIndex("NormalizedUserName")
                         .IsUnique()
                         .HasDatabaseName("UserNameIndex");
 
@@ -344,6 +337,8 @@ namespace Migrators.MySQL.Migrations.Application
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("ClaimType")
                         .HasColumnType("longtext");
@@ -371,20 +366,14 @@ namespace Migrators.MySQL.Migrations.Application
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.Property<string>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<string>("LoginProvider")
                         .HasColumnType("varchar(255)");
 
-                    b.Property<string>("LoginProvider")
-                        .IsRequired()
+                    b.Property<string>("ProviderKey")
                         .HasColumnType("varchar(255)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("longtext");
-
-                    b.Property<string>("ProviderKey")
-                        .IsRequired()
-                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("TenantId")
                         .IsRequired()
@@ -395,12 +384,9 @@ namespace Migrators.MySQL.Migrations.Application
                         .IsRequired()
                         .HasColumnType("varchar(255)");
 
-                    b.HasKey("Id");
+                    b.HasKey("LoginProvider", "ProviderKey");
 
                     b.HasIndex("UserId");
-
-                    b.HasIndex("LoginProvider", "ProviderKey", "TenantId")
-                        .IsUnique();
 
                     b.ToTable("UserLogins", "Identity");
 
@@ -455,9 +441,9 @@ namespace Migrators.MySQL.Migrations.Application
                     b.HasAnnotation("Finbuckle:MultiTenant", true);
                 });
 
-            modelBuilder.Entity("Genocs.Microservice.Domain.Catalog.Product", b =>
+            modelBuilder.Entity("Genocs.Microservice.Template.Domain.Catalog.Product", b =>
                 {
-                    b.HasOne("Genocs.Microservice.Domain.Catalog.Brand", "Brand")
+                    b.HasOne("Genocs.Microservice.Template.Domain.Catalog.Brand", "Brand")
                         .WithMany()
                         .HasForeignKey("BrandId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -466,9 +452,9 @@ namespace Migrators.MySQL.Migrations.Application
                     b.Navigation("Brand");
                 });
 
-            modelBuilder.Entity("Genocs.Microservice.Infrastructure.Identity.ApplicationRoleClaim", b =>
+            modelBuilder.Entity("Genocs.Microservice.Template.Infrastructure.Identity.ApplicationRoleClaim", b =>
                 {
-                    b.HasOne("Genocs.Microservice.Infrastructure.Identity.ApplicationRole", null)
+                    b.HasOne("Genocs.Microservice.Template.Infrastructure.Identity.ApplicationRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -477,7 +463,7 @@ namespace Migrators.MySQL.Migrations.Application
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("Genocs.Microservice.Infrastructure.Identity.ApplicationUser", null)
+                    b.HasOne("Genocs.Microservice.Template.Infrastructure.Identity.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -486,7 +472,7 @@ namespace Migrators.MySQL.Migrations.Application
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("Genocs.Microservice.Infrastructure.Identity.ApplicationUser", null)
+                    b.HasOne("Genocs.Microservice.Template.Infrastructure.Identity.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -495,13 +481,13 @@ namespace Migrators.MySQL.Migrations.Application
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
                 {
-                    b.HasOne("Genocs.Microservice.Infrastructure.Identity.ApplicationRole", null)
+                    b.HasOne("Genocs.Microservice.Template.Infrastructure.Identity.ApplicationRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Genocs.Microservice.Infrastructure.Identity.ApplicationUser", null)
+                    b.HasOne("Genocs.Microservice.Template.Infrastructure.Identity.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -510,7 +496,7 @@ namespace Migrators.MySQL.Migrations.Application
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("Genocs.Microservice.Infrastructure.Identity.ApplicationUser", null)
+                    b.HasOne("Genocs.Microservice.Template.Infrastructure.Identity.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)

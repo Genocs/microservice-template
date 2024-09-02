@@ -1,7 +1,7 @@
 [
   {
     "_id": "ae3e352d-0da9-42e6-bced-27ee27f985ab",
-    "colName": "gencos.webapi.microservice.Template",
+    "colName": "genocs.webapi.microservice.Template",
     "created": "2023-04-07T15:15:13.274Z",
     "sortNum": 20000,
     "folders": [

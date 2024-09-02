@@ -1,6 +1,6 @@
 {
   "DatabaseSettings": {
-    "DBProvider": "mssql",
-    "ConnectionString": "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=Genocs.Microservice.Template;Integrated Security=True;MultipleActiveResultSets=True"
+    "DBProvider": "oracle",
+    "ConnectionString": "Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=XE)));User Id=c##gnx_identity;Password=password123;"
   }
 }

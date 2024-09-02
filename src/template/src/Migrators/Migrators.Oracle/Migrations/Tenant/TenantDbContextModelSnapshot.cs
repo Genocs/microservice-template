@@ -17,12 +17,12 @@ namespace Migrators.Oracle.Migrations.Tenant
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.1")
+                .HasAnnotation("ProductVersion", "8.0.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
-            OracleModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+            OracleModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Genocs.Microservice.Infrastructure.Multitenancy.GNXTenantInfo", b =>
+            modelBuilder.Entity("Genocs.Microservice.Template.Infrastructure.Multitenancy.GNXTenantInfo", b =>
                 {
                     b.Property<string>("Id")
                         .HasMaxLength(64)
@@ -37,17 +37,15 @@ namespace Migrators.Oracle.Migrations.Tenant
                         .HasColumnType("NVARCHAR2(2000)");
 
                     b.Property<string>("Identifier")
-                        .IsRequired()
                         .HasColumnType("NVARCHAR2(450)");
 
                     b.Property<bool>("IsActive")
-                        .HasColumnType("NUMBER(1)");
+                        .HasColumnType("BOOLEAN");
 
                     b.Property<string>("Issuer")
                         .HasColumnType("NVARCHAR2(2000)");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("NVARCHAR2(2000)");
 
                     b.Property<DateTime>("ValidUpTo")
@@ -56,9 +54,10 @@ namespace Migrators.Oracle.Migrations.Tenant
                     b.HasKey("Id");
 
                     b.HasIndex("Identifier")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("\"Identifier\" IS NOT NULL");
 
-                    b.ToTable("Tenants", "MULTITENANCY");
+                    b.ToTable("Tenants", "c##gnx_identity");
                 });
 #pragma warning restore 612, 618
         }
