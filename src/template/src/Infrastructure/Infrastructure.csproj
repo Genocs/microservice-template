@@ -30,7 +30,7 @@
         <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.6" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.6" />
         <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="8.0.6" />
-        <PackageReference Include="Microsoft.Identity.Web" Version="2.19.1" />
+        <PackageReference Include="Microsoft.Identity.Web" Version="3.2.0" />
         <PackageReference Include="MimeKit" Version="4.6.0" />
         <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.4" />
         <PackageReference Include="NSwag.AspNetCore" Version="14.0.8" />
