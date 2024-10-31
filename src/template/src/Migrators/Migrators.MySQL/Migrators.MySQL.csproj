@@ -7,5 +7,9 @@
     <ItemGroup>
         <ProjectReference Include="..\..\Infrastructure\Infrastructure.csproj" />
     </ItemGroup>
+    <ItemGroup>
+      <Folder Include="Migrations\Application\" />
+      <Folder Include="Migrations\Tenant\" />
+    </ItemGroup>
 
 </Project>

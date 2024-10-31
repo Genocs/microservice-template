@@ -1,4 +1,5 @@
-using Genocs.Microservice.Template.Infrastructure;
+using System.Reflection;
+using System.Runtime.CompilerServices;
 using Genocs.Microservice.Template.Infrastructure.Auth;
 using Genocs.Microservice.Template.Infrastructure.BackgroundJobs;
 using Genocs.Microservice.Template.Infrastructure.Caching;
@@ -17,12 +18,9 @@ using Genocs.Microservice.Template.Infrastructure.Persistence.Initialization;
 using Genocs.Microservice.Template.Infrastructure.SecurityHeaders;
 using Genocs.Microservice.Template.Infrastructure.Validations;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System.Reflection;
-using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("Infrastructure.Test")]
 
@@ -35,8 +33,8 @@ public static class Startup
         var applicationAssembly = typeof(Application.Startup).GetTypeInfo().Assembly;
         MapsterSettings.Configure();
         return services
-            .AddApiVersioning()
-            .AddAuth(config)
+            .AddGnxApiVersioning()
+            .AddGnxAuth(config)
             .AddBackgroundJobs(config)
             .AddCaching(config)
             .AddCorsPolicy(config)
@@ -55,13 +53,19 @@ public static class Startup
             .AddServices();
     }
 
-    private static IServiceCollection AddApiVersioning(this IServiceCollection services) =>
-        services.AddApiVersioning(config =>
-        {
-            config.DefaultApiVersion = new ApiVersion(1, 0);
-            config.AssumeDefaultVersionWhenUnspecified = true;
-            config.ReportApiVersions = true;
-        });
+    private static IServiceCollection AddGnxApiVersioning(this IServiceCollection services)
+    {
+        // Core API Versioning services with support for Minimal APIs
+        // API version-aware extensions for MVC Core with controllers (not full MVC)
+        services
+                .AddApiVersioning()
+                .AddMvc()
+                .AddApiExplorer();
+
+        // API version-aware API Explorer extensions
+        services.AddEndpointsApiExplorer();
+        return services;
+    }
 
     private static IServiceCollection AddHealthCheck(this IServiceCollection services)
         => services.AddHealthChecks().AddCheck<TenantHealthCheck>("Tenant").Services;
@@ -85,7 +89,7 @@ public static class Startup
             .UseRouting()
             .UseCorsPolicy()
             .UseAuthentication()
-            .UseCurrentUser()
+            .UseGnxCurrentUser()
             .UseMultiTenancy()
             .UseAuthorization()
             .UseRequestLogging(config)

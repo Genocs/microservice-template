@@ -12,11 +12,11 @@ namespace Genocs.Microservice.Template.Infrastructure.Auth;
 
 internal static class Startup
 {
-    internal static IServiceCollection AddAuth(this IServiceCollection services, IConfiguration config)
+    internal static IServiceCollection AddGnxAuth(this IServiceCollection services, IConfiguration config)
     {
         services
-            .AddCurrentUser()
-            .AddPermissions()
+            .AddGnxCurrentUser()
+            .AddGnxPermissions()
 
             // Must add identity before adding auth!
             .AddIdentity();
@@ -26,16 +26,16 @@ internal static class Startup
             : services.AddJwtAuth();
     }
 
-    internal static IApplicationBuilder UseCurrentUser(this IApplicationBuilder app) =>
+    internal static IApplicationBuilder UseGnxCurrentUser(this IApplicationBuilder app) =>
         app.UseMiddleware<CurrentUserMiddleware>();
 
-    private static IServiceCollection AddCurrentUser(this IServiceCollection services) =>
+    private static IServiceCollection AddGnxCurrentUser(this IServiceCollection services) =>
         services
             .AddScoped<CurrentUserMiddleware>()
             .AddScoped<ICurrentUser, CurrentUser>()
             .AddScoped(sp => (ICurrentUserInitializer)sp.GetRequiredService<ICurrentUser>());
 
-    private static IServiceCollection AddPermissions(this IServiceCollection services) =>
+    private static IServiceCollection AddGnxPermissions(this IServiceCollection services) =>
         services
             .AddSingleton<IAuthorizationPolicyProvider, PermissionPolicyProvider>()
             .AddScoped<IAuthorizationHandler, PermissionAuthorizationHandler>();
