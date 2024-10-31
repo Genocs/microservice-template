@@ -1,4 +1,3 @@
-version: '3.9'
 name: microservicetemplate
 services:
   dotnet-webapi:
@@ -45,6 +44,7 @@ services:
 
 volumes:
   mssql-data:
+
 
 networks:
   genocs:
