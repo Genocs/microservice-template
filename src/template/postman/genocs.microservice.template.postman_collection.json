@@ -108,7 +108,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"firstName\": \"{{$randomNoun}}\",\r\n    \"lastName\": \"Smith\",\r\n    \"email\": \"{{$randomEmail}}\",\r\n    \"userName\": \"{{$randomNoun}}\",\r\n    \"password\": \"123Pa$$word!\",\r\n    \"confirmPassword\": \"123Pa$$word!\",\r\n    \"phoneNumber\": \"99999\"\r\n}",
+							"raw": "{\r\n    \"firstName\": \"{{$randomNoun}}\",\r\n    \"lastName\": \"Doe\",\r\n    \"email\": \"{{$randomEmail}}\",\r\n    \"userName\": \"{{$randomNoun}}\",\r\n    \"password\": \"<your_password>\",\r\n    \"confirmPassword\": \"<your_password>\",\r\n    \"phoneNumber\": \"<your_mobile>\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
