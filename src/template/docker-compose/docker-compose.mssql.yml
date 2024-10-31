@@ -45,6 +45,7 @@ services:
 volumes:
   mssql-data:
 
+
 networks:
   genocs:
     name: genocs-network
