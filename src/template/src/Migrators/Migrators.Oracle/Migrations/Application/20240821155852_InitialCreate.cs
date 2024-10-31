@@ -1,25 +1,22 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace Migrators.Oracle.Migrations.Application
 {
-    public partial class Initial : Migration
+    /// <inheritdoc />
+    public partial class InitialCreate : Migration
     {
+        /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.EnsureSchema(
-                name: "AUDITING");
-
-            migrationBuilder.EnsureSchema(
-                name: "CATALOG");
-
-            migrationBuilder.EnsureSchema(
-                name: "IDENTITY");
+                name: "c##gnx_identity");
 
             migrationBuilder.CreateTable(
                 name: "AuditTrails",
-                schema: "AUDITING",
+                schema: "c##gnx_identity",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "RAW(16)", nullable: false),
@@ -40,7 +37,7 @@ namespace Migrators.Oracle.Migrations.Application
 
             migrationBuilder.CreateTable(
                 name: "Brands",
-                schema: "CATALOG",
+                schema: "c##gnx_identity",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "RAW(16)", nullable: false),
@@ -61,7 +58,7 @@ namespace Migrators.Oracle.Migrations.Application
 
             migrationBuilder.CreateTable(
                 name: "Roles",
-                schema: "IDENTITY",
+                schema: "c##gnx_identity",
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "NVARCHAR2(450)", nullable: false),
@@ -78,14 +75,14 @@ namespace Migrators.Oracle.Migrations.Application
 
             migrationBuilder.CreateTable(
                 name: "Users",
-                schema: "IDENTITY",
+                schema: "c##gnx_identity",
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "NVARCHAR2(450)", nullable: false),
                     FirstName = table.Column<string>(type: "NVARCHAR2(2000)", nullable: true),
                     LastName = table.Column<string>(type: "NVARCHAR2(2000)", nullable: true),
                     ImageUrl = table.Column<string>(type: "NVARCHAR2(2000)", nullable: true),
-                    IsActive = table.Column<bool>(type: "NUMBER(1)", nullable: false),
+                    IsActive = table.Column<bool>(type: "BOOLEAN", nullable: false),
                     RefreshToken = table.Column<string>(type: "NVARCHAR2(2000)", nullable: true),
                     RefreshTokenExpiryTime = table.Column<DateTime>(type: "TIMESTAMP(7)", nullable: false),
                     ObjectId = table.Column<string>(type: "NVARCHAR2(256)", maxLength: 256, nullable: true),
@@ -94,15 +91,15 @@ namespace Migrators.Oracle.Migrations.Application
                     NormalizedUserName = table.Column<string>(type: "NVARCHAR2(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "NVARCHAR2(256)", maxLength: 256, nullable: true),
                     NormalizedEmail = table.Column<string>(type: "NVARCHAR2(256)", maxLength: 256, nullable: true),
-                    EmailConfirmed = table.Column<bool>(type: "NUMBER(1)", nullable: false),
+                    EmailConfirmed = table.Column<bool>(type: "BOOLEAN", nullable: false),
                     PasswordHash = table.Column<string>(type: "NVARCHAR2(2000)", nullable: true),
                     SecurityStamp = table.Column<string>(type: "NVARCHAR2(2000)", nullable: true),
                     ConcurrencyStamp = table.Column<string>(type: "NVARCHAR2(2000)", nullable: true),
                     PhoneNumber = table.Column<string>(type: "NVARCHAR2(2000)", nullable: true),
-                    PhoneNumberConfirmed = table.Column<bool>(type: "NUMBER(1)", nullable: false),
-                    TwoFactorEnabled = table.Column<bool>(type: "NUMBER(1)", nullable: false),
+                    PhoneNumberConfirmed = table.Column<bool>(type: "BOOLEAN", nullable: false),
+                    TwoFactorEnabled = table.Column<bool>(type: "BOOLEAN", nullable: false),
                     LockoutEnd = table.Column<DateTimeOffset>(type: "TIMESTAMP(7) WITH TIME ZONE", nullable: true),
-                    LockoutEnabled = table.Column<bool>(type: "NUMBER(1)", nullable: false),
+                    LockoutEnabled = table.Column<bool>(type: "BOOLEAN", nullable: false),
                     AccessFailedCount = table.Column<int>(type: "NUMBER(10)", nullable: false)
                 },
                 constraints: table =>
@@ -112,7 +109,7 @@ namespace Migrators.Oracle.Migrations.Application
 
             migrationBuilder.CreateTable(
                 name: "Products",
-                schema: "CATALOG",
+                schema: "c##gnx_identity",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "RAW(16)", nullable: false),
@@ -135,7 +132,7 @@ namespace Migrators.Oracle.Migrations.Application
                     table.ForeignKey(
                         name: "FK_Products_Brands_BrandId",
                         column: x => x.BrandId,
-                        principalSchema: "CATALOG",
+                        principalSchema: "c##gnx_identity",
                         principalTable: "Brands",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -143,17 +140,13 @@ namespace Migrators.Oracle.Migrations.Application
 
             migrationBuilder.CreateTable(
                 name: "RoleClaims",
-                schema: "IDENTITY",
+                schema: "c##gnx_identity",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "NUMBER(10)", nullable: false)
                         .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
-                    Description = table.Column<string>(type: "NVARCHAR2(2000)", nullable: true),
-                    Group = table.Column<string>(type: "NVARCHAR2(2000)", nullable: true),
                     CreatedBy = table.Column<string>(type: "NVARCHAR2(2000)", nullable: true),
                     CreatedOn = table.Column<DateTime>(type: "TIMESTAMP(7)", nullable: false),
-                    LastModifiedBy = table.Column<string>(type: "NVARCHAR2(2000)", nullable: true),
-                    LastModifiedOn = table.Column<DateTime>(type: "TIMESTAMP(7)", nullable: true),
                     TenantId = table.Column<string>(type: "NVARCHAR2(64)", maxLength: 64, nullable: false),
                     RoleId = table.Column<string>(type: "NVARCHAR2(450)", nullable: false),
                     ClaimType = table.Column<string>(type: "NVARCHAR2(2000)", nullable: true),
@@ -165,7 +158,7 @@ namespace Migrators.Oracle.Migrations.Application
                     table.ForeignKey(
                         name: "FK_RoleClaims_Roles_RoleId",
                         column: x => x.RoleId,
-                        principalSchema: "IDENTITY",
+                        principalSchema: "c##gnx_identity",
                         principalTable: "Roles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -173,7 +166,7 @@ namespace Migrators.Oracle.Migrations.Application
 
             migrationBuilder.CreateTable(
                 name: "UserClaims",
-                schema: "IDENTITY",
+                schema: "c##gnx_identity",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "NUMBER(10)", nullable: false)
@@ -189,7 +182,7 @@ namespace Migrators.Oracle.Migrations.Application
                     table.ForeignKey(
                         name: "FK_UserClaims_Users_UserId",
                         column: x => x.UserId,
-                        principalSchema: "IDENTITY",
+                        principalSchema: "c##gnx_identity",
                         principalTable: "Users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -197,10 +190,9 @@ namespace Migrators.Oracle.Migrations.Application
 
             migrationBuilder.CreateTable(
                 name: "UserLogins",
-                schema: "IDENTITY",
+                schema: "c##gnx_identity",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "NVARCHAR2(450)", nullable: false),
                     LoginProvider = table.Column<string>(type: "NVARCHAR2(450)", nullable: false),
                     ProviderKey = table.Column<string>(type: "NVARCHAR2(450)", nullable: false),
                     ProviderDisplayName = table.Column<string>(type: "NVARCHAR2(2000)", nullable: true),
@@ -209,11 +201,11 @@ namespace Migrators.Oracle.Migrations.Application
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_UserLogins", x => x.Id);
+                    table.PrimaryKey("PK_UserLogins", x => new { x.LoginProvider, x.ProviderKey });
                     table.ForeignKey(
                         name: "FK_UserLogins_Users_UserId",
                         column: x => x.UserId,
-                        principalSchema: "IDENTITY",
+                        principalSchema: "c##gnx_identity",
                         principalTable: "Users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -221,7 +213,7 @@ namespace Migrators.Oracle.Migrations.Application
 
             migrationBuilder.CreateTable(
                 name: "UserRoles",
-                schema: "IDENTITY",
+                schema: "c##gnx_identity",
                 columns: table => new
                 {
                     UserId = table.Column<string>(type: "NVARCHAR2(450)", nullable: false),
@@ -234,14 +226,14 @@ namespace Migrators.Oracle.Migrations.Application
                     table.ForeignKey(
                         name: "FK_UserRoles_Roles_RoleId",
                         column: x => x.RoleId,
-                        principalSchema: "IDENTITY",
+                        principalSchema: "c##gnx_identity",
                         principalTable: "Roles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_UserRoles_Users_UserId",
                         column: x => x.UserId,
-                        principalSchema: "IDENTITY",
+                        principalSchema: "c##gnx_identity",
                         principalTable: "Users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -249,7 +241,7 @@ namespace Migrators.Oracle.Migrations.Application
 
             migrationBuilder.CreateTable(
                 name: "UserTokens",
-                schema: "IDENTITY",
+                schema: "c##gnx_identity",
                 columns: table => new
                 {
                     UserId = table.Column<string>(type: "NVARCHAR2(450)", nullable: false),
@@ -264,7 +256,7 @@ namespace Migrators.Oracle.Migrations.Application
                     table.ForeignKey(
                         name: "FK_UserTokens_Users_UserId",
                         column: x => x.UserId,
-                        principalSchema: "IDENTITY",
+                        principalSchema: "c##gnx_identity",
                         principalTable: "Users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -272,19 +264,19 @@ namespace Migrators.Oracle.Migrations.Application
 
             migrationBuilder.CreateIndex(
                 name: "IX_Products_BrandId",
-                schema: "CATALOG",
+                schema: "c##gnx_identity",
                 table: "Products",
                 column: "BrandId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_RoleClaims_RoleId",
-                schema: "IDENTITY",
+                schema: "c##gnx_identity",
                 table: "RoleClaims",
                 column: "RoleId");
 
             migrationBuilder.CreateIndex(
                 name: "RoleNameIndex",
-                schema: "IDENTITY",
+                schema: "c##gnx_identity",
                 table: "Roles",
                 columns: new[] { "NormalizedName", "TenantId" },
                 unique: true,
@@ -292,85 +284,79 @@ namespace Migrators.Oracle.Migrations.Application
 
             migrationBuilder.CreateIndex(
                 name: "IX_UserClaims_UserId",
-                schema: "IDENTITY",
+                schema: "c##gnx_identity",
                 table: "UserClaims",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_UserLogins_LoginProvider_ProviderKey_TenantId",
-                schema: "IDENTITY",
-                table: "UserLogins",
-                columns: new[] { "LoginProvider", "ProviderKey", "TenantId" },
-                unique: true);
-
-            migrationBuilder.CreateIndex(
                 name: "IX_UserLogins_UserId",
-                schema: "IDENTITY",
+                schema: "c##gnx_identity",
                 table: "UserLogins",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_UserRoles_RoleId",
-                schema: "IDENTITY",
+                schema: "c##gnx_identity",
                 table: "UserRoles",
                 column: "RoleId");
 
             migrationBuilder.CreateIndex(
                 name: "EmailIndex",
-                schema: "IDENTITY",
+                schema: "c##gnx_identity",
                 table: "Users",
                 column: "NormalizedEmail");
 
             migrationBuilder.CreateIndex(
                 name: "UserNameIndex",
-                schema: "IDENTITY",
+                schema: "c##gnx_identity",
                 table: "Users",
-                columns: new[] { "NormalizedUserName", "TenantId" },
+                column: "NormalizedUserName",
                 unique: true,
                 filter: "\"NormalizedUserName\" IS NOT NULL");
         }
 
+        /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
                 name: "AuditTrails",
-                schema: "AUDITING");
+                schema: "c##gnx_identity");
 
             migrationBuilder.DropTable(
                 name: "Products",
-                schema: "CATALOG");
+                schema: "c##gnx_identity");
 
             migrationBuilder.DropTable(
                 name: "RoleClaims",
-                schema: "IDENTITY");
+                schema: "c##gnx_identity");
 
             migrationBuilder.DropTable(
                 name: "UserClaims",
-                schema: "IDENTITY");
+                schema: "c##gnx_identity");
 
             migrationBuilder.DropTable(
                 name: "UserLogins",
-                schema: "IDENTITY");
+                schema: "c##gnx_identity");
 
             migrationBuilder.DropTable(
                 name: "UserRoles",
-                schema: "IDENTITY");
+                schema: "c##gnx_identity");
 
             migrationBuilder.DropTable(
                 name: "UserTokens",
-                schema: "IDENTITY");
+                schema: "c##gnx_identity");
 
             migrationBuilder.DropTable(
                 name: "Brands",
-                schema: "CATALOG");
+                schema: "c##gnx_identity");
 
             migrationBuilder.DropTable(
                 name: "Roles",
-                schema: "IDENTITY");
+                schema: "c##gnx_identity");
 
             migrationBuilder.DropTable(
                 name: "Users",
-                schema: "IDENTITY");
+                schema: "c##gnx_identity");
         }
     }
 }

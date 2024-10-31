@@ -1,12 +1,15 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
 namespace Migrators.PostgreSQL.Migrations.Application
 {
-    public partial class InitialMigration : Migration
+    /// <inheritdoc />
+    public partial class InitialCreate : Migration
     {
+        /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.EnsureSchema(
@@ -197,7 +200,6 @@ namespace Migrators.PostgreSQL.Migrations.Application
                 schema: "Identity",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "text", nullable: false),
                     LoginProvider = table.Column<string>(type: "text", nullable: false),
                     ProviderKey = table.Column<string>(type: "text", nullable: false),
                     ProviderDisplayName = table.Column<string>(type: "text", nullable: true),
@@ -206,7 +208,7 @@ namespace Migrators.PostgreSQL.Migrations.Application
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_UserLogins", x => x.Id);
+                    table.PrimaryKey("PK_UserLogins", x => new { x.LoginProvider, x.ProviderKey });
                     table.ForeignKey(
                         name: "FK_UserLogins_Users_UserId",
                         column: x => x.UserId,
@@ -293,13 +295,6 @@ namespace Migrators.PostgreSQL.Migrations.Application
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_UserLogins_LoginProvider_ProviderKey_TenantId",
-                schema: "Identity",
-                table: "UserLogins",
-                columns: new[] { "LoginProvider", "ProviderKey", "TenantId" },
-                unique: true);
-
-            migrationBuilder.CreateIndex(
                 name: "IX_UserLogins_UserId",
                 schema: "Identity",
                 table: "UserLogins",
@@ -321,10 +316,11 @@ namespace Migrators.PostgreSQL.Migrations.Application
                 name: "UserNameIndex",
                 schema: "Identity",
                 table: "Users",
-                columns: new[] { "NormalizedUserName", "TenantId" },
+                column: "NormalizedUserName",
                 unique: true);
         }
 
+        /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(

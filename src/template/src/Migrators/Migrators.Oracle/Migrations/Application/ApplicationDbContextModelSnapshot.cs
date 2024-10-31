@@ -17,13 +17,13 @@ namespace Migrators.Oracle.Migrations.Application
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasDefaultSchema("CATALOG")
-                .HasAnnotation("ProductVersion", "6.0.1")
+                .HasDefaultSchema("c##gnx_identity")
+                .HasAnnotation("ProductVersion", "8.0.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
-            OracleModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+            OracleModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Genocs.Microservice.Domain.Catalog.Brand", b =>
+            modelBuilder.Entity("Genocs.Microservice.Template.Domain.Catalog.Brand", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -62,12 +62,12 @@ namespace Migrators.Oracle.Migrations.Application
 
                     b.HasKey("Id");
 
-                    b.ToTable("Brands", "CATALOG");
+                    b.ToTable("Brands", "c##gnx_identity");
 
                     b.HasAnnotation("Finbuckle:MultiTenant", true);
                 });
 
-            modelBuilder.Entity("Genocs.Microservice.Domain.Catalog.Product", b =>
+            modelBuilder.Entity("Genocs.Microservice.Template.Domain.Catalog.Product", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -118,12 +118,12 @@ namespace Migrators.Oracle.Migrations.Application
 
                     b.HasIndex("BrandId");
 
-                    b.ToTable("Products", "CATALOG");
+                    b.ToTable("Products", "c##gnx_identity");
 
                     b.HasAnnotation("Finbuckle:MultiTenant", true);
                 });
 
-            modelBuilder.Entity("Genocs.Microservice.Infrastructure.Auditing.Trail", b =>
+            modelBuilder.Entity("Genocs.Microservice.Template.Infrastructure.Auditing.Trail", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -160,12 +160,12 @@ namespace Migrators.Oracle.Migrations.Application
 
                     b.HasKey("Id");
 
-                    b.ToTable("AuditTrails", "AUDITING");
+                    b.ToTable("AuditTrails", "c##gnx_identity");
 
                     b.HasAnnotation("Finbuckle:MultiTenant", true);
                 });
 
-            modelBuilder.Entity("Genocs.Microservice.Infrastructure.Identity.ApplicationRole", b =>
+            modelBuilder.Entity("Genocs.Microservice.Template.Infrastructure.Identity.ApplicationRole", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("NVARCHAR2(450)");
@@ -197,18 +197,18 @@ namespace Migrators.Oracle.Migrations.Application
                         .HasDatabaseName("RoleNameIndex")
                         .HasFilter("\"NormalizedName\" IS NOT NULL");
 
-                    b.ToTable("Roles", "IDENTITY");
+                    b.ToTable("Roles", "c##gnx_identity");
 
                     b.HasAnnotation("Finbuckle:MultiTenant", true);
                 });
 
-            modelBuilder.Entity("Genocs.Microservice.Infrastructure.Identity.ApplicationRoleClaim", b =>
+            modelBuilder.Entity("Genocs.Microservice.Template.Infrastructure.Identity.ApplicationRoleClaim", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("NUMBER(10)");
 
-                    OraclePropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    OraclePropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("ClaimType")
                         .HasColumnType("NVARCHAR2(2000)");
@@ -220,18 +220,6 @@ namespace Migrators.Oracle.Migrations.Application
                         .HasColumnType("NVARCHAR2(2000)");
 
                     b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("TIMESTAMP(7)");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("NVARCHAR2(2000)");
-
-                    b.Property<string>("Group")
-                        .HasColumnType("NVARCHAR2(2000)");
-
-                    b.Property<string>("LastModifiedBy")
-                        .HasColumnType("NVARCHAR2(2000)");
-
-                    b.Property<DateTime?>("LastModifiedOn")
                         .HasColumnType("TIMESTAMP(7)");
 
                     b.Property<string>("RoleId")
@@ -247,12 +235,12 @@ namespace Migrators.Oracle.Migrations.Application
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("RoleClaims", "IDENTITY");
+                    b.ToTable("RoleClaims", "c##gnx_identity");
 
                     b.HasAnnotation("Finbuckle:MultiTenant", true);
                 });
 
-            modelBuilder.Entity("Genocs.Microservice.Infrastructure.Identity.ApplicationUser", b =>
+            modelBuilder.Entity("Genocs.Microservice.Template.Infrastructure.Identity.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("NVARCHAR2(450)");
@@ -269,7 +257,7 @@ namespace Migrators.Oracle.Migrations.Application
                         .HasColumnType("NVARCHAR2(256)");
 
                     b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("NUMBER(1)");
+                        .HasColumnType("BOOLEAN");
 
                     b.Property<string>("FirstName")
                         .HasColumnType("NVARCHAR2(2000)");
@@ -278,13 +266,13 @@ namespace Migrators.Oracle.Migrations.Application
                         .HasColumnType("NVARCHAR2(2000)");
 
                     b.Property<bool>("IsActive")
-                        .HasColumnType("NUMBER(1)");
+                        .HasColumnType("BOOLEAN");
 
                     b.Property<string>("LastName")
                         .HasColumnType("NVARCHAR2(2000)");
 
                     b.Property<bool>("LockoutEnabled")
-                        .HasColumnType("NUMBER(1)");
+                        .HasColumnType("BOOLEAN");
 
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("TIMESTAMP(7) WITH TIME ZONE");
@@ -308,7 +296,7 @@ namespace Migrators.Oracle.Migrations.Application
                         .HasColumnType("NVARCHAR2(2000)");
 
                     b.Property<bool>("PhoneNumberConfirmed")
-                        .HasColumnType("NUMBER(1)");
+                        .HasColumnType("BOOLEAN");
 
                     b.Property<string>("RefreshToken")
                         .HasColumnType("NVARCHAR2(2000)");
@@ -325,7 +313,7 @@ namespace Migrators.Oracle.Migrations.Application
                         .HasColumnType("NVARCHAR2(64)");
 
                     b.Property<bool>("TwoFactorEnabled")
-                        .HasColumnType("NUMBER(1)");
+                        .HasColumnType("BOOLEAN");
 
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
@@ -336,12 +324,12 @@ namespace Migrators.Oracle.Migrations.Application
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
 
-                    b.HasIndex("NormalizedUserName", "TenantId")
+                    b.HasIndex("NormalizedUserName")
                         .IsUnique()
                         .HasDatabaseName("UserNameIndex")
                         .HasFilter("\"NormalizedUserName\" IS NOT NULL");
 
-                    b.ToTable("Users", "IDENTITY");
+                    b.ToTable("Users", "c##gnx_identity");
 
                     b.HasAnnotation("Finbuckle:MultiTenant", true);
                 });
@@ -352,7 +340,7 @@ namespace Migrators.Oracle.Migrations.Application
                         .ValueGeneratedOnAdd()
                         .HasColumnType("NUMBER(10)");
 
-                    OraclePropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    OraclePropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("ClaimType")
                         .HasColumnType("NVARCHAR2(2000)");
@@ -373,27 +361,21 @@ namespace Migrators.Oracle.Migrations.Application
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserClaims", "IDENTITY");
+                    b.ToTable("UserClaims", "c##gnx_identity");
 
                     b.HasAnnotation("Finbuckle:MultiTenant", true);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.Property<string>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<string>("LoginProvider")
                         .HasColumnType("NVARCHAR2(450)");
 
-                    b.Property<string>("LoginProvider")
-                        .IsRequired()
+                    b.Property<string>("ProviderKey")
                         .HasColumnType("NVARCHAR2(450)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("NVARCHAR2(2000)");
-
-                    b.Property<string>("ProviderKey")
-                        .IsRequired()
-                        .HasColumnType("NVARCHAR2(450)");
 
                     b.Property<string>("TenantId")
                         .IsRequired()
@@ -404,14 +386,11 @@ namespace Migrators.Oracle.Migrations.Application
                         .IsRequired()
                         .HasColumnType("NVARCHAR2(450)");
 
-                    b.HasKey("Id");
+                    b.HasKey("LoginProvider", "ProviderKey");
 
                     b.HasIndex("UserId");
 
-                    b.HasIndex("LoginProvider", "ProviderKey", "TenantId")
-                        .IsUnique();
-
-                    b.ToTable("UserLogins", "IDENTITY");
+                    b.ToTable("UserLogins", "c##gnx_identity");
 
                     b.HasAnnotation("Finbuckle:MultiTenant", true);
                 });
@@ -433,7 +412,7 @@ namespace Migrators.Oracle.Migrations.Application
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("UserRoles", "IDENTITY");
+                    b.ToTable("UserRoles", "c##gnx_identity");
 
                     b.HasAnnotation("Finbuckle:MultiTenant", true);
                 });
@@ -459,14 +438,14 @@ namespace Migrators.Oracle.Migrations.Application
 
                     b.HasKey("UserId", "LoginProvider", "Name");
 
-                    b.ToTable("UserTokens", "IDENTITY");
+                    b.ToTable("UserTokens", "c##gnx_identity");
 
                     b.HasAnnotation("Finbuckle:MultiTenant", true);
                 });
 
-            modelBuilder.Entity("Genocs.Microservice.Domain.Catalog.Product", b =>
+            modelBuilder.Entity("Genocs.Microservice.Template.Domain.Catalog.Product", b =>
                 {
-                    b.HasOne("Genocs.Microservice.Domain.Catalog.Brand", "Brand")
+                    b.HasOne("Genocs.Microservice.Template.Domain.Catalog.Brand", "Brand")
                         .WithMany()
                         .HasForeignKey("BrandId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -475,9 +454,9 @@ namespace Migrators.Oracle.Migrations.Application
                     b.Navigation("Brand");
                 });
 
-            modelBuilder.Entity("Genocs.Microservice.Infrastructure.Identity.ApplicationRoleClaim", b =>
+            modelBuilder.Entity("Genocs.Microservice.Template.Infrastructure.Identity.ApplicationRoleClaim", b =>
                 {
-                    b.HasOne("Genocs.Microservice.Infrastructure.Identity.ApplicationRole", null)
+                    b.HasOne("Genocs.Microservice.Template.Infrastructure.Identity.ApplicationRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -486,7 +465,7 @@ namespace Migrators.Oracle.Migrations.Application
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("Genocs.Microservice.Infrastructure.Identity.ApplicationUser", null)
+                    b.HasOne("Genocs.Microservice.Template.Infrastructure.Identity.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -495,7 +474,7 @@ namespace Migrators.Oracle.Migrations.Application
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("Genocs.Microservice.Infrastructure.Identity.ApplicationUser", null)
+                    b.HasOne("Genocs.Microservice.Template.Infrastructure.Identity.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -504,13 +483,13 @@ namespace Migrators.Oracle.Migrations.Application
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
                 {
-                    b.HasOne("Genocs.Microservice.Infrastructure.Identity.ApplicationRole", null)
+                    b.HasOne("Genocs.Microservice.Template.Infrastructure.Identity.ApplicationRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Genocs.Microservice.Infrastructure.Identity.ApplicationUser", null)
+                    b.HasOne("Genocs.Microservice.Template.Infrastructure.Identity.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -519,7 +498,7 @@ namespace Migrators.Oracle.Migrations.Application
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("Genocs.Microservice.Infrastructure.Identity.ApplicationUser", null)
+                    b.HasOne("Genocs.Microservice.Template.Infrastructure.Identity.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)

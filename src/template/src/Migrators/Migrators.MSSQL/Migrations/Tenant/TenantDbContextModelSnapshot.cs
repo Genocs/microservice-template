@@ -17,12 +17,12 @@ namespace Migrators.MSSQL.Migrations.Tenant
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.1")
+                .HasAnnotation("ProductVersion", "8.0.10")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Genocs.Microservice.Infrastructure.Multitenancy.GNXTenantInfo", b =>
+            modelBuilder.Entity("Genocs.Microservice.Template.Infrastructure.Multitenancy.GNXTenantInfo", b =>
                 {
                     b.Property<string>("Id")
                         .HasMaxLength(64)
@@ -37,7 +37,6 @@ namespace Migrators.MSSQL.Migrations.Tenant
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Identifier")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<bool>("IsActive")
@@ -47,7 +46,6 @@ namespace Migrators.MSSQL.Migrations.Tenant
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("ValidUpTo")
@@ -56,7 +54,8 @@ namespace Migrators.MSSQL.Migrations.Tenant
                     b.HasKey("Id");
 
                     b.HasIndex("Identifier")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[Identifier] IS NOT NULL");
 
                     b.ToTable("Tenants", "MultiTenancy");
                 });

@@ -3,6 +3,7 @@ using System;
 using Genocs.Microservice.Template.Infrastructure.Multitenancy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -16,10 +17,12 @@ namespace Migrators.MySQL.Migrations.Tenant
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.1")
+                .HasAnnotation("ProductVersion", "8.0.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("Genocs.Microservice.Infrastructure.Multitenancy.GNXTenantInfo", b =>
+            MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
+
+            modelBuilder.Entity("Genocs.Microservice.Template.Infrastructure.Multitenancy.GNXTenantInfo", b =>
                 {
                     b.Property<string>("Id")
                         .HasMaxLength(64)
@@ -34,7 +37,6 @@ namespace Migrators.MySQL.Migrations.Tenant
                         .HasColumnType("longtext");
 
                     b.Property<string>("Identifier")
-                        .IsRequired()
                         .HasColumnType("varchar(255)");
 
                     b.Property<bool>("IsActive")
@@ -44,7 +46,6 @@ namespace Migrators.MySQL.Migrations.Tenant
                         .HasColumnType("longtext");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<DateTime>("ValidUpTo")
