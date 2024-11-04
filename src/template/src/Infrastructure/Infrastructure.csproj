@@ -34,7 +34,7 @@
         <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.10" />
         <PackageReference Include="NSwag.AspNetCore" Version="14.1.0" />
         <PackageReference Include="RazorEngineCore" Version="2024.4.1" />
-        <PackageReference Include="ZymLabs.NSwag.FluentValidation.AspNetCore" Version="0.6.3" />
+        <PackageReference Include="ZymLabs.NSwag.FluentValidation.AspNetCore" Version="0.7.1" />
         <PackageReference Include="Oracle.EntityFrameworkCore" Version="8.23.60" />
         <PackageReference Include="OrchardCore.Localization.Core" Version="1.8.3" />
         <PackageReference Include="Serilog.Exceptions" Version="8.4.0" />
