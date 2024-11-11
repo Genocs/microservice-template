@@ -48,7 +48,7 @@
         <PackageReference Include="Serilog.Settings.Configuration" Version="8.0.4" />
         <PackageReference Include="Serilog.Sinks.Async" Version="2.1.0" />
         <PackageReference Include="Serilog.Sinks.Console" Version="6.0.0" />
-        <PackageReference Include="Serilog.Sinks.MSSqlServer" Version="7.0.2" />
+        <PackageReference Include="Serilog.Sinks.MSSqlServer" Version="8.0.0" />
         <PackageReference Include="Serilog.Sinks.Elasticsearch" Version="10.0.0" />
         <PackageReference Include="Serilog.Sinks.Seq" Version="8.0.0" />
         <PackageReference Include="System.Linq.Dynamic.Core" Version="1.4.7" />
