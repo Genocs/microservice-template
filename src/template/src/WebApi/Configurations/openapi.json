@@ -1,9 +1,9 @@
 {
   "SwaggerSettings": {
     "Enable": true,
-    "Title": ".NET8 Microservice - Clean Architecture",
-    "Version": "1.0.0",
-    "Description": "Clean Architecture Template for .NET8 WebApi built with Multitenancy Support.",
+    "Title": ".NET9 Microservice - Clean Architecture",
+    "Version": "2.0.0",
+    "Description": "Clean Architecture Template for .NET9 WebApi built with Multitenancy Support.",
     "ContactName": "Giovanni Emanuele Nocco",
     "ContactEmail": "info@genocs.com",
     "ContactUrl": "https://www.linkedin.com/in/giovanni-emanuele-nocco-b31a5169/",
