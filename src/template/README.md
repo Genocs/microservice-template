@@ -45,7 +45,7 @@
 
 # Genocs .NET Web API Microservice Template
 
-This repo contains a set of libraries designed by Genocs. The library is built on top of .NET8. 
+This repo contains a set of libraries designed by Genocs. The library is built on top of .NET9. 
 
 Packages are available on [NuGet Genocs](https://www.nuget.org/profiles/gioema_nocco).
 

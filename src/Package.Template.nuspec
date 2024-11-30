@@ -13,11 +13,11 @@
 		<readme>.\content\README_NUGET.md</readme>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
 		<copyright>2024</copyright>
-		<summary>.NET8 Microservice Template to implement solution based on Multitenancy.</summary>
-		<description>Clean Architecture Template for .NET8 WebAPI built with Multitenancy Support.</description>
+		<summary>.NET Microservice Template to implement solution based on Multitenancy.</summary>
+		<description>Clean Architecture Template for .NET WebAPI built with Multitenancy Support.</description>
 		<releaseNotes>
-			Relesase 2.0.0:
-			- Updated to .NET8
+			Relesase 2.3.0:
+			- Updated to .NET9
 		</releaseNotes>
 		<language>en-US</language>
 		<packageTypes>

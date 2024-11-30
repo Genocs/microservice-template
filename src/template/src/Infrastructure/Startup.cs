@@ -105,5 +105,5 @@ public static class Startup
     }
 
     private static IEndpointConventionBuilder MapHealthCheck(this IEndpointRouteBuilder endpoints) =>
-        endpoints.MapHealthChecks("/hc");
+        endpoints.MapHealthChecks("/healthz");
 }

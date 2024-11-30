@@ -4,10 +4,10 @@
   "classifications": [
     "Web/ASP.NET"
   ],
-  "name": "Genocs: .NET8 Microservice Template",
+  "name": "Genocs: .NET9 Microservice Template",
   "identity": "Genocs.Microservice.Template",
-  "description": ".NET8 Clean Architecture Template built with Multitenancy Support.",
-  "groupIdentity": "gnx_microservice",
+  "description": ".NET9 Clean Architecture Template built with Multitenancy Support.",
+  "groupIdentity": "Genocs.Template",
   "shortName": "gnx-microservice",
   "tags": {
     "type": "solution",
