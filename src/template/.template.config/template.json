@@ -13,7 +13,7 @@
     "type": "solution",
     "language": "C#"
   },
-  "sourceName": "Genocs.Microservice.Template", // Will replace the string 'Genocs.Microservice.Template' with the value provided via -n.
+  "sourceName": "Genocs.Microservice.Template",
   "preferNameDirectory": true,
   "symbols": {
     "genocs-components": {
