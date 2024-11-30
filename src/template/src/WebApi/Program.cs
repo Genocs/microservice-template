@@ -1,10 +1,12 @@
+using Genocs.Logging;
+using Genocs.Core;
 using Genocs.Microservice.Template.Application;
 using Genocs.Microservice.Template.Infrastructure;
-using Genocs.Microservice.Template.Infrastructure.Common;
 using Genocs.Microservice.Template.Infrastructure.Logging.Serilog;
 using Genocs.Microservice.Template.WebApi.Configurations;
 using Genocs.Microservice.Template.WebApi.Controllers;
 using Serilog;
+using Genocs.Core.Builders;
 
 [assembly: ApiConventionType(typeof(GNXApiConventions))]
 
@@ -13,9 +15,11 @@ try
 {
     var builder = WebApplication.CreateBuilder(args);
 
+    builder.AddConfigurations();
+
     builder
-        .SetBanner()
-        .AddConfigurations();
+            .AddGenocs()
+            .Build();
 
     builder.Host
         .UseLogging(builder.Environment.EnvironmentName);
@@ -34,12 +38,10 @@ try
 }
 catch (Exception ex) when (!ex.GetType().Name.Equals("HostAbortedException", StringComparison.Ordinal))
 {
-    StaticLogger.EnsureInitialized();
     Log.Fatal(ex, "Unhandled exception");
 }
 finally
 {
-    StaticLogger.EnsureInitialized();
     Log.Information("Server Shutting down...");
     Log.CloseAndFlush();
 }

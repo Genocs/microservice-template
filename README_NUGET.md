@@ -45,9 +45,9 @@
 
 ## Genocs .NET Web API Microservice Template
 
-Genocs .NET Web API Microservice Template is a starting point for your next `.NET8 Clean Architecture Project` that incorporates the most essential packages and features your projects will ever need including out of the box Multi-Tenancy support.
+Genocs .NET Web API Microservice Template is a starting point for your next `.NET9 Clean Architecture Project` that incorporates the most essential packages and features your projects will ever need including out of the box Multi-Tenancy support.
 
-> As the name suggests, this is an API / Server Template. You can find other Client Template that consume this API under `@genocs` handle.
+> As the name suggests, this is an API/Server Template. You can find other Client Template that consume this API under `@genocs` handle.
 > - Find `Blazor Wasm Template` here - [Blazor Wasm Template](https://github.com/Genocs/blazor-wasm-template)
 
 The template can be used with the `genocs cli`, `dotnet new` command or with the `Visual Studio 2022`, `Visual Studio Code` IDEs.
@@ -55,11 +55,11 @@ The template can be used with the `genocs cli`, `dotnet new` command or with the
 
 ## Goals
 
-The goal of this template is to provide a complete and feature-rich starting point for any .NET Developer / Team to kick-start their project using .NET8 Microservices architecture. This also serves the purpose of learning advanced concepts and implementations such as `Multitenancy, CQRS, Onion Architecture, Clean Coding standards, Docker Concepts, Cloud Deployments with Terraform to AWS, CI/CD Pipelines & Workflows` and so on.
+The goal of this template is to provide a complete and feature-rich starting point for any .NET Developer/Team to kick-start their project using .NET9 Microservices architecture. This also serves the purpose of learning advanced concepts and implementations such as `Multitenancy, CQRS, Onion Architecture, Clean Coding standards, Docker Concepts, Cloud Deployments with Terraform to AWS, CI/CD Pipelines & Workflows` and so on.
 
 ## Features
 
-- :white_check_mark: Built on .NET8
+- :white_check_mark: Built on .NET9
 - :white_check_mark: Follows Clean Architecture Principles
 - :white_check_mark: Domain Driven Design
 - :white_check_mark: Cloud Ready. Can be deployed to AWS Infrastructure as ECS Containers using Terraform
@@ -114,7 +114,7 @@ To get started with this Template, here are the available options:
 
 Before creating your first solution, you should ensure that your local machine has:
 
-- **.NET8** You can find the download [here](https://dotnet.microsoft.com/en-us/download/dotnet/8.0).
+- **.NET9** You can find the download [here](https://dotnet.microsoft.com/en-us/download/dotnet/9.0).
 - **NodeJS (16+)** You can find the download [here](https://nodejs.org/en/download).
 - **Visual Studio Code** You can find the download [here](https://code.visualstudio.com/download).
 - **Visual Studio 2022** (Optional) You can find the download [here](https://visualstudio.microsoft.com/vs/preview/vs2022/).
@@ -149,7 +149,7 @@ OR
 genocs api n CompanyName.ProjectName.ServiceName
 ```
 
-This will create a new .NET8 Web API solution for you using the template.
+This will create a new .NET9 Web API solution for you using the template.
 For further steps and details, [Read the Getting Started Guide](https://genocs-blog.netlify.app/microservice-template/)
 
 #### Update
@@ -234,7 +234,7 @@ For further steps and details, [Read the Getting Started Guide](https://genocs-b
 
 ## Containerization
 
-The project, being .NET8, it is configured to have built-in support for containerization. That means, you really don't need a `dockerfile` to containerize the webapi.
+The project, being .NET9, it is configured to have built-in support for containerization. That means, you really don't need a `dockerfile` to containerize the webapi.
 
 To build a docker image, all you have to do is, ensure that docker-desktop or docker instance is running. And run the following command at the root of the solution.
 
