@@ -24,8 +24,7 @@ internal static class Startup
 
         services.AddHangfireConsoleExtensions();
 
-        var storageSettings = config.GetSection("HangfireSettings:Storage").Get<HangfireStorageSettings>();
-        if (storageSettings is null) throw new Exception("Hangfire Storage Provider is not configured.");
+        var storageSettings = config.GetSection("HangfireSettings:Storage").Get<HangfireStorageSettings>() ?? throw new Exception("Hangfire Storage Provider is not configured.");
         if (string.IsNullOrEmpty(storageSettings.StorageProvider)) throw new Exception("Hangfire Storage Provider is not configured.");
         if (string.IsNullOrEmpty(storageSettings.ConnectionString)) throw new Exception("Hangfire Storage Provider ConnectionString is not configured.");
         _logger.Information($"Hangfire: Current Storage Provider : {storageSettings.StorageProvider}");
@@ -58,8 +57,7 @@ internal static class Startup
 
     internal static IApplicationBuilder UseHangfireDashboard(this IApplicationBuilder app, IConfiguration config)
     {
-        var dashboardOptions = config.GetSection("HangfireSettings:Dashboard").Get<DashboardOptions>();
-        if (dashboardOptions is null) throw new Exception("Hangfire Dashboard is not configured.");
+        var dashboardOptions = config.GetSection("HangfireSettings:Dashboard").Get<DashboardOptions>() ?? throw new Exception("Hangfire Dashboard is not configured.");
         dashboardOptions.Authorization = new[]
         {
            new HangfireCustomBasicAuthenticationFilter

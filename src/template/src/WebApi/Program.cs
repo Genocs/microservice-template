@@ -1,5 +1,4 @@
 using Genocs.Logging;
-using Genocs.Core;
 using Genocs.Microservice.Template.Application;
 using Genocs.Microservice.Template.Infrastructure;
 using Genocs.Microservice.Template.Infrastructure.Logging.Serilog;

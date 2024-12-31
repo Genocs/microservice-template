@@ -1,5 +1,4 @@
-﻿using Finbuckle.MultiTenant;
-using Genocs.Microservice.Template.Application.Common.Exceptions;
+﻿using Genocs.Microservice.Template.Application.Common.Exceptions;
 using Genocs.Microservice.Template.Application.Identity.Users;
 using Genocs.Microservice.Template.Infrastructure.Multitenancy;
 using Genocs.Microservice.Template.Shared.Authorization;

@@ -22,16 +22,7 @@ public abstract class BaseDbContext : MultiTenantIdentityDbContext<ApplicationUs
     private readonly IEventPublisher _events;
 
     protected BaseDbContext(IMultiTenantContextAccessor<GNXTenantInfo> multiTenantContextAccessor, DbContextOptions options, ICurrentUser currentUser, ISerializerService serializer, IOptions<DatabaseSettings> dbSettings, IEventPublisher events)
-        : base(multiTenantContextAccessor.MultiTenantContext.TenantInfo, options)
-    {
-        _currentUser = currentUser;
-        _serializer = serializer;
-        _dbSettings = dbSettings.Value;
-        _events = events;
-    }
-
-    protected BaseDbContext(IMultiTenantContext<GNXTenantInfo> multiTenantContextAccessor, DbContextOptions options, ICurrentUser currentUser, ISerializerService serializer, IOptions<DatabaseSettings> dbSettings, IEventPublisher events)
-        : base(multiTenantContextAccessor.TenantInfo, options)
+        : base(multiTenantContextAccessor, options)
     {
         _currentUser = currentUser;
         _serializer = serializer;
