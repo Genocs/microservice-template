@@ -17,7 +17,7 @@
 [license-url]: https://github.com/Genocs/microservice-template/blob/main/LICENSE
 [build-shield]: https://github.com/Genocs/microservice-template/actions/workflows/build_and_test.yml/badge.svg?branch=main
 [build-url]: https://github.com/Genocs/microservice-template/actions/workflows/build_and_test.yml
-[package-shield]: https://img.shields.io/badge/nuget-v.2.2.0-blue?&label=latests&logo=nuget
+[package-shield]: https://img.shields.io/badge/nuget-v.2.3.2-blue?&label=latests&logo=nuget
 [package-url]: https://github.com/Genocs/microservice-template/actions/workflows/build_and_test.yml
 [downloads-shield]: https://img.shields.io/nuget/dt/Genocs.Microservice.Template.svg?color=2da44e&label=downloads&logo=nuget
 [downloads-url]: https://www.nuget.org/packages/Genocs.Microservice.Template
@@ -77,20 +77,20 @@ The goal of this repository is to provide a complete and feature-rich starting p
 
 ## Features
 
-- :white_check_mark: Built on .NET9
+- :white_check_mark: Built on [.NET9](https://dotnet.microsoft.com/en-us/)
 - :white_check_mark: Follows Clean Architecture Principles
 - :white_check_mark: Domain Driven Design
 - :white_check_mark: Cloud Ready. Can be deployed to AWS Infrastructure as ECS Containers using Terraform
 - :white_check_mark: Docker-Compose File Examples
 - :white_check_mark: Documented at [genocs netlify](https://genocs-blog.netlify.app)
-- :white_check_mark: Multi Tenancy Support with Finbuckle
+- :white_check_mark: Multi Tenancy Support with [Finbuckle](https://www.finbuckle.com/)
   - :white_check_mark: Create Tenants with Multi Database / Shared Database Support
   - :white_check_mark: Activate / Deactivate Tenants on Demand
   - :white_check_mark: Upgrade Subscription of Tenants - Add More Validity Months to each tenant!
-- :white_check_mark: Supports MySQL, MSSQL, Oracle & PostgreSQL
-- :white_check_mark: Uses Entity Framework Core as DB Abstraction
+- :white_check_mark: Supports MySQL, MSSQL, Oracle, PostgreSQL, SQLite
+- :white_check_mark: Uses [Entity Framework Core 9.0](https://learn.microsoft.com/en-us/ef/core/) as DB Abstraction
 - :white_check_mark: Flexible Repository Pattern
-- :white_check_mark: Dapper Integration for Optimal Performance
+- :white_check_mark: [Dapper](https://www.learndapper.com/) Integration for Optimal Performance
 - :white_check_mark: Serilog Integration with various Sinks - File, SEQ, Kibana
 - :white_check_mark: OpenAPI - Supports Client Service Generation
 - :white_check_mark: Mapster Integration for Quicker Mapping
