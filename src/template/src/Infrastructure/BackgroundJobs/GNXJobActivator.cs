@@ -8,12 +8,9 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Genocs.Microservice.Template.Infrastructure.BackgroundJobs;
 
-public class GNXJobActivator : JobActivator
+public class GNXJobActivator(IServiceScopeFactory scopeFactory) : JobActivator
 {
-    private readonly IServiceScopeFactory _scopeFactory;
-
-    public GNXJobActivator(IServiceScopeFactory scopeFactory)
-        => _scopeFactory = scopeFactory ?? throw new ArgumentNullException(nameof(scopeFactory));
+    private readonly IServiceScopeFactory _scopeFactory = scopeFactory ?? throw new ArgumentNullException(nameof(scopeFactory));
 
     public override JobActivatorScope BeginScope(PerformContext context)
         => new Scope(context, _scopeFactory.CreateScope());

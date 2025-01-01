@@ -21,7 +21,7 @@ public class AuditTrail
     public Dictionary<string, object?> NewValues { get; } = new();
     public List<PropertyEntry> TemporaryProperties { get; } = new();
     public TrailType TrailType { get; set; }
-    public List<string> ChangedColumns { get; } = new();
+    public List<string> ChangedColumns { get; } = [];
     public bool HasTemporaryProperties => TemporaryProperties.Count > 0;
 
     public Trail ToAuditTrail() =>

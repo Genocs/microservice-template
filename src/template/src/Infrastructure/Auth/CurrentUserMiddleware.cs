@@ -2,12 +2,9 @@
 
 namespace Genocs.Microservice.Template.Infrastructure.Auth;
 
-public class CurrentUserMiddleware : IMiddleware
+public class CurrentUserMiddleware(ICurrentUserInitializer currentUserInitializer) : IMiddleware
 {
-    private readonly ICurrentUserInitializer _currentUserInitializer;
-
-    public CurrentUserMiddleware(ICurrentUserInitializer currentUserInitializer) =>
-        _currentUserInitializer = currentUserInitializer;
+    private readonly ICurrentUserInitializer _currentUserInitializer = currentUserInitializer;
 
     public async Task InvokeAsync(HttpContext context, RequestDelegate next)
     {

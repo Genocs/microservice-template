@@ -4,12 +4,9 @@ using Genocs.Microservice.Template.Infrastructure.Multitenancy;
 
 namespace Genocs.Microservice.Template.Infrastructure.Caching;
 
-public class CacheKeyService : ICacheKeyService
+public class CacheKeyService(IMultiTenantContextAccessor<GNXTenantInfo> multiTenantContextAccessor) : ICacheKeyService
 {
-    private readonly ITenantInfo? _currentTenant;
-
-    public CacheKeyService(IMultiTenantContextAccessor<GNXTenantInfo> multiTenantContextAccessor)
-        => _currentTenant = multiTenantContextAccessor?.MultiTenantContext?.TenantInfo;
+    private readonly ITenantInfo? _currentTenant = multiTenantContextAccessor?.MultiTenantContext?.TenantInfo;
 
     public string GetCacheKey(string name, object id, bool includeTenantId = true)
     {

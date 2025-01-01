@@ -15,10 +15,7 @@ public class ApplicationDbContext : BaseDbContext
         : base(multiTenantContextAccessor, options, currentUser, serializer, dbSettings, events)
     {
     }
-    public ApplicationDbContext(IMultiTenantContext<GNXTenantInfo> multiTenantContextAccessor, DbContextOptions options, ICurrentUser currentUser, ISerializerService serializer, IOptions<DatabaseSettings> dbSettings, IEventPublisher events)
-        : base(multiTenantContextAccessor, options, currentUser, serializer, dbSettings, events)
-    {
-    }
+
 
     public DbSet<Product> Products => Set<Product>();
     public DbSet<Brand> Brands => Set<Brand>();

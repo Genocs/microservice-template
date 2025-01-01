@@ -15,16 +15,16 @@
 
     <ItemGroup>
         <!-- This package is used to handle EF migrations -->
-        <PackageReference Include="Genocs.Logging" Version="7.1.0" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.10">
+        <PackageReference Include="Genocs.Logging" Version="7.2.2" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.0">
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
 
         <!-- These packages are needed to resolve the issue related to Include="RazorEngineCore" Version="2024.4.1" -->
-        <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.11.0" />
-        <PackageReference Include="Microsoft.CodeAnalysis.Common" Version="4.11.0" />
-        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.11.0" />
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.12.0" />
+        <PackageReference Include="Microsoft.CodeAnalysis.Common" Version="4.12.0" />
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.12.0" />
 
         <ProjectReference Include="..\Migrators\Migrators.MySQL\Migrators.MySQL.csproj" />
         <ProjectReference Include="..\Migrators\Migrators.Oracle\Migrators.Oracle.csproj" />

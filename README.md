@@ -158,13 +158,7 @@ Simply navigate to a new directory (wherever you want to place your new solution
 Run the following command. Note that, in this demonstration, I am naming my new solution as `CompanyName.ProjectName.ServiceName`.
 
 ```bash
-genocs api new CompanyName.ProjectName.ServiceName
-```
-
-OR
-
-```bash
-genocs api n CompanyName.ProjectName.ServiceName
+genocs micro-webapi [n|new] CompanyName.ProjectName.ServiceName
 ```
 
 This will create a new .NET9 Web API solution for you using the template.
@@ -253,7 +247,7 @@ And here is the response.
 {
   "token": "<your token>",
   "refreshToken": "<your refresh token>",
-  "refreshTokenExpiryTime": "2023-04-15T07:15:33.5187598Z"
+  "refreshTokenExpiryTime": "2025-01-01T00:00:00.0000000Z"
 }
 ```
 
