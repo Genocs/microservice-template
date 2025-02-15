@@ -1,11 +1,12 @@
 #See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
 
 FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS base
+USER $APP_UID
 WORKDIR /app
-EXPOSE 80
-EXPOSE 443
+EXPOSE 8080
 
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build-env
+ARG BUILD_CONFIGURATION=Debug
 WORKDIR /src
 COPY ["src/Core/Application", "Core/Application/"]
 COPY ["src/Core/Domain", "Core/Domain/"]
@@ -26,13 +27,13 @@ COPY ["stylecop.json", "stylecop.json"]
 
 WORKDIR "/src/WebApi"
 
-
 RUN dotnet restore "WebApi.csproj"
 
-RUN dotnet build "WebApi.csproj" -c Debug -o /app/build
+RUN dotnet build "WebApi.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build-env AS publish
-RUN dotnet publish "WebApi.csproj" -c Debug -o /app/publish
+ARG BUILD_CONFIGURATION=Debug
+RUN dotnet publish "WebApi.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app

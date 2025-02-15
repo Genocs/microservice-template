@@ -59,84 +59,8 @@ Building a software library to be cloud agnostic has several advantages. First, 
 
 The advantages of using containers are numerous. Containers provide a lightweight, portable, and isolated environment for applications to run in, allowing them to be easily moved between different systems. This makes it easier to deploy applications quickly and reliably across different environments. Additionally, containers can help reduce resource consumption by running multiple applications on the same host, as each container is isolated from the others. This helps to improve efficiency and scalability. Finally, containers provide an additional layer of security, as they are isolated from the underlying operating system and other applications.
 
-## Infrastructure
-
-In this section you can find the infrastructure components to setup the environment.
-You will use ***Docker compose*** to setup the infrastructure components.
-
-
-``` bash
-cd ./containers
-# Setup the infrastructure
-docker compose -f ./infrastructure-bare.yml --env-file ./.env --project-name genocs up -d
-docker compose -f ./infrastructure-monitoring.yml --env-file ./.env --project-name genocs up -d
-docker compose -f ./infrastructure-scaling.yml --env-file ./.env --project-name genocs up -d
-docker compose -f ./infrastructure-security.yml --env-file ./.env --project-name genocs up -d
-
-# Use this file only in case you want to setup sqlserver database (no need if you use postgres)
-docker compose -f ./infrastructure-sqlserver.yml --env-file ./.env --project-name genocs up -d
-
-# Use this file only in case you want to setup elk stack
-docker compose -f ./infrastructure-elk.yml --env-file ./.env --project-name genocs up -d
-
-# Use this file only in case you want to setup AI ML components prepared by Genocs
-docker compose -f ./infrastructure-ml.yml --env-file ./.env --project-name genocs up -d
-```
-
-`infrastructure-bare.yml` allows to install the basic infrastructure components. Basic components are the [RabbitMQ](https://rabbitmq.com), [Redis](https://redis.io), [Mongo](https://mongodb.com), [Postgres](https://www.postgresql.org/).
-
-
-- [rabbitmq](http://localhost:15672/)
-- Redis
-- MongoDb
-- PostgreSQL
-
-
-`infrastructure-monitoring.yml` allows to install the monitoring infrastructure components.
-
-Inside the file you can find:
-
-- Prometheus
-- Grafana
-- influxdb
-- jaeger
-- seq
-
-`infrastructure-scaling.yml` allows to install the scaling infrastructure components.
-
-Inside the file you can find:
-
-- Fabio
-- consul
-
-`infrastructure-security.yml` allows to install the security infrastructure components.
-
-Inside the file you can find:
-
-- vault (Hashicorp)
-
-The script below allows to setup the infrastructure components. This means that you can find all the containers inside the same network.
-
-The network is called `genocs`.
-
-``` yml 
-networks:
-  genocs:
-    name: genocs-network
-    driver: bridge
-```
-
-Remember to add the network configuration inside your docker compose file to setup the network, before running the containers.
-
-
-## ***Kubernetes cluster***
-
-You can setup the application inside a Kubernetes cluster.
-
-Check the repo [enterprise-containers](https://github.com/Genocs/enterprise-containers) to setup a Kubernetes cluster. 
-There you can find scripts, configuration files and documentation to setup a cluster from scratch.
-
 ## **Libraries**
+
 You can find a full documentation on:
 [**Documentation**](https://genocs-blog.netlify.app/library/)
 
@@ -144,15 +68,9 @@ You can find a full documentation on:
 
 ## Support
 
-
-
 Use [**api-workbench**](./api-workbench.rest) inside Visual Studio code with [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) plugin 
 
-## Configuration
 
-``` json
-
-```
 ---
 
 ## Build Solution
@@ -178,25 +96,125 @@ docker push genocs/genocs.microservice.template-webapi:latest
 ```
 ---
 
-### How to BUILD & RUN the application
 
-The build and run process can be done by using docker-compose
+## Working with Docker-Compose
 
-``` bash
+There are some prerequisites for using the included docker-compose.yml files:
 
+1. Make sure you have docker installed (on windows install docker desktop)
+2. Create and install an https certificate:
+
+    ```bash
+    dotnet dev-certs https -ep $env:USERPROFILE\.aspnet\https\cert.pfx -p password!
+    ```
+
+3. It's possible that the above step gives you an `A valid HTTPS certificate is already present` error.
+   In that case you will have to run the following command, and then  `Re-Run Step 2`
+
+    ```bash
+     dotnet dev-certs https --clean
+    ```
+
+4. Trust the certificate
+
+    ```bash
+     dotnet dev-certs https --trust
+    ```
+
+
+## Docker-Compose Commands
+
+Genocs Microservice .NET WebAPI Template includes 3 Docker-Compose Files!
+- WebAPI + MSSQL (default)
+- WebAPI + PostgreSQL
+- WebAPI + MYSQL
+
+1) WebAPI + MSSQL (default)
+```bash
 # Build with docker compose
-docker compose -f ./docker-compose.yml -f ./docker-compose.override.yml --env-file ./local.env --project-name genocs-app build
-
-# *** Before running the solution remember to check ***
-# *** if the infrastructure services were setup     ***
+docker compose -f ./docker-compose.mssql.yml -f ./docker-compose.override.yml --env-file ./local.env --project-name genocs-app build
 
 # Run with docker compose
-docker compose -f ./docker-compose.yml --env-file ./local.env --project-name genocs-app up -d
+docker compose -f ./docker-compose.mssql.yml -f ./docker-compose.override.yml --env-file ./local.env --project-name genocs-app up -d
+
+# Stop and remove containers
+docker-compose -f docker-compose.mssql.yml down
 
 # Clean Docker cache
 docker builder prune
 ```
 
+2) WebAPI + PostgreSQL 
+```bash
+# Build with docker compose
+docker compose -f ./docker-compose.postgresql.yml -f ./docker-compose.override.yml --env-file ./local.env --project-name genocs-app build
+
+# Run with docker compose
+docker compose -f ./docker-compose.postgresql.yml -f ./docker-compose.override.yml --env-file ./local.env --project-name genocs-app up -d
+
+# Stop and remove containers
+docker-compose -f docker-compose.postgresql.yml down
+
+# Clean Docker cache
+docker builder prune
+```
+
+
+3) WebAPI + MYSQL
+```bash
+# Build with docker compose
+docker compose -f ./docker-compose.mysql.yml -f ./docker-compose.override.yml --env-file ./local.env --project-name genocs-app build
+
+# Run with docker compose
+docker compose -f ./docker-compose.mysql.yml -f ./docker-compose.override.yml --env-file ./local.env --project-name genocs-app up -d
+
+# Stop and remove containers
+docker-compose -f docker-compose.mysql.yml down
+
+# Clean Docker cache
+docker builder prune
+```
+
+Your API should be available at [`http://localhost:5100/swagger`](https://localhost:5100/swagger) and [`https://localhost:5101/swagger`](http://localhost:5010/swagger)
+
+## Specifications
+
+Let's first examine the Environment Variables passed into the dotnet-webapi container.
+
+- `ASPNETCORE_ENVIRONMENT` : Custom Environment Name.
+- `ASPNETCORE_URLS` : Enter in the Port list.
+- `ASPNETCORE_HTTPS_PORT` : Custom SSL Port.
+- `DatabaseSettings__ConnectionString` : Valid Connection String.
+- `HangfireSettings__Storage__ConnectionString` : Valid Connection String.
+- `DatabaseSettings__DBProvider` : This will the database engine.
+- `HangfireSettings__Storage__StorageProvider` : This will the database engine.
+
+Each of the docker-compose will have the same exact variables with values suited to the context.
+
+Note that the default Docker Image that will be pulled is `genocs/dotnet-webapi:latest`. This is my public Image Repository.
+
+
+
+The script below allows to setup the infrastructure components. This means that you can find all the containers inside the same network.
+
+The network is called `genocs`.
+
+``` yml 
+networks:
+  genocs:
+    name: genocs-network
+    driver: bridge
+```
+
+Remember to add the network configuration inside your docker compose file to setup the network, before running the containers.
+
+
+## ***Kubernetes cluster***
+
+You can setup the application inside a Kubernetes cluster.
+
+Check the repo [enterprise-containers](https://github.com/Genocs/enterprise-containers) to setup a Kubernetes cluster. 
+There you can find scripts, configuration files and documentation to setup a cluster from scratch.
 
 ### Deploy in a cloud instance
 

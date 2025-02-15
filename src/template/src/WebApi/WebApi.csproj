@@ -54,7 +54,14 @@
         <EmbeddedResource Remove="Databases\**" />
         <None Remove="Databases\**" />
     </ItemGroup>
+
     <ItemGroup>
-        <Folder Include="Files\" />
+      <None Update="certs\cert.pfx">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Files\placeholder.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
     </ItemGroup>
+
 </Project>
