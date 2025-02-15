@@ -1,0 +1,5 @@
+services:
+  dotnet-webapi:
+    build:
+      context: .
+      dockerfile: ./dockerfile

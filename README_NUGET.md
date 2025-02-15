@@ -17,7 +17,7 @@
 [license-url]: https://github.com/Genocs/microservice-template/blob/main/LICENSE
 [build-shield]: https://github.com/Genocs/microservice-template/actions/workflows/build_and_test.yml/badge.svg?branch=main
 [build-url]: https://github.com/Genocs/microservice-template/actions/workflows/build_and_test.yml
-[package-shield]: https://img.shields.io/badge/nuget-v.2.3.2-blue?&label=latests&logo=nuget
+[package-shield]: https://img.shields.io/badge/nuget-v.2.3.3-blue?&label=latests&logo=nuget
 [package-url]: https://github.com/Genocs/microservice-template/actions/workflows/build_and_test.yml
 [downloads-shield]: https://img.shields.io/nuget/dt/Genocs.Microservice.Template.svg?color=2da44e&label=downloads&logo=nuget
 [downloads-url]: https://www.nuget.org/packages/Genocs.Microservice.Template
@@ -47,7 +47,7 @@
 
 Genocs .NET Web API Microservice Template is a starting point for your next `.NET9 Clean Architecture Project` that incorporates the most essential packages and features your projects will ever need including out of the box Multi-Tenancy support.
 
-> As the name suggests, this is an API/Server Template. You can find other Client Template that consume this API under `@genocs` handle.
+> As the name suggests, this is an API / Server Template. You can find other Client Template that consume this API under `@genocs` handle.
 > - Find `Blazor Wasm Template` here - [Blazor Wasm Template](https://github.com/Genocs/blazor-wasm-template)
 
 The template can be used with the `genocs cli`, `dotnet new` command or with the `Visual Studio 2022`, `Visual Studio Code` IDEs.
@@ -55,24 +55,24 @@ The template can be used with the `genocs cli`, `dotnet new` command or with the
 
 ## Goals
 
-The goal of this template is to provide a complete and feature-rich starting point for any .NET Developer/Team to kick-start their project using .NET9 Microservices architecture. This also serves the purpose of learning advanced concepts and implementations such as `Multitenancy, CQRS, Onion Architecture, Clean Coding standards, Docker Concepts, Cloud Deployments with Terraform to AWS, CI/CD Pipelines & Workflows` and so on.
+The goal of this template is to provide a complete and feature-rich starting point for any .NET Developer / Team to kick-start their project using .NET9 Microservices architecture. This also serves the purpose of learning advanced concepts and implementations such as `Multitenancy, CQRS, Onion Architecture, Clean Coding standards, Docker Concepts, Cloud Deployments with Terraform to AWS, CI/CD Pipelines & Workflows` and so on.
 
 ## Features
 
-- :white_check_mark: Built on .NET9
+- :white_check_mark: Built on [.NET9](https://dotnet.microsoft.com/en-us/)
 - :white_check_mark: Follows Clean Architecture Principles
 - :white_check_mark: Domain Driven Design
 - :white_check_mark: Cloud Ready. Can be deployed to AWS Infrastructure as ECS Containers using Terraform
 - :white_check_mark: Docker-Compose File Examples
 - :white_check_mark: Documented at [genocs netlify](https://genocs-blog.netlify.app)
-- :white_check_mark: Multi Tenancy Support with Finbuckle
+- :white_check_mark: Multi Tenancy Support with [Finbuckle](https://www.finbuckle.com/)
   - :white_check_mark: Create Tenants with Multi Database / Shared Database Support
   - :white_check_mark: Activate / Deactivate Tenants on Demand
   - :white_check_mark: Upgrade Subscription of Tenants - Add More Validity Months to each tenant!
-- :white_check_mark: Supports MySQL, MSSQL, Oracle & PostgreSQL
-- :white_check_mark: Uses Entity Framework Core as DB Abstraction
+- :white_check_mark: Supports MySQL, MSSQL, Oracle, PostgreSQL, SQLite
+- :white_check_mark: Uses [Entity Framework Core 9.0](https://learn.microsoft.com/en-us/ef/core/) as DB Abstraction
 - :white_check_mark: Flexible Repository Pattern
-- :white_check_mark: Dapper Integration for Optimal Performance
+- :white_check_mark: [Dapper](https://www.learndapper.com/) Integration for Optimal Performance
 - :white_check_mark: Serilog Integration with various Sinks - File, SEQ, Kibana
 - :white_check_mark: OpenAPI - Supports Client Service Generation
 - :white_check_mark: Mapster Integration for Quicker Mapping
@@ -140,13 +140,7 @@ Simply navigate to a new directory (wherever you want to place your new solution
 Run the following command. Note that, in this demonstration, I am naming my new solution as `CompanyName.ProjectName.ServiceName`.
 
 ```bash
-genocs api new CompanyName.ProjectName.ServiceName
-```
-
-OR
-
-```bash
-genocs api n CompanyName.ProjectName.ServiceName
+genocs micro-webapi [n|new] CompanyName.ProjectName.ServiceName
 ```
 
 This will create a new .NET9 Web API solution for you using the template.
@@ -224,7 +218,7 @@ And here is the response.
 {
   "token": "<your token>",
   "refreshToken": "<your refresh token>",
-  "refreshTokenExpiryTime": "2023-04-15T07:15:33.5187598Z"
+  "refreshTokenExpiryTime": "2025-01-01T00:00:00.0000000Z"
 }
 ```
 
