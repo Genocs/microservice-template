@@ -1,6 +1,7 @@
 ﻿namespace Genocs.Microservice.Template.Application.Common.Specification;
 
 public class EntitiesByPaginationFilterSpec<T, TResult> : EntitiesByBaseFilterSpec<T, TResult>
+    where T : class
 {
     public EntitiesByPaginationFilterSpec(PaginationFilter filter)
         : base(filter) =>
@@ -8,6 +9,7 @@ public class EntitiesByPaginationFilterSpec<T, TResult> : EntitiesByBaseFilterSp
 }
 
 public class EntitiesByPaginationFilterSpec<T> : EntitiesByBaseFilterSpec<T>
+    where T : class
 {
     public EntitiesByPaginationFilterSpec(PaginationFilter filter)
         : base(filter) =>

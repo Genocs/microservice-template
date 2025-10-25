@@ -1,4 +1,4 @@
-﻿using System.Linq.Expressions;
+using System.Linq.Expressions;
 using System.Reflection;
 using System.Text.Json;
 
@@ -6,11 +6,12 @@ namespace Genocs.Microservice.Template.Application.Common.Specification;
 
 public static class SpecificationBuilderExtensions
 {
-    public static ISpecificationBuilder<T> SearchBy<T>(this ISpecificationBuilder<T> query, BaseFilter filter) =>
+    public static ISpecificationBuilder<T> SearchBy<T>(this ISpecificationBuilder<T> query, BaseFilter filter)
+        where T : class =>
         query
-            .SearchByKeyword(filter.Keyword)
+     .SearchByKeyword(filter.Keyword)
             .AdvancedSearch(filter.AdvancedSearch)
-            .AdvancedFilter(filter.AdvancedFilter);
+       .AdvancedFilter(filter.AdvancedFilter);
 
     public static ISpecificationBuilder<T> PaginateBy<T>(this ISpecificationBuilder<T> query, PaginationFilter filter)
     {
@@ -31,17 +32,19 @@ public static class SpecificationBuilderExtensions
 
         return query
             .Take(filter.PageSize)
-            .OrderBy(filter.OrderBy);
+.OrderBy(filter.OrderBy);
     }
 
-    public static IOrderedSpecificationBuilder<T> SearchByKeyword<T>(
+    public static ISpecificationBuilder<T> SearchByKeyword<T>(
         this ISpecificationBuilder<T> specificationBuilder,
-        string? keyword) =>
+        string? keyword)
+        where T : class =>
         specificationBuilder.AdvancedSearch(new Search { Keyword = keyword });
 
-    public static IOrderedSpecificationBuilder<T> AdvancedSearch<T>(
+    public static ISpecificationBuilder<T> AdvancedSearch<T>(
         this ISpecificationBuilder<T> specificationBuilder,
-        Search? search)
+   Search? search)
+        where T : class
     {
         if (!string.IsNullOrEmpty(search?.Keyword))
         {
@@ -60,9 +63,9 @@ public static class SpecificationBuilderExtensions
             {
                 // search all fields (only first level)
                 foreach (var property in typeof(T).GetProperties()
-                    .Where(prop => (Nullable.GetUnderlyingType(prop.PropertyType) ?? prop.PropertyType) is { } propertyType
-                        && !propertyType.IsEnum
-                        && Type.GetTypeCode(propertyType) != TypeCode.Object))
+      .Where(prop => (Nullable.GetUnderlyingType(prop.PropertyType) ?? prop.PropertyType) is { } propertyType
+               && !propertyType.IsEnum
+        && Type.GetTypeCode(propertyType) != TypeCode.Object))
                 {
                     var paramExpr = Expression.Parameter(typeof(T));
                     var propertyExpr = Expression.Property(paramExpr, property);
@@ -72,7 +75,7 @@ public static class SpecificationBuilderExtensions
             }
         }
 
-        return new OrderedSpecificationBuilder<T>(specificationBuilder.Specification);
+        return specificationBuilder;
     }
 
     private static void AddSearchPropertyByKeyword<T>(
@@ -81,6 +84,7 @@ public static class SpecificationBuilderExtensions
         ParameterExpression paramExpr,
         string keyword,
         string operatorSearch = FilterOperator.CONTAINS)
+      where T : class
     {
         if (propertyExpr is not MemberExpression memberExpr || memberExpr.Member is not PropertyInfo property)
         {
@@ -99,22 +103,22 @@ public static class SpecificationBuilderExtensions
         // or [ x => ((object)x.Property) == null ? null : x.Property.ToString() ] for other properties
         var selectorExpr =
             property.PropertyType == typeof(string)
-                ? propertyExpr
-                : Expression.Condition(
-                    Expression.Equal(Expression.Convert(propertyExpr, typeof(object)), Expression.Constant(null, typeof(object))),
-                    Expression.Constant(null, typeof(string)),
-                    Expression.Call(propertyExpr, "ToString", null, null));
+          ? propertyExpr
+: Expression.Condition(
+        Expression.Equal(Expression.Convert(propertyExpr, typeof(object)), Expression.Constant(null, typeof(object))),
+             Expression.Constant(null, typeof(string)),
+            Expression.Call(propertyExpr, "ToString", null, null));
 
         var toLowerMethod = typeof(string).GetMethod("ToLower", Type.EmptyTypes);
         Expression callToLowerMethod = Expression.Call(selectorExpr, toLowerMethod!);
 
-        var selector = Expression.Lambda<Func<T, string>>(callToLowerMethod, paramExpr);
+        var selector = Expression.Lambda<Func<T, string?>>(callToLowerMethod, paramExpr);
 
-        ((List<SearchExpressionInfo<T>>)specificationBuilder.Specification.SearchCriterias)
-            .Add(new SearchExpressionInfo<T>(selector, searchTerm, 1));
+        // Use the new API for search
+        specificationBuilder.Search(selector, searchTerm);
     }
 
-    public static IOrderedSpecificationBuilder<T> AdvancedFilter<T>(
+    public static ISpecificationBuilder<T> AdvancedFilter<T>(
         this ISpecificationBuilder<T> specificationBuilder,
         Filter? filter)
     {
@@ -135,17 +139,17 @@ public static class SpecificationBuilderExtensions
                 binaryExpresioFilter = CreateFilterExpression(filterValid.Field!, filterValid.Operator!, filterValid.Value, parameter);
             }
 
-            ((List<WhereExpressionInfo<T>>)specificationBuilder.Specification.WhereExpressions)
-                .Add(new WhereExpressionInfo<T>(Expression.Lambda<Func<T, bool>>(binaryExpresioFilter, parameter)));
+            var whereLambda = Expression.Lambda<Func<T, bool>>(binaryExpresioFilter, parameter);
+            specificationBuilder.Where(whereLambda);
         }
 
-        return new OrderedSpecificationBuilder<T>(specificationBuilder.Specification);
+        return specificationBuilder;
     }
 
     private static Expression CreateFilterExpression(
         string logic,
-        IEnumerable<Filter> filters,
-        ParameterExpression parameter)
+IEnumerable<Filter> filters,
+  ParameterExpression parameter)
     {
         Expression filterExpression = default!;
 
@@ -172,9 +176,9 @@ public static class SpecificationBuilderExtensions
 
     private static Expression CreateFilterExpression(
         string field,
-        string filterOperator,
+  string filterOperator,
         object? value,
-        ParameterExpression parameter)
+    ParameterExpression parameter)
     {
         var propertyExpresion = GetPropertyExpression(field, parameter);
         var valueExpresion = GeValuetExpression(field, value, propertyExpresion.Type);
@@ -212,8 +216,8 @@ public static class SpecificationBuilderExtensions
         Expression bExpresionBase,
         Expression bExpresion) => filterOperator switch
         {
-            FilterLogic.AND => Expression.And(bExpresionBase, bExpresion),
-            FilterLogic.OR => Expression.Or(bExpresionBase, bExpresion),
+            FilterLogic.AND => Expression.AndAlso(bExpresionBase, bExpresion),
+            FilterLogic.OR => Expression.OrElse(bExpresionBase, bExpresion),
             FilterLogic.XOR => Expression.ExclusiveOr(bExpresionBase, bExpresion),
             _ => throw new ArgumentException("FilterLogic is not valid."),
         };
@@ -232,11 +236,11 @@ public static class SpecificationBuilderExtensions
     }
 
     private static string GetStringFromJsonElement(object value)
-        => ((JsonElement)value).GetString()!;
+          => ((JsonElement)value).GetString()!;
 
     private static ConstantExpression GeValuetExpression(
         string field,
-        object? value,
+     object? value,
         Type propertyType)
     {
         if (value == null) return Expression.Constant(null, propertyType);
@@ -299,13 +303,16 @@ public static class SpecificationBuilderExtensions
         return filter;
     }
 
-    public static IOrderedSpecificationBuilder<T> OrderBy<T>(
-        this ISpecificationBuilder<T> specificationBuilder,
+    public static ISpecificationBuilder<T> OrderBy<T>(
+    this ISpecificationBuilder<T> specificationBuilder,
         string[]? orderByFields)
     {
         if (orderByFields is not null)
         {
-            foreach (var field in ParseOrderBy(orderByFields))
+            var orderFields = ParseOrderBy(orderByFields);
+            bool isFirst = true;
+
+            foreach (var field in orderFields)
             {
                 var paramExpr = Expression.Parameter(typeof(T));
 
@@ -316,29 +323,69 @@ public static class SpecificationBuilderExtensions
                 }
 
                 var keySelector = Expression.Lambda<Func<T, object?>>(
-                    Expression.Convert(propertyExpr, typeof(object)),
-                    paramExpr);
+                     Expression.Convert(propertyExpr, typeof(object)),
+             paramExpr);
 
-                ((List<OrderExpressionInfo<T>>)specificationBuilder.Specification.OrderExpressions)
-                    .Add(new OrderExpressionInfo<T>(keySelector, field.Value));
+                // For the first ordering, use OrderBy/OrderByDescending
+                // For subsequent orderings, we need to track that this is not the first
+                if (isFirst)
+                {
+                    switch (field.Value)
+                    {
+                        case OrderTypeEnum.OrderBy:
+                        case OrderTypeEnum.ThenBy:
+                            specificationBuilder.OrderBy(keySelector);
+                            break;
+                        case OrderTypeEnum.OrderByDescending:
+                        case OrderTypeEnum.ThenByDescending:
+                            specificationBuilder.OrderByDescending(keySelector);
+                            break;
+                    }
+                    isFirst = false;
+                }
+                else
+                {
+                    // For subsequent orderings, we just add them as OrderBy since Ardalis.Specification
+                    // doesn't distinguish between OrderBy and ThenBy in the fluent API
+                    switch (field.Value)
+                    {
+                        case OrderTypeEnum.OrderBy:
+                        case OrderTypeEnum.ThenBy:
+                            specificationBuilder.OrderBy(keySelector);
+                            break;
+                        case OrderTypeEnum.OrderByDescending:
+                        case OrderTypeEnum.ThenByDescending:
+                            specificationBuilder.OrderByDescending(keySelector);
+                            break;
+                    }
+                }
             }
         }
 
-        return new OrderedSpecificationBuilder<T>(specificationBuilder.Specification);
+        return specificationBuilder;
     }
 
     private static Dictionary<string, OrderTypeEnum> ParseOrderBy(string[] orderByFields) =>
         new(orderByFields.Select((orderByfield, index) =>
-        {
-            string[] fieldParts = orderByfield.Split(' ');
-            string field = fieldParts[0];
-            bool descending = fieldParts.Length > 1 && fieldParts[1].StartsWith("Desc", StringComparison.OrdinalIgnoreCase);
-            var orderBy = index == 0
-                ? descending ? OrderTypeEnum.OrderByDescending
-                                : OrderTypeEnum.OrderBy
-                : descending ? OrderTypeEnum.ThenByDescending
-                                : OrderTypeEnum.ThenBy;
+ {
+     string[] fieldParts = orderByfield.Split(' ');
+     string field = fieldParts[0];
+     bool descending = fieldParts.Length > 1 && fieldParts[1].StartsWith("Desc", StringComparison.OrdinalIgnoreCase);
+     var orderBy = index == 0
+             ? descending ? OrderTypeEnum.OrderByDescending
+   : OrderTypeEnum.OrderBy
+             : descending ? OrderTypeEnum.ThenByDescending
+   : OrderTypeEnum.ThenBy;
 
-            return new KeyValuePair<string, OrderTypeEnum>(field, orderBy);
-        }));
+     return new KeyValuePair<string, OrderTypeEnum>(field, orderBy);
+ }));
+}
+
+// Enum for order types
+public enum OrderTypeEnum
+{
+    OrderBy,
+    OrderByDescending,
+    ThenBy,
+    ThenByDescending
 }
