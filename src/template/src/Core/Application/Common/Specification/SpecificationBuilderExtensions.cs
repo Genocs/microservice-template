@@ -4,7 +4,6 @@ using System.Text.Json;
 
 namespace Genocs.Microservice.Template.Application.Common.Specification;
 
-// See https://github.com/ardalis/Specification/issues/53
 public static class SpecificationBuilderExtensions
 {
     public static ISpecificationBuilder<T> SearchBy<T>(this ISpecificationBuilder<T> query, BaseFilter filter) =>

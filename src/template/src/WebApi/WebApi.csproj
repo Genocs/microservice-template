@@ -10,7 +10,6 @@
 
     <ItemGroup>
         <!-- This package is used to handle EF migrations -->
-        <PackageReference Include="Ardalis.Specification.EntityFrameworkCore" Version="9.0.0" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.10">
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
             <PrivateAssets>all</PrivateAssets>
