@@ -3,9 +3,7 @@ using Genocs.Microservice.Template.Application.Identity.Users;
 
 namespace Genocs.Microservice.Template.Application.Dashboard;
 
-public class GetStatsRequest : IRequest<StatsDto>
-{
-}
+public class GetStatsRequest : IRequest<StatsDto>;
 
 public class GetStatsRequestHandler : IRequestHandler<GetStatsRequest, StatsDto>
 {

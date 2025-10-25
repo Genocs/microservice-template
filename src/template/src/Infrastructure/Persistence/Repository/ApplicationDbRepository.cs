@@ -27,4 +27,10 @@ public class ApplicationDbRepository<T> : RepositoryBase<T>, IReadRepository<T>,
             ? base.ApplySpecification(specification)
             : ApplySpecification(specification, false)
                 .ProjectToType<TResult>();
+
+    // Override UpdateAsync to ensure proper implementation with correct return type
+    public override async Task<int> UpdateAsync(T entity, CancellationToken cancellationToken = default)
+    {
+        return await base.UpdateAsync(entity, cancellationToken);
+    }
 }

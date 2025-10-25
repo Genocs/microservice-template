@@ -26,19 +26,19 @@ public class EventAddingRepositoryDecorator<T> : IRepositoryWithEvents<T>
         return _decorated.AddAsync(entity, cancellationToken);
     }
 
-    public Task UpdateAsync(T entity, CancellationToken cancellationToken = default)
+    public Task<int> UpdateAsync(T entity, CancellationToken cancellationToken = default)
     {
         entity.DomainEvents.Add(EntityUpdatedEvent.WithEntity(entity));
         return _decorated.UpdateAsync(entity, cancellationToken);
     }
 
-    public Task DeleteAsync(T entity, CancellationToken cancellationToken = default)
+    public Task<int> DeleteAsync(T entity, CancellationToken cancellationToken = default)
     {
         entity.DomainEvents.Add(EntityDeletedEvent.WithEntity(entity));
         return _decorated.DeleteAsync(entity, cancellationToken);
     }
 
-    public Task DeleteRangeAsync(IEnumerable<T> entities, CancellationToken cancellationToken = default)
+    public Task<int> DeleteRangeAsync(IEnumerable<T> entities, CancellationToken cancellationToken = default)
     {
         foreach (var entity in entities)
         {
@@ -47,6 +47,12 @@ public class EventAddingRepositoryDecorator<T> : IRepositoryWithEvents<T>
 
         return _decorated.DeleteRangeAsync(entities, cancellationToken);
     }
+
+    public Task<int> DeleteRangeAsync(ISpecification<T> specification, CancellationToken cancellationToken = default)
+        => _decorated.DeleteRangeAsync(specification, cancellationToken);
+
+    public Task<int> UpdateRangeAsync(IEnumerable<T> entities, CancellationToken cancellationToken = default)
+        => _decorated.UpdateRangeAsync(entities, cancellationToken);
 
     // The rest of the methods are simply forwarded.
     public Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
@@ -78,6 +84,7 @@ public class EventAddingRepositoryDecorator<T> : IRepositoryWithEvents<T>
 
     public Task<bool> AnyAsync(CancellationToken cancellationToken = default)
         => _decorated.AnyAsync(cancellationToken);
+
     public Task<int> CountAsync(ISpecification<T> specification, CancellationToken cancellationToken = default)
         => _decorated.CountAsync(specification, cancellationToken);
 
@@ -86,9 +93,6 @@ public class EventAddingRepositoryDecorator<T> : IRepositoryWithEvents<T>
 
     public Task<IEnumerable<T>> AddRangeAsync(IEnumerable<T> entities, CancellationToken cancellationToken = default)
         => _decorated.AddRangeAsync(entities, cancellationToken);
-
-    public Task UpdateRangeAsync(IEnumerable<T> entities, CancellationToken cancellationToken = default)
-        => _decorated.UpdateRangeAsync(entities, cancellationToken);
 
     public Task<T?> GetBySpecAsync(ISpecification<T> specification, CancellationToken cancellationToken = default)
         => _decorated.FirstOrDefaultAsync(specification, cancellationToken);
@@ -107,9 +111,4 @@ public class EventAddingRepositoryDecorator<T> : IRepositoryWithEvents<T>
 
     public IAsyncEnumerable<T> AsAsyncEnumerable(ISpecification<T> specification)
         => _decorated.AsAsyncEnumerable(specification);
-
-    public Task DeleteRangeAsync(ISpecification<T> specification, CancellationToken cancellationToken = default)
-    {
-        throw new NotImplementedException();
-    }
 }

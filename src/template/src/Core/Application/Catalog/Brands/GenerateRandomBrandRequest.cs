@@ -5,11 +5,9 @@ public class GenerateRandomBrandRequest : IRequest<string>
     public int NSeed { get; set; }
 }
 
-public class GenerateRandomBrandRequestHandler : IRequestHandler<GenerateRandomBrandRequest, string>
+public class GenerateRandomBrandRequestHandler(IJobService jobService) : IRequestHandler<GenerateRandomBrandRequest, string>
 {
-    private readonly IJobService _jobService;
-
-    public GenerateRandomBrandRequestHandler(IJobService jobService) => _jobService = jobService;
+    private readonly IJobService _jobService = jobService;
 
     public Task<string> Handle(GenerateRandomBrandRequest request, CancellationToken cancellationToken)
     {

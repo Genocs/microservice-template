@@ -1,5 +1,6 @@
 using FluentAssertions;
 using Genocs.Microservice.Template.Application.Common.Caching;
+using Xunit;
 
 namespace Genocs.Microservice.Template.Infrastructure.Tests.Caching;
 

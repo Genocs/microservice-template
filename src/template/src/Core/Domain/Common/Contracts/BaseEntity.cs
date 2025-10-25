@@ -1,12 +1,11 @@
 using System.ComponentModel.DataAnnotations.Schema;
-using MassTransit;
 
 namespace Genocs.Microservice.Template.Domain.Common.Contracts;
 
 public abstract class BaseEntity : BaseEntity<DefaultIdType>
 {
     protected BaseEntity()
-        => Id = NewId.Next().ToGuid();
+        => Id = Guid.NewGuid();
 }
 
 public abstract class BaseEntity<TId> : IEntity<TId>

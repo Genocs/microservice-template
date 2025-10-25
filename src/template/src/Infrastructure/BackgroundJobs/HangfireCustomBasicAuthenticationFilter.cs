@@ -7,10 +7,11 @@ using Microsoft.Extensions.Primitives;
 
 namespace Genocs.Microservice.Template.Infrastructure.BackgroundJobs;
 
-public class HangfireCustomBasicAuthenticationFilter : IDashboardAuthorizationFilter
+public class HangfireCustomBasicAuthenticationFilter(ILogger logger) : IDashboardAuthorizationFilter
 {
     private const string _AuthenticationScheme = "Basic";
-    private readonly ILogger _logger;
+
+    private readonly ILogger _logger = logger;
     public string User { get; set; } = default!;
     public string Pass { get; set; } = default!;
 
@@ -19,12 +20,10 @@ public class HangfireCustomBasicAuthenticationFilter : IDashboardAuthorizationFi
     {
     }
 
-    public HangfireCustomBasicAuthenticationFilter(ILogger logger) => _logger = logger;
-
     public bool Authorize(DashboardContext context)
     {
         var httpContext = context.GetHttpContext();
-        var header = httpContext.Request.Headers["Authorization"];
+        var header = httpContext.Request.Headers.Authorization;
 
         if (MissingAuthorizationHeader(header))
         {
@@ -87,17 +86,12 @@ public class HangfireCustomBasicAuthenticationFilter : IDashboardAuthorizationFi
     }
 }
 
-public class BasicAuthenticationTokens
+public class BasicAuthenticationTokens(string[] tokens)
 {
-    private readonly string[] _tokens;
+    private readonly string[] _tokens = tokens;
 
     public string Username => _tokens[0];
     public string Password => _tokens[1];
-
-    public BasicAuthenticationTokens(string[] tokens)
-    {
-        _tokens = tokens;
-    }
 
     public bool AreInvalid()
     {

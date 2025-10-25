@@ -8,12 +8,8 @@ public abstract class ApplicationRoleEvent : DomainEvent
         => (RoleId, RoleName) = (roleId, roleName);
 }
 
-public class ApplicationRoleCreatedEvent : ApplicationRoleEvent
+public class ApplicationRoleCreatedEvent(string roleId, string roleName) : ApplicationRoleEvent(roleId, roleName)
 {
-    public ApplicationRoleCreatedEvent(string roleId, string roleName)
-        : base(roleId, roleName)
-    {
-    }
 }
 
 public class ApplicationRoleUpdatedEvent : ApplicationRoleEvent

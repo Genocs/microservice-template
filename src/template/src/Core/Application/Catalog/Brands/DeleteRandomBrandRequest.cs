@@ -1,15 +1,10 @@
 ﻿namespace Genocs.Microservice.Template.Application.Catalog.Brands;
 
-public class DeleteRandomBrandRequest : IRequest<string>
-{
-}
+public class DeleteRandomBrandRequest : IRequest<string>;
 
-public class DeleteRandomBrandRequestHandler : IRequestHandler<DeleteRandomBrandRequest, string>
+public class DeleteRandomBrandRequestHandler(IJobService jobService) : IRequestHandler<DeleteRandomBrandRequest, string>
 {
-    private readonly IJobService _jobService;
-
-    public DeleteRandomBrandRequestHandler(IJobService jobService)
-        => _jobService = jobService;
+    private readonly IJobService _jobService = jobService;
 
     public Task<string> Handle(DeleteRandomBrandRequest request, CancellationToken cancellationToken)
     {
