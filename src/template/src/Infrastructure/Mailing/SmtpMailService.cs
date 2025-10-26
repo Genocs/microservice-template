@@ -14,10 +14,7 @@ public class SmtpMailService : IMailService
 
     public SmtpMailService(IOptions<MailSettings> settings, ILogger<SmtpMailService> logger)
     {
-        if (settings is null)
-        {
-            throw new ArgumentNullException(nameof(settings));
-        }
+        ArgumentNullException.ThrowIfNull(settings);
 
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
 

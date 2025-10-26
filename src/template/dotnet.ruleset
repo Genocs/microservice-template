@@ -74,6 +74,7 @@
     <Rule Id="RCS1067" Action="None" />
     <Rule Id="RCS1075" Action="None" />
     <Rule Id="RCS1076" Action="Hidden" />
+    <Rule Id="RCS1079" Action="None" />
     <Rule Id="RCS1082" Action="Warning" />
     <Rule Id="RCS1083" Action="Warning" />
     <Rule Id="RCS1086" Action="None" />
@@ -84,6 +85,7 @@
     <Rule Id="RCS1102" Action="None" />
     <Rule Id="RCS1109" Action="Info" />
     <Rule Id="RCS1115" Action="Hidden" />
+    <Rule Id="RCS1155" Action="None" />
     <Rule Id="RCS1116" Action="Hidden" />
     <Rule Id="RCS1117" Action="Hidden" />
     <Rule Id="RCS1119" Action="Info" />
@@ -114,9 +116,18 @@
     <Rule Id="RCS1207" Action="Hidden" />
     <Rule Id="RCS1210" Action="None" />
     <Rule Id="RCS1219" Action="None" />
-    <Rule Id="SYSLIB1045" Action="None" />
+    <Rule Id="RCS1231" Action="Info" />
+    <Rule Id="RCS1046" Action="None" />
   </Rules>
   <Rules AnalyzerId="StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers">
+    <Rule Id="SA1649" Action="None"/>
+    <Rule Id="SA1600" Action="None"/>
+    <Rule Id="SA1208" Action="None"/>
+    <Rule Id="SA1616" Action="None"/>
+    <Rule Id="SA1614" Action="None"/>
+    <Rule Id="SA1505" Action="None" />
+    <Rule Id="SA1508" Action="None" />
+    <Rule Id="SA1518" Action="None" />
     <Rule Id="SA1000" Action="Info" />
     <Rule Id="SA1009" Action="None" />
     <Rule Id="SA1013" Action="None" />
@@ -124,6 +135,9 @@
     <Rule Id="SA1118" Action="None" />
     <Rule Id="SA1124" Action="None" />
     <Rule Id="SA1129" Action="None" />
+    <Rule Id="SA1124" Action="None" />
+    <Rule Id="SA1009" Action="None" />
+    <Rule Id="SA1013" Action="None" />
     <Rule Id="SA1201" Action="None" />
     <Rule Id="SA1202" Action="None" />
     <Rule Id="SA1204" Action="None" />
@@ -159,8 +173,11 @@
     <Rule Id="SA1633" Action="None" />
     <Rule Id="SA1642" Action="None" />
     <Rule Id="SA1643" Action="None" />
+    <Rule Id="SA1633" Action="None" />
     <Rule Id="SA1648" Action="None" />
     <Rule Id="SA1649" Action="None" />
     <Rule Id="SX1309" Action="Warning" />
+    <Rule Id="SA1503" Action="None" />
+    <Rule Id="SA1501" Action="None" />
   </Rules>
 </RuleSet>
