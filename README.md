@@ -17,7 +17,7 @@
 [license-url]: https://github.com/Genocs/microservice-template/blob/main/LICENSE
 [build-shield]: https://github.com/Genocs/microservice-template/actions/workflows/build_and_test.yml/badge.svg?branch=main
 [build-url]: https://github.com/Genocs/microservice-template/actions/workflows/build_and_test.yml
-[package-shield]: https://img.shields.io/badge/nuget-v.2.3.3-blue?&label=latests&logo=nuget
+[package-shield]: https://img.shields.io/badge/nuget-v.3.0.0-blue?&label=latests&logo=nuget
 [package-url]: https://github.com/Genocs/microservice-template/actions/workflows/build_and_test.yml
 [downloads-shield]: https://img.shields.io/nuget/dt/Genocs.Microservice.Template.svg?color=2da44e&label=downloads&logo=nuget
 [downloads-url]: https://www.nuget.org/packages/Genocs.Microservice.Template
@@ -61,7 +61,7 @@
   </p>
 </p>
 
-## Genocs .NET Web API Microservice Template
+# Genocs .NET Web API Microservice Template
 
 Genocs .NET Web API Microservice Template is a starting point for your next `.NET9 Clean Architecture Project` that incorporates the most essential packages and features your projects will ever need including out of the box Multi-Tenancy support.
 
@@ -109,6 +109,44 @@ The goal of this repository is to provide a complete and feature-rich starting p
 - :white_check_mark: SignalR Notifications
 - :white_check_mark: MassTransit Integration
 - :white_check_mark: & Much More
+
+## How to build and install the template locally
+
+To build the package run the following commands:
+
+[custom-templates](https://docs.microsoft.com/en-us/dotnet/core/tools/custom-templates)
+
+[dotnet-templating](https://github.com/dotnet/templating)
+
+```bash
+# To clone the repository
+git clone https://github.com/Genocs/microservice-template
+cd microservice-template
+
+# To pack and install the template
+dotnet pack ./src/Package.Template.csproj -p:PackageVersion=3.0.0 --configuration Release --output ./out
+
+dotnet new install ./out/Genocs.Microservice.Template.3.0.0.nupkg
+dotnet new gnx-microservice --help
+
+# To uninstall the template
+dotnet new uninstall Genocs.Microservice.Template
+
+# Example of creating a new project with full functionality
+dotnet new gnx-microservice --name {CompanyName.ServiceName} -gc full
+```
+
+### Miscellaneous
+
+Useful commands:
+
+```bash
+# How to get the list of installed templates
+dotnet new -u
+
+# How to get the list of templates
+dotnet new list
+```
 
 ## Documentation
 

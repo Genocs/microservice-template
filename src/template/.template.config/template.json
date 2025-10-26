@@ -44,9 +44,7 @@
       "target": "./",
       "exclude": [
         ".template.config/**",
-        ".idea/**",
         ".vs/**",
-        ".github/**",
         "media/**"
       ],      
       "modifiers": [

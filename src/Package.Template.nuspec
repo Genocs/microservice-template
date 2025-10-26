@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
 	<metadata minClientVersion="5.10.0">
 		<id>Genocs.Microservice.Template</id>
-		<version>2.0.0</version>
+		<version>3.0.0</version>
 		<title>Genocs - Microservice Template</title>
 		<authors>Nocco Giovanni Emanuele</authors>
 		<owners>[Genocs] Nocco Giovanni Emanuele</owners>
@@ -16,8 +16,11 @@
 		<summary>.NET Microservice Template to implement solution based on Multitenancy.</summary>
 		<description>Clean Architecture Template for .NET WebAPI built with Multitenancy Support.</description>
 		<releaseNotes>
-			Relesase 2.3.3:
-			- Updated to .NET9
+			Release 3.0.0:
+			- Update nuget packages to latest versions.
+			- Improved documentation.
+			- Minor bug fixes and performance improvements.
+			- Inserted instructions for GitHub Copilot and Cursor AI usage.
 		</releaseNotes>
 		<language>en-US</language>
 		<packageTypes>
