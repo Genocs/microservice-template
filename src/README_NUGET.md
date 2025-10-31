@@ -255,7 +255,7 @@ make dcu
 make dcd 
 ```
 
-There are also examples for mysql & mssql variations. You can find the other docker-compose files under the ./docker-compose folder. Read more about docker-compose instructions & files here [docker-compose](./docker-compose/README.md).
+There are also examples for MySQL & MSSQL variations. You can find the compose files under the `./infrastructure` folder. Read more about the compose scenarios in [infrastructure/docker/README.md](./infrastructure/docker/README.md).
 
 ## Cloud Deployment with Terraform + AWS ECS
 
@@ -307,11 +307,11 @@ make td
 
 ## Links & Documentations
 
-[Overview](https://https://genocs-blog.netlify.app/microservice-template/general/overview/)
+[Overview](https://genocs-blog.netlify.app/microservice-template/general/overview/)
 
-[Getting Started](https://https://genocs-blog.netlify.app/microservice-template/general/getting-started/)
+[Getting Started](https://genocs-blog.netlify.app/microservice-template/general/getting-started/)
 
-[Development Environment](https://https://genocs-blog.netlify.app/microservice-template/general/development-environment/)
+[Development Environment](https://genocs-blog.netlify.app/microservice-template/general/development-environment/)
 
 [Participate in QNA & General Discussions](https://github.com/Genocs/microservice-template/discussions)
 

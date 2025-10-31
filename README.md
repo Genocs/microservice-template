@@ -1,4 +1,5 @@
 <!-- PROJECT SHIELDS -->
+
 [![License][license-shield]][license-url]
 [![Build][build-shield]][build-url]
 [![Packages][package-shield]][package-url]
@@ -40,7 +41,6 @@
 [twitterx-shield]: https://img.shields.io/twitter/url/https/twitter.com/genocs.svg?style=social
 [twitterx-url]: https://twitter.com/genocs
 
-
 <!-- PROJECT LOGO -->
 <p align="center">
   <a href="https://github.com/Genocs/microservice-template">
@@ -66,14 +66,14 @@
 Genocs .NET Web API Microservice Template is a starting point for your next `.NET9 Clean Architecture Project` that incorporates the most essential packages and features your projects will ever need including out of the box Multi-Tenancy support.
 
 > As the name suggests, this is an API / Server Template. You can find other Client Template that consume this API under `@genocs` handle.
+>
 > - Find `Blazor Wasm Template` here - [Blazor Wasm Template](https://github.com/Genocs/blazor-wasm-template)
 
 The template can be used with the `genocs cli`, `dotnet new` command or with the `Visual Studio 2022`, `Visual Studio Code` IDEs.
-## ✨ Features
 
 ## 📋 Table of Contents
 
-- [Features](#features)
+- [✨ Features](#✨features)
 - [Prerequisites](#prerequisites)
 - [Quick Start](#quick-start)
 - [Template Options](#template-options)
@@ -85,6 +85,13 @@ The template can be used with the `genocs cli`, `dotnet new` command or with the
 - [Contributing](#contributing)
 - [License](#license)
 
+## ✨ Features
+
+- Clean architecture template spanning Domain, Application, Infrastructure, and WebApi projects.
+- Built-in multi-tenant foundation (Finbuckle) with per-tenant and shared database strategies.
+- Production-ready infrastructure: background jobs, caching, localization, auditing, and real-time notifications.
+- Developer tooling out of the box: Makefile automation, Terraform modules, Docker Compose, Postman and Thunder collections.
+
 ## 📋 Prerequisites
 
 - [.NET 9 SDK](https://dotnet.microsoft.com/download/dotnet/9.0) (latest version)
@@ -95,6 +102,7 @@ The template can be used with the `genocs cli`, `dotnet new` command or with the
 - **Optional for development**:
   - [Docker Desktop](https://www.docker.com/products/docker-desktop) for containerization
   - MongoDB, SQL Server
+  - [NodeJS (16+)](https://nodejs.org/en/download)
 
 ## 🚀 Quick Start
 
@@ -121,59 +129,47 @@ The template generates a solution with the following structure:
 
 ```pl
 src/
-├── Core/ # Core Components
-    ├── Application/ # REST API controllers and middleware
-    ├── Domain/ # REST API controllers and middleware
-    ├── Shared/ # REST API controllers and middleware
-├── Infrastructure/ # Data access and external services
-├── Migrators/ # Data access and external services
-    ├── Migrators.MSSQL/ # REST API controllers and middleware
-    ├── Migrators.MySQL/ # REST API controllers and middleware
-    ├── Migrators.Oracle/ # REST API controllers and middleware
-    ├── Migrators.PostgreSQL/ # REST API controllers and middleware
-    └── Migrators.SqLite/ # Infrastructure Tests
-├── WebApi/ # REST API controllers and middleware
-
-tests/
-└── Infrastructure.Tests/ # Infrastructure Tests
+├── Application/             # CQRS commands, queries, validations, business workflows
+├── Contracts/               # Shared DTOs, integration events, notifications, permissions
+├── Domain/                  # Entities, aggregates, domain events, value objects
+├── Infrastructure/          # EF Core persistence, caching, jobs, external integrations
+├── Infrastructure.Tests/    # Automated tests for persistence, validation, caching
+├── Migrators.MSSQL/         # SQL Server migrations and tooling
+├── Migrators.MySQL/         # MySQL migrations and tooling
+├── Migrators.Oracle/        # Oracle migrations and tooling
+├── Migrators.PostgreSQL/    # PostgreSQL migrations and tooling
+├── Migrators.SqLite/        # SQLite migrations and tooling
+└── WebApi/                  # Host application, configuration, controllers, SignalR hub
 ```
 
 ## Features
 
-- :white_check_mark: Built on [.NET9](https://dotnet.microsoft.com/en-us/)
-- :white_check_mark: Follows Clean Architecture Principles
-- :white_check_mark: Domain Driven Design
-- :white_check_mark: Cloud Ready. Can be deployed to AWS Infrastructure as ECS Containers using Terraform
-- :white_check_mark: Docker-Compose File Examples
-- :white_check_mark: Documented at [genocs netlify](https://genocs-blog.netlify.app)
-- :white_check_mark: Multi Tenancy Support with [Finbuckle](https://www.finbuckle.com/)
-  - :white_check_mark: Create Tenants with Multi Database / Shared Database Support
-  - :white_check_mark: Activate / Deactivate Tenants on Demand
-  - :white_check_mark: Upgrade Subscription of Tenants - Add More Validity Months to each tenant!
-- :white_check_mark: Supports MySQL, MSSQL, Oracle, PostgreSQL, SQLite
-- :white_check_mark: Uses [Entity Framework Core 9.0](https://learn.microsoft.com/en-us/ef/core/) as DB Abstraction
-- :white_check_mark: Flexible Repository Pattern
-- :white_check_mark: [Dapper](https://www.learndapper.com/) Integration for Optimal Performance
-- :white_check_mark: Serilog Integration with various Sinks - File, SEQ, Kibana
-- :white_check_mark: OpenAPI - Supports Client Service Generation
-- :white_check_mark: Mapster Integration for Quicker Mapping
-- :white_check_mark: API Versioning
-- :white_check_mark: Response Caching - Distributed Caching + REDIS
-- :white_check_mark: Fluent Validations
-- :white_check_mark: Audit Logging
-- :white_check_mark: Advanced User & Role Based Permission Management
-- :white_check_mark: Code Analysis & StyleCop Integration with Rulesets
-- :white_check_mark: JSON Based Localization with Caching
-- :white_check_mark: Hangfire Support - Secured Dashboard
-- :white_check_mark: File Storage Service
-- :white_check_mark: Test Projects
-- :white_check_mark: JWT & Azure AD Authentication
-- :white_check_mark: MediatR - CQRS
-- :white_check_mark: SignalR Notifications
-- :white_check_mark: MassTransit Integration
-- :white_check_mark: & Much More
+- :white_check_mark: Built on [.NET 9](https://dotnet.microsoft.com/en-us/) with Clean Architecture layering (Domain, Application, Infrastructure, WebApi).
+- :white_check_mark: Domain-driven design with CQRS (MediatR), Mapster mappings, FluentValidation, and specification support.
+- :white_check_mark: Multi-tenancy powered by [Finbuckle](https://www.finbuckle.com/) with tenant management APIs, shared/per-tenant databases, and subscription upgrades.
+- :white_check_mark: Database providers for PostgreSQL, SQL Server, MySQL, Oracle, and SQLite via Entity Framework Core 9.
+- :white_check_mark: Optimized read path with integrated [Dapper](https://www.learndapper.com/) repository alongside EF Core.
+- :white_check_mark: Background job processing through Hangfire with dashboard support and multi-provider storage.
+- :white_check_mark: Observability with Serilog (console, file, Seq, Elasticsearch, AWS), structured logging, and auditing pipeline.
+- :white_check_mark: Distributed caching abstractions with StackExchange Redis and per-tenant cache segregation.
+- :white_check_mark: Authentication via JWT bearer tokens and Azure AD, plus fine-grained permission-based authorization.
+- :white_check_mark: Localization using OrchardCore PO files, configurable cultures, and UI-ready resource catalogs.
+- :white_check_mark: OpenAPI/NSwag integration for client generation, versioned APIs, and security schemas.
+- :white_check_mark: Excel export (ClosedXML), file storage abstractions, Razor-based email templates, and MailKit delivery.
+- :white_check_mark: Real-time notifications with SignalR and Redis backplane support.
+- :white_check_mark: Tooling for real-world deployments: Makefile automation, Docker Compose samples, Terraform modules, Postman & Thunder collections.
+- :white_check_mark: Code analysis & StyleCop configuration, plus Infrastructure-focused automated tests.
+- :white_check_mark: Comprehensive documentation hosted on [genocs netlify](https://genocs-blog.netlify.app) and an active community.
 
 ## How to build and install the template locally
+
+## How to build the template
+
+Check nuget is installed on your machine. To download nuget, visit [nuget.org](https://www.nuget.org/downloads)
+
+- Download the nuget latest version. At the time of writing this, the latest version is nuget.exe v6.7.0
+- Add the nuget.exe to your PATH environment variable.
+- run the following commands
 
 To build the package run the following commands:
 
@@ -186,10 +182,13 @@ To build the package run the following commands:
 git clone https://github.com/Genocs/microservice-template
 cd microservice-template
 
-# To pack and install the template
+# To pack and build the template
 dotnet pack ./src/Package.Template.csproj -p:PackageVersion=3.1.0 --configuration Release --output ./out
 
+# To install the template
 dotnet new install ./out/Genocs.Microservice.Template.3.1.0.nupkg
+
+# To get the list of available templates
 dotnet new gnx-microservice --help
 
 # To uninstall the template
@@ -229,15 +228,6 @@ To get started with this Template, here are the available options:
 
 ### GENOCS CLI Tool
 
-#### **Prerequisites**
-
-Before creating your first solution, you should ensure that your local machine has:
-
-- **.NET9** You can find the download [here](https://dotnet.microsoft.com/en-us/download/dotnet/9.0).
-- **NodeJS (16+)** You can find the download [here](https://nodejs.org/en/download).
-- **Visual Studio Code** You can find the download [here](https://code.visualstudio.com/download).
-- **Visual Studio 2022** (Optional) You can find the download [here](https://visualstudio.microsoft.com/vs/preview/vs2022/).
-
 #### **Installation**
 
 After you have installed .NET, you will need to install the `cli` console tool.
@@ -252,9 +242,10 @@ This install the CLI tools and the associated Templates. You are now ready to cr
 [Documentation](https://genocs-blog.netlify.app/cli/)
 
 #### Let get started
+
 Here's how you would create a Solution using the Genocs .NET WebAPI Template.
 
-Simply navigate to a new directory (wherever you want to place your new solution), and open up *bash prompt* at the opened directory.
+Simply navigate to a new directory (wherever you want to place your new solution), and open up _bash prompt_ at the opened directory.
 
 Run the following command. Note that, in this demonstration, I am naming my new solution as `CompanyName.ProjectName.ServiceName`.
 
@@ -284,11 +275,9 @@ You would probably need to take this approach if you want to keep your source co
 
 For step by step instructions, follow: [this](https://discord.com/channels/878181478972928011/892573122186838046/933513103688224838) and [this](https://gist.github.com/0xjac/85097472043b697ab57ba1b1c7530274).
 
-
 ### Run the template
 
-Makefile
--------------------
+## Makefile
 
 So, for a better developer experience, I have added Makefile into the solution. Now that our solution is generated, let's navigate to the root folder of the solution and open up a command terminal.
 
@@ -307,17 +296,17 @@ make start
 That's it, the application would connect to the defined postgresql database and start creating tables, and seed required data.
 
 For testing this API, we have 3 options:
+
 1. Swagger @ `localhost:5001/swagger`
 2. Postman collections are available `./postman`
 3. ThunderClient for VSCode. You will have to install the [Thunderclient](https://www.thunderclient.com/) extension for VSCode.
 
 The default credentials to this API is:
 
-
 ```json
 {
-    "email":"admin@root.com",
-    "password":"123Pa$$word!"
+  "email": "admin@root.com",
+  "password": "123Pa$$word!"
 }
 ```
 
@@ -380,12 +369,12 @@ This project also comes with examples of docker compose files, where you can spi
 
 ```bash
 #docker compose up - Boots up the webapi & postgresql container
-make dcu 
+make dcu
 #docker compose down - Shuts down the webapi & postgresql containers
-make dcd 
+make dcd
 ```
 
-There are also examples for mysql & mssql variations. You can find the other docker-compose files under the ./docker-compose folder. Read more about docker-compose instructions & files here [docker-compose](./docker-compose/README.md).
+There are also examples for MySQL & MSSQL variations. You can find the compose files under the `./infrastructure` folder. Read more about the compose scenarios in [infrastructure/docker/README.md](./infrastructure/docker/README.md).
 
 ## Cloud Deployment with Terraform + AWS ECS
 
@@ -397,6 +386,7 @@ We do support cloud deployment to AWS using terraform. The terraform files are a
 - Install & Configure AWS CLI profiles to allow terraform to provision resources for you. Please see this video about [AWS Credentials Management](https://www.youtube.com/watch?v=oY0-1mj4oCo&ab_channel=MukeshMurugan).
 
 In brief, the terraform folder has 2 sub-folders:
+
 - backend
 - environments/staging
 
@@ -416,6 +406,7 @@ terraform init
 ```
 
 Once done, you can go the terraform.tfvars file to change the variables like:
+
 - project tags
 - docker image name
 - ecs cluster name and so on.
@@ -434,28 +425,13 @@ To destroy the deployed resources, run the following
 make td
 ```
 
-## How to build the template
-
-Check nuget is installed on your machine. To download nuget, visit [nuget.org](https://www.nuget.org/downloads)
-
-- Download the nuget latest version. At the time of writing this, the latest version is nuget.exe v6.7.0
-- Add the nuget.exe to your PATH environment variable.
-- run the following commands
-
-```bash
-nuget pack ./src/Package.Template.nuspec -NoDefaultExcludes -OutputDirectory ./out -Version 2.0.0
-dotnet new install ./out/Genocs.Microservice.Template.2.0.0.nupkg
-dotnet new gnx-microservice --help
-dotnet new gnx-microservice --name {{CompanyName.ProjectName.ServiceName}}
-```
-
 ## Links & Documentations
 
-[Overview](https://https://genocs-blog.netlify.app/microservice-template/general/overview/)
+[Overview](https://genocs-blog.netlify.app/microservice-template/general/overview/)
 
-[Getting Started](https://https://genocs-blog.netlify.app/microservice-template/general/getting-started/)
+[Getting Started](https://genocs-blog.netlify.app/microservice-template/general/getting-started/)
 
-[Development Environment](https://https://genocs-blog.netlify.app/microservice-template/general/development-environment/)
+[Development Environment](https://genocs-blog.netlify.app/microservice-template/general/development-environment/)
 
 [Participate in QNA & General Discussions](https://github.com/Genocs/microservice-template/discussions)
 
@@ -467,13 +443,11 @@ View Complete [Changelogs](https://github.com/Genocs/microservice-template/blob/
 
 This project is licensed with the [MIT license](LICENSE).
 
-
 ## Community
 
 - Discord [@genocs](https://discord.com/invite/fWwArnkV)
 - Facebook Page [@genocs](https://facebook.com/Genocs)
 - Youtube Channel [@genocs](https://youtube.com/c/genocs)
-
 
 ## Support
 
@@ -485,7 +459,6 @@ Here are a few ways by which you can support.
 - 🥇 Recommend this project to your colleagues.
 - 🦸 Do consider endorsing me on LinkedIn for ASP.NET Core - [Connect via LinkedIn](https://www.linkedin.com/in/giovanni-emanuele-nocco-b31a5169/)
 - ☕ If you want to support this project in the long run, consider [buying me a coffee](https://www.buymeacoffee.com/genocs)!
-
 
 [![buy-me-a-coffee](https://raw.githubusercontent.com/Genocs/microservice-template/main/assets/buy-me-a-coffee.png "buy me a coffee")](https://www.buymeacoffee.com/genocs)
 

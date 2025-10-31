@@ -1,7 +1,7 @@
 build:
 	dotnet build
 start:
-	dotnet run --project src/Host/Host.csproj
+	dotnet run --project src/WebApi/Host.csproj
 nuget:
 	nuget pack -NoDefaultExcludes -OutputDirectory nupkg
 publish:
@@ -15,9 +15,9 @@ ta: # terraform apply
 td: # terraform destroy
 	cd terraform/environments/staging && terraform destroy
 dcu: # docker-compose up : webapi + postgresql
-	cd docker-compose/ && docker-compose -f docker-compose.postgresql.yml up -d
+	cd infrastructure/ && docker-compose -f docker-compose.postgresql.yml up -d
 dcd: # docker-compose down : webapi + postgresql
-	cd docker-compose/ && docker-compose -f docker-compose.postgresql.yml down
+	cd infrastructure/ && docker-compose -f docker-compose.postgresql.yml down
 fds: # force rededeploy aws ecs service
 	aws ecs update-service --force-new-deployment --service dotnet-webapi --cluster genocs
 gw: # git docker workflow to push docker image to the repository based on the main branch
