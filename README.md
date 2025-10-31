@@ -18,7 +18,7 @@
 [license-url]: https://github.com/Genocs/microservice-template/blob/main/LICENSE
 [build-shield]: https://github.com/Genocs/microservice-template/actions/workflows/build_and_test.yml/badge.svg?branch=main
 [build-url]: https://github.com/Genocs/microservice-template/actions/workflows/build_and_test.yml
-[package-shield]: https://img.shields.io/badge/nuget-v.3.1.0-blue?&label=latests&logo=nuget
+[package-shield]: https://img.shields.io/badge/nuget-v.3.1.1-blue?&label=latests&logo=nuget
 [package-url]: https://github.com/Genocs/microservice-template/actions/workflows/build_and_test.yml
 [downloads-shield]: https://img.shields.io/nuget/dt/Genocs.Microservice.Template.svg?color=2da44e&label=downloads&logo=nuget
 [downloads-url]: https://www.nuget.org/packages/Genocs.Microservice.Template
@@ -113,7 +113,7 @@ The template can be used with the `genocs cli`, `dotnet new` command or with the
 dotnet new install Genocs.Microservice.Template
 
 # Or install a specific version
-dotnet new install Genocs.Microservice.Template::3.1.0
+dotnet new install Genocs.Microservice.Template::3.1.1
 
 # View all available options
 dotnet new gnx-microservice --help
@@ -183,10 +183,10 @@ git clone https://github.com/Genocs/microservice-template
 cd microservice-template
 
 # To pack and build the template
-dotnet pack ./src/Package.Template.csproj -p:PackageVersion=3.1.0 --configuration Release --output ./out
+dotnet pack ./src/Package.Template.csproj -p:PackageVersion=3.1.1 --configuration Release --output ./out
 
 # To install the template
-dotnet new install ./out/Genocs.Microservice.Template.3.1.0.nupkg
+dotnet new install ./out/Genocs.Microservice.Template.3.1.1.nupkg
 
 # To get the list of available templates
 dotnet new gnx-microservice --help

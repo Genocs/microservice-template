@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
     <PackageType>Template</PackageType>
-    <PackageVersion>3.1.0</PackageVersion>
+    <PackageVersion>3.1.1</PackageVersion>
     <PackageId>Genocs.Microservice.Template</PackageId>
     <Title>Genocs - Microservice Template</Title>
     <Authors>Nocco Giovanni Emanuele</Authors>
@@ -18,9 +18,8 @@
     <RepositoryType>git</RepositoryType>
     <Copyright>Copyright (c) 2025 Genocs Services</Copyright>
     <PackageReleaseNotes>
-			Release 3.1.0:
-			- Updated folder structure.
-			- Fixed typo in the documentation.
+			Release 3.1.1:
+			- Fixed Errors on Tests
     </PackageReleaseNotes>
     <Language>en-US</Language>
     <IncludeBuildOutput>false</IncludeBuildOutput>
