@@ -5,11 +5,11 @@
         <NoWarn>RCS1021;IDE0161;RCS1205</NoWarn>
     </PropertyGroup>
     <ItemGroup>
-        <ProjectReference Include="..\..\Infrastructure\Infrastructure.csproj" />
+        <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
     </ItemGroup>
     <ItemGroup>
-      <Folder Include="Migrations\Application\" />
-      <Folder Include="Migrations\Tenant\" />
+        <Folder Include="Migrations\Application\" />
+        <Folder Include="Migrations\Tenant\" />
     </ItemGroup>
 
 </Project>

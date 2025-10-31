@@ -69,11 +69,74 @@ Genocs .NET Web API Microservice Template is a starting point for your next `.NE
 > - Find `Blazor Wasm Template` here - [Blazor Wasm Template](https://github.com/Genocs/blazor-wasm-template)
 
 The template can be used with the `genocs cli`, `dotnet new` command or with the `Visual Studio 2022`, `Visual Studio Code` IDEs.
+## ✨ Features
 
+## 📋 Table of Contents
 
-## Goals
+- [Features](#features)
+- [Prerequisites](#prerequisites)
+- [Quick Start](#quick-start)
+- [Template Options](#template-options)
+- [Architecture Overview](#architecture-overview)
+- [Development Workflow](#development-workflow)
+- [Examples](#examples)
+- [Troubleshooting](#troubleshooting)
+- [Community & Support](#community--support)
+- [Contributing](#contributing)
+- [License](#license)
 
-The goal of this repository is to provide a complete and feature-rich starting point for any .NET Developer / Team to kick-start their next major project using .NET9 Microservices architecture. This also serves the purpose of learning advanced concepts and implementations such as `Multitenancy, CQRS, Onion Architecture, Clean Coding standards, Docker Concepts, Cloud Deployments with Terraform to AWS, CI/CD Pipelines & Workflows` and so on.
+## 📋 Prerequisites
+
+- [.NET 9 SDK](https://dotnet.microsoft.com/download/dotnet/9.0) (latest version)
+- **IDE** (choose one):
+  - [Visual Studio 2022](https://visualstudio.microsoft.com/vs/) (recommended)
+  - [Visual Studio Code](https://code.visualstudio.com/) with C# extension
+  - [JetBrains Rider](https://www.jetbrains.com/rider/)
+- **Optional for development**:
+  - [Docker Desktop](https://www.docker.com/products/docker-desktop) for containerization
+  - MongoDB, SQL Server
+
+## 🚀 Quick Start
+
+### Install the Template
+
+```bash
+# Install the latest version
+dotnet new install Genocs.Microservice.Template
+
+# Or install a specific version
+dotnet new install Genocs.Microservice.Template::3.0.0
+
+# View all available options
+dotnet new gnx-microservice --help
+
+# Example with custom options
+dotnet new gnx-microservice\
+  --name "CompanyName.ServiceName" \
+```
+
+## 🏗️ Architecture Overview
+
+The template generates a solution with the following structure:
+
+```pl
+src/
+├── Core/ # Core Components
+    ├── Application/ # REST API controllers and middleware
+    ├── Domain/ # REST API controllers and middleware
+    ├── Shared/ # REST API controllers and middleware
+├── Infrastructure/ # Data access and external services
+├── Migrators/ # Data access and external services
+    ├── Migrators.MSSQL/ # REST API controllers and middleware
+    ├── Migrators.MySQL/ # REST API controllers and middleware
+    ├── Migrators.Oracle/ # REST API controllers and middleware
+    ├── Migrators.PostgreSQL/ # REST API controllers and middleware
+    └── Migrators.SqLite/ # Infrastructure Tests
+├── WebApi/ # REST API controllers and middleware
+
+tests/
+└── Infrastructure.Tests/ # Infrastructure Tests
+```
 
 ## Features
 

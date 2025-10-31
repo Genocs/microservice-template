@@ -54,8 +54,8 @@
         <PackageReference Include="System.Linq.Dynamic.Core" Version="1.6.9" />
     </ItemGroup>
     <ItemGroup>
-        <ProjectReference Include="..\Core\Application\Application.csproj" />
-        <ProjectReference Include="..\Core\Domain\Domain.csproj" />
+        <ProjectReference Include="..\Application\Application.csproj" />
+        <ProjectReference Include="..\Domain\Domain.csproj" />
     </ItemGroup>
     <ItemGroup>
         <None Update="Catalog\*.json" CopyToOutputDirectory="PreserveNewest" />

@@ -4,9 +4,9 @@
   "classifications": [
     "Web/ASP.NET"
   ],
-  "name": "Genocs: .NET9 Microservice Template",
+  "name": "Genocs: Microservice Template",
   "identity": "Genocs.Microservice.Template",
-  "description": ".NET9 Clean Architecture Template built with Multitenancy Support.",
+  "description": "Clean Architecture Microservice Template built with Multitenancy Support.",
   "groupIdentity": "Genocs.Template",
   "shortName": "gnx-microservice",
   "tags": {
@@ -44,6 +44,7 @@
       "target": "./",
       "exclude": [
         ".template.config/**",
+        ".idea/**",
         ".vs/**",
         "media/**"
       ],      
