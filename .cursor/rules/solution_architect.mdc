@@ -1,12 +1,12 @@
 ---
-description: This rule provides comprehensive best practices for developing dotnet application templates, covering code organization, security, performance, testing, and common pitfalls. It aims to improve code quality, security posture, and overall efficiency when working with the .NET Core framework and application templates.
-globs: *.tf,*.bicep,*.json,*.yml,*.yaml,*.cs,*.csproj,*.sln
+description: This rule provides comprehensive best practices for developing dotnet application templates, covering code organization, support tools, performance, testing, and common pitfalls. It aims to speed up the development process and improve code quality, security posture, and overall efficiency when working with the .NET Core framework and application templates.
+globs: *.tf,*.json,*.yml,*.yaml,*.cs,*.csproj,*.sln
 alwaysApply: false
 ---
 
 # .NET Core Application Template Best Practices and Coding Standards
 
-This document outlines the recommended best practices for developing application templates using Microsoft .NET Core, Azure DevOps and Azure services. It covers various aspects including solution setup, code organization, security, and tooling to ensure robust, scalable, and secure application templates.
+This document outlines the recommended best practices for developing application templates using Microsoft .NET Core, support tools and services. It covers various aspects including solution setup, code organization, security, and tooling to ensure robust, scalable, and secure application templates.
 
 ## 1. Code Organization and Structure
 
@@ -70,14 +70,15 @@ Maintain consistency in file naming to improve readability and searchability.
 
 *   Use descriptive names that reflect the file's purpose.
 *   Use a consistent case (e.g., camelCase or kebab-case).
-*   Use appropriate file extensions (e.g., `.cs`, `.csproj`, `.tf`, `.bicep`).
+*   Use appropriate file extensions (e.g., `.cs`, `.csproj`, `.sln`, `.json`, `.yml`, `.yaml`).
 *   For CSharp components, use `ClassName.cs` or `ComponentName.SubComponent.cs`.
 
 Example:
 
-*   `user-service.js` (for a user service module)
-*   `UserProfile.jsx` (for a user profile component)
-*   `storage-account.tf` (for a Terraform file defining a storage account)
+*   `ApplicationService.cs` (for a user service module)
+*   `UserProfile.cs` (for a user profile class)
+*   `appsettings.json` (for a JSON file defining application settings)
+*   `docker-compose.yml` (for a Docker Compose file defining the application stack)
 
 ### Module Organization
 

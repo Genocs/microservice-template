@@ -2,10 +2,4 @@
 
 namespace Genocs.Microservice.Template.Infrastructure.Tests.Caching;
 
-public class DistributedCacheServiceTests : CacheServiceTests
-{
-    public DistributedCacheServiceTests(DistributedCacheService cacheService)
-        : base(cacheService)
-    {
-    }
-}
+public class DistributedCacheServiceTests(DistributedCacheService cacheService) : CacheServiceTests(cacheService);

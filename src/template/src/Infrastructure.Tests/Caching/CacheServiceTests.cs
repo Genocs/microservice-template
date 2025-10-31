@@ -13,7 +13,10 @@ public abstract class CacheServiceTests
 
     private readonly ICacheService _sut;
 
-    protected CacheServiceTests(ICacheService cacheService) => _sut = cacheService;
+    protected CacheServiceTests(ICacheService cacheService)
+    {
+        _sut = cacheService;
+    }
 
     [Fact]
     public void ThrowsGivenNullKey()
@@ -72,7 +75,7 @@ public abstract class CacheServiceTests
         string? result = _sut.Get<string>(_testKey);
         Assert.Equal(_testValue, result);
 
-        await Task.Delay(250);
+        await Task.Delay(250, TestContext.Current.CancellationToken);
         result = _sut.Get<string>(_testKey);
 
         result.Should().BeNull();
