@@ -16,7 +16,7 @@
         <PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.0" />
         <PackageReference Include="AWS.Logger.SeriLog" Version="4.0.2" />
         <PackageReference Include="ClosedXML" Version="0.105.0" />
-        <PackageReference Include="Finbuckle.MultiTenant.AspNetCore" Version="9.4.1" />
+        <PackageReference Include="Finbuckle.MultiTenant.AspNetCore" Version="9.4.3" />
         <PackageReference Include="Finbuckle.MultiTenant.EntityFrameworkCore" Version="9.4.3" />
         <PackageReference Include="Hangfire" Version="1.8.21" />
         <PackageReference Include="Hangfire.Console.Extensions" Version="2.1.0" />
