@@ -1,4 +1,3 @@
-using Genocs.Microservice.Template.Infrastructure.Common.Extensions;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Localization;
