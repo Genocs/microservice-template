@@ -16,18 +16,18 @@ try
 
     builder.AddConfigurations();
 
-    builder
-            .AddGenocs()
-            .Build();
-
     builder.Host
         .UseLogging(builder.Environment.EnvironmentName);
+
+    IGenocsBuilder genocsBuilder = builder
+            .AddGenocs();
 
     builder.Services.AddControllers();
     builder.Services.AddInfrastructure(builder.Configuration);
     builder.Services.AddApplication();
 
     var app = builder.Build();
+    genocsBuilder.Build(app.Services);
 
     await app.Services.InitializeDatabasesAsync();
 

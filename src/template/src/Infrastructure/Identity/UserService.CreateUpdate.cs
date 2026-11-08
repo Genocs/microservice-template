@@ -1,10 +1,10 @@
 ﻿using Genocs.Microservice.Template.Application.Common.Exceptions;
 using Genocs.Microservice.Template.Application.Common.Mailing;
 using Genocs.Microservice.Template.Application.Identity.Users;
+using Genocs.Microservice.Template.Contracts.Authorization;
 using Genocs.Microservice.Template.Domain.Common;
 using Genocs.Microservice.Template.Domain.Identity;
 using Genocs.Microservice.Template.Infrastructure.Identity;
-using Genocs.Microservice.Template.Shared.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Web;

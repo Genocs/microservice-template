@@ -1,9 +1,9 @@
 ﻿using Finbuckle.MultiTenant.Abstractions;
+using Genocs.Microservice.Template.Contracts.Authorization;
+using Genocs.Microservice.Template.Contracts.Multitenancy;
 using Genocs.Microservice.Template.Infrastructure.Identity;
 using Genocs.Microservice.Template.Infrastructure.Multitenancy;
 using Genocs.Microservice.Template.Infrastructure.Persistence.Context;
-using Genocs.Microservice.Template.Shared.Authorization;
-using Genocs.Microservice.Template.Shared.Multitenancy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;

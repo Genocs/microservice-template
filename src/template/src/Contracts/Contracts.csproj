@@ -1,9 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net9.0</TargetFramework>
-        <RootNamespace>Genocs.Microservice.Template.Shared</RootNamespace>
-        <AssemblyName>Genocs.Microservice.Template.Shared</AssemblyName>
+        <TargetFramework>net10.0</TargetFramework>
+        <RootNamespace>Genocs.Microservice.Template.Contracts</RootNamespace>
+        <AssemblyName>Genocs.Microservice.Template.Contracts</AssemblyName>
         <IsPackable>false</IsPackable>
     </PropertyGroup>
 

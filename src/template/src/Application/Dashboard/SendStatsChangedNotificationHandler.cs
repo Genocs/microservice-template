@@ -1,6 +1,6 @@
+using Genocs.Microservice.Template.Contracts.Events;
 using Genocs.Microservice.Template.Domain.Common.Events;
 using Genocs.Microservice.Template.Domain.Identity;
-using Genocs.Microservice.Template.Shared.Events;
 
 namespace Genocs.Microservice.Template.Application.Dashboard;
 

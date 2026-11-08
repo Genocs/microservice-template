@@ -1,1 +1,1 @@
-global using Genocs.Microservice.Template.Shared.Notifications;
+global using Genocs.Microservice.Template.Contracts.Notifications;

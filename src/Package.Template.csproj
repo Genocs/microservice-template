@@ -12,7 +12,7 @@
     <PackageProjectUrl>https://github.com/Genocs/microservice-template</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageIcon>icon.png</PackageIcon>
-    <PackageReadmeFile>README_NUGET.md</PackageReadmeFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/Genocs/microservice-template.git</RepositoryUrl>
     <RepositoryBranch>main</RepositoryBranch>
     <RepositoryType>git</RepositoryType>
@@ -34,7 +34,7 @@
 
   <ItemGroup>
     <Content Include="template\**\*" Exclude="template\**\bin\**;template\**\obj\**;template\**\*.user;template\**\*.log;template\**\.vscode\**;template\**\.vs\**;template\**\*.exe" PackagePath="content\" />
-    <None Include="README_NUGET.md" Pack="true" PackagePath="\" />
+    <None Include="README.md" Pack="true" PackagePath="\" />
     <None Include="icon.png" Pack="true" PackagePath="\" />
   </ItemGroup>
 

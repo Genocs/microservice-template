@@ -16,10 +16,10 @@
 
 [license-shield]: https://img.shields.io/github/license/Genocs/microservice-template?color=2da44e&style=flat-square
 [license-url]: https://github.com/Genocs/microservice-template/blob/main/LICENSE
-[build-shield]: https://github.com/Genocs/microservice-template/actions/workflows/build_and_test.yml/badge.svg?branch=main
-[build-url]: https://github.com/Genocs/microservice-template/actions/workflows/build_and_test.yml
+[build-shield]: https://github.com/Genocs/microservice-template/actions/workflows/build-and-test.yml/badge.svg?branch=main
+[build-url]: https://github.com/Genocs/microservice-template/actions/workflows/build-and-test.yml
 [package-shield]: https://img.shields.io/badge/nuget-v.3.1.1-blue?&label=latests&logo=nuget
-[package-url]: https://github.com/Genocs/microservice-template/actions/workflows/build_and_test.yml
+[package-url]: https://github.com/Genocs/microservice-template/actions/workflows/build-and-test.yml
 [downloads-shield]: https://img.shields.io/nuget/dt/Genocs.Microservice.Template.svg?color=2da44e&label=downloads&logo=nuget
 [downloads-url]: https://www.nuget.org/packages/Genocs.Microservice.Template
 [contributors-shield]: https://img.shields.io/github/contributors/Genocs/microservice-template.svg?style=flat-square
@@ -48,7 +48,7 @@
   </a>
   <h3 align="center">.NET Microservice Template</h3>
   <p align="center">
-    Open Source Solution Template For .NET9 Microservice
+    Open Source Solution Template For .NET 10 Microservice
     <br />
     <a href="https://genocs-blog.netlify.app/microservice-template/general/getting-started/"><strong>Read the Documentation »</strong></a>
     <br />
@@ -63,13 +63,13 @@
 
 # Genocs .NET Web API Microservice Template
 
-Genocs .NET Web API Microservice Template is a starting point for your next `.NET9 Clean Architecture Project` that incorporates the most essential packages and features your projects will ever need including out of the box Multi-Tenancy support.
+Genocs .NET Web API Microservice Template is a starting point for your next `.NET 10 Clean Architecture` solution that incorporates the most essential packages and features your projects will ever need including out of the box Multi-Tenancy support.
 
 > As the name suggests, this is an API / Server Template. You can find other Client Template that consume this API under `@genocs` handle.
 >
 > - Find `Blazor Wasm Template` here - [Blazor Wasm Template](https://github.com/Genocs/blazor-wasm-template)
 
-The template can be used with the `genocs cli`, `dotnet new` command or with the `Visual Studio 2022`, `Visual Studio Code` IDEs.
+The template can be used with the `genocs cli`, `dotnet new` command or with the `Visual Studio 2026`, `Visual Studio Code` IDEs.
 
 ## 📋 Table of Contents
 
@@ -94,9 +94,9 @@ The template can be used with the `genocs cli`, `dotnet new` command or with the
 
 ## 📋 Prerequisites
 
-- [.NET 9 SDK](https://dotnet.microsoft.com/download/dotnet/9.0) (latest version)
+- [10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0)
 - **IDE** (choose one):
-  - [Visual Studio 2022](https://visualstudio.microsoft.com/vs/) (recommended)
+  - [Visual Studio 2026](https://visualstudio.microsoft.com/) (recommended)
   - [Visual Studio Code](https://code.visualstudio.com/) with C# extension
   - [JetBrains Rider](https://www.jetbrains.com/rider/)
 - **Optional for development**:
@@ -119,8 +119,7 @@ dotnet new install Genocs.Microservice.Template::3.1.1
 dotnet new gnx-microservice --help
 
 # Example with custom options
-dotnet new gnx-microservice\
-  --name "CompanyName.ServiceName" \
+dotnet new gnx-microservice --name <CompanyName>.<ProjectName>.<ServiceName>
 ```
 
 ## 🏗️ Architecture Overview
@@ -128,18 +127,21 @@ dotnet new gnx-microservice\
 The template generates a solution with the following structure:
 
 ```pl
-src/
-├── Application/             # CQRS commands, queries, validations, business workflows
-├── Contracts/               # Shared DTOs, integration events, notifications, permissions
-├── Domain/                  # Entities, aggregates, domain events, value objects
-├── Infrastructure/          # EF Core persistence, caching, jobs, external integrations
-├── Infrastructure.Tests/    # Automated tests for persistence, validation, caching
-├── Migrators.MSSQL/         # SQL Server migrations and tooling
-├── Migrators.MySQL/         # MySQL migrations and tooling
-├── Migrators.Oracle/        # Oracle migrations and tooling
-├── Migrators.PostgreSQL/    # PostgreSQL migrations and tooling
-├── Migrators.SqLite/        # SQLite migrations and tooling
-└── WebApi/                  # Host application, configuration, controllers, SignalR hub
+root
+  ├── src/
+  |   ├── Application/             # CQRS commands, queries, validations, business workflows
+  |   ├── Contracts/               # Shared DTOs, integration events, notifications, permissions
+  |   ├── Domain/                  # Entities, aggregates, domain events, value objects
+  |   ├── Infrastructure/          # EF Core persistence, caching, jobs, external integrations
+  |   ├── Migrators.MSSQL/         # SQL Server migrations and tooling
+  |   ├── Migrators.MySQL/         # MySQL migrations and tooling
+  |   ├── Migrators.Oracle/        # Oracle migrations and tooling
+  |   ├── Migrators.PostgreSQL/    # PostgreSQL migrations and tooling
+  |   ├── Migrators.SqLite/        # SQLite migrations and tooling
+  |   └── WebApi/                  # Host application, configuration, controllers, SignalR hub
+  ├── tests/
+      └── Infrastructure.Tests/    # Automated tests for persistence, validation, caching
+
 ```
 
 ## Features
@@ -253,7 +255,7 @@ Run the following command. Note that, in this demonstration, I am naming my new 
 genocs micro-webapi [n|new] CompanyName.ProjectName.ServiceName
 ```
 
-This will create a new .NET9 Web API solution for you using the template.
+This will create a new .NET 10 Web API solution for you using the template.
 For further steps and details, [Read the Getting Started Guide](https://genocs-blog.netlify.app/microservice-template/)
 
 #### Update
@@ -347,7 +349,7 @@ For further steps and details, [Read the Getting Started Guide](https://genocs-b
 
 ## Containerization
 
-The project, being .NET9, it is configured to have built-in support for containerization. That means, you really don't need a `dockerfile` to containerize the webapi.
+The project, being .NET 10, it is configured to have built-in support for containerization. That means, you really don't need a `dockerfile` to containerize the webapi.
 
 To build a docker image, all you have to do is, ensure that docker-desktop or docker instance is running. And run the following command at the root of the solution.
 
@@ -386,7 +388,6 @@ We do support cloud deployment to AWS using terraform. The terraform files are a
 - Install & Configure AWS CLI profiles to allow terraform to provision resources for you. Please see this video about [AWS Credentials Management](https://www.youtube.com/watch?v=oY0-1mj4oCo&ab_channel=MukeshMurugan).
 
 In brief, the terraform folder has 2 sub-folders:
-
 - backend
 - environments/staging
 
@@ -439,10 +440,6 @@ make td
 
 View Complete [Changelogs](https://github.com/Genocs/microservice-template/blob/main/CHANGELOG.md).
 
-## License
-
-This project is licensed with the [MIT license](LICENSE).
-
 ## Community
 
 - Discord [@genocs](https://discord.com/invite/fWwArnkV)
@@ -461,12 +458,6 @@ Here are a few ways by which you can support.
 - ☕ If you want to support this project in the long run, consider [buying me a coffee](https://www.buymeacoffee.com/genocs)!
 
 [![buy-me-a-coffee](https://raw.githubusercontent.com/Genocs/microservice-template/main/assets/buy-me-a-coffee.png "buy me a coffee")](https://www.buymeacoffee.com/genocs)
-
-## Code Contributors
-
-This project exists thanks to all the people who contribute. [Submit your PR and join the team!](CONTRIBUTING.md)
-
-[![genocs contributors](https://contrib.rocks/image?repo=Genocs/microservice-template "genocs contributors")](https://github.com/Genocs/microservice-template/graphs/contributors)
 
 ## Financial Contributors
 

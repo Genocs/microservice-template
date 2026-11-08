@@ -1,0 +1,42 @@
+services:
+  webapi-service:
+    image: genocs/webapi-service:${IMAGE_VERSION}
+    hostname: webapi-service
+    container_name: webapi-service
+    environment:
+      - ASPNETCORE_ENVIRONMENT=${ENVIRONMENT}
+      - consul__url=${CONSUL_URL}
+      - consul__address=webapi
+      - consul__port=8080
+      - fabio__url=${FABIO_URL}
+      - logger__seq__enabled=true
+      - logger__seq__url=${SEQ_URL}
+      - logger__seq__apiKey=${SEQ_APIKEY}
+      - logger__httpPayload__enabled=true
+      - logger__httpPayload__captureRequestBody=true
+      - telemetry__exporter__enabled=true
+      - telemetry__exporter__otlpEndpoint=${OTLP_URL}
+      - mongodb__connectionString=${MONGO_DB_CONNECTION_STRING}
+      - rabbitmq__hostname=rabbitmq
+      - databaseSettings__connectionString=${MSSQL_CONNECTION_STRING}
+      - hangfireSettings__storage__ConnectionString=${MSSQL_CONNECTION_STRING}
+      - databaseSettings__DBProvider=${DB_PROVIDER}
+      - hangfireSettings__storage__storageProvider=${DB_PROVIDER}
+
+    ports:
+      - 5500:8080
+    networks:
+      - genocs
+    # network_mode: bridge
+    volumes:
+      - webapi-service:/root/.aspnet/DataProtection-Keys
+
+networks:
+  genocs:
+    name: genocs-network
+    external: true
+    driver: bridge
+
+volumes:
+  webapi-service:
+    driver: local

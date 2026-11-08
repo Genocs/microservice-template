@@ -15,10 +15,10 @@
 
 [license-shield]: https://img.shields.io/github/license/Genocs/microservice-template?color=2da44e&style=flat-square
 [license-url]: https://github.com/Genocs/microservice-template/blob/main/LICENSE
-[build-shield]: https://github.com/Genocs/microservice-template/actions/workflows/build_and_test.yml/badge.svg?branch=main
-[build-url]: https://github.com/Genocs/microservice-template/actions/workflows/build_and_test.yml
+[build-shield]: https://github.com/Genocs/microservice-template/actions/workflows/build-and-test.yml/badge.svg?branch=main
+[build-url]: https://github.com/Genocs/microservice-template/actions/workflows/build-and-test.yml
 [package-shield]: https://img.shields.io/badge/nuget-v.3.1.1-blue?&label=latests&logo=nuget
-[package-url]: https://github.com/Genocs/microservice-template/actions/workflows/build_and_test.yml
+[package-url]: https://github.com/Genocs/microservice-template/actions/workflows/build-and-test.yml
 [downloads-shield]: https://img.shields.io/nuget/dt/Genocs.Microservice.Template.svg?color=2da44e&label=downloads&logo=nuget
 [downloads-url]: https://www.nuget.org/packages/Genocs.Microservice.Template
 [contributors-shield]: https://img.shields.io/github/contributors/Genocs/microservice-template.svg?style=flat-square
@@ -45,21 +45,21 @@
 
 ## Genocs .NET Web API Microservice Template
 
-Genocs .NET Web API Microservice Template is a starting point for your next `.NET9 Clean Architecture Project` that incorporates the most essential packages and features your projects will ever need including out of the box Multi-Tenancy support.
+Genocs .NET Web API Microservice Template is a starting point for your next `.NET 10 Clean Architecture` solution that incorporates the most essential packages and features your projects will ever need including out of the box Multi-Tenancy support.
 
 > As the name suggests, this is an API / Server Template. You can find other Client Template that consume this API under `@genocs` handle.
 > - Find `Blazor Wasm Template` here - [Blazor Wasm Template](https://github.com/Genocs/blazor-wasm-template)
 
-The template can be used with the `genocs cli`, `dotnet new` command or with the `Visual Studio 2022`, `Visual Studio Code` IDEs.
+The template can be used with the `genocs cli`, `dotnet new` command or with the `Visual Studio 2026`, `Visual Studio Code` IDEs.
 
 
 ## Goals
 
-The goal of this template is to provide a complete and feature-rich starting point for any .NET Developer / Team to kick-start their project using .NET9 Microservices architecture. This also serves the purpose of learning advanced concepts and implementations such as `Multitenancy, CQRS, Onion Architecture, Clean Coding standards, Docker Concepts, Cloud Deployments with Terraform to AWS, CI/CD Pipelines & Workflows` and so on.
+The goal of this template is to provide a complete and feature-rich starting point for any .NET Developer / Team to kick-start their project using .NET 10 Microservices architecture. This also serves the purpose of learning advanced concepts and implementations such as `Multitenancy, CQRS, Onion Architecture, Clean Coding standards, Docker Concepts, Cloud Deployments with Terraform to AWS, CI/CD Pipelines & Workflows` and so on.
 
 ## Features
 
-- :white_check_mark: Built on [.NET9](https://dotnet.microsoft.com/en-us/)
+- :white_check_mark: Built on [.NET 10](https://dotnet.microsoft.com/en-us/)
 - :white_check_mark: Follows Clean Architecture Principles
 - :white_check_mark: Domain Driven Design
 - :white_check_mark: Cloud Ready. Can be deployed to AWS Infrastructure as ECS Containers using Terraform
@@ -114,10 +114,10 @@ To get started with this Template, here are the available options:
 
 Before creating your first solution, you should ensure that your local machine has:
 
-- **.NET9** You can find the download [here](https://dotnet.microsoft.com/en-us/download/dotnet/9.0).
+- **.NET 10** You can find the download [here](https://dotnet.microsoft.com/en-us/download/dotnet/10.0).
 - **NodeJS (16+)** You can find the download [here](https://nodejs.org/en/download).
 - **Visual Studio Code** You can find the download [here](https://code.visualstudio.com/download).
-- **Visual Studio 2022** (Optional) You can find the download [here](https://visualstudio.microsoft.com/vs/preview/vs2022/).
+- **Visual Studio 2026** (Optional) You can find the download [here](https://visualstudio.microsoft.com/vs/preview/vs2026/).
 
 #### **Installation**
 
@@ -143,7 +143,7 @@ Run the following command. Note that, in this demonstration, I am naming my new 
 genocs micro-webapi [n|new] CompanyName.ProjectName.ServiceName
 ```
 
-This will create a new .NET9 Web API solution for you using the template.
+This will create a new .NET 10 Web API solution for you using the template.
 For further steps and details, [Read the Getting Started Guide](https://genocs-blog.netlify.app/microservice-template/)
 
 #### Update
@@ -228,7 +228,7 @@ For further steps and details, [Read the Getting Started Guide](https://genocs-b
 
 ## Containerization
 
-The project, being .NET9, it is configured to have built-in support for containerization. That means, you really don't need a `dockerfile` to containerize the webapi.
+The project, being .NET 10, it is configured to have built-in support for containerization. That means, you really don't need a `dockerfile` to containerize the webapi.
 
 To build a docker image, all you have to do is, ensure that docker-desktop or docker instance is running. And run the following command at the root of the solution.
 
@@ -250,9 +250,9 @@ This project also comes with examples of docker compose files, where you can spi
 
 ```bash
 #docker compose up - Boots up the webapi & postgresql container
-make dcu 
+make dcu
 #docker compose down - Shuts down the webapi & postgresql containers
-make dcd 
+make dcd
 ```
 
 There are also examples for MySQL & MSSQL variations. You can find the compose files under the `./infrastructure` folder. Read more about the compose scenarios in [infrastructure/docker/README.md](./infrastructure/docker/README.md).
@@ -319,17 +319,11 @@ make td
 
 View Complete [Changelogs](https://github.com/Genocs/microservice-template/blob/main/CHANGELOG.md).
 
-## License
-
-This project is licensed with the [MIT license](LICENSE).
-
-
 ## Community
 
 - Discord [@genocs](https://discord.com/invite/fWwArnkV)
 - Facebook Page [@genocs](https://facebook.com/Genocs)
 - Youtube Channel [@genocs](https://youtube.com/c/genocs)
-
 
 ## Support
 

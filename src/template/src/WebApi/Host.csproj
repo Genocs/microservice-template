@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
     <PropertyGroup>
-        <TargetFramework>net9.0</TargetFramework>
+        <TargetFramework>net10.0</TargetFramework>
         <RootNamespace>Genocs.Microservice.Template.WebApi</RootNamespace>
         <AssemblyName>Genocs.Microservice.Template.WebApi</AssemblyName>
         <IsPackable>false</IsPackable>
@@ -22,7 +22,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Genocs.Logging" Version="8.0.0" />
+        <PackageReference Include="Genocs.Logging" Version="9.1.0" />
     </ItemGroup>
 
     <ItemGroup>

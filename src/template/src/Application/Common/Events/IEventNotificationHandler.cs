@@ -1,4 +1,4 @@
-﻿using Genocs.Microservice.Template.Shared.Events;
+﻿using Genocs.Microservice.Template.Contracts.Events;
 
 namespace Genocs.Microservice.Template.Application.Common.Events;
 

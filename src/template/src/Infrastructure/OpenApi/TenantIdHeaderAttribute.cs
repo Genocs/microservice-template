@@ -1,4 +1,4 @@
-﻿using Genocs.Microservice.Template.Shared.Multitenancy;
+﻿using Genocs.Microservice.Template.Contracts.Multitenancy;
 
 namespace Genocs.Microservice.Template.Infrastructure.OpenApi;
 

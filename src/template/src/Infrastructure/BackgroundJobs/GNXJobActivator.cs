@@ -1,7 +1,7 @@
-﻿using Genocs.Microservice.Template.Infrastructure.Auth;
+﻿using Genocs.Microservice.Template.Contracts.Multitenancy;
+using Genocs.Microservice.Template.Infrastructure.Auth;
 using Genocs.Microservice.Template.Infrastructure.Common;
 using Genocs.Microservice.Template.Infrastructure.Multitenancy;
-using Genocs.Microservice.Template.Shared.Multitenancy;
 using Hangfire;
 using Hangfire.Server;
 using Microsoft.Extensions.DependencyInjection;

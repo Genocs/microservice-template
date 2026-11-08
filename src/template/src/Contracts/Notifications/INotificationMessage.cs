@@ -1,3 +1,3 @@
-﻿namespace Genocs.Microservice.Template.Shared.Notifications;
+﻿namespace Genocs.Microservice.Template.Contracts.Notifications;
 
 public interface INotificationMessage;

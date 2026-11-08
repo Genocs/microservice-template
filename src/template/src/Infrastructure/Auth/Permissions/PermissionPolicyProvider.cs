@@ -1,4 +1,4 @@
-using Genocs.Microservice.Template.Shared.Authorization;
+using Genocs.Microservice.Template.Contracts.Authorization;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Options;
 

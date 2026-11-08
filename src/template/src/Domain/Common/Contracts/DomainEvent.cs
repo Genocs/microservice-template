@@ -1,4 +1,4 @@
-using Genocs.Microservice.Template.Shared.Events;
+using Genocs.Microservice.Template.Contracts.Events;
 
 namespace Genocs.Microservice.Template.Domain.Common.Contracts;
 
@@ -7,7 +7,6 @@ namespace Genocs.Microservice.Template.Domain.Common.Contracts;
 /// </summary>
 public abstract class DomainEvent : IEvent
 {
-
     /// <summary>
     /// The date and time on which the event was triggered.
     /// </summary>

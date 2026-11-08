@@ -11,7 +11,7 @@ global using Genocs.Microservice.Template.Application.Common.Validation;
 global using Genocs.Microservice.Template.Domain.Catalog;
 global using Genocs.Microservice.Template.Domain.Common;
 global using Genocs.Microservice.Template.Domain.Common.Contracts;
-global using Genocs.Microservice.Template.Shared.Notifications;
+global using Genocs.Microservice.Template.Contracts.Notifications;
 global using MediatR;
 global using Microsoft.Extensions.Localization;
 global using Microsoft.Extensions.Logging;

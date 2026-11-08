@@ -1,8 +1,8 @@
 using Finbuckle.MultiTenant;
 using Genocs.Microservice.Template.Application.Multitenancy;
+using Genocs.Microservice.Template.Contracts.Authorization;
+using Genocs.Microservice.Template.Contracts.Multitenancy;
 using Genocs.Microservice.Template.Infrastructure.Persistence;
-using Genocs.Microservice.Template.Shared.Authorization;
-using Genocs.Microservice.Template.Shared.Multitenancy;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;

@@ -1,5 +1,5 @@
 using Genocs.Microservice.Template.Application.Identity.Users;
-using Genocs.Microservice.Template.Shared.Authorization;
+using Genocs.Microservice.Template.Contracts.Authorization;
 using Microsoft.AspNetCore.Authorization;
 
 namespace Genocs.Microservice.Template.Infrastructure.Auth.Permissions;

@@ -1,8 +1,9 @@
 ﻿using Finbuckle.MultiTenant.Abstractions;
 using Genocs.Microservice.Template.Application.Common.Interfaces;
+using Genocs.Microservice.Template.Contracts.Notifications;
 using Genocs.Microservice.Template.Infrastructure.Multitenancy;
 using Microsoft.AspNetCore.SignalR;
-using static Genocs.Microservice.Template.Shared.Notifications.NotificationConstants;
+using static Genocs.Microservice.Template.Contracts.Notifications.NotificationConstants;
 
 namespace Genocs.Microservice.Template.Infrastructure.Notifications;
 

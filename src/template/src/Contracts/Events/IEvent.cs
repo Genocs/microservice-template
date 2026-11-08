@@ -1,4 +1,4 @@
-﻿namespace Genocs.Microservice.Template.Shared.Events;
+﻿namespace Genocs.Microservice.Template.Contracts.Events;
 
 /// <summary>
 /// The event interface.

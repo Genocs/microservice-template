@@ -1,6 +1,6 @@
 using System.Security.Claims;
 using Genocs.Microservice.Template.Application.Common.Interfaces;
-using Genocs.Microservice.Template.Shared.Authorization;
+using Genocs.Microservice.Template.Contracts.Authorization;
 
 namespace Genocs.Microservice.Template.Infrastructure.Auth;
 

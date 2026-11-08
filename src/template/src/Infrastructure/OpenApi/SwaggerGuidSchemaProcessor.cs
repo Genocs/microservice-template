@@ -2,6 +2,7 @@ using NJsonSchema;
 using NJsonSchema.Generation;
 
 namespace Genocs.Microservice.Template.Infrastructure.OpenApi;
+
 public class SwaggerGuidSchemaProcessor : ISchemaProcessor
 {
     public void Process(SchemaProcessorContext context)
