@@ -1,3 +1,6 @@
+using Genocs.Common.CQRS.Events;
+using Genocs.Common.Domain.Entities;
+
 namespace Genocs.Microservice.Template.Domain.Catalog;
 
 public class Product : AuditableEntity, IAggregateRoot
@@ -38,5 +41,10 @@ public class Product : AuditableEntity, IAggregateRoot
     {
         ImagePath = string.Empty;
         return this;
+    }
+
+    public bool IsTransient()
+    {
+        return false;
     }
 }

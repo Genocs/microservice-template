@@ -1,4 +1,4 @@
-using Genocs.Microservice.Template.Application.Common.Interfaces;
+using Genocs.Common.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Serilog;
 using Serilog.Context;

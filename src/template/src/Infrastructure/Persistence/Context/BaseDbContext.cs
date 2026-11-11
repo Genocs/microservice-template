@@ -1,7 +1,8 @@
+using System.Data;
 using Finbuckle.MultiTenant.Abstractions;
 using Finbuckle.MultiTenant.EntityFrameworkCore;
+using Genocs.Common.Interfaces;
 using Genocs.Microservice.Template.Application.Common.Events;
-using Genocs.Microservice.Template.Application.Common.Interfaces;
 using Genocs.Microservice.Template.Domain.Common.Contracts;
 using Genocs.Microservice.Template.Infrastructure.Auditing;
 using Genocs.Microservice.Template.Infrastructure.Identity;
@@ -10,7 +11,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.Extensions.Options;
-using System.Data;
 
 namespace Genocs.Microservice.Template.Infrastructure.Persistence.Context;
 

@@ -1,11 +1,11 @@
 using Ardalis.Specification;
 using Ardalis.Specification.EntityFrameworkCore;
 using Finbuckle.MultiTenant.Abstractions;
+using Genocs.Common.Interfaces;
 using Genocs.Microservice.Template.Application.Common.Caching;
 using Genocs.Microservice.Template.Application.Common.Events;
 using Genocs.Microservice.Template.Application.Common.Exceptions;
 using Genocs.Microservice.Template.Application.Common.FileStorage;
-using Genocs.Microservice.Template.Application.Common.Interfaces;
 using Genocs.Microservice.Template.Application.Common.Mailing;
 using Genocs.Microservice.Template.Application.Common.Models;
 using Genocs.Microservice.Template.Application.Common.Specification;

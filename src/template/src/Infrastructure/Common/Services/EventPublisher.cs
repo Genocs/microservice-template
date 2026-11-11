@@ -1,5 +1,5 @@
+using Genocs.Common.CQRS.Events;
 using Genocs.Microservice.Template.Application.Common.Events;
-using Genocs.Microservice.Template.Contracts.Events;
 using MediatR;
 using Microsoft.Extensions.Logging;
 

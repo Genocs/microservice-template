@@ -1,10 +1,10 @@
+using System.Net;
+using Genocs.Common.Interfaces;
 using Genocs.Microservice.Template.Application.Common.Exceptions;
-using Genocs.Microservice.Template.Application.Common.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Localization;
 using Serilog;
 using Serilog.Context;
-using System.Net;
 
 namespace Genocs.Microservice.Template.Infrastructure.Middleware;
 

@@ -1,3 +1,4 @@
+using Genocs.Common.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
@@ -49,6 +50,8 @@ internal static class Startup
             }
 
         }
+
+        services.AddTransient<INotificationSender, NotificationSender>();
 
         return services;
     }

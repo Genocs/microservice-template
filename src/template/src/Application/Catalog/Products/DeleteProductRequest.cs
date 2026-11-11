@@ -1,4 +1,5 @@
-﻿using Genocs.Microservice.Template.Domain.Common.Events;
+﻿using Genocs.Core.Domain.Events;
+using Genocs.Core.Domain.Repositories;
 
 namespace Genocs.Microservice.Template.Application.Catalog.Products;
 

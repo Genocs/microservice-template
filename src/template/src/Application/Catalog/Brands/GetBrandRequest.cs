@@ -1,4 +1,6 @@
-﻿namespace Genocs.Microservice.Template.Application.Catalog.Brands;
+﻿using Genocs.Core.Domain.Repositories;
+
+namespace Genocs.Microservice.Template.Application.Catalog.Brands;
 
 public class GetBrandRequest : IRequest<BrandDto>
 {

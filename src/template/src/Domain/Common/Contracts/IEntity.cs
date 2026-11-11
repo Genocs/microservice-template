@@ -1,4 +1,6 @@
-﻿namespace Genocs.Microservice.Template.Domain.Common.Contracts;
+﻿using Genocs.Core.Domain.Entities;
+
+namespace Genocs.Microservice.Template.Domain.Common.Contracts;
 
 /// <summary>
 /// Generic interface for entities.

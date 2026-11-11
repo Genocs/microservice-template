@@ -1,4 +1,4 @@
-using Genocs.Microservice.Template.Application.Common.Interfaces;
+using Genocs.Common.Interfaces;
 using Genocs.Microservice.Template.Infrastructure.Auth.AzureAd;
 using Genocs.Microservice.Template.Infrastructure.Auth.Jwt;
 using Genocs.Microservice.Template.Infrastructure.Auth.Permissions;

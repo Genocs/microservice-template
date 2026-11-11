@@ -1,8 +1,8 @@
 using System.Reflection;
-using Genocs.Microservice.Template.Application.Common.Interfaces;
+using Genocs.Common.Interfaces;
+using Genocs.Common.Persistence.Initialization;
 using Genocs.Microservice.Template.Domain.Catalog;
 using Genocs.Microservice.Template.Infrastructure.Persistence.Context;
-using Genocs.Microservice.Template.Infrastructure.Persistence.Initialization;
 using Microsoft.Extensions.Logging;
 
 namespace Genocs.Microservice.Template.Infrastructure.Catalog;

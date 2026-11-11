@@ -1,5 +1,5 @@
 {
-  "SwaggerSettings": {
+  "swaggerSettings": {
     "Enable": true,
     "Title": ".NET 10 Microservice - Clean Architecture",
     "Version": "2.0.0",

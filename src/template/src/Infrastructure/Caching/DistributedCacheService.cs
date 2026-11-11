@@ -1,6 +1,6 @@
 using System.Text;
+using Genocs.Common.Interfaces;
 using Genocs.Microservice.Template.Application.Common.Caching;
-using Genocs.Microservice.Template.Application.Common.Interfaces;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Logging;
 

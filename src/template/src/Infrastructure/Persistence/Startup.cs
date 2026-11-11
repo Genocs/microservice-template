@@ -1,10 +1,14 @@
+using Genocs.Common.Domain.Entities;
+using Genocs.Common.Persistence.Initialization;
+using Genocs.Core.Domain.Repositories;
 using Genocs.Microservice.Template.Application.Common.Persistence;
-using Genocs.Microservice.Template.Domain.Common.Contracts;
+using Genocs.Microservice.Template.Domain.Catalog;
 using Genocs.Microservice.Template.Infrastructure.Common;
 using Genocs.Microservice.Template.Infrastructure.Persistence.ConnectionString;
 using Genocs.Microservice.Template.Infrastructure.Persistence.Context;
 using Genocs.Microservice.Template.Infrastructure.Persistence.Initialization;
-using Genocs.Microservice.Template.Infrastructure.Persistence.Repository;
+using Genocs.Persistence.EFCore.Initialization;
+using Genocs.Persistence.EFCore.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
@@ -36,8 +40,8 @@ internal static class Startup
                 m.UseDatabase(databaseSettings.DBProvider, databaseSettings.ConnectionString);
             })
             .AddTransient<IDatabaseInitializer, DatabaseInitializer>()
-            .AddTransient<ApplicationDbInitializer>()
-            .AddTransient<ApplicationDbSeeder>()
+            .AddTransient<Initialization.ApplicationDbInitializer>()
+            .AddTransient<Initialization.ApplicationDbSeeder>()
             .AddServices(typeof(ICustomSeeder), ServiceLifetime.Transient)
             .AddTransient<CustomSeederRunner>()
             .AddTransient<IConnectionStringSecurer, ConnectionStringSecurer>()
@@ -67,11 +71,11 @@ internal static class Startup
     private static IServiceCollection AddRepositories(this IServiceCollection services)
     {
         // Add Repositories
-        services.AddScoped(typeof(IRepository<>), typeof(ApplicationDbRepository<>));
+        services.AddScoped(typeof(IRepository<>), typeof(Repository.ApplicationDbRepository<>));
 
         foreach (var aggregateRootType in
-            typeof(IAggregateRoot).Assembly.GetExportedTypes()
-                .Where(t => typeof(IAggregateRoot).IsAssignableFrom(t) && t.IsClass)
+            typeof(Brand).Assembly.GetExportedTypes()
+                .Where(t => typeof(IAggregateRoot).IsAssignableFrom(t) && t.IsClass && !t.IsAbstract)
                 .ToList())
         {
             // Add ReadRepositories.

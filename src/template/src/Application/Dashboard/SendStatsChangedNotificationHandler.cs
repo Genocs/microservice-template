@@ -1,5 +1,6 @@
-using Genocs.Microservice.Template.Contracts.Events;
-using Genocs.Microservice.Template.Domain.Common.Events;
+using Genocs.Common.CQRS.Events;
+using Genocs.Common.Notifications;
+using Genocs.Core.Domain.Events;
 using Genocs.Microservice.Template.Domain.Identity;
 
 namespace Genocs.Microservice.Template.Application.Dashboard;

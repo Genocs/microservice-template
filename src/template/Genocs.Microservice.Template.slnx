@@ -9,6 +9,9 @@
   <Folder Name="/tests/">
     <Project Path="tests/Infrastructure.Tests/Infrastructure.Tests.csproj" />
   </Folder>
+  <Folder Name="/WebApi/">
+    <Project Path="src/WebApi/Host.csproj" />
+  </Folder>
   <Folder Name="/_Solution Items/">
     <File Path=".dockerignore" />
     <File Path=".editorconfig" />
@@ -27,5 +30,4 @@
   <Project Path="src/Contracts/Contracts.csproj" />
   <Project Path="src/Domain/Domain.csproj" />
   <Project Path="src/Infrastructure/Infrastructure.csproj" />
-  <Project Path="src/WebApi/Host.csproj" />
 </Solution>

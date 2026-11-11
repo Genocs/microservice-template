@@ -16,6 +16,10 @@
         <PackageReference Include="Microsoft.Extensions.Localization" Version="10.0.14" />
     </ItemGroup>
 
+    <ItemGroup Label="Genocs library">
+        <PackageReference Include="Genocs.Persistence.EFCore" Version="9.1.0" />
+    </ItemGroup>
+
     <ItemGroup>
         <ProjectReference Include="..\Domain\Domain.csproj" />
     </ItemGroup>

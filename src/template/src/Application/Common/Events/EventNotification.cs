@@ -1,4 +1,4 @@
-using Genocs.Microservice.Template.Contracts.Events;
+using Genocs.Common.CQRS.Events;
 
 namespace Genocs.Microservice.Template.Application.Common.Events;
 

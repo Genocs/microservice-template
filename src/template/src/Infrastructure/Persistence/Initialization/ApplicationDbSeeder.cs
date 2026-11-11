@@ -4,6 +4,7 @@ using Genocs.Microservice.Template.Contracts.Multitenancy;
 using Genocs.Microservice.Template.Infrastructure.Identity;
 using Genocs.Microservice.Template.Infrastructure.Multitenancy;
 using Genocs.Microservice.Template.Infrastructure.Persistence.Context;
+using Genocs.Persistence.EFCore.Initialization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;

@@ -1,9 +1,9 @@
 global using Ardalis.Specification;
 global using FluentValidation;
+global using Genocs.Common.Interfaces;
 global using Genocs.Microservice.Template.Application.Common.Events;
 global using Genocs.Microservice.Template.Application.Common.Exceptions;
 global using Genocs.Microservice.Template.Application.Common.FileStorage;
-global using Genocs.Microservice.Template.Application.Common.Interfaces;
 global using Genocs.Microservice.Template.Application.Common.Models;
 global using Genocs.Microservice.Template.Application.Common.Persistence;
 global using Genocs.Microservice.Template.Application.Common.Specification;
@@ -11,7 +11,6 @@ global using Genocs.Microservice.Template.Application.Common.Validation;
 global using Genocs.Microservice.Template.Domain.Catalog;
 global using Genocs.Microservice.Template.Domain.Common;
 global using Genocs.Microservice.Template.Domain.Common.Contracts;
-global using Genocs.Microservice.Template.Contracts.Notifications;
 global using MediatR;
 global using Microsoft.Extensions.Localization;
 global using Microsoft.Extensions.Logging;

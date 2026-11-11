@@ -1,3 +1,5 @@
+using Genocs.Core.Domain.Repositories;
+
 namespace Genocs.Microservice.Template.Application.Catalog.Products;
 
 public class SearchProductsRequest : PaginationFilter, IRequest<PaginationResponse<ProductDto>>

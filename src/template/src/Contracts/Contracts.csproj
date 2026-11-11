@@ -7,4 +7,8 @@
         <IsPackable>false</IsPackable>
     </PropertyGroup>
 
+    <ItemGroup Label="Genocs library">
+        <PackageReference Include="Genocs.Common" Version="9.1.0" />
+    </ItemGroup>
+
 </Project>

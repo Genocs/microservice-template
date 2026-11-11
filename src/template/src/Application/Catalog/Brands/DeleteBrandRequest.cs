@@ -1,4 +1,5 @@
-﻿using Genocs.Microservice.Template.Application.Catalog.Products;
+﻿using Genocs.Core.Domain.Repositories;
+using Genocs.Microservice.Template.Application.Catalog.Products;
 
 namespace Genocs.Microservice.Template.Application.Catalog.Brands;
 

@@ -1,4 +1,4 @@
-﻿using Genocs.Microservice.Template.Application.Common.Interfaces;
+﻿using Genocs.Common.Interfaces;
 using Genocs.Microservice.Template.Application.Common.Persistence;
 using Genocs.Microservice.Template.Infrastructure.Caching;
 using Genocs.Microservice.Template.Infrastructure.Common.Services;

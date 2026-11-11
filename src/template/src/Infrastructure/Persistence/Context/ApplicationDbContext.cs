@@ -1,6 +1,6 @@
 using Finbuckle.MultiTenant.Abstractions;
+using Genocs.Common.Interfaces;
 using Genocs.Microservice.Template.Application.Common.Events;
-using Genocs.Microservice.Template.Application.Common.Interfaces;
 using Genocs.Microservice.Template.Domain.Catalog;
 using Genocs.Microservice.Template.Infrastructure.Multitenancy;
 using Genocs.Microservice.Template.Infrastructure.Persistence.Configuration;
@@ -15,7 +15,6 @@ public class ApplicationDbContext : BaseDbContext
         : base(multiTenantContextAccessor, options, currentUser, serializer, dbSettings, events)
     {
     }
-
 
     public DbSet<Product> Products => Set<Product>();
     public DbSet<Brand> Brands => Set<Brand>();

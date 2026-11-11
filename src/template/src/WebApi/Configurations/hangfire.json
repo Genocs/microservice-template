@@ -1,25 +1,25 @@
 {
-  "HangfireSettings": {
-    "Route": "/jobs",
-    "Dashboard": {
-      "AppPath": "/",
-      "StatsPollingInterval": 2000,
-      "DashboardTitle": "Jobs"
+  "hangfireSettings": {
+    "route": "/jobs",
+    "dashboard": {
+      "appPath": "/",
+      "statsPollingInterval": 2000,
+      "dashboardTitle": "Jobs"
     },
-    "Server": {
-      "HeartbeatInterval": "00:00:30",
-      "Queues": [
+    "server": {
+      "heartbeatInterval": "00:00:30",
+      "queues": [
         "default",
         "notdefault"
       ],
-      "SchedulePollingInterval": "00:00:15",
-      "ServerCheckInterval": "00:05:00",
-      "ServerName": null,
-      "ServerTimeout": "00:05:00",
-      "ShutdownTimeout": "00:00:15",
-      "WorkerCount": 5
+      "schedulePollingInterval": "00:00:15",
+      "serverCheckInterval": "00:05:00",
+      "serverName": null,
+      "serverTimeout": "00:05:00",
+      "shutdownTimeout": "00:00:15",
+      "workerCount": 5
     },
-    "Storage": {
+    "storage": {
       "StorageProvider": "mssql",
       "ConnectionString": "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=Genocs.Microservice.Template;Integrated Security=True;MultipleActiveResultSets=True",
       "Options": {
@@ -30,9 +30,9 @@
         "DisableGlobalLocks": true
       }
     },
-    "Credentials": {
-      "User": "Admin",
-      "Password": "S3(r3tP@55w0rd"
+    "credentials": {
+      "user": "Admin",
+      "password": "<<<PASSWORD>>>"
     }
   }
 }

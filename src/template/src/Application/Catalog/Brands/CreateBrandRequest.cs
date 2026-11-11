@@ -1,3 +1,5 @@
+using Genocs.Core.Domain.Repositories;
+
 namespace Genocs.Microservice.Template.Application.Catalog.Brands;
 
 public class CreateBrandRequest : IRequest<DefaultIdType>

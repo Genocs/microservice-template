@@ -1,3 +1,4 @@
+using Genocs.Common.Interfaces;
 using Genocs.Microservice.Template.Infrastructure.BackgroundJobs;
 using Genocs.Microservice.Template.Infrastructure.Common;
 using Hangfire;
@@ -20,6 +21,7 @@ internal static class Startup
 
     internal static IServiceCollection AddBackgroundJobs(this IServiceCollection services, IConfiguration config)
     {
+        services.AddTransient<IJobService, HangfireService>();
         services.AddHangfireServer(options => config.GetSection("HangfireSettings:Server").Bind(options));
 
         services.AddHangfireConsoleExtensions();

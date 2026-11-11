@@ -1,4 +1,4 @@
-using Genocs.Microservice.Template.Application.Common.Interfaces;
+using Genocs.Common.Interfaces;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace Genocs.Microservice.Template.Infrastructure.Auditing;

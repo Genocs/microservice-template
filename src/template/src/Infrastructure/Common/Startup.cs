@@ -1,4 +1,5 @@
-﻿using Genocs.Microservice.Template.Application.Common.Interfaces;
+﻿using Genocs.Common.Interfaces;
+using Genocs.Microservice.Template.Infrastructure.Common.Services;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Genocs.Microservice.Template.Infrastructure.Common;
@@ -7,6 +8,7 @@ internal static class Startup
 {
     internal static IServiceCollection AddServices(this IServiceCollection services) =>
         services
+            .AddTransient<ISerializerService, NewtonSoftService>()
             .AddServices(typeof(ITransientService), ServiceLifetime.Transient)
             .AddServices(typeof(IScopedService), ServiceLifetime.Scoped);
 

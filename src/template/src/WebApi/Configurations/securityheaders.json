@@ -1,7 +1,7 @@
 {
-  "SecurityHeaderSettings": {
-    "Enable": true,
-    "Headers": {
+  "securityHeaderSettings": {
+    "enable": true,
+    "headers": {
       "XFrameOptions": "SAMEORIGIN",
       "XContentTypeOptions": "nosniff",
       "ReferrerPolicy": "same-origin",

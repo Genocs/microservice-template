@@ -1,4 +1,6 @@
-﻿namespace Genocs.Microservice.Template.Application.Catalog.Products;
+﻿using Genocs.Core.Domain.Repositories;
+
+namespace Genocs.Microservice.Template.Application.Catalog.Products;
 
 public class GetProductRequest : IRequest<ProductDetailsDto>
 {
