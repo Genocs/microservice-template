@@ -8,6 +8,4 @@ public abstract class BaseEntity : BaseEntity<DefaultIdType>
         => Id = Guid.NewGuid();
 }
 
-public abstract class BaseEntity<TId> : Entity<TId>
-{
-}
+public abstract class BaseEntity<TId> : Entity<TId>;

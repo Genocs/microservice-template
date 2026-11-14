@@ -3,17 +3,11 @@ using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace Genocs.Microservice.Template.Infrastructure.Auditing;
 
-public class AuditTrail
+public class AuditTrail(EntityEntry entry, ISerializerService serializer)
 {
-    private readonly ISerializerService _serializer;
+    private readonly ISerializerService _serializer = serializer;
 
-    public AuditTrail(EntityEntry entry, ISerializerService serializer)
-    {
-        Entry = entry;
-        _serializer = serializer;
-    }
-
-    public EntityEntry Entry { get; }
+    public EntityEntry Entry { get; } = entry;
     public DefaultIdType UserId { get; set; }
     public string? TableName { get; set; }
     public Dictionary<string, object?> KeyValues { get; } = [];

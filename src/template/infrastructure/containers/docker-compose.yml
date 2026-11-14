@@ -5,6 +5,7 @@ services:
     container_name: webapi-service
     environment:
       - ASPNETCORE_ENVIRONMENT=${ENVIRONMENT}
+      - GNX_ROOT_PASSWORD=${GNX_ROOT_PASSWORD}
       - consul__url=${CONSUL_URL}
       - consul__address=webapi
       - consul__port=8080

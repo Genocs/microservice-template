@@ -224,17 +224,12 @@ You can deploy Demo Application with one click in Heroku, Microsoft Azure, or Go
 [<img src="https://aka.ms/deploytoazurebutton" height="30px">](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fheartexlabs%2Flabel-studio%2Fmaster%2Fazuredeploy.json)
 [<img src="https://deploy.cloud.run/button.svg" height="30px">](https://deploy.cloud.run)
 
-## License
-
-This project is licensed with the [MIT license](LICENSE).
-
 
 ## Community
 
 - Discord [@genocs](https://discord.com/invite/fWwArnkV)
 - Facebook Page [@genocs](https://facebook.com/Genocs)
 - Youtube Channel [@genocs](https://youtube.com/c/genocs)
-
 
 ## Support
 
@@ -247,14 +242,7 @@ Here are a few ways by which you can support.
 - 🦸 Do consider endorsing me on LinkedIn for ASP.NET Core - [Connect via LinkedIn](https://www.linkedin.com/in/giovanni-emanuele-nocco-b31a5169/)
 - ☕ If you want to support this project in the long run, consider [buying me a coffee](https://www.buymeacoffee.com/genocs)!
 
-
 [![buy-me-a-coffee](https://raw.githubusercontent.com/Genocs/microservice-template/main/assets/buy-me-a-coffee.png "buy me a coffee")](https://www.buymeacoffee.com/genocs)
-
-## Code Contributors
-
-This project exists thanks to all the people who contribute. [Submit your PR and join the team!](CONTRIBUTING.md)
-
-[![genocs contributors](https://contrib.rocks/image?repo=Genocs/microservice-template "genocs contributors")](https://github.com/Genocs/microservice-template/graphs/contributors)
 
 ## Financial Contributors
 
@@ -262,7 +250,3 @@ Become a financial contributor and help me sustain the project.
 
 **Support the Project** on [Opencollective](https://opencollective.com/genocs)
 
-## Acknowledgements
-
-- [Mukesh Murugan](https://github.com/iammukeshm)
-- [FullStackHero](https://fullstackhero.net)

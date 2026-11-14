@@ -4,8 +4,8 @@ services:
     image: genocs/dotnet-webapi:latest
     container_name: dotnet-webapi
     environment:
-      - DatabaseSettings__ConnectionString=Server=mssql;Database=genocs_db;User=sa;Password=123Pa$$word!;MultipleActiveResultSets=true;Encrypt=false
-      - HangfireSettings__Storage__ConnectionString=Server=mssql;Database=genocs_db;User=sa;Password=123Pa$$word!;MultipleActiveResultSets=true;Encrypt=false
+      - DatabaseSettings__ConnectionString=Server=mssql;Database=genocs_db;User=sa;Password=<YOUR_ROOT_PASSWORD>;MultipleActiveResultSets=true;Encrypt=false
+      - HangfireSettings__Storage__ConnectionString=Server=mssql;Database=genocs_db;User=sa;Password=<YOUR_ROOT_PASSWORD>;MultipleActiveResultSets=true;Encrypt=false
       - DatabaseSettings__DBProvider=mssql
       - HangfireSettings__Storage__StorageProvider=mssql
     ports:
@@ -27,7 +27,7 @@ services:
     ports:
       - 1433:1433
     environment:
-      SA_PASSWORD: "123Pa$$word!"
+      SA_PASSWORD: "<YOUR_ROOT_PASSWORD>"
       ACCEPT_EULA: "Y"
     volumes:
       - mssqlsystem:/var/opt/mssql

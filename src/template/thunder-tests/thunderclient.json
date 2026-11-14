@@ -22,7 +22,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"email\": \"admin@root.com\",\n  \"password\": \"123Pa$$word!\"\n}",
+      "raw": "{\n  \"email\": \"admin@root.com\",\n  \"password\": \"<YOUR_ROOT_PASSWORD>\"\n}",
       "form": []
     },
     "auth": {
@@ -62,7 +62,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"email\": \"john@root.com\",\n  \"userName\": \"john.smith\",\n  \"password\": \"123Pa$$word!\",\n  \"confirmPassword\": \"123Pa$$word!\",\n  \"phoneNumber\": \"99999\"\n}",
+      "raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"email\": \"john@root.com\",\n  \"userName\": \"john.smith\",\n  \"password\": \"<YOUR_ROOT_PASSWORD>\",\n  \"confirmPassword\": \"<YOUR_ROOT_PASSWORD>\",\n  \"phoneNumber\": \"99999\"\n}",
       "form": []
     },
     "tests": []

@@ -21,10 +21,7 @@ internal class ApplicationDbSeeder
 
     public ApplicationDbSeeder(IMultiTenantContextAccessor<GNXTenantInfo> multiTenantContextAccessor, RoleManager<ApplicationRole> roleManager, UserManager<ApplicationUser> userManager, CustomSeederRunner seederRunner, ILogger<ApplicationDbSeeder> logger)
     {
-        if (multiTenantContextAccessor is null)
-        {
-            throw new ArgumentNullException(nameof(multiTenantContextAccessor));
-        }
+        ArgumentNullException.ThrowIfNull(multiTenantContextAccessor);
 
         if (multiTenantContextAccessor.MultiTenantContext is null)
         {
@@ -126,7 +123,7 @@ internal class ApplicationDbSeeder
 
             _logger.LogInformation("Seeding Default Admin User for '{tenantId}' Tenant.", _currentTenant.Id);
             var password = new PasswordHasher<ApplicationUser>();
-            adminUser.PasswordHash = password.HashPassword(adminUser, MultitenancyConstants.DefaultPassword);
+            adminUser.PasswordHash = password.HashPassword(adminUser, ReadDefaultPassword());
             await _userManager.CreateAsync(adminUser);
         }
 
@@ -137,4 +134,12 @@ internal class ApplicationDbSeeder
             await _userManager.AddToRoleAsync(adminUser, GNXRoles.Admin);
         }
     }
+
+    /// <summary>
+    /// Private method to read the default password from configuration or environment variables.
+    /// This method can be extended to include logic for securely retrieving the password.
+    /// </summary>
+    /// <returns>The default password.</returns>
+    private static string ReadDefaultPassword()
+        => Environment.GetEnvironmentVariable("GNX_ROOT_PASSWORD") ?? throw new InvalidOperationException("Default password is not set in environment variables. Set the 'GNX_ROOT_PASSWORD' environment variable to a secure password before running the application.");
 }

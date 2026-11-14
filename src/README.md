@@ -187,7 +187,7 @@ The default credentials to this API is:
 ```json
 {
     "email":"admin@root.com",
-    "password":"123Pa$$word!"
+    "password":"<YOUR_ROOT_PASSWORD>"
 }
 ```
 
@@ -208,7 +208,7 @@ curl -X POST \
   --header 'Content-Type: application/json' \
   --data-raw '{
   "email": "admin@root.com",
-  "password": "123Pa$$word!"
+  "password": "<YOUR_ROOT_PASSWORD>"
 }'
 ```
 

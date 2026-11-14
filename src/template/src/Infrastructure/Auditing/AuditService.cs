@@ -5,11 +5,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Genocs.Microservice.Template.Infrastructure.Auditing;
 
-public class AuditService : IAuditService
+public class AuditService(ApplicationDbContext context) : IAuditService
 {
-    private readonly ApplicationDbContext _context;
-
-    public AuditService(ApplicationDbContext context) => _context = context;
+    private readonly ApplicationDbContext _context = context;
 
     public async Task<List<AuditDto>> GetUserTrailsAsync(DefaultIdType userId)
     {

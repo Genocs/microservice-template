@@ -48,7 +48,7 @@
   </a>
   <h3 align="center">.NET Microservice Template</h3>
   <p align="center">
-    Open Source Solution Template For .NET 10 Microservice
+    Open Source .NET 10 Template to set up Microservice solutions with Clean Architecture, Multi-Tenancy, and Production-Ready Infrastructure.
     <br />
     <a href="https://genocs-blog.netlify.app/microservice-template/general/getting-started/"><strong>Read the Documentation »</strong></a>
     <br />
@@ -69,7 +69,6 @@ Genocs .NET Web API Microservice Template is a starting point for your next `.NE
 >
 > - Find `Blazor Wasm Template` here - [Blazor Wasm Template](https://github.com/Genocs/blazor-wasm-template)
 
-The template can be used with the `genocs cli`, `dotnet new` command or with the `Visual Studio 2026`, `Visual Studio Code` IDEs.
 
 ## 📋 Table of Contents
 
@@ -104,29 +103,12 @@ The template can be used with the `genocs cli`, `dotnet new` command or with the
   - MongoDB, SQL Server
   - [NodeJS (16+)](https://nodejs.org/en/download)
 
-## 🚀 Quick Start
 
-### Install the Template
-
-```bash
-# Install the latest version
-dotnet new install Genocs.Microservice.Template
-
-# Or install a specific version
-dotnet new install Genocs.Microservice.Template::3.1.1
-
-# View all available options
-dotnet new gnx-microservice --help
-
-# Example with custom options
-dotnet new gnx-microservice --name <CompanyName>.<ProjectName>.<ServiceName>
-```
-
-## 🏗️ Architecture Overview
+### 🏗️ Folders Layout
 
 The template generates a solution with the following structure:
 
-```pl
+```plaintext
 root
   ├── src/
   |   ├── Application/             # CQRS commands, queries, validations, business workflows
@@ -144,7 +126,7 @@ root
 
 ```
 
-## Features
+### Features
 
 - :white_check_mark: Built on [.NET 10](https://dotnet.microsoft.com/en-us/) with Clean Architecture layering (Domain, Application, Infrastructure, WebApi).
 - :white_check_mark: Domain-driven design with CQRS (MediatR), Mapster mappings, FluentValidation, and specification support.
@@ -163,21 +145,44 @@ root
 - :white_check_mark: Code analysis & StyleCop configuration, plus Infrastructure-focused automated tests.
 - :white_check_mark: Comprehensive documentation hosted on [genocs netlify](https://genocs-blog.netlify.app) and an active community.
 
-## How to build and install the template locally
+### Dotnet Templating documentation
+You can find more information about dotnet templating here:
+  - [custom-templates](https://docs.microsoft.com/en-us/dotnet/core/tools/custom-templates)
+  - [dotnet-templating](https://github.com/dotnet/templating)
 
-## How to build the template
+
+## 🚀 Getting Started
+To get started with this Template, here are the available options:
+
+  - Install using the `genocs cli` tool. Use this for latest release versions of the Template only.
+  - Install using the `dotnet new install` tool. Use this for any versions of the Template.
+  - Fork the Repository. Use this if you want to always keep your version of the Template up-to date with the latest changes.
+
+> Make sure that your DEV enviroment is setup, [Read the Development Environment Guide](https://genocs-blog.netlify.app/microservice-template/general/development-environment/)
+
+
+### Install the Template
+
+```bash
+# Install the latest version
+dotnet new install Genocs.Microservice.Template
+
+# Or install a specific version
+dotnet new install Genocs.Microservice.Template::3.1.1
+
+# View all available options
+dotnet new gnx-microservice --help
+
+# Example with custom options
+dotnet new gnx-microservice --name <CompanyName>.<ProjectName>.<ServiceName>
+```
+
+### How to build and install the template locally
 
 Check nuget is installed on your machine. To download nuget, visit [nuget.org](https://www.nuget.org/downloads)
-
-- Download the nuget latest version. At the time of writing this, the latest version is nuget.exe v6.7.0
-- Add the nuget.exe to your PATH environment variable.
-- run the following commands
-
-To build the package run the following commands:
-
-[custom-templates](https://docs.microsoft.com/en-us/dotnet/core/tools/custom-templates)
-
-[dotnet-templating](https://github.com/dotnet/templating)
+  - Download the nuget latest version.
+  - Add the nuget.exe to your PATH environment variable.
+  - run the following commands
 
 ```bash
 # To clone the repository
@@ -193,11 +198,11 @@ dotnet new install ./out/Genocs.Microservice.Template.3.1.1.nupkg
 # To get the list of available templates
 dotnet new gnx-microservice --help
 
-# To uninstall the template
+# To uninstall the template (if you want to remove it)
 dotnet new uninstall Genocs.Microservice.Template
 
 # Example of creating a new project with full functionality
-dotnet new gnx-microservice --name {CompanyName.ServiceName} -gc full
+dotnet new gnx-microservice --name <CompanyName.ProjectName.ServiceName> -gc full
 ```
 
 ### Miscellaneous
@@ -212,25 +217,41 @@ dotnet new -u
 dotnet new list
 ```
 
+### Forking the Repository
+
+You would probably need to take this approach if you want to keep your source code up to date with the latest changes. To get started based on this repository, you need to get a copy locally. You have three options: `fork, clone, or download`.
+
+- Make a fork of this repository in your GitHub account.
+- Create your new `microservice-template` personal project by cloning the forked repository on your personal GitHub.
+- Setup an upstream remote on your personal project pointing to your forked repository using command `git remote add upstream https://github.com/{githubuseraccount}/microservice-template` and `git remote set-url --push upstream DISABLE`
+
 ## Documentation
 
 Read Documentation related to this template here - [Template Documentation](https://genocs-blog.netlify.app/microservice-template/)
 
 > Feel free to contribute to the Documentation Repository - [Contribute Documentation](https://github.com/Genocs/genocs-library-docs)
 
-## Getting Started
 
-To get started with this Template, here are the available options:
+---
+## Setup Infrastructure
 
-- Install using the `genocs cli` tool. Use this for latest release versions of the Template only.
-- Install using the `dotnet new install` tool. Use this for any versions of the Template.
-- Fork the Repository. Use this if you want to always keep your version of the Template up-to date with the latest changes.
+The template comes with a pre-configured infrastructure that is ready to use. You can choose to use the default configuration or modify it to suit your needs.
 
-> Make sure that your DEV enviroment is setup, [Read the Development Environment Guide](https://genocs-blog.netlify.app/microservice-template/general/development-environment/)
+Componets of the infrastructure: 
+  - PostgreSQL Database
+  - SQL Server Database
+  - MySQL Database
+  - Oracle Database
+  - SQLite Database
 
-### GENOCS CLI Tool
+The default configuration is set to use MSSQL database. You can change the database provider to any of the supported databases by modifying the `DatabaseSettings__DBProvider` environment variable in the `docker-compose.yml` file.
 
-#### **Installation**
+---
+## GENOCS CLI
+
+You can use the `genocs cli` tool to install the template and create a new solution. The CLI tool is a console application that helps you to create a new solution using the Genocs Template.
+
+### Installation
 
 After you have installed .NET, you will need to install the `cli` console tool.
 
@@ -243,7 +264,7 @@ This install the CLI tools and the associated Templates. You are now ready to cr
 
 [Documentation](https://genocs-blog.netlify.app/cli/)
 
-#### Let get started
+### Let get started
 
 Here's how you would create a Solution using the Genocs .NET WebAPI Template.
 
@@ -258,7 +279,7 @@ genocs micro-webapi [n|new] CompanyName.ProjectName.ServiceName
 This will create a new .NET 10 Web API solution for you using the template.
 For further steps and details, [Read the Getting Started Guide](https://genocs-blog.netlify.app/microservice-template/)
 
-#### Update
+### Update
 
 To update the tool & templates, run the following commands
 
@@ -266,16 +287,6 @@ To update the tool & templates, run the following commands
 dotnet tool update genocs.cli --global
 genocs update
 ```
-
-### Forking the Repository
-
-You would probably need to take this approach if you want to keep your source code up to date with the latest changes. To get started based on this repository, you need to get a copy locally. You have three options: `fork, clone, or download`.
-
-- Make a fork of this repository in your GitHub account.
-- Create your new `microservice-template` personal project by cloning the forked repository on your personal GitHub.
-- Setup an upstream remote on your personal project pointing to your forked repository using command `git remote add upstream https://github.com/{githubuseraccount}/microservice-template` and `git remote set-url --push upstream DISABLE`
-
-For step by step instructions, follow: [this](https://discord.com/channels/878181478972928011/892573122186838046/933513103688224838) and [this](https://gist.github.com/0xjac/85097472043b697ab57ba1b1c7530274).
 
 ### Run the template
 
@@ -308,7 +319,7 @@ The default credentials to this API is:
 ```json
 {
   "email": "admin@root.com",
-  "password": "123Pa$$word!"
+  "password": "<YOUR_ROOT_PASSWORD>"
 }
 ```
 
@@ -329,7 +340,7 @@ curl -X POST \
   --header 'Content-Type: application/json' \
   --data-raw '{
   "email": "admin@root.com",
-  "password": "123Pa$$word!"
+  "password": "<YOUR_ROOT_PASSWORD>"
 }'
 ```
 
@@ -428,13 +439,10 @@ make td
 
 ## Links & Documentations
 
-[Overview](https://genocs-blog.netlify.app/microservice-template/general/overview/)
-
-[Getting Started](https://genocs-blog.netlify.app/microservice-template/general/getting-started/)
-
-[Development Environment](https://genocs-blog.netlify.app/microservice-template/general/development-environment/)
-
-[Participate in QNA & General Discussions](https://github.com/Genocs/microservice-template/discussions)
+  - [Overview](https://genocs-blog.netlify.app/microservice-template/general/overview/)
+  - [Getting Started](https://genocs-blog.netlify.app/microservice-template/general/getting-started/)
+  - [Development Environment](https://genocs-blog.netlify.app/microservice-template/general/development-environment/)
+  - [Participate in QNA & General Discussions](https://github.com/Genocs/microservice-template/discussions)
 
 ## Changelogs
 
@@ -445,6 +453,8 @@ View Complete [Changelogs](https://github.com/Genocs/microservice-template/blob/
 - Discord [@genocs](https://discord.com/invite/fWwArnkV)
 - Facebook Page [@genocs](https://facebook.com/Genocs)
 - Youtube Channel [@genocs](https://youtube.com/c/genocs)
+
+For step by step instructions, follow: [this](https://discord.com/channels/878181478972928011/892573122186838046/933513103688224838) and [this](https://gist.github.com/0xjac/85097472043b697ab57ba1b1c7530274).
 
 ## Support
 
@@ -464,8 +474,3 @@ Here are a few ways by which you can support.
 Become a financial contributor and help me sustain the project.
 
 **Support the Project** on [Opencollective](https://opencollective.com/genocs)
-
-## Acknowledgements
-
-- [Mukesh Murugan](https://github.com/iammukeshm)
-- [FullStackHero](https://fullstackhero.net)
