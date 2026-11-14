@@ -3,7 +3,7 @@
     "Provider": "Jwt",
     "RequireConfirmedAccount": true,
     "JwtSettings": {
-      "key": "This is my custom Secret key for authentication S0M3RAN0MS3CR3T!1!MAG1C!1!",
+      "key": "This is my custom Secret key for authentication DONT_USE_THIS_IN_PRODUCTION",
       "tokenExpirationInMinutes": 60,
       "refreshTokenExpirationInDays": 7
     },

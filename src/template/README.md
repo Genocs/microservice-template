@@ -14,8 +14,8 @@
 
 [license-shield]: https://img.shields.io/github/license/Genocs/microservice-template?color=2da44e&style=flat-square
 [license-url]: https://github.com/Genocs/microservice-template/blob/main/LICENSE
-[build-shield]: https://github.com/Genocs/microservice-template/actions/workflows/build_and_test.yml/badge.svg?branch=main
-[build-url]: https://github.com/Genocs/microservice-template/actions/workflows/build_and_test.yml
+[build-shield]: https://github.com/Genocs/microservice-template/actions/workflows/build-and-test.yml/badge.svg?branch=main
+[build-url]: https://github.com/Genocs/microservice-template/actions/workflows/build-and-test.yml
 [downloads-shield]: https://img.shields.io/nuget/dt/Genocs.Microservice.Template.svg?color=2da44e&label=downloads&logo=nuget
 [downloads-url]: https://www.nuget.org/packages/Genocs.Microservice.Template
 [contributors-shield]: https://img.shields.io/github/contributors/Genocs/microservice-template.svg?style=flat-square
@@ -45,7 +45,7 @@
 
 # Genocs .NET Web API Microservice Template
 
-This repo contains a set of libraries designed by Genocs. The library is built on top of .NET9. 
+This repo contains a set of libraries designed by Genocs. The library is built on top of .NET 10. 
 
 Packages are available on [NuGet Genocs](https://www.nuget.org/profiles/gioema_nocco).
 

@@ -1,0 +1,19 @@
+<Project>
+    <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)../'))" />
+
+    <PropertyGroup>
+        <!-- xunit.v3 test projects are executables. SDK 10 does not emit an apphost
+             for net8.0/net9.0 unless those host packs are installed, which breaks
+             CopyFilesToOutputDirectory (MSB3030). Tests run via `dotnet test`. -->
+        <UseAppHost>false</UseAppHost>
+        <OutputType>Exe</OutputType>
+        <TestingPlatformDotnetTestSupport>true</TestingPlatformDotnetTestSupport>
+        <UseMicrosoftTestingPlatformRunner>true</UseMicrosoftTestingPlatformRunner>
+    </PropertyGroup>
+    
+    <ItemGroup>
+        <!-- Required for TRX reports when using Microsoft.Testing.Platform (see global.json). -->
+        <PackageReference Include="Microsoft.Testing.Extensions.TrxReport" Version="2.5.2" />
+        <PackageReference Include="Microsoft.Testing.Extensions.CodeCoverage" Version="18.12.0" />
+    </ItemGroup>    
+</Project>

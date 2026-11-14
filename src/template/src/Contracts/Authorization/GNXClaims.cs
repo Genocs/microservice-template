@@ -1,4 +1,4 @@
-﻿namespace Genocs.Microservice.Template.Shared.Authorization;
+﻿namespace Genocs.Microservice.Template.Contracts.Authorization;
 
 public static class GNXClaims
 {

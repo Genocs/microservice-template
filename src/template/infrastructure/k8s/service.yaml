@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: template-worker
+  labels:
+    app: template-worker
+spec:
+  selector:
+    matchLabels:
+      app: template-worker
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: template-worker
+    spec:
+      containers:
+        - name: template-worker
+          image: genocsacr.azurecr.io/templateworker:1.0.0
+          env:
+            - name: ParticularOptions__TransportConnectionString
+              value: "<<fill_with-your_data>>"
+            - name: ParticularOptions__PersistenceConnectionString
+              value: "<<fill_with-your_data>>"
+          resources:
+            requests:
+              cpu: 100m
+              memory: 100Mi
+            limits:
+              cpu: 250m
+              memory: 1024Mi

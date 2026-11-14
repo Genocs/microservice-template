@@ -1,6 +1,6 @@
 using System.Collections.ObjectModel;
 
-namespace Genocs.Microservice.Template.Shared.Authorization;
+namespace Genocs.Microservice.Template.Contracts.Authorization;
 
 public static class GNXAction
 {

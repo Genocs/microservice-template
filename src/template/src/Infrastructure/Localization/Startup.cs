@@ -13,7 +13,7 @@ internal static class Startup
     {
         var localizationSettings = config.GetSection(nameof(LocalizationSettings)).Get<LocalizationSettings>();
 
-        if (localizationSettings?.EnableLocalization is true
+        if (localizationSettings?.Enabled is true
             && localizationSettings.ResourcesPath is not null)
         {
             services.AddPortableObjectLocalization(options => options.ResourcesPath = localizationSettings.ResourcesPath);

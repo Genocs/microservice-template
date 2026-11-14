@@ -1,5 +1,6 @@
-﻿using Genocs.Microservice.Template.Application.Common.Events;
-using Genocs.Microservice.Template.Application.Common.Interfaces;
+﻿using Genocs.Common.Interfaces;
+using Genocs.Common.Notifications;
+using Genocs.Microservice.Template.Application.Common.Events;
 using MediatR;
 
 namespace Genocs.Microservice.Template.Infrastructure.Notifications;

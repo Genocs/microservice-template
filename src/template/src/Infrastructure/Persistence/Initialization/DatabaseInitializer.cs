@@ -1,7 +1,7 @@
 ﻿using Finbuckle.MultiTenant;
 using Finbuckle.MultiTenant.Abstractions;
+using Genocs.Microservice.Template.Contracts.Multitenancy;
 using Genocs.Microservice.Template.Infrastructure.Multitenancy;
-using Genocs.Microservice.Template.Shared.Multitenancy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;

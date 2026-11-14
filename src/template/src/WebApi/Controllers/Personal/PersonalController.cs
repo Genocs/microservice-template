@@ -1,6 +1,7 @@
 using Genocs.Microservice.Template.Application.Auditing;
 using Genocs.Microservice.Template.Application.Identity.Users;
 using Genocs.Microservice.Template.Application.Identity.Users.Password;
+using Genocs.Microservice.Template.Contracts.Authorization;
 
 namespace Genocs.Microservice.Template.WebApi.Controllers.Personal;
 

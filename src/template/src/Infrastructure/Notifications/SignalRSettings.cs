@@ -18,7 +18,6 @@ public class SignalRSettings
     /// </summary>
     public bool UseBackplane { get; set; }
 
-
     public Backplane? BackPlane { get; set; }
 
     /// <summary>

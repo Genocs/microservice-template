@@ -1,41 +1,66 @@
-#See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
+# See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
 
-FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS base
-USER $APP_UID
+# Use the official .NET runtime as base image
+FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS base
+USER app
 WORKDIR /app
 EXPOSE 8080
+EXPOSE 8081
 
-FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build-env
+# Use the official .NET SDK for building
+FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 ARG BUILD_CONFIGURATION=Debug
 WORKDIR /src
-COPY ["src/Application", "Application/"]
-COPY ["src/Domain", "Domain/"]
-COPY ["src/Shared", "Shared/"]
-COPY ["src/Infrastructure", "Infrastructure/"]
-COPY ["src/Migrators.MSSQL", "Migrators.MSSQL/"]
-COPY ["src/Migrators.MySQL", "Migrators.MySQL/"]
-COPY ["src/Migrators.Oracle", "Migrators.Oracle/"]
-COPY ["src/Migrators.PostgreSQL", "Migrators.PostgreSQL/"]
-COPY ["src/Migrators.SqLite", "Migrators.SqLite/"]
-COPY ["src/WebApi", "WebApi/"]
 
-COPY ["Directory.Build.props", "Directory.Build.props"]
-COPY ["Directory.Build.targets", "Directory.Build.targets"]
-COPY ["dotnet.ruleset", "dotnet.ruleset"]
-COPY ["global.json", "global.json"]
-COPY ["stylecop.json", "stylecop.json"]
+# Copy global build configuration files first for better layer caching
+COPY ["Directory.Build.props", "."]
+COPY ["Directory.Build.targets", "."]
+COPY ["stylecop.json", "."]
+COPY ["dotnet.ruleset", "."]
+COPY ["global.json", "."]
 
-WORKDIR "/src/WebApi"
+# COPY .csproj and restore as distinct layers
+# This is CRITICAL: If code changes but .csproj doesn't, Docker reuses this cached layer
+COPY ["src/Application/Application.csproj", "src/Application/"]
+COPY ["src/Domain/Domain.csproj", "src/Domain/"]
+COPY ["src/Contracts/Contracts.csproj", "src/Contracts/"]
+COPY ["src/Infrastructure/Infrastructure.csproj", "src/Infrastructure/"]
+COPY ["src/Migrators.MSSQL/Migrators.MSSQL.csproj", "src/Migrators.MSSQL/"]
+COPY ["src/Migrators.MySQL/Migrators.MySQL.csproj", "src/Migrators.MySQL/"]
+COPY ["src/Migrators.Oracle/Migrators.Oracle.csproj", "src/Migrators.Oracle/"]
+COPY ["src/Migrators.PostgreSQL/Migrators.PostgreSQL.csproj", "src/Migrators.PostgreSQL/"]
+COPY ["src/Migrators.SqLite/Migrators.SqLite.csproj", "src/Migrators.SqLite/"]
+COPY ["src/WebApi/Host.csproj", "src/WebApi/"]
 
-RUN dotnet restore "Host.csproj"
+RUN dotnet restore "./src/WebApi/Host.csproj"
 
-RUN dotnet build "Host.csproj" -c $BUILD_CONFIGURATION -o /app/build
+# Copy the rest of the source code
+COPY ["src/Application", "src/Application/"]
+COPY ["src/Domain", "src/Domain/"]
+COPY ["src/Contracts", "src/Contracts/"]
+COPY ["src/Infrastructure", "src/Infrastructure/"]
+COPY ["src/Migrators.MSSQL", "src/Migrators.MSSQL/"]
+COPY ["src/Migrators.MySQL", "src/Migrators.MySQL/"]
+COPY ["src/Migrators.Oracle", "src/Migrators.Oracle/"]
+COPY ["src/Migrators.PostgreSQL", "src/Migrators.PostgreSQL/"]
+COPY ["src/Migrators.SqLite", "src/Migrators.SqLite/"]
+COPY ["src/WebApi", "src/WebApi/"]
 
-FROM build-env AS publish
+WORKDIR "/src/src/WebApi"
+RUN dotnet build "./Host.csproj" -c $BUILD_CONFIGURATION -o /app/build
+
+# Build and Publish
+# -c Release: Optimizes code
+# /p:UseAppHost=false: Disables creating a native exe (we just need the dll)
+# This stage is used to publish the service project to be copied to the final stage
+FROM build AS publish
 ARG BUILD_CONFIGURATION=Debug
-RUN dotnet publish "Host.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "./Host.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
+# Create final runtime image
+# This stage is used in production or when running from VS in regular mode (Default when not using the Debug configuration)
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "Genocs.Microservice.Template.WebApi.dll"]
+

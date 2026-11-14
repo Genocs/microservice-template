@@ -1,10 +1,12 @@
+using Genocs.Common.Persistence.Initialization;
 using Genocs.Microservice.Template.Application.Common.Persistence;
-using Genocs.Microservice.Template.Domain.Common.Contracts;
+using Genocs.Microservice.Template.Domain.Catalog;
 using Genocs.Microservice.Template.Infrastructure.Common;
 using Genocs.Microservice.Template.Infrastructure.Persistence.ConnectionString;
 using Genocs.Microservice.Template.Infrastructure.Persistence.Context;
 using Genocs.Microservice.Template.Infrastructure.Persistence.Initialization;
-using Genocs.Microservice.Template.Infrastructure.Persistence.Repository;
+using Genocs.Persistence.EFCore.Extensions;
+using Genocs.Persistence.EFCore.Initialization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
@@ -36,13 +38,13 @@ internal static class Startup
                 m.UseDatabase(databaseSettings.DBProvider, databaseSettings.ConnectionString);
             })
             .AddTransient<IDatabaseInitializer, DatabaseInitializer>()
-            .AddTransient<ApplicationDbInitializer>()
-            .AddTransient<ApplicationDbSeeder>()
+            .AddTransient<Initialization.ApplicationDbInitializer>()
+            .AddTransient<Initialization.ApplicationDbSeeder>()
             .AddServices(typeof(ICustomSeeder), ServiceLifetime.Transient)
             .AddTransient<CustomSeederRunner>()
             .AddTransient<IConnectionStringSecurer, ConnectionStringSecurer>()
             .AddTransient<IConnectionStringValidator, ConnectionStringValidator>()
-            .AddRepositories();
+            .AddGenocsRepositories<ApplicationDbContext>(typeof(Brand).Assembly);
     }
 
     internal static DbContextOptionsBuilder UseDatabase(this DbContextOptionsBuilder builder, string dbProvider, string connectionString)
@@ -62,30 +64,5 @@ internal static class Startup
                                  e.MigrationsAssembly("Migrators.SqLite")),
             _ => throw new InvalidOperationException($"DB Provider {dbProvider} is not supported."),
         };
-    }
-
-    private static IServiceCollection AddRepositories(this IServiceCollection services)
-    {
-        // Add Repositories
-        services.AddScoped(typeof(IRepository<>), typeof(ApplicationDbRepository<>));
-
-        foreach (var aggregateRootType in
-            typeof(IAggregateRoot).Assembly.GetExportedTypes()
-                .Where(t => typeof(IAggregateRoot).IsAssignableFrom(t) && t.IsClass)
-                .ToList())
-        {
-            // Add ReadRepositories.
-            services.AddScoped(typeof(IReadRepository<>).MakeGenericType(aggregateRootType), sp =>
-                sp.GetRequiredService(typeof(IRepository<>).MakeGenericType(aggregateRootType)));
-
-            // Decorate the repositories with EventAddingRepositoryDecorators and expose them as IRepositoryWithEvents.
-            services.AddScoped(typeof(IRepositoryWithEvents<>).MakeGenericType(aggregateRootType), sp =>
-                Activator.CreateInstance(
-                    typeof(EventAddingRepositoryDecorator<>).MakeGenericType(aggregateRootType),
-                    sp.GetRequiredService(typeof(IRepository<>).MakeGenericType(aggregateRootType)))
-                ?? throw new InvalidOperationException($"Couldn't create EventAddingRepositoryDecorator for aggregateRootType {aggregateRootType.Name}"));
-        }
-
-        return services;
     }
 }

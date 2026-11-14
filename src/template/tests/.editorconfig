@@ -1,0 +1,6 @@
+[*.cs]
+# CA1707: Identifiers should not contain underscores
+dotnet_diagnostic.CA1707.severity = none
+
+# IDE1006: Naming rule violation
+dotnet_diagnostic.IDE1006.severity = none

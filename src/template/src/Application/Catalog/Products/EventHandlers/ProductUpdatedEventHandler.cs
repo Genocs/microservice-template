@@ -1,4 +1,4 @@
-using Genocs.Microservice.Template.Domain.Common.Events;
+using Genocs.Core.Domain.Events;
 
 namespace Genocs.Microservice.Template.Application.Catalog.Products.EventHandlers;
 

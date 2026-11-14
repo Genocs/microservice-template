@@ -1,7 +1,8 @@
 ﻿using Ardalis.Specification;
+using Genocs.Common.Interfaces;
+using Genocs.Common.Notifications;
+using Genocs.Core.Domain.Repositories;
 using Genocs.Microservice.Template.Application.Catalog.Brands;
-using Genocs.Microservice.Template.Application.Common.Interfaces;
-using Genocs.Microservice.Template.Application.Common.Persistence;
 using Genocs.Microservice.Template.Domain.Catalog;
 using Hangfire;
 using Hangfire.Console.Extensions;

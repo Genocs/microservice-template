@@ -1,4 +1,4 @@
-using Genocs.Microservice.Template.Application.Common.Interfaces;
+using Genocs.Common.Interfaces;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
@@ -18,10 +18,10 @@ public class NewtonSoftService : ISerializerService
         {
             ContractResolver = new CamelCasePropertyNamesContractResolver(),
             NullValueHandling = NullValueHandling.Ignore,
-            Converters = new List<JsonConverter>
-            {
+            Converters =
+            [
                 new StringEnumConverter() { NamingStrategy = new CamelCaseNamingStrategy()}
-            }
+            ]
         });
     }
 

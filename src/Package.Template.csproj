@@ -1,41 +1,55 @@
 <Project Sdk="Microsoft.NET.Sdk">
+<!-- The package metadata. Fill in the properties marked as TODO below -->
+<!-- Follow the instructions on https://learn.microsoft.com/en-us/nuget/create-packages/package-authoring-best-practices -->
 
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
-    <PackageType>Template</PackageType>
-    <PackageVersion>3.1.1</PackageVersion>
+    <TargetFramework>net10.0</TargetFramework>
+    <!-- Keep package type as 'Template' to show the package as a template package on nuget.org and make your template available in dotnet new search.-->
+    <PackageType>Template</PackageType>    
     <PackageId>Genocs.Microservice.Template</PackageId>
+    <PackageVersion>3.1.1</PackageVersion>
     <Title>Genocs - Microservice Template</Title>
     <Authors>Nocco Giovanni Emanuele</Authors>
     <Description>Clean Architecture Template for .NET WebAPI built with Multitenancy Support.</Description>
-    <PackageTags>cleanarchitecture;clean;architecture;webapi;solution;csharp</PackageTags>
+    <PackageTags>cleanarchitecture clean architecture webapi</PackageTags>
     <PackageProjectUrl>https://github.com/Genocs/microservice-template</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageIcon>icon.png</PackageIcon>
-    <PackageReadmeFile>README_NUGET.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/Genocs/microservice-template.git</RepositoryUrl>
     <RepositoryBranch>main</RepositoryBranch>
     <RepositoryType>git</RepositoryType>
-    <Copyright>Copyright (c) 2025 Genocs Services</Copyright>
-    <PackageReleaseNotes>
-			Release 3.1.1:
-			- Fixed Errors on Tests
-    </PackageReleaseNotes>
+    <Copyright>Copyright (c) 2026 Genocs Services</Copyright>
+    <IncludeContentInPack>true</IncludeContentInPack>
+    <PackageReleaseNotes>    </PackageReleaseNotes>
     <Language>en-US</Language>
     <IncludeBuildOutput>false</IncludeBuildOutput>
     <IncludeSymbols>false</IncludeSymbols>
-    <IncludeSource>false</IncludeSource>
-    <EnableDefaultItems>false</EnableDefaultItems>
+    <ContentTargetFolders>template</ContentTargetFolders>
     <NoWarn>$(NoWarn);NU5128</NoWarn>
     <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
     <DevelopmentDependency>true</DevelopmentDependency>
     <NoDefaultExcludes>true</NoDefaultExcludes>
+    <IncludeSource>false</IncludeSource>
+    <EnableDefaultItems>false</EnableDefaultItems>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>icon.png</PackageIcon>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <LocalizeTemplates>false</LocalizeTemplates>
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="template\**\*" Exclude="template\**\bin\**;template\**\obj\**;template\**\*.user;template\**\*.log;template\**\.vscode\**;template\**\.vs\**;template\**\*.exe" PackagePath="content\" />
-    <None Include="README_NUGET.md" Pack="true" PackagePath="\" />
-    <None Include="icon.png" Pack="true" PackagePath="\" />
+    <PackageReference Include="Microsoft.TemplateEngine.Tasks" Version="*" PrivateAssets="all" IsImplicitlyDefined="true"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="template\**\*" Exclude="template\**\bin\**;template\**\obj\**" />
+    <Compile Remove="**\*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="" />
+    <None Include="..\icon.png" Pack="true" PackagePath="" />
   </ItemGroup>
 
 </Project>

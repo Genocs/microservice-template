@@ -1,4 +1,5 @@
-﻿using Genocs.Microservice.Template.Application.Common.Interfaces;
+﻿using Genocs.Common.Dependency;
+using Genocs.Common.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Genocs.Microservice.Template.Infrastructure.Common;
@@ -7,19 +8,24 @@ internal static class Startup
 {
     internal static IServiceCollection AddServices(this IServiceCollection services) =>
         services
-            .AddServices(typeof(ITransientService), ServiceLifetime.Transient)
+            .AddServices(typeof(ITransientDependency), ServiceLifetime.Transient)
             .AddServices(typeof(IScopedService), ServiceLifetime.Scoped);
 
     internal static IServiceCollection AddServices(this IServiceCollection services, Type interfaceType, ServiceLifetime lifetime)
     {
         var interfaceTypes =
             AppDomain.CurrentDomain.GetAssemblies()
+                .Where(assembly => assembly.GetName().Name?
+                    .StartsWith("Genocs.Microservice.Template", StringComparison.Ordinal) == true)
                 .SelectMany(s => s.GetTypes())
                 .Where(t => interfaceType.IsAssignableFrom(t)
                             && t.IsClass && !t.IsAbstract)
                 .Select(t => new
                 {
-                    Service = t.GetInterfaces().FirstOrDefault(),
+                    Service = t.GetInterfaces().FirstOrDefault(i =>
+                        i != interfaceType
+                        && interfaceType.IsAssignableFrom(i)
+                        && !t.GetInterfaces().Any(other => other != i && i.IsAssignableFrom(other))),
                     Implementation = t
                 })
                 .Where(t => t.Service is not null

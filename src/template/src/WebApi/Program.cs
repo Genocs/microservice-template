@@ -1,11 +1,10 @@
+using Genocs.Core.Builders;
 using Genocs.Logging;
 using Genocs.Microservice.Template.Application;
 using Genocs.Microservice.Template.Infrastructure;
-using Genocs.Microservice.Template.Infrastructure.Logging.Serilog;
 using Genocs.Microservice.Template.WebApi.Configurations;
 using Genocs.Microservice.Template.WebApi.Controllers;
 using Serilog;
-using Genocs.Core.Builders;
 
 [assembly: ApiConventionType(typeof(GNXApiConventions))]
 
@@ -16,21 +15,22 @@ try
 
     builder.AddConfigurations();
 
-    builder
+    IGenocsBuilder genocsBuilder = builder
             .AddGenocs()
-            .Build();
+            .AddCorrelationContextLogging();
 
-    builder.Host
-        .UseLogging(builder.Environment.EnvironmentName);
+    builder.Host.UseLogging();
 
     builder.Services.AddControllers();
     builder.Services.AddInfrastructure(builder.Configuration);
     builder.Services.AddApplication();
 
     var app = builder.Build();
+    genocsBuilder.Build(app.Services);
 
     await app.Services.InitializeDatabasesAsync();
 
+    app.UseCorrelationContextLogging();
     app.UseInfrastructure(builder.Configuration);
     app.MapEndpoints();
     app.Run();

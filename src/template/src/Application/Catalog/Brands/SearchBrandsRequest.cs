@@ -1,8 +1,8 @@
+using Genocs.Core.Domain.Repositories;
+
 namespace Genocs.Microservice.Template.Application.Catalog.Brands;
 
-public class SearchBrandsRequest : PaginationFilter, IRequest<PaginationResponse<BrandDto>>
-{
-}
+public class SearchBrandsRequest : PaginationFilter, IRequest<PaginationResponse<BrandDto>>;
 
 public class BrandsBySearchRequestSpec : EntitiesByPaginationFilterSpec<Brand, BrandDto>
 {

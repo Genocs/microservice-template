@@ -1,6 +1,6 @@
 namespace Genocs.Microservice.Template.Application.Identity.Users;
 
-public class UserDetailsDto
+public class UserDetailsDto : IDto
 {
     public DefaultIdType Id { get; set; }
 

@@ -1,4 +1,5 @@
-﻿using Genocs.Microservice.Template.Application.Identity.Roles;
+﻿using Genocs.Core.Domain.Repositories;
+using Genocs.Microservice.Template.Application.Identity.Roles;
 using Genocs.Microservice.Template.Application.Identity.Users;
 
 namespace Genocs.Microservice.Template.Application.Dashboard;

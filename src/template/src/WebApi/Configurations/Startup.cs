@@ -1,5 +1,3 @@
-using Genocs.Microservice.Template.Infrastructure.Logging;
-
 namespace Genocs.Microservice.Template.WebApi.Configurations;
 
 internal static class Startup

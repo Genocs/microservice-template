@@ -1,5 +1,5 @@
 using System.Linq.Expressions;
-using Genocs.Microservice.Template.Application.Common.Interfaces;
+using Genocs.Common.Interfaces;
 using Hangfire;
 
 namespace Genocs.Microservice.Template.Infrastructure.BackgroundJobs;

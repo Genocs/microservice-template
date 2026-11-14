@@ -1,13 +1,13 @@
 using Finbuckle.MultiTenant.Abstractions;
+using Genocs.Common.Interfaces;
 using Genocs.Microservice.Template.Application.Common.Events;
 using Genocs.Microservice.Template.Application.Common.Exceptions;
-using Genocs.Microservice.Template.Application.Common.Interfaces;
 using Genocs.Microservice.Template.Application.Identity.Roles;
+using Genocs.Microservice.Template.Contracts.Authorization;
+using Genocs.Microservice.Template.Contracts.Multitenancy;
 using Genocs.Microservice.Template.Domain.Identity;
 using Genocs.Microservice.Template.Infrastructure.Multitenancy;
 using Genocs.Microservice.Template.Infrastructure.Persistence.Context;
-using Genocs.Microservice.Template.Shared.Authorization;
-using Genocs.Microservice.Template.Shared.Multitenancy;
 using Mapster;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;

@@ -1,4 +1,4 @@
-using System.ComponentModel.DataAnnotations.Schema;
+using Genocs.Core.Domain.Entities;
 
 namespace Genocs.Microservice.Template.Domain.Common.Contracts;
 
@@ -8,10 +8,6 @@ public abstract class BaseEntity : BaseEntity<DefaultIdType>
         => Id = Guid.NewGuid();
 }
 
-public abstract class BaseEntity<TId> : IEntity<TId>
+public abstract class BaseEntity<TId> : Entity<TId>
 {
-    public TId Id { get; protected set; } = default!;
-
-    [NotMapped]
-    public List<DomainEvent> DomainEvents { get; } = new();
 }

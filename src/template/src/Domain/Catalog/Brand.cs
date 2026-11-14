@@ -1,6 +1,6 @@
 namespace Genocs.Microservice.Template.Domain.Catalog;
 
-public class Brand(string name, string? description) : AuditableEntity, IAggregateRoot
+public class Brand(string name, string? description) : AuditableEntity
 {
     public string Name { get; private set; } = name;
     public string? Description { get; private set; } = description;

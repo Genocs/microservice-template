@@ -1,6 +1,6 @@
 namespace Genocs.Microservice.Template.Domain.Catalog;
 
-public class Product : AuditableEntity, IAggregateRoot
+public class Product : AuditableEntity
 {
     public string Name { get; private set; } = default!;
     public string? Description { get; private set; }

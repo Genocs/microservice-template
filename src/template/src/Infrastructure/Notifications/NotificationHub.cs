@@ -1,6 +1,6 @@
 ﻿using Finbuckle.MultiTenant.Abstractions;
+using Genocs.Common.Interfaces;
 using Genocs.Microservice.Template.Application.Common.Exceptions;
-using Genocs.Microservice.Template.Application.Common.Interfaces;
 using Genocs.Microservice.Template.Infrastructure.Multitenancy;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
@@ -16,10 +16,7 @@ public class NotificationHub : Hub, ITransientService
 
     public NotificationHub(IMultiTenantContextAccessor<GNXTenantInfo> multiTenantContextAccessor, ILogger<NotificationHub> logger)
     {
-        if (multiTenantContextAccessor is null)
-        {
-            throw new ArgumentNullException(nameof(multiTenantContextAccessor));
-        }
+        ArgumentNullException.ThrowIfNull(multiTenantContextAccessor);
 
         _currentTenant = multiTenantContextAccessor?.MultiTenantContext?.TenantInfo;
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));

@@ -1,0 +1,33 @@
+<Solution>
+  <Folder Name="/migrators/">
+    <Project Path="src/Migrators.MSSQL/Migrators.MSSQL.csproj" />
+    <Project Path="src/Migrators.MySQL/Migrators.MySQL.csproj" />
+    <Project Path="src/Migrators.Oracle/Migrators.Oracle.csproj" />
+    <Project Path="src/Migrators.PostgreSQL/Migrators.PostgreSQL.csproj" />
+    <Project Path="src/Migrators.SqLite/Migrators.SqLite.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Infrastructure.Tests/Infrastructure.Tests.csproj" />
+  </Folder>
+  <Folder Name="/WebApi/">
+    <Project Path="src/WebApi/Host.csproj" />
+  </Folder>
+  <Folder Name="/_Solution Items/">
+    <File Path=".dockerignore" />
+    <File Path=".editorconfig" />
+    <File Path=".gitignore" />
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Build.targets" />
+    <File Path="dotnet.ruleset" />
+    <File Path="global.json" />
+    <File Path="infrastructure/docker-compose.mssql.yml" />
+    <File Path="infrastructure/docker-compose.mysql.yml" />
+    <File Path="infrastructure/docker-compose.override.yml" />
+    <File Path="infrastructure/docker-compose.postgresql.yml" />
+    <File Path="stylecop.json" />
+  </Folder>
+  <Project Path="src/Application/Application.csproj" />
+  <Project Path="src/Contracts/Contracts.csproj" />
+  <Project Path="src/Domain/Domain.csproj" />
+  <Project Path="src/Infrastructure/Infrastructure.csproj" />
+</Solution>

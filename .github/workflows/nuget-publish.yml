@@ -1,0 +1,54 @@
+# This is a manually triggered nuget build and deploy
+
+name: Publish to NuGet
+
+# Controls when the action will run. Workflow runs when manually triggered using the UI
+# or API.
+on:
+  workflow_dispatch:
+    # Inputs the workflow accepts.
+    inputs:
+      version:
+        # Friendly description to be shown in the UI instead of 'name'
+        description: "Package Version"
+
+        # Default value if no value is explicitly provided
+        default: "5.0.0"
+
+        # Input has to be provided for the workflow to run
+        required: true
+
+jobs:
+  build:
+    name: Update NuGet package
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write  # enable GitHub OIDC token issuance for this job
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: |
+            10.0.x
+
+      - name: Test
+        run: dotnet test ./src/template -c Debug --verbosity normal
+
+      - name: Pack
+        run: dotnet pack ./src/Package.Template.csproj -c Debug -o ./out -p:PackageVersion=${{ github.event.inputs.version }} --verbosity normal
+
+      # Get a short-lived NuGet API key
+      - name: NuGet login (OIDC → temp API key)
+        uses: NuGet/login@v1
+        id: login
+        with:
+          user: ${{ secrets.NUGET_USER }}
+
+      - name: Push Packages to NuGet
+        env:
+          NUGET_API_KEY: ${{ steps.login.outputs.NUGET_API_KEY }}
+        run: dotnet nuget push ./out/*.nupkg -k ${{ env.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json --skip-duplicate --no-symbols

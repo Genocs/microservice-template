@@ -1,8 +1,8 @@
 ﻿using Finbuckle.MultiTenant;
+using Genocs.Microservice.Template.Contracts.Authorization;
+using Genocs.Microservice.Template.Contracts.Multitenancy;
 using Genocs.Microservice.Template.Infrastructure.Common;
 using Genocs.Microservice.Template.Infrastructure.Multitenancy;
-using Genocs.Microservice.Template.Shared.Authorization;
-using Genocs.Microservice.Template.Shared.Multitenancy;
 using Hangfire.Client;
 using Hangfire.Logging;
 using Microsoft.AspNetCore.Http;

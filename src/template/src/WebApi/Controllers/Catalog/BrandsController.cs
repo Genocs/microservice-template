@@ -1,4 +1,5 @@
 ﻿using Genocs.Microservice.Template.Application.Catalog.Brands;
+using Genocs.Microservice.Template.Contracts.Authorization;
 
 namespace Genocs.Microservice.Template.WebApi.Controllers.Catalog;
 
