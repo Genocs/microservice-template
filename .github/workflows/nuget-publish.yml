@@ -48,7 +48,7 @@ jobs:
         with:
           user: ${{ secrets.NUGET_USER }}
 
-      - name: Push Packages to NuGet
+      - name: Push Package to NuGet
         env:
           NUGET_API_KEY: ${{ steps.login.outputs.NUGET_API_KEY }}
         run: dotnet nuget push ./out/*.nupkg -k ${{ env.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json --skip-duplicate --no-symbols

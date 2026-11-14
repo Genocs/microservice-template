@@ -146,7 +146,7 @@ root
 
 ## Features
 
-- :white_check_mark: Built on [.NET 9](https://dotnet.microsoft.com/en-us/) with Clean Architecture layering (Domain, Application, Infrastructure, WebApi).
+- :white_check_mark: Built on [.NET 10](https://dotnet.microsoft.com/en-us/) with Clean Architecture layering (Domain, Application, Infrastructure, WebApi).
 - :white_check_mark: Domain-driven design with CQRS (MediatR), Mapster mappings, FluentValidation, and specification support.
 - :white_check_mark: Multi-tenancy powered by [Finbuckle](https://www.finbuckle.com/) with tenant management APIs, shared/per-tenant databases, and subscription upgrades.
 - :white_check_mark: Database providers for PostgreSQL, SQL Server, MySQL, Oracle, and SQLite via Entity Framework Core 9.
