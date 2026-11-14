@@ -35,20 +35,11 @@ jobs:
           dotnet-version: |
             10.0.x
 
-      - name: Restore dependencies
-        run: dotnet restore ./src/template
-
-      - name: Build
-        run: dotnet build ./src/template -c Debug --no-restore
-
       - name: Test
-        run: dotnet test ./src/template -c Debug --no-build --verbosity normal --report-trx --results-directory TestResults
-
-      - name: Create output directory
-        run: mkdir -p ./out
+        run: dotnet test ./src/template -c Debug --verbosity normal
 
       - name: Pack
-        run: dotnet pack ./src/Package.Template.csproj -c Debug -o ./out -p:PackageVersion=${{ github.event.inputs.version }} --no-build --verbosity normal
+        run: dotnet pack ./src/Package.Template.csproj -c Debug -o ./out -p:PackageVersion=${{ github.event.inputs.version }} --verbosity normal
 
       # Get a short-lived NuGet API key
       - name: NuGet login (OIDC → temp API key)

@@ -8,7 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup Label="Genocs library">
-        <PackageReference Include="Genocs.Core" Version="9.1.0" />
+        <PackageReference Include="Genocs.Core" Version="9.2.0-beta02" />
     </ItemGroup>
 
     <ItemGroup>

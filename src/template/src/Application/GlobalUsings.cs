@@ -1,6 +1,7 @@
 global using Ardalis.Specification;
 global using FluentValidation;
 global using Genocs.Common.Interfaces;
+global using Genocs.Core.Domain.Repositories;
 global using Genocs.Microservice.Template.Application.Common.Events;
 global using Genocs.Microservice.Template.Application.Common.Exceptions;
 global using Genocs.Microservice.Template.Application.Common.FileStorage;

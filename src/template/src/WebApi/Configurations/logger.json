@@ -1,9 +1,25 @@
 {
-  "loggerSettings": {
-    "appName": "Genocs.Microservice.Template",
-    "elasticSearchUrl": "",
-    "writeToFile": true,
-    "structuredConsoleLogging": false,
-    "minimumLogLevel": "information"
+  "logger": {
+    "enabled": true,
+    "level": "Information",
+    "minimumLevelOverrides": {
+      "Microsoft": "Warning",
+      "Microsoft.EntityFrameworkCore": "Error",
+      "Hangfire": "Warning",
+      "Microsoft.Hosting.Lifetime": "Information"
+    },
+    "console": {
+      "enabled": true,
+      "enableStructured": false
+    },
+    "file": {
+      "enabled": true,
+      "path": "Logs/logs.json",
+      "interval": "Day"
+    },
+    "elk": {
+      "enabled": false,
+      "url": ""
+    }
   }
 }

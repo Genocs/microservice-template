@@ -1,6 +1,7 @@
 using System.Data;
 using Finbuckle.MultiTenant.Abstractions;
 using Finbuckle.MultiTenant.EntityFrameworkCore;
+using Genocs.Common.Domain.Entities;
 using Genocs.Common.Interfaces;
 using Genocs.Microservice.Template.Application.Common.Events;
 using Genocs.Microservice.Template.Domain.Common.Contracts;
@@ -11,6 +12,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.Extensions.Options;
+using ISoftDelete = Genocs.Microservice.Template.Domain.Common.Contracts.ISoftDelete;
 
 namespace Genocs.Microservice.Template.Infrastructure.Persistence.Context;
 
@@ -205,15 +207,16 @@ public abstract class BaseDbContext : MultiTenantIdentityDbContext<ApplicationUs
 
     private async Task SendDomainEventsAsync()
     {
-        var entitiesWithEvents = ChangeTracker.Entries<IEntity>()
+        var entitiesWithEvents = ChangeTracker.Entries()
             .Select(e => e.Entity)
+            .OfType<IGeneratesDomainEvents>()
             .Where(e => e.DomainEvents.Count > 0)
             .ToArray();
 
         foreach (var entity in entitiesWithEvents)
         {
             var domainEvents = entity.DomainEvents.ToArray();
-            entity.DomainEvents.Clear();
+            entity.ClearDomainEvents();
             foreach (var domainEvent in domainEvents)
             {
                 await _events.PublishAsync(domainEvent);

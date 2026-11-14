@@ -17,7 +17,7 @@
     </ItemGroup>
 
     <ItemGroup Label="Genocs library">
-        <PackageReference Include="Genocs.Persistence.EFCore" Version="9.1.0" />
+        <PackageReference Include="Genocs.Persistence.EFCore" Version="9.2.0-beta02" />
     </ItemGroup>
 
     <ItemGroup>
