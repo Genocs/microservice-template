@@ -229,18 +229,18 @@ You can deploy Demo Application with one click in Heroku, Microsoft Azure, or Go
 
 - Discord [@genocs](https://discord.com/invite/fWwArnkV)
 - Facebook Page [@genocs](https://facebook.com/Genocs)
-- Youtube Channel [@genocs](https://youtube.com/c/genocs)
+- YouTube channel [@genocs](https://youtube.com/c/genocs)
+
+For step-by-step instructions, follow these guides on [Discord](https://discord.com/channels/878181478972928011/892573122186838046/933513103688224838) and [GitHub Gist](https://gist.github.com/0xjac/85097472043b697ab57ba1b1c7530274).
 
 ## Support
 
-Has this Project helped you learn something New? or Helped you at work?
-
-Here are a few ways by which you can support.
+If this project has helped you learn or improve your work, you can support it in several ways:
 
 - ⭐ Leave a star!
 - 🥇 Recommend this project to your colleagues.
-- 🦸 Do consider endorsing me on LinkedIn for ASP.NET Core - [Connect via LinkedIn](https://www.linkedin.com/in/giovanni-emanuele-nocco-b31a5169/)
-- ☕ If you want to support this project in the long run, consider [buying me a coffee](https://www.buymeacoffee.com/genocs)!
+- 🦸 Endorse the project on LinkedIn for ASP.NET Core: [Connect via LinkedIn](https://www.linkedin.com/in/giovanni-emanuele-nocco-b31a5169/)
+- ☕ If you want to support this project over the long term, consider [buying me a coffee](https://www.buymeacoffee.com/genocs)!
 
 [![buy-me-a-coffee](https://raw.githubusercontent.com/Genocs/microservice-template/main/assets/buy-me-a-coffee.png "buy me a coffee")](https://www.buymeacoffee.com/genocs)
 
@@ -249,4 +249,3 @@ Here are a few ways by which you can support.
 Become a financial contributor and help me sustain the project.
 
 **Support the Project** on [Opencollective](https://opencollective.com/genocs)
-

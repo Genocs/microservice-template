@@ -98,44 +98,44 @@ Read Documentation related to this template here - [Template Documentation](http
 
 > Feel free to contribute to the Documentation Repository - [Contribute Documentation](https://github.com/Genocs/genocs-library-docs)
 
-## Getting Started
 
-To get started with this Template, here are the available options:
+---
+## Setup Infrastructure
 
-- Install using the `genocs cli` tool. Use this for latest release versions of the Template only.
-- Install using the `dotnet new install` tool. Use this for any versions of the Template.
-- Fork the Repository. Use this if you want to always keep your version of the Template up-to date with the latest changes.
+The template includes preconfigured infrastructure that is ready to use. You can use the default configuration or modify it for your environment.
 
-> Make sure that your DEV enviroment is setup, [Read the Development Environment Guide](https://genocs-blog.netlify.app/microservice-template/general/development-environment/)
+Supported infrastructure components:
+- PostgreSQL
+- SQL Server
+- MySQL
+- Oracle
+- SQLite
 
-### GENOCS CLI Tool
+The default database provider is SQL Server. Change `DatabaseSettings__DBProvider` in `docker-compose.yml` to use another supported provider.
 
-#### **Prerequisites**
+---
+## Genocs CLI
 
-Before creating your first solution, you should ensure that your local machine has:
+Use the `genocs cli` tool to install the template and create a new solution. The CLI is a console application that scaffolds solutions from the Genocs template.
 
-- **.NET 10** You can find the download [here](https://dotnet.microsoft.com/en-us/download/dotnet/10.0).
-- **NodeJS (16+)** You can find the download [here](https://nodejs.org/en/download).
-- **Visual Studio Code** You can find the download [here](https://code.visualstudio.com/download).
-- **Visual Studio 2026** (Optional) You can find the download [here](https://visualstudio.microsoft.com/vs/preview/vs2026/).
+### Installation
 
-#### **Installation**
-
-After you have installed .NET, you will need to install the `cli` console tool.
+After installing .NET, install the CLI tool.
 
 ```bash
 dotnet tool install -g genocs.cli
 genocs install
 ```
 
-This install the CLI tools and the associated Templates. You are now ready to create your first project!
+This installs the CLI tool and associated templates. You are now ready to create your first project.
 
 [Documentation](https://genocs-blog.netlify.app/cli/)
 
-#### Let get started
-Here's how you would create a Solution using the Genocs .NET WebAPI Template.
+### Get started
 
-Simply navigate to a new directory (wherever you want to place your new solution), and open up *bash prompt* at the opened directory.
+To create a solution with the Genocs .NET Web API template:
+
+Navigate to the directory where you want to create the solution and open a terminal.
 
 Run the following command. Note that, in this demonstration, I am naming my new solution as `CompanyName.ProjectName.ServiceName`.
 
@@ -143,12 +143,12 @@ Run the following command. Note that, in this demonstration, I am naming my new 
 genocs micro-webapi [n|new] CompanyName.ProjectName.ServiceName
 ```
 
-This will create a new .NET 10 Web API solution for you using the template.
-For further steps and details, [Read the Getting Started Guide](https://genocs-blog.netlify.app/microservice-template/)
+This creates a new .NET 10 Web API solution using the template.
+For more details, see the [template overview](https://genocs-blog.netlify.app/templating/multitenancy-template/general/overview/).
 
-#### Update
+### Update
 
-To update the tool & templates, run the following commands
+To update the CLI tool and templates, run:
 
 ```bash
 dotnet tool update genocs.cli --global
@@ -157,10 +157,10 @@ genocs update
 
 ### Run the template
 
-Makefile
--------------------
+---
+## Makefile
 
-So, for a better developer experience, I have added Makefile into the solution. Now that our solution is generated, let's navigate to the root folder of the solution and open up a command terminal.
+The generated solution includes a Makefile for common development tasks. From the solution root, open a terminal.
 
 To build the solution:
 
@@ -168,36 +168,36 @@ To build the solution:
 make build
 ```
 
-By default, the solution is configured to work with postgresql database (mainly because of the OS licensing). So, you will have to make sure that postgresql database instance is up and running on your machine. You can modify the connection string to include your username and password. Connections strings can be found at `src/WebApi/Configurations/database.json` and `src/WebApi/Configurations/hangfire.json`. Once that's done, let's start up the API server.
+By default, the solution uses PostgreSQL. Make sure a PostgreSQL instance is running on your machine. Update the credentials in `src/WebApi/Configurations/database.json` and `src/WebApi/Configurations/hangfire.json`, if necessary, and then start the API server.
 
 ```bash
 make start
 ```
 
-That's it, the application would connect to the defined postgresql database and start creating tables, and seed required data.
+The application connects to the configured PostgreSQL database, creates the required tables, and seeds initial data.
 
-For testing this API, we have 3 options:
-1. Swagger @ `localhost:5001/swagger`
+You can test the API with one of these options:
+
+1. Swagger at `localhost:5001/swagger`
 2. Postman collections are available `./postman`
-3. ThunderClient for VSCode. You will have to install the [Thunderclient](https://www.thunderclient.com/) extension for VSCode.
+3. Thunder Client for VS Code. Install the [Thunder Client](https://www.thunderclient.com/) extension for VS Code.
 
-The default credentials to this API is:
-
+The default credentials are:
 
 ```json
 {
-    "email":"admin@root.com",
-    "password":"<YOUR_ROOT_PASSWORD>"
+  "email": "admin@root.com",
+  "password": "<YOUR_ROOT_PASSWORD>"
 }
 ```
 
-Open up Postman, Thunderclient or Swagger.
+Open Postman, Thunder Client, or Swagger.
 
-identity -> get-token
+In Identity, select `get-token`.
 
-This is a **POST** Request. Here the body of the request will be the JSON (credentials) I specified earlier. And also, remember to pass the tenant id in the header of the request. The default tenant id is `root`.
+This is a **POST** request with the credentials shown above. Pass the tenant ID in the `tenant` header. The default tenant ID is `root`.
 
-Here is a sample CURL command for getting the tokens.
+Here is a sample cURL command for obtaining the tokens:
 
 ```curl
 curl -X POST \
@@ -212,7 +212,7 @@ curl -X POST \
 }'
 ```
 
-And here is the response.
+Example response:
 
 ```json
 {
@@ -222,120 +222,117 @@ And here is the response.
 }
 ```
 
-You will need to pass the `token` in the request headers to authenticate calls to the Genocs API!
+Pass the returned `token` in the request headers to authenticate calls to the Genocs API.
 
-For further steps and details, [Read the Getting Started Guide](https://genocs-blog.netlify.app/microservice-template)
+For further steps and details, [Template Overview](https://genocs-blog.netlify.app/templating/multitenancy-template/general/overview/)
 
 ## Containerization
 
-The project, being .NET 10, it is configured to have built-in support for containerization. That means, you really don't need a `dockerfile` to containerize the webapi.
+The project is configured for containerization as a .NET 10 application, so a Dockerfile is required to containerize the Web API.
 
-To build a docker image, all you have to do is, ensure that docker-desktop or docker instance is running. And run the following command at the root of the solution.
+To build a Docker image, make sure Docker Desktop or the Docker engine is running, then execute this command from the solution root:
 
 ```bash
 make publish
 ```
 
-You can also push the docker image directly to dockerhub or any supported registry by using the following command.
+You can also push the Docker image directly to Docker Hub or another supported registry:
 
 ```bash
 make publish-to-hub
 ```
 
-You will have to update your docker registry/repo url in the Makefile though!
+Update the Docker registry/repository URL in the Makefile before pushing.
 
 ## Docker Compose
 
-This project also comes with examples of docker compose files, where you can spin up the webapi and database instance in your local containers with the following commands.
+This project includes Docker Compose examples for running the Web API and database containers locally:
 
 ```bash
-#docker compose up - Boots up the webapi & postgresql container
+# Start the Web API and PostgreSQL containers
 make dcu
-#docker compose down - Shuts down the webapi & postgresql containers
+# Stop the Web API and PostgreSQL containers
 make dcd
 ```
 
-There are also examples for MySQL & MSSQL variations. You can find the compose files under the `./infrastructure` folder. Read more about the compose scenarios in [infrastructure/docker/README.md](./infrastructure/docker/README.md).
+Examples are also available for MySQL and SQL Server. You can find the Compose files in `./infrastructure`. See [infrastructure/docker/README.md](./infrastructure/docker/README.md) for details.
 
-## Cloud Deployment with Terraform + AWS ECS
+## Cloud Deployment with Terraform and AWS ECS
 
-We do support cloud deployment to AWS using terraform. The terraform files are available at the `./terraform` folder.
+AWS cloud deployment is supported with Terraform. The Terraform files are available in the `./terraform` folder.
 
 ### Prerequisites
 
 - Install Terraform
-- Install & Configure AWS CLI profiles to allow terraform to provision resources for you. Please see this video about [AWS Credentials Management](https://www.youtube.com/watch?v=oY0-1mj4oCo&ab_channel=MukeshMurugan).
+- Install and configure an AWS CLI profile so Terraform can provision resources. See [AWS credentials management](https://www.youtube.com/watch?v=oY0-1mj4oCo&ab_channel=MukeshMurugan).
 
-In brief, the terraform folder has 2 sub-folders:
+The Terraform folder contains two subfolders:
 - backend
 - environments/staging
 
-The Backend folder is internally used by Terraform for state management and locking. There is a one-time setup you have to do against this folder. Navigate to the backend folder and run the command.
+The `backend` folder is used for Terraform state management and locking. Complete a one-time setup by navigating to the folder and running:
 
 ```bash
 terraform init
 terraform apply -auto-approve
 ```
 
-This would create the required S3 Buckets and DDB table for you.
+This creates the required S3 buckets and DynamoDB table.
 
-Next is the `environments/staging` folder. Here too, run the following command.
+In the `environments/staging` folder, run:
 
 ```bash
 terraform init
 ```
 
-Once done, you can go the terraform.tfvars file to change the variables like:
-- project tags
-- docker image name
-- ecs cluster name and so on.
+Next, edit `terraform.tfvars` to configure values such as:
 
-After that, simply go back to the root of the solution and run the following command.
+- project tags
+- Docker image name
+- ECS cluster name
+- Project-specific settings
+
+Return to the solution root and run:
 
 ```bash
 make ta
 ```
 
-This will evaluate your terraform files and create a provision plan for you. Once you are ok, type in `yes` and the tool will start to deploy your .NET Microservice project as containers along with a RDS PostgreSQL instance. You will be receiving the hosted api url once the provisioning is completed!
+This evaluates the Terraform configuration and creates an execution plan. After reviewing the plan, enter `yes` to deploy the .NET microservice containers and an RDS PostgreSQL instance. The hosted API URL is returned when provisioning completes.
 
-To destroy the deployed resources, run the following
+To destroy the deployed resources, run:
 
 ```bash
 make td
 ```
 
+## Links and Documentation
 
-## Links & Documentations
+  - [Overview](https://genocs-blog.netlify.app/microservice-template/general/overview/)
+  - [Getting Started](https://genocs-blog.netlify.app/microservice-template/general/getting-started/)
+  - [Development Environment](https://genocs-blog.netlify.app/microservice-template/general/development-environment/)
+  - [Participate in Q&A and general discussions](https://github.com/Genocs/microservice-template/discussions)
 
-[Overview](https://genocs-blog.netlify.app/microservice-template/general/overview/)
+## Changelog
 
-[Getting Started](https://genocs-blog.netlify.app/microservice-template/general/getting-started/)
-
-[Development Environment](https://genocs-blog.netlify.app/microservice-template/general/development-environment/)
-
-[Participate in QNA & General Discussions](https://github.com/Genocs/microservice-template/discussions)
-
-## Changelogs
-
-View Complete [Changelogs](https://github.com/Genocs/microservice-template/blob/main/CHANGELOG.md).
+View the complete [changelog](https://github.com/Genocs/microservice-template/blob/main/CHANGELOG.md).
 
 ## Community
 
 - Discord [@genocs](https://discord.com/invite/fWwArnkV)
 - Facebook Page [@genocs](https://facebook.com/Genocs)
-- Youtube Channel [@genocs](https://youtube.com/c/genocs)
+- YouTube channel [@genocs](https://youtube.com/c/genocs)
+
+For step-by-step instructions, follow these guides on [Discord](https://discord.com/channels/878181478972928011/892573122186838046/933513103688224838) and [GitHub Gist](https://gist.github.com/0xjac/85097472043b697ab57ba1b1c7530274).
 
 ## Support
 
-Has this Project helped you learn something New? or Helped you at work?
-
-Here are a few ways by which you can support.
+If this project has helped you learn or improve your work, you can support it in several ways:
 
 - ⭐ Leave a star!
 - 🥇 Recommend this project to your colleagues.
-- 🦸 Do consider endorsing me on LinkedIn for ASP.NET Core - [Connect via LinkedIn](https://www.linkedin.com/in/giovanni-emanuele-nocco-b31a5169/)
-- ☕ If you want to support this project in the long run, consider [buying me a coffee](https://www.buymeacoffee.com/genocs)!
-
+- 🦸 Endorse the project on LinkedIn for ASP.NET Core: [Connect via LinkedIn](https://www.linkedin.com/in/giovanni-emanuele-nocco-b31a5169/)
+- ☕ If you want to support this project over the long term, consider [buying me a coffee](https://www.buymeacoffee.com/genocs)!
 
 [![buy-me-a-coffee](https://raw.githubusercontent.com/Genocs/microservice-template/main/assets/buy-me-a-coffee.png "buy me a coffee")](https://www.buymeacoffee.com/genocs)
 
@@ -344,8 +341,3 @@ Here are a few ways by which you can support.
 Become a financial contributor and help me sustain the project.
 
 **Support the Project** on [Opencollective](https://opencollective.com/genocs)
-
-## Acknowledgements
-
-- [Mukesh Murugan](https://github.com/iammukeshm)
-- [FullStackHero](https://fullstackhero.net)
