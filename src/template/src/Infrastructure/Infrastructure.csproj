@@ -19,25 +19,41 @@
         <PackageReference Include="Finbuckle.MultiTenant.EntityFrameworkCore" Version="9.4.16" />
         <PackageReference Include="Hangfire" Version="1.8.25" />
         <PackageReference Include="Hangfire.Console.Extensions" Version="2.1.2" />
-        <PackageReference Include="Hangfire.MySqlStorage" Version="2.0.3" />
-        <PackageReference Include="Hangfire.PostgreSql" Version="1.21.1" />
-        <PackageReference Include="Hangfire.SQLite" Version="1.4.2" />
         <PackageReference Include="MailKit" Version="4.18.2" />
         <PackageReference Include="Microsoft.AspNetCore.SignalR.StackExchangeRedis" Version="10.0.15" />
-        <PackageReference Include="Microsoft.Data.Sqlite" Version="10.0.15" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="10.0.15" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.15" />
         <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="10.0.15" />
         <PackageReference Include="Microsoft.Identity.Web" Version="4.18.0" />
-        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="10.0.3" />
         <PackageReference Include="NSwag.AspNetCore" Version="14.8.0" />
         <PackageReference Include="RazorEngineCore" Version="2026.1.1" />
         <PackageReference Include="ZymLabs.NSwag.FluentValidation.AspNetCore" Version="0.7.1" />
-        <PackageReference Include="Oracle.EntityFrameworkCore" Version="10.23.26400" />
-        <PackageReference Include="OrchardCore.Localization.Core" Version="3.0.1" />
-        <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="9.0.0" />
         <PackageReference Include="Serilog.Extensions.Hosting" Version="10.0.0" />
         <PackageReference Include="System.Linq.Dynamic.Core" Version="1.7.4" />
+        <PackageReference Include="OrchardCore.Localization.Core" Version="3.0.1" />
+        <!--#if (MySQL) -->
+        <PackageReference Include="Hangfire.MySqlStorage" Version="2.0.3" />
+        <!--#endif -->
+        <!--#if (PostgreSQL) -->
+        <PackageReference Include="Hangfire.PostgreSql" Version="1.21.1" />
+        <!--#endif -->
+        <!--#if (SQLite) -->
+        <PackageReference Include="Hangfire.SQLite" Version="1.4.2" />
+        <!--#endif -->
+        <!--#if (SQLite) -->
+        <PackageReference Include="Microsoft.Data.Sqlite" Version="10.0.15" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="10.0.15" />
+        <!--#endif -->
+        <!--#if (MSSQL) -->
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.15" />
+        <!--#endif -->
+        <!--#if (PostgreSQL) -->
+        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="10.0.3" />
+        <!--#endif -->
+        <!--#if (Oracle) -->
+        <PackageReference Include="Oracle.EntityFrameworkCore" Version="10.23.26400" />
+        <!--#endif -->
+        <!--#if (MySQL) -->
+        <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="9.0.0" />
+        <!--#endif -->
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\Application\Application.csproj" />

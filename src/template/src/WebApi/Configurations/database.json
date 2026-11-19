@@ -1,6 +1,24 @@
 {
   "databaseSettings": {
+//#if (PostgreSQL)
+    "dBProvider": "postgresql",
+    "connectionString": "Server=localhost;Port=5432;Database=Genocs.Microservice.Template;User Id=postgres;Password=postgres",
+//#endif
+//#if (MySQL)
+    "dBProvider": "mysql",
+    "connectionString": "server=localhost;uid=root;pwd=root;database=Genocs.Microservice.Template;Allow User Variables=True",
+//#endif
+//#if (Oracle)
+    "dBProvider": "oracle",
+    "connectionString": "Data Source=localhost:1521/XEPDB1;User Id=genocs;Password=genocs",
+//#endif
+//#if (SQLite)
+    "dBProvider": "sqlite",
+    "connectionString": "Data Source=Genocs.Microservice.Template.db",
+//#endif
+//#if (MSSQL)
     "dBProvider": "mssql",
-    "connectionString": "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=Genocs.Microservice.Template;Integrated Security=True;MultipleActiveResultSets=True"
+    "connectionString": "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=Genocs.Microservice.Template;Integrated Security=True;MultipleActiveResultSets=True",
+//#endif
   }
 }

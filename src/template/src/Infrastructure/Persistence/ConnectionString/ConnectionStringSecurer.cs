@@ -1,11 +1,21 @@
 using Genocs.Microservice.Template.Application.Common.Persistence;
 using Genocs.Microservice.Template.Infrastructure.Common;
+#if MSSQL
 using Microsoft.Data.SqlClient;
+#endif
+#if SQLite
 using Microsoft.Data.Sqlite;
+#endif
 using Microsoft.Extensions.Options;
+#if MySQL
 using MySqlConnector;
+#endif
+#if PostgreSQL
 using Npgsql;
+#endif
+#if Oracle
 using Oracle.ManagedDataAccess.Client;
+#endif
 
 namespace Genocs.Microservice.Template.Infrastructure.Persistence.ConnectionString;
 
@@ -31,15 +41,26 @@ public class ConnectionStringSecurer : IConnectionStringSecurer
 
         return dbProvider?.ToLower() switch
         {
+#if PostgreSQL
             DbProviderKeys.Npgsql => MakeSecureNpgsqlConnectionString(connectionString),
+#endif
+#if MSSQL
             DbProviderKeys.SqlServer => MakeSecureSqlConnectionString(connectionString),
+#endif
+#if MySQL
             DbProviderKeys.MySql => MakeSecureMySqlConnectionString(connectionString),
+#endif
+#if SQLite
             DbProviderKeys.SqLite => MakeSecureSqLiteConnectionString(connectionString),
+#endif
+#if Oracle
             DbProviderKeys.Oracle => MakeSecureOracleConnectionString(connectionString),
+#endif
             _ => connectionString
         };
     }
 
+#if Oracle
     private static string MakeSecureOracleConnectionString(string connectionString)
     {
         var builder = new OracleConnectionStringBuilder(connectionString);
@@ -56,7 +77,8 @@ public class ConnectionStringSecurer : IConnectionStringSecurer
 
         return builder.ToString();
     }
-
+#endif
+#if MySQL
     private static string MakeSecureMySqlConnectionString(string connectionString)
     {
         var builder = new MySqlConnectionStringBuilder(connectionString);
@@ -73,7 +95,8 @@ public class ConnectionStringSecurer : IConnectionStringSecurer
 
         return builder.ToString();
     }
-
+#endif
+#if MSSQL
     private static string MakeSecureSqlConnectionString(string connectionString)
     {
         var builder = new SqlConnectionStringBuilder(connectionString);
@@ -90,14 +113,16 @@ public class ConnectionStringSecurer : IConnectionStringSecurer
 
         return builder.ToString();
     }
-
+#endif
+#if SQLite
     private static string MakeSecureSqLiteConnectionString(string connectionString)
     {
         var builder = new SqliteConnection(connectionString);
 
         return builder.ToString();
     }
-
+#endif
+#if PostgreSQL
     private static string MakeSecureNpgsqlConnectionString(string connectionString)
     {
         var builder = new NpgsqlConnectionStringBuilder(connectionString);
@@ -114,4 +139,5 @@ public class ConnectionStringSecurer : IConnectionStringSecurer
 
         return builder.ToString();
     }
+#endif
 }

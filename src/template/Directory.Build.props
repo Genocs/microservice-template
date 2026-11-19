@@ -10,6 +10,8 @@
         <NoDefaultExcludes>true</NoDefaultExcludes>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <!-- Keeps every database branch compiling in this repository. Template generation keeps a single provider. -->
+        <DefineConstants>$(DefineConstants);MSSQL;MySQL;PostgreSQL;Oracle;SQLite</DefineConstants>
     </PropertyGroup>
 
     <ItemGroup>

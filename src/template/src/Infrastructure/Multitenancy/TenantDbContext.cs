@@ -9,7 +9,9 @@ public class TenantDbContext : EFCoreStoreDbContext<GNXTenantInfo>
     public TenantDbContext(DbContextOptions<TenantDbContext> options)
         : base(options)
     {
+#if PostgreSQL
         AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+#endif
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

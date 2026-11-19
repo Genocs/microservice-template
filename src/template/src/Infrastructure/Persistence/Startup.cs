@@ -10,7 +10,9 @@ using Genocs.Persistence.EFCore.Initialization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
+#if MySQL
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
+#endif
 using Serilog;
 
 namespace Genocs.Microservice.Template.Infrastructure.Persistence;
@@ -51,17 +53,27 @@ internal static class Startup
     {
         return dbProvider.ToLowerInvariant() switch
         {
+#if PostgreSQL
             DbProviderKeys.Npgsql => builder.UseNpgsql(connectionString, e =>
                                  e.MigrationsAssembly("Migrators.PostgreSQL")),
+#endif
+#if MSSQL
             DbProviderKeys.SqlServer => builder.UseSqlServer(connectionString, e =>
                                  e.MigrationsAssembly("Migrators.MSSQL")),
+#endif
+#if MySQL
             DbProviderKeys.MySql => builder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString), e =>
                                  e.MigrationsAssembly("Migrators.MySQL")
                                   .SchemaBehavior(MySqlSchemaBehavior.Ignore)),
+#endif
+#if Oracle
             DbProviderKeys.Oracle => builder.UseOracle(connectionString, e =>
                                  e.MigrationsAssembly("Migrators.Oracle")),
+#endif
+#if SQLite
             DbProviderKeys.SqLite => builder.UseSqlite(connectionString, e =>
                                  e.MigrationsAssembly("Migrators.SqLite")),
+#endif
             _ => throw new InvalidOperationException($"DB Provider {dbProvider} is not supported."),
         };
     }

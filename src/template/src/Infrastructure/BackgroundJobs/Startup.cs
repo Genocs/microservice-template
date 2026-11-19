@@ -3,10 +3,18 @@ using Genocs.Microservice.Template.Infrastructure.Common;
 using Hangfire;
 using Hangfire.Console;
 using Hangfire.Console.Extensions;
+#if MySQL
 using Hangfire.MySql;
+#endif
+#if PostgreSQL
 using Hangfire.PostgreSql;
+#endif
+#if SQLite
 using Hangfire.SQLite;
+#endif
+#if MSSQL
 using Hangfire.SqlServer;
+#endif
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -44,14 +52,22 @@ internal static class Startup
     private static IGlobalConfiguration UseDatabase(this IGlobalConfiguration hangfireConfig, string dbProvider, string connectionString, IConfiguration config) =>
         dbProvider.ToLowerInvariant() switch
         {
+#if PostgreSQL
             DbProviderKeys.Npgsql =>
                 hangfireConfig.UsePostgreSqlStorage(connectionString, config.GetSection("HangfireSettings:Storage:Options").Get<PostgreSqlStorageOptions>()),
+#endif
+#if MSSQL
             DbProviderKeys.SqlServer =>
                 hangfireConfig.UseSqlServerStorage(connectionString, config.GetSection("HangfireSettings:Storage:Options").Get<SqlServerStorageOptions>()),
+#endif
+#if SQLite
             DbProviderKeys.SqLite =>
                 hangfireConfig.UseSQLiteStorage(connectionString, config.GetSection("HangfireSettings:Storage:Options").Get<SQLiteStorageOptions>()),
+#endif
+#if MySQL
             DbProviderKeys.MySql =>
                 hangfireConfig.UseStorage(new MySqlStorage(connectionString, config.GetSection("HangfireSettings:Storage:Options").Get<MySqlStorageOptions>())),
+#endif
             _ => throw new Exception($"Hangfire Storage Provider {dbProvider} is not supported.")
         };
 

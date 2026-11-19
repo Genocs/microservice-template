@@ -26,11 +26,21 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Migrators.MySQL\Migrators.MySQL.csproj" />
-        <ProjectReference Include="..\Migrators.Oracle\Migrators.Oracle.csproj" />
-        <ProjectReference Include="..\Migrators.PostgreSQL\Migrators.PostgreSQL.csproj" />
+        <!--#if (MSSQL) -->
         <ProjectReference Include="..\Migrators.MSSQL\Migrators.MSSQL.csproj" />
+        <!--#endif -->
+        <!--#if (MySQL) -->
+        <ProjectReference Include="..\Migrators.MySQL\Migrators.MySQL.csproj" />
+        <!--#endif -->
+        <!--#if (Oracle) -->
+        <ProjectReference Include="..\Migrators.Oracle\Migrators.Oracle.csproj" />
+        <!--#endif -->
+        <!--#if (PostgreSQL) -->
+        <ProjectReference Include="..\Migrators.PostgreSQL\Migrators.PostgreSQL.csproj" />
+        <!--#endif -->
+        <!--#if (SQLite) -->
         <ProjectReference Include="..\Migrators.SqLite\Migrators.SqLite.csproj" />
+        <!--#endif -->
     </ItemGroup>
 
     <ItemGroup>

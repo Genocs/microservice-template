@@ -20,8 +20,26 @@
       "workerCount": 5
     },
     "storage": {
+//#if (PostgreSQL)
+      "StorageProvider": "postgresql",
+      "ConnectionString": "Server=localhost;Port=5432;Database=Genocs.Microservice.Template;User Id=postgres;Password=postgres",
+//#endif
+//#if (MySQL)
+      "StorageProvider": "mysql",
+      "ConnectionString": "server=localhost;uid=root;pwd=root;database=Genocs.Microservice.Template;Allow User Variables=True",
+//#endif
+//#if (Oracle)
+      "StorageProvider": "oracle",
+      "ConnectionString": "Data Source=localhost:1521/XEPDB1;User Id=genocs;Password=genocs",
+//#endif
+//#if (SQLite)
+      "StorageProvider": "sqlite",
+      "ConnectionString": "Data Source=Genocs.Microservice.Template.db",
+//#endif
+//#if (MSSQL)
       "StorageProvider": "mssql",
       "ConnectionString": "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=Genocs.Microservice.Template;Integrated Security=True;MultipleActiveResultSets=True",
+//#endif
       "Options": {
         "CommandBatchMaxTimeout": "00:05:00",
         "QueuePollInterval": "00:00:01",

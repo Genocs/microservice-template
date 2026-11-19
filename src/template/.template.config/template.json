@@ -1,5 +1,33 @@
 {
   "$schema": "http://json.schemastore.org/template",
+  "specialCustomOperations": {
+    "**.slnx": {
+      "operations": [
+        {
+          "type": "conditional",
+          "configuration": {
+            "actionableIf": [ "<!--#if" ],
+            "actionableElse": [ "#else", "<!--#else" ],
+            "actionableElseif": [ "#elseif", "<!--#elseif", "#elif", "<!--#elif" ],
+            "endif": [ "#endif", "<!--#endif" ],
+            "trim" : "true",
+            "wholeLine": "true",
+            "evaluator": "C++"
+          }
+        },
+        {
+          "type": "balancednesting",
+          "configuration": {
+            "startToken": "<!--",
+            "realEndToken": "-->",
+            "pseudoEndToken": "-- >",
+            "id": "fixPseudoNestedComments",
+            "resetFlag": "_TestResetFlag_"
+          }
+        }
+      ]
+    }
+  },
   "author": "Nocco Giovanni Emanuele",
   "classifications": [
     "Web/ASP.NET"
@@ -16,7 +44,7 @@
   "sourceName": "Genocs.Microservice.Template",
   "preferNameDirectory": true,
   "symbols": {
-    "genocs-components": {
+    "use-cases": {
       "type": "parameter",
       "datatype": "choice",
       "defaultValue": "full",
@@ -26,16 +54,64 @@
           "description": "Setup the full set of functionalities"
         }
       ],
-      "replaces": "genocs-components",
+      "replaces": "use-cases",
       "onlyIf": [
         {
-          "after": "\"genocs-components\": \""
+          "after": "\"use-cases\": \""
         }
       ]
     },
     "full": {
       "type": "computed",
-      "value": "(genocs-components == \"full\")"
+      "value": "(use-cases == \"full\")"
+    },
+    "database": {
+      "type": "parameter",
+      "datatype": "choice",
+      "defaultValue": "mssql",
+      "description": "Database provider. Exactly one provider is included.",
+      "choices": [
+        {
+          "choice": "mssql",
+          "description": "SQL Server Database (MSSQL)"
+        },
+        {
+          "choice": "postgresql",
+          "description": "PostgreSQL Database (PostgreSQL)"
+        },
+        {
+          "choice": "mysql",
+          "description": "MySQL Database (MySQL)"
+        },
+        {
+          "choice": "oracle",
+          "description": "Oracle Database (Oracle)"
+        },
+        {
+          "choice": "sqlite",
+          "description": "SQLite Database (SQLite)"
+        }
+      ]
+    },
+    "MSSQL": {
+      "type": "computed",
+      "value": "(database == \"mssql\")"
+    },
+    "PostgreSQL": {
+      "type": "computed",
+      "value": "(database == \"postgresql\")"
+    },
+    "MySQL": {
+      "type": "computed",
+      "value": "(database == \"mysql\")"
+    },
+    "Oracle": {
+      "type": "computed",
+      "value": "(database == \"oracle\")"
+    },
+    "SQLite": {
+      "type": "computed",
+      "value": "(database == \"sqlite\")"
     }
   },
   "sources": [
@@ -52,6 +128,63 @@
         {
           "condition": "(full)",
           "exclude": []
+        },
+        {
+          "condition": "(MSSQL)",
+          "exclude": [
+            "src/Migrators.MySQL/**/*.*",
+            "src/Migrators.Oracle/**/*.*",
+            "src/Migrators.PostgreSQL/**/*.*",
+            "src/Migrators.SqLite/**/*.*",
+            "infrastructure/containers/docker-compose-infrastructure.mysql.yml",
+            "infrastructure/containers/docker-compose-infrastructure.postgresql.yml"
+          ]
+        },
+        {
+          "condition": "(PostgreSQL)",
+          "exclude": [
+            "src/Migrators.MSSQL/**/*.*",
+            "src/Migrators.MySQL/**/*.*",
+            "src/Migrators.Oracle/**/*.*",
+            "src/Migrators.SqLite/**/*.*",
+            "infrastructure/containers/docker-compose-infrastructure.mssql.yml",
+            "infrastructure/containers/docker-compose-infrastructure.mysql.yml"
+          ]
+        },
+        {
+          "condition": "(MySQL)",
+          "exclude": [
+            "src/Migrators.MSSQL/**/*.*",
+            "src/Migrators.Oracle/**/*.*",
+            "src/Migrators.PostgreSQL/**/*.*",
+            "src/Migrators.SqLite/**/*.*",
+            "infrastructure/containers/docker-compose-infrastructure.mssql.yml",
+            "infrastructure/containers/docker-compose-infrastructure.postgresql.yml"
+          ]
+        },
+        {
+          "condition": "(Oracle)",
+          "exclude": [
+            "src/Migrators.MSSQL/**/*.*",
+            "src/Migrators.MySQL/**/*.*",
+            "src/Migrators.PostgreSQL/**/*.*",
+            "src/Migrators.SqLite/**/*.*",
+            "infrastructure/containers/docker-compose-infrastructure.mssql.yml",
+            "infrastructure/containers/docker-compose-infrastructure.mysql.yml",
+            "infrastructure/containers/docker-compose-infrastructure.postgresql.yml"
+          ]
+        },
+        {
+          "condition": "(SQLite)",
+          "exclude": [
+            "src/Migrators.MSSQL/**/*.*",
+            "src/Migrators.MySQL/**/*.*",
+            "src/Migrators.Oracle/**/*.*",
+            "src/Migrators.PostgreSQL/**/*.*",
+            "infrastructure/containers/docker-compose-infrastructure.mssql.yml",
+            "infrastructure/containers/docker-compose-infrastructure.mysql.yml",
+            "infrastructure/containers/docker-compose-infrastructure.postgresql.yml"
+          ]
         }
       ]
     }

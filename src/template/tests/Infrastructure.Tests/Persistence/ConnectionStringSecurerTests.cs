@@ -5,17 +5,26 @@ namespace Genocs.Microservice.Template.Infrastructure.Tests.Persistence;
 
 public class ConnectionStringSecurerTests
 {
+#if MSSQL
     private const string Mssql = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=genocs_Db;MultipleActiveResultSets=True;";
+#endif
+#if MySQL
     private const string Mysql = "server=127.0.0.1;database=test";
+#endif
 
     private readonly IConnectionStringSecurer _connectionStringSecurer;
 
     public ConnectionStringSecurerTests(IConnectionStringSecurer connectionStringSecurer) => _connectionStringSecurer = connectionStringSecurer;
 
+#if (MSSQL || MySQL)
     [Theory]
+#if MSSQL
     [InlineData(Mssql + ";Integrated Security=True;", "mssql", false, "MSSQL: CASE 1 - Integrated Security")]
     [InlineData(Mssql + ";user id=root;password=12345;", "mssql", true, "MSSQL: CASE 2 - Credentials")]
+#endif
+#if MySQL
     [InlineData(Mysql + ";uid=root;pwd=12345;", "mysql", true, "MYSQL: CASE 3 - Credentials")]
+#endif
     public void MakeSecureTest(string connectionString, string dbProvider, bool containsCredentials, string name)
     {
         string? res1 = _connectionStringSecurer.MakeSecure(connectionString, dbProvider);
@@ -31,4 +40,5 @@ public class ConnectionStringSecurerTests
             Assert.Contains("*******", check1);
         }
     }
+#endif
 }

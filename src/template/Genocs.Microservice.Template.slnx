@@ -1,10 +1,20 @@
 <Solution>
   <Folder Name="/migrators/">
+    <!--#if (MSSQL)-->
     <Project Path="src/Migrators.MSSQL/Migrators.MSSQL.csproj" />
+    <!--#endif-->
+    <!--#if (MySQL)-->
     <Project Path="src/Migrators.MySQL/Migrators.MySQL.csproj" />
+    <!--#endif-->
+    <!--#if (Oracle)-->
     <Project Path="src/Migrators.Oracle/Migrators.Oracle.csproj" />
+    <!--#endif-->
+    <!--#if (PostgreSQL)-->
     <Project Path="src/Migrators.PostgreSQL/Migrators.PostgreSQL.csproj" />
+    <!--#endif-->
+    <!--#if (SQLite)-->
     <Project Path="src/Migrators.SqLite/Migrators.SqLite.csproj" />
+    <!--#endif-->
   </Folder>
   <Folder Name="/tests/">
     <Project Path="tests/Infrastructure.Tests/Infrastructure.Tests.csproj" />
@@ -20,10 +30,16 @@
     <File Path="Directory.Build.targets" />
     <File Path="dotnet.ruleset" />
     <File Path="global.json" />
+    <!--#if (MSSQL)-->
     <File Path="infrastructure/docker-compose.mssql.yml" />
+    <!--#endif-->
+    <!--#if (MySQL)-->
     <File Path="infrastructure/docker-compose.mysql.yml" />
+    <!--#endif-->
     <File Path="infrastructure/docker-compose.override.yml" />
+    <!--#if (PostgreSQL)-->
     <File Path="infrastructure/docker-compose.postgresql.yml" />
+    <!--#endif-->
     <File Path="stylecop.json" />
   </Folder>
   <Project Path="src/Application/Application.csproj" />
