@@ -1,8 +1,8 @@
+using Genocs.Core.Domain.Entities.Auditing;
+
 namespace Genocs.Microservice.Template.Application.Auditing;
 
-public class GetMyAuditLogsRequest : IRequest<List<AuditDto>>
-{
-}
+public class GetMyAuditLogsRequest : IRequest<List<AuditDto>>;
 
 public class GetMyAuditLogsRequestHandler : IRequestHandler<GetMyAuditLogsRequest, List<AuditDto>>
 {
@@ -13,5 +13,5 @@ public class GetMyAuditLogsRequestHandler : IRequestHandler<GetMyAuditLogsReques
         (_currentUser, _auditService) = (currentUser, auditService);
 
     public Task<List<AuditDto>> Handle(GetMyAuditLogsRequest request, CancellationToken cancellationToken) =>
-        _auditService.GetUserTrailsAsync(_currentUser.GetUserId());
+        _auditService.GetUserTrailsAsync(_currentUser.GetUserId(), cancellationToken);
 }

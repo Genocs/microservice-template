@@ -32,7 +32,7 @@
     },
     "credentials": {
       "user": "Admin",
-      "password": "<<<PASSWORD>>>"
+      "password": "<<YOUR_PASSWORD>>"
     }
   }
 }

@@ -7,7 +7,7 @@
     <!-- Keep package type as 'Template' to show the package as a template package on nuget.org and make your template available in dotnet new search.-->
     <PackageType>Template</PackageType>    
     <PackageId>Genocs.Microservice.Template</PackageId>
-    <PackageVersion>3.1.1</PackageVersion>
+    <PackageVersion>5.0.0</PackageVersion>
     <Title>Genocs - Microservice Template</Title>
     <Authors>Nocco Giovanni Emanuele</Authors>
     <Description>Clean Architecture Template for .NET WebAPI built with Multitenancy Support.</Description>

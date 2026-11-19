@@ -8,12 +8,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Ardalis.Specification" Version="9.3.1" />
         <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.2.0" />
-        <PackageReference Include="Mapster" Version="10.0.14" />
-        <PackageReference Include="MediatR" Version="14.3.0" />
-        <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="10.0.14" />
-        <PackageReference Include="Microsoft.Extensions.Localization" Version="10.0.14" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="10.0.15" />
+        <PackageReference Include="Microsoft.Extensions.Localization" Version="10.0.15" />
     </ItemGroup>
 
     <ItemGroup Label="Genocs library">

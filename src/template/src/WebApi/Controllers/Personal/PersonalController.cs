@@ -1,3 +1,4 @@
+using Genocs.Core.Domain.Entities.Auditing;
 using Genocs.Microservice.Template.Application.Auditing;
 using Genocs.Microservice.Template.Application.Identity.Users;
 using Genocs.Microservice.Template.Application.Identity.Users.Password;

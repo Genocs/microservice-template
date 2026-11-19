@@ -174,10 +174,10 @@ dotnet new install Genocs.Microservice.Template::3.1.1
 dotnet new gnx-microservice --help
 
 # Example with custom options
-dotnet new gnx-microservice --name <CompanyName>.<ProjectName>.<ServiceName>
+dotnet new gnx-microservice --name <CompanyName.ProjectName.ServiceName>
 ```
 
-### How to build and install the template locally
+### How to build the template locally
 
 Check nuget is installed on your machine. To download nuget, visit [nuget.org](https://www.nuget.org/downloads)
   - Download the nuget latest version.
@@ -223,7 +223,11 @@ You would probably need to take this approach if you want to keep your source co
 
 - Make a fork of this repository in your GitHub account.
 - Create your new `microservice-template` personal project by cloning the forked repository on your personal GitHub.
-- Setup an upstream remote on your personal project pointing to your forked repository using command `git remote add upstream https://github.com/{githubuseraccount}/microservice-template` and `git remote set-url --push upstream DISABLE`
+- Setup an upstream remote on your personal project pointing to your forked repository using command
+    ```bash
+    git remote add upstream https://github.com/{githubuseraccount}/microservice-template
+    git remote set-url --push upstream DISABLE
+    ```
 
 ## Documentation
 
@@ -277,7 +281,7 @@ genocs micro-webapi [n|new] CompanyName.ProjectName.ServiceName
 ```
 
 This will create a new .NET 10 Web API solution for you using the template.
-For further steps and details, [Read the Getting Started Guide](https://genocs-blog.netlify.app/microservice-template/)
+For further steps and details, [Template Overview](https://genocs-blog.netlify.app/templating/multitenancy-template/general/overview/)
 
 ### Update
 
@@ -290,6 +294,7 @@ genocs update
 
 ### Run the template
 
+---
 ## Makefile
 
 So, for a better developer experience, I have added Makefile into the solution. Now that our solution is generated, let's navigate to the root folder of the solution and open up a command terminal.
@@ -356,7 +361,7 @@ And here is the response.
 
 You will need to pass the `token` in the request headers to authenticate calls to the Genocs API!
 
-For further steps and details, [Read the Getting Started Guide](https://genocs-blog.netlify.app/microservice-template)
+For further steps and details, [Template Overview](https://genocs-blog.netlify.app/templating/multitenancy-template/general/overview/)
 
 ## Containerization
 

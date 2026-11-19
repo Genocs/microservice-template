@@ -50,19 +50,19 @@ internal class RoleService : IRoleService
     public async Task<int> GetCountAsync(CancellationToken cancellationToken) =>
         await _roleManager.Roles.CountAsync(cancellationToken);
 
-    public async Task<bool> ExistsAsync(string roleName, string? excludeId) =>
+    public async Task<bool> ExistsAsync(string roleName, string? excludeId, CancellationToken cancellationToken) =>
         await _roleManager.FindByNameAsync(roleName)
             is ApplicationRole existingRole
             && existingRole.Id != excludeId;
 
-    public async Task<RoleDto> GetByIdAsync(string id) =>
-        await _db.Roles.SingleOrDefaultAsync(x => x.Id == id) is { } role
+    public async Task<RoleDto> GetByIdAsync(string id, CancellationToken cancellationToken) =>
+        await _db.Roles.SingleOrDefaultAsync(x => x.Id == id, cancellationToken) is { } role
             ? role.Adapt<RoleDto>()
             : throw new NotFoundException(_t["Role Not Found"]);
 
     public async Task<RoleDto> GetByIdWithPermissionsAsync(string roleId, CancellationToken cancellationToken)
     {
-        var role = await GetByIdAsync(roleId);
+        var role = await GetByIdAsync(roleId, cancellationToken);
 
         role.Permissions = await _db.RoleClaims
             .Where(c => c.RoleId == roleId && c.ClaimType == GNXClaims.Permission)
@@ -72,7 +72,7 @@ internal class RoleService : IRoleService
         return role;
     }
 
-    public async Task<string> CreateOrUpdateAsync(CreateOrUpdateRoleRequest request)
+    public async Task<string> CreateOrUpdateAsync(CreateOrUpdateRoleRequest request, CancellationToken cancellationToken)
     {
         if (string.IsNullOrEmpty(request.Id))
         {
@@ -165,7 +165,7 @@ internal class RoleService : IRoleService
         return _t["Permissions Updated."];
     }
 
-    public async Task<string> DeleteAsync(string id)
+    public async Task<string> DeleteAsync(string id, CancellationToken cancellationToken)
     {
         var role = await _roleManager.FindByIdAsync(id);
 

@@ -1,6 +1,8 @@
+using Genocs.Common.Dependency;
+
 namespace Genocs.Microservice.Template.Application.Common.Mailing;
 
-public interface IMailService : ITransientService
+public interface IMailService : ITransientDependency
 {
-    Task SendAsync(MailRequest request, CancellationToken ct);
+    Task SendAsync(MailRequest request, CancellationToken cancellationToken = default);
 }

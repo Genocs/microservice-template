@@ -10,7 +10,7 @@ $baseFolder = 'src'
 
 $infrastructurePrj = Join-Path -Path $rootDirectory -ChildPath $baseFolder'/Infrastructure/Infrastructure.csproj'
 
-Write-Host "Make sure you have run the WebApi project is up and running. `n"
+Write-Host "Make sure the WebApi project is up and running. `n"
 Write-Host "Press any key to continue... `n"
 $null = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown');
 

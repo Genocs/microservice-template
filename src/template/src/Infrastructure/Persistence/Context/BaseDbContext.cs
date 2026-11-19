@@ -16,41 +16,38 @@ using ISoftDelete = Genocs.Microservice.Template.Domain.Common.Contracts.ISoftDe
 
 namespace Genocs.Microservice.Template.Infrastructure.Persistence.Context;
 
-public abstract class BaseDbContext : MultiTenantIdentityDbContext<ApplicationUser, ApplicationRole, string, IdentityUserClaim<string>, IdentityUserRole<string>, IdentityUserLogin<string>, ApplicationRoleClaim, IdentityUserToken<string>>
+public abstract class BaseDbContext(
+    IMultiTenantContextAccessor<GNXTenantInfo> multiTenantContextAccessor,
+    DbContextOptions options,
+    ICurrentUser currentUser,
+    ISerializerService serializer,
+    IOptions<DatabaseSettings> dbSettings,
+    IEventPublisher events) : MultiTenantIdentityDbContext<ApplicationUser, ApplicationRole, string, IdentityUserClaim<string>, IdentityUserRole<string>, IdentityUserLogin<string>, ApplicationRoleClaim, IdentityUserToken<string>>(multiTenantContextAccessor, options)
 {
-    protected readonly ICurrentUser _currentUser;
-    private readonly ISerializerService _serializer;
-    private readonly DatabaseSettings _dbSettings;
-    private readonly IEventPublisher _events;
-
-    protected BaseDbContext(IMultiTenantContextAccessor<GNXTenantInfo> multiTenantContextAccessor, DbContextOptions options, ICurrentUser currentUser, ISerializerService serializer, IOptions<DatabaseSettings> dbSettings, IEventPublisher events)
-        : base(multiTenantContextAccessor, options)
-    {
-        _currentUser = currentUser;
-        _serializer = serializer;
-        _dbSettings = dbSettings.Value;
-        _events = events;
-    }
+    protected readonly ICurrentUser _currentUser = currentUser;
+    private readonly ISerializerService _serializer = serializer;
+    private readonly DatabaseSettings _dbSettings = dbSettings.Value;
+    private readonly IEventPublisher _events = events;
 
     // Used by Dapper
     public IDbConnection Connection => Database.GetDbConnection();
 
     public DbSet<Trail> AuditTrails => Set<Trail>();
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    protected override void OnModelCreating(ModelBuilder builder)
     {
         // QueryFilters need to be applied before base.OnModelCreating
-        modelBuilder.AppendGlobalQueryFilter<ISoftDelete>(s => s.DeletedOn == null);
+        builder.AppendGlobalQueryFilter<ISoftDelete>(s => s.DeletedOn == null);
 
-        base.OnModelCreating(modelBuilder);
+        base.OnModelCreating(builder);
 
-        modelBuilder.ApplyConfigurationsFromAssembly(GetType().Assembly);
+        builder.ApplyConfigurationsFromAssembly(GetType().Assembly);
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         // TODO: We want this only for development probably... maybe better make it configurable in logger.json config?
-        optionsBuilder.EnableSensitiveDataLogging();
+        // optionsBuilder.EnableSensitiveDataLogging();
 
         // If you want to see the sql queries that ef core executes:
 
@@ -89,7 +86,6 @@ public abstract class BaseDbContext : MultiTenantIdentityDbContext<ApplicationUs
             {
                 case EntityState.Added:
                     entry.Entity.CreatedBy = userId;
-                    entry.Entity.LastModifiedBy = userId;
                     break;
 
                 case EntityState.Modified:
